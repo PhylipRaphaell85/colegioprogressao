@@ -1860,6 +1860,147 @@ margin-bottom: 70px;
 
     /* ===== RESPONSIVIDADE ===== */
 
+@media (max-width:1366px){
+
+/* HEADER */
+
+header{
+height:110px;
+padding:0 25px;
+}
+
+body{
+padding-top:110px;
+}
+
+.logo img{
+height:70px;
+}
+
+/* MENU */
+
+nav a{
+font-size:18px;
+}
+
+/* HERO / BANNER PRINCIPAL */
+
+.banner-escolar{
+padding:100px 20px;
+}
+
+.banner-texto{
+max-width:520px;
+}
+
+.banner-escolar h1{
+font-size:40px;
+}
+
+.banner-escolar h3{
+font-size:20px;
+}
+
+.banner-escolar p{
+font-size:15px;
+}
+
+/* IMAGEM DO BANNER */
+
+.banner-imagem img{
+max-width:420px;
+top:-40px;
+}
+
+/* BENEFÍCIOS */
+
+.beneficio-item{
+font-size:15px;
+}
+
+/* BOTÕES */
+
+.btn{
+padding:13px 26px;
+font-size:15px;
+}
+
+/* NÚMEROS */
+
+.numeros{
+gap:25px;
+}
+
+.numeros strong{
+font-size:30px;
+}
+
+/* HERO SLIDER */
+
+.baner{
+height:80vh;
+}
+
+.baner h1{
+font-size:50px;
+}
+
+.baner p{
+font-size:20px;
+}
+
+/* GALERIA */
+
+.galeria-card{
+min-width:260px;
+}
+
+.secao-titulo{
+font-size:48px;
+}
+
+/* SOBRE */
+
+.titulo-sobre-principal{
+font-size:40px;
+}
+
+.texto-sobre{
+font-size:20px;
+}
+
+/* CARDS */
+
+.card1 h3,
+.card2 h3,
+.card3 h3{
+font-size:30px;
+}
+
+.card1 p,
+.card2 p,
+.card3 p{
+font-size:18px;
+}
+
+/* NÍVEL ENSINO */
+
+.nivel_ensino h2{
+font-size:42px;
+}
+
+/* BANNER MATRÍCULA */
+
+.banner-matricula h1{
+font-size:48px;
+}
+
+.banner-matricula p{
+font-size:20px;
+}
+
+}
+
 @media (max-width: 900px) {
   header {
   height: 90px;
