@@ -1909,7 +1909,16 @@ font-size:48px;
 
 /* NOTEBOOK */
 @media (max-width:1366px){
+.container{
+max-width:1100px;
+padding:0 30px; /* evita colar nas bordas */
+}
 
+.banner-escolar .container{
+gap:40px;
+}
+
+   
 header{
 height:120px;
 }
@@ -1996,11 +2005,10 @@ font-size:48px;
 @media (max-width:1024px){
 
 .container{
+padding:0 25px;
 flex-direction:column;
 text-align:center;
-gap:40px;
 }
-
 .banner-imagem img{
 max-width:420px;
 top:0;
