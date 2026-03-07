@@ -1964,7 +1964,7 @@ font-size:30px;
 }
 
 .banner-imagem img{
-max-width:650px; /* aumenta a imagem */
+max-width:50px; /* aumenta a imagem */
 width:100%;
 top:-40px;
 }
@@ -1979,7 +1979,7 @@ flex-direction:column;
 text-align:center;
 }
 .banner-imagem img{
-max-width:620px;
+max-width:50px;
 top:0;
 }
 
