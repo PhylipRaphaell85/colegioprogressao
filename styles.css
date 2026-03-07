@@ -1910,99 +1910,65 @@ font-size:48px;
 /* NOTEBOOK */
 @media (max-width:1366px){
 
-   .container{
-max-width: 800px;
-padding:0 30px; /* evita colar nas bordas */
-}
-
+/* container */
 .banner-escolar .container{
-max-width: 400px;   
+max-width:1050px;
+margin:auto;
 gap:40px;
+padding:0 30px;
 }
 
-   
-header{
-height:120px;
-}
-
-body{
-padding-top:120px;
-}
-
-.logo img{
-height:70px;
-}
-
-nav a{
-font-size:18px;
-}
-
-
-.banner-escolar{
-padding:100px 20px;
-}
-
-.banner-escolar .container{
-max-width:1100px;
-gap:40px;
-align-items:center;
-}
-
-/* TEXTO */
+/* texto */
 .banner-texto{
 max-width:520px;
 }
 
+/* titulo */
 .banner-escolar h1{
 font-size:40px;
 line-height:1.2;
 }
 
+/* subtitulo */
 .banner-escolar h3{
 font-size:20px;
 }
 
+/* paragrafo */
 .banner-escolar p{
 font-size:16px;
+line-height:1.6;
 }
 
-/* BENEFÍCIOS */
+/* beneficios */
 .beneficios{
-gap:15px 20px;
+grid-template-columns:1fr 1fr;
+gap:15px 25px;
 }
 
-/* BOTÕES */
+/* botoes */
 .botoes{
 margin-top:25px;
+gap:12px;
 }
 
-/* NÚMEROS */
+/* numeros */
 .numeros{
 gap:20px;
-}
-
-/* IMAGEM */
-.banner-imagem img{
-max-width:120px;
-top:-40px;
-}
-
+margin-top:30px;
 }
 
 .numeros strong{
 font-size:30px;
 }
 
-.secao-titulo{
-font-size:46px;
-}
-
-.banner-matricula h1{
-font-size:48px;
+/* imagem */
+.banner-imagem img{
+max-width:420px;
+top:-40px;
 }
 
 }
-
 /* TABLET */
 @media (max-width:1024px){
 
