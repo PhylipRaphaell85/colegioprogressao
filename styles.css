@@ -1909,8 +1909,9 @@ font-size:48px;
 
 /* NOTEBOOK */
 @media (max-width:1366px){
-.container{
-max-width:1100px;
+
+   .container{
+max-width: 800px;
 padding:0 30px; /* evita colar nas bordas */
 }
 
