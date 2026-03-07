@@ -1926,17 +1926,56 @@ nav a{
 font-size:18px;
 }
 
+
 .banner-escolar{
-padding:110px 20px;
+padding:100px 20px;
+}
+
+.banner-escolar .container{
+max-width:1100px;
+gap:40px;
+align-items:center;
+}
+
+/* TEXTO */
+.banner-texto{
+max-width:520px;
 }
 
 .banner-escolar h1{
-font-size:42px;
+font-size:40px;
+line-height:1.2;
 }
 
+.banner-escolar h3{
+font-size:20px;
+}
+
+.banner-escolar p{
+font-size:16px;
+}
+
+/* BENEFÍCIOS */
+.beneficios{
+gap:15px 20px;
+}
+
+/* BOTÕES */
+.botoes{
+margin-top:25px;
+}
+
+/* NÚMEROS */
+.numeros{
+gap:20px;
+}
+
+/* IMAGEM */
 .banner-imagem img{
-max-width:480px;
-top:-50px;
+max-width:420px;
+top:-40px;
+}
+
 }
 
 .numeros strong{
