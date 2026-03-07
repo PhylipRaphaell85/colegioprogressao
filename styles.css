@@ -1908,7 +1908,7 @@ Desktop grande / Notebook / Tablet / Mobile
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 5px;
 }
 
 /* TEXTO */
