@@ -1900,6 +1900,11 @@ Desktop grande / Notebook / Tablet / Mobile
 
 @media (max-width: 1366px){
 
+.container{
+  padding:0 30px;
+}
+
+
 .banner-escolar .container{
   display: flex;
   align-items: center;
