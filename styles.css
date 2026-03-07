@@ -1916,6 +1916,7 @@ padding:0 30px; /* evita colar nas bordas */
 }
 
 .banner-escolar .container{
+max-width: 400px;   
 gap:40px;
 }
 
