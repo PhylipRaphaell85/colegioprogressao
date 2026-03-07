@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+
+
+
+
 /* ==========================================================
    CONFIGURAÇÕES GERAIS DO SITE
 ========================================================== */
@@ -85,6 +89,11 @@ header.scrolled .logo img {
 header.scrolled .menu-toggle span {
   background: #062A5E;
 }
+
+
+
+
+
 
 
 /* ==========================================================
@@ -225,7 +234,7 @@ nav a:hover::after{
 }
 
 
-/* BRILHO BOTÃO */
+/* BRILHO */
 
 .btn-matricula::before {
 
@@ -271,11 +280,16 @@ nav a:hover::after{
   
 }
 
+
+
 .logo img {
   height: 90px;
   margin: 0;
   transition: transform 0.3s ease;
 }
+
+
+
 
 .titulo {
   font-size: 20px;
@@ -310,6 +324,7 @@ header.scrolled .logo{
   transform: translateY(-20px);
 }
 
+
 header.scrolled .titulo {
   opacity: 1;
   visibility: visible;
@@ -319,7 +334,7 @@ header.scrolled .titulo {
 
 
 /* ==========================================================
-                  SEÇÃO DESTAQUE
+SEÇÃO DESTAQUE
 ========================================================== */
 .selo-matriculas{
 
@@ -351,34 +366,49 @@ justify-content:center;
 border-radius:8px;
 font-size:30px;
 box-shadow:0 6px 15px rgba(0,0,0,0.3);
+
+
 }
 
 
 /* TEXTO */
 
 .texto-selo{
+
 display:flex;
+
 flex-direction:column;
+
 line-height:1.2;
+
 }
 
 
 /* MATRÍCULAS */
 
 .linha1{
+
 font-size:30px;
+
 }
 
 
 /* VAGAS LIMITADAS */
 
 .linha2{
+
 background:linear-gradient(180deg,#ffe082,#ffd54f);
+
 color:#454546;
+
 padding:3px 10px;
+
 border-radius:6px;
+
 font-size:16px;
+
 margin-top:4px;
+
 width:fit-content;
 
 }
@@ -404,13 +434,16 @@ width:fit-content;
 
 .banner-texto{
   max-width: 600px;
-  }
+  
+}
 
 
 .banner-escolar h1{
   font-size: 52px;
   line-height: 1.1;
- }
+  
+
+}
 
 .banner-escolar h1 strong{
   color: #ffc107;
@@ -1856,150 +1889,163 @@ margin-bottom: 70px;
    
    
     /* =================== RESPONSIVO =================== */
+/* ==========================================================
+RESPONSIVIDADE PROFISSIONAL
+Desktop grande / Notebook / Tablet / Mobile
+========================================================== */
 
+/* TELAS GRANDES */
+@media (max-width:1600px){
 
-    /* ===== RESPONSIVIDADE ===== */
+.container{
+max-width:1300px;
+}
 
+.banner-escolar h1{
+font-size:48px;
+}
+
+}
+
+/* NOTEBOOK */
 @media (max-width:1366px){
 
-/* HEADER */
-
 header{
-height:110px;
-padding:0 25px;
+height:120px;
 }
 
 body{
-padding-top:110px;
+padding-top:120px;
 }
 
 .logo img{
 height:70px;
 }
 
-/* MENU */
-
 nav a{
 font-size:18px;
 }
 
-/* HERO / BANNER PRINCIPAL */
-
 .banner-escolar{
-padding:100px 20px;
-}
-
-.banner-texto{
-max-width:520px;
+padding:110px 20px;
 }
 
 .banner-escolar h1{
-font-size:40px;
+font-size:42px;
 }
-
-.banner-escolar h3{
-font-size:20px;
-}
-
-.banner-escolar p{
-font-size:15px;
-}
-
-/* IMAGEM DO BANNER */
 
 .banner-imagem img{
-max-width:420px;
-top:-40px;
-}
-
-/* BENEFÍCIOS */
-
-.beneficio-item{
-font-size:15px;
-}
-
-/* BOTÕES */
-
-.btn{
-padding:13px 26px;
-font-size:15px;
-}
-
-/* NÚMEROS */
-
-.numeros{
-gap:25px;
+max-width:480px;
+top:-50px;
 }
 
 .numeros strong{
 font-size:30px;
 }
 
-/* HERO SLIDER */
-
-.baner{
-height:80vh;
-}
-
-.baner h1{
-font-size:50px;
-}
-
-.baner p{
-font-size:20px;
-}
-
-/* GALERIA */
-
-.galeria-card{
-min-width:260px;
-}
-
 .secao-titulo{
-font-size:48px;
+font-size:46px;
 }
-
-/* SOBRE */
-
-.titulo-sobre-principal{
-font-size:40px;
-}
-
-.texto-sobre{
-font-size:20px;
-}
-
-/* CARDS */
-
-.card1 h3,
-.card2 h3,
-.card3 h3{
-font-size:30px;
-}
-
-.card1 p,
-.card2 p,
-.card3 p{
-font-size:18px;
-}
-
-/* NÍVEL ENSINO */
-
-.nivel_ensino h2{
-font-size:42px;
-}
-
-/* BANNER MATRÍCULA */
 
 .banner-matricula h1{
 font-size:48px;
 }
 
-.banner-matricula p{
-font-size:20px;
+}
+
+/* TABLET */
+@media (max-width:1024px){
+
+.container{
+flex-direction:column;
+text-align:center;
+gap:40px;
+}
+
+.banner-imagem img{
+max-width:420px;
+top:0;
+}
+
+.beneficios{
+grid-template-columns:1fr;
+}
+
+.numeros{
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.banner-escolar h1{
+font-size:36px;
+}
+
+.secao-titulo{
+font-size:40px;
 }
 
 }
+
+/* CELULAR */
+@media (max-width:768px){
+
+header{
+height:90px;
+padding:0 15px;
+}
+
+body{
+padding-top:90px;
+}
+
+nav{
+display:none;
+}
+
+.menu-toggle{
+display:flex;
+}
+
+.banner-escolar{
+padding:80px 20px;
+text-align:center;
+}
+
+.banner-escolar h1{
+font-size:30px;
+}
+
+.banner-imagem img{
+max-width:320px;
+}
+
+.botoes{
+flex-direction:column;
+align-items:center;
+}
+
+.numeros{
+flex-direction:column;
+align-items:center;
+gap:15px;
+}
+
+.secao-titulo{
+font-size:32px;
+}
+
+.banner-matricula h1{
+font-size:34px;
+}
+
+.banner-matricula p{
+font-size:18px;
+}
+
+}
+
+    /* ===== RESPONSIVIDADE ===== */
+
 
 @media (max-width: 900px) {
   header {
