@@ -1945,11 +1945,7 @@ line-height:1.6;
 grid-template-columns:1fr 1fr;
 gap:15px 25px;
 }
-.banner-imagem img{
-max-width:650px; /* aumenta a imagem */
-width:100%;
-top:-40px;
-}
+
 
 /* botoes */
 .botoes{
@@ -1967,9 +1963,9 @@ margin-top:30px;
 font-size:30px;
 }
 
-/* imagem */
 .banner-imagem img{
-max-width:420px;
+max-width:650px; /* aumenta a imagem */
+width:100%;
 top:-40px;
 }
 
