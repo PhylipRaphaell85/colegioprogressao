@@ -1901,14 +1901,8 @@ Desktop grande / Notebook / Tablet / Mobile
 @media (max-width: 1366px){
 
 .container{
-padding:30px 40px 0 40px;
+  padding:50px 40px 0 40px;
 }
-
-.banner-escolar{
- 
-
-}
-
 
 .banner-escolar .container{
   display: flex;
