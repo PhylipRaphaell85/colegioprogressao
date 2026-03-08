@@ -2080,13 +2080,18 @@ body {
 
 @media (max-width:768px){
 
+
+
 header{
-height:90px;
-padding:0 15px;
+display:flex;
+align-items:center;
+gap:10px;
 }
 
+
+
 body{
-padding-top:90px;
+padding-top:10px;
 }
 
 nav{
@@ -2134,8 +2139,11 @@ font-size:18px;
 }
 
 .logo{
-display:none;
+position:absolute;
+left:40%;
+transform:translateX(-50%);
 }
+
 
 .titulo-site{
 display:block;
@@ -2289,5 +2297,57 @@ margin:auto;
 display:block;
 }
 
+
+/* esconder menu normal */
+nav{
+display:none;
 }
+
+/* mostrar botão hamburguer */
+.menu-toggle{
+position:absolute;
+left:20px;
+display:flex;
+}
+
+/* tamanho da logo */
+.logo img{
+
+height:55px;
+}
+
+/* esconder titulo dentro da logo */
+.logo .titulo-site{
+display:none;
+}
+
+/* ===== QUANDO NÃO ROLOU ===== */
+
+/* mostrar logo */
+header:not(.scrolled) .logo{
+display:flex;
+}
+
+/* esconder titulo */
+header:not(.scrolled) .titulo{
+display:none;
+}
+
+/* ===== QUANDO ROLAR ===== */
+
+/* esconder logo */
+header.scrolled .logo{
+display:none;
+}
+
+/* mostrar titulo */
+header.scrolled .titulo{
+display:block;
+font-size:18px;
+line-height:1.2;
+}
+
+
+}
+
 
