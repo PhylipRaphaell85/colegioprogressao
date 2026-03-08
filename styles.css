@@ -2318,5 +2318,10 @@ flex-direction:column;
 text-align:center;
 gap:40px;
 }
+.nivel_ensino h2::after {
+   
+    width: 360px;
+   
+}
 
 }
