@@ -54,6 +54,7 @@ header {
   
 }
 
+
 /* ==========================================================
    HEADER ROLAR 
 ========================================================== */
@@ -84,6 +85,8 @@ header.scrolled .logo img {
   height: 55px;
   filter: none;
 }
+
+
 
 /* hamburguer ao rolar */
 header.scrolled .menu-toggle span {
@@ -122,6 +125,8 @@ font-weight:700;
 font-size:12px;
 font-weight:400;
 }
+
+
 /* ==========================================================
    NAVEGAÇÃO - 
 ========================================================== */
@@ -1887,8 +1892,6 @@ margin-bottom: 70px;
 }
    
    
-   
-    /* =================== RESPONSIVO =================== */
 /* ==========================================================
 RESPONSIVIDADE PROFISSIONAL
 Desktop grande / Notebook / Tablet / Mobile
@@ -1901,14 +1904,22 @@ Desktop grande / Notebook / Tablet / Mobile
 @media (max-width: 1366px){
 
 .container{
-  padding:10px 40px 0 40px;
+  padding:30px 40px 0 40px;
+
 }
+
+.banner-escolar{
+   
+  margin-top:30px;
+  padding:0 30px;
+}
+
 
 .banner-escolar .container{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 5px;
+  gap: 30px;
 }
 
 /* TEXTO */
