@@ -2091,7 +2091,7 @@ body {
 
 @media (max-width:768px){
 
-
+/* HEADER */
 
 header{
 display:flex;
@@ -2099,55 +2099,23 @@ align-items:center;
 gap:10px;
 }
 
-
-
 body{
 padding-top:10px;
 }
 
+/* esconder menu normal */
 nav{
 display:none;
 }
 
+/* botão hamburguer */
 .menu-toggle{
+position:absolute;
+left:20px;
 display:flex;
 }
 
-.banner-escolar{
-padding:80px 20px;
-text-align:center;
-}
-
-.banner-escolar h1{
-font-size:30px;
-}
-
-.banner-imagem img{
-max-width:320px;
-}
-
-.botoes{
-flex-direction:column;
-align-items:center;
-}
-
-.numeros{
-flex-direction:column;
-align-items:center;
-gap:15px;
-}
-
-.secao-titulo{
-font-size:32px;
-}
-
-.banner-matricula h1{
-font-size:34px;
-}
-
-.banner-matricula p{
-font-size:18px;
-}
+/* LOGO */
 
 .logo{
 position:absolute;
@@ -2155,89 +2123,81 @@ left:40%;
 transform:translateX(-50%);
 }
 
-
-.titulo-site{
-display:block;
-font-size:18px;
-line-height:1.2;
+.logo img{
+height:55px;
 }
 
-.destaque{
-padding:40px 20px;
-text-align:center;
-}
-
-.destaque h1{
-font-size:28px;
-line-height:1.3;
-}
-
-.destaque p{
-font-size:16px;
-}
-
-.destaque-container{
-flex-direction:column;
-text-align:center;
-}
-
-.destaque-texto h1{
-font-size:34px;
-}
-
-.destaque-texto p{
-font-size:16px;
-}
-
-.divisor{
+/* esconder titulo dentro da logo */
+.logo .titulo-site{
 display:none;
 }
 
-.card-conteudo{
-flex-direction:column;
+/* ===== QUANDO NÃO ROLOU ===== */
+
+header:not(.scrolled) .logo{
+display:flex;
+}
+
+header:not(.scrolled) .titulo{
+display:none;
+}
+
+/* ===== QUANDO ROLAR ===== */
+
+header.scrolled{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+header.scrolled .titulo span{
+font-size:11px;
+display:block;
+line-height:1.1;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+header.scrolled .logo{
+display:none;
+}
+
+/* titulo ao lado do hamburguer */
+header.scrolled .titulo{
+display:block;
+font-size:18px;
+line-height:1.2;
+margin-left:50px;
+}
+
+
+
+
+
+/* BANNER */
+
+.banner-escolar{
+padding:100px 20px;
 text-align:center;
 }
-
-.galeria,.baner, .nivel_ensino,
-.sobre, .titulo-sobre, .grid{
-   padding-left:20px;
-  padding-right:20px;
-}
-
-/* CONTAINER */
-
-.container{
-flex-direction:column;
-text-align:center;
-gap:40px;
-}
-
-
-/* TEXTO */
-
-.banner-texto{
-max-width:100%;
-}
-
-
-/* TITULO */
 
 .banner-escolar h1{
-font-size:36px;
+font-size:32px;
 }
-
-
-/* SUBTITULO */
 
 .banner-escolar h3{
 font-size:18px;
 }
 
+.banner-imagem{
+margin-top:60px;
+}
 
-/* BENEFICIOS */
-
-.beneficios{
-justify-items:center;
+.banner-imagem img{
+max-width:320px;
+margin:auto;
+display:block;
 }
 
 
@@ -2253,7 +2213,14 @@ width:220px;
 }
 
 
-/* SELO MATRÍCULAS */
+/* BENEFICIOS */
+
+.beneficios{
+justify-items:center;
+}
+
+
+/* SELO */
 
 .selo-matriculas{
 padding:10px 20px 10px 45px;
@@ -2289,76 +2256,67 @@ width:220px;
 }
 
 
-/* BANNER */
+/* DESTAQUE */
 
-.banner-escolar{
-padding:100px 40px;
-
+.destaque{
+padding:40px 20px;
+text-align:center;
 }
 
-
-
-.banner-imagem{
-margin-top:60px;
+.destaque h1{
+font-size:28px;
+line-height:1.3;
 }
 
-.banner-imagem img{
-max-width:320px;
-margin:auto;
-display:block;
+.destaque p{
+font-size:16px;
 }
 
+.destaque-container{
+flex-direction:column;
+text-align:center;
+}
 
-/* esconder menu normal */
-nav{
+.destaque-texto h1{
+font-size:34px;
+}
+
+.destaque-texto p{
+font-size:16px;
+}
+
+.divisor{
 display:none;
 }
 
-/* mostrar botão hamburguer */
-.menu-toggle{
-position:absolute;
-left:20px;
-display:flex;
-}
 
-/* tamanho da logo */
-.logo img{
+/* CARDS */
 
-height:55px;
-}
-
-/* esconder titulo dentro da logo */
-.logo .titulo-site{
-display:none;
-}
-
-/* ===== QUANDO NÃO ROLOU ===== */
-
-/* mostrar logo */
-header:not(.scrolled) .logo{
-display:flex;
-}
-
-/* esconder titulo */
-header:not(.scrolled) .titulo{
-display:none;
-}
-
-/* ===== QUANDO ROLAR ===== */
-
-/* esconder logo */
-header.scrolled .logo{
-display:none;
-}
-
-/* mostrar titulo */
-header.scrolled .titulo{
-display:block;
-font-size:18px;
-line-height:1.2;
+.card-conteudo{
+flex-direction:column;
+text-align:center;
 }
 
 
+/* PADDINGS GERAIS */
+
+.galeria,
+.baner,
+.nivel_ensino,
+.sobre,
+.titulo-sobre,
+.grid{
+padding-left:20px;
+padding-right:20px;
 }
 
 
+/* CONTAINER */
+
+.container{
+flex-direction:column;
+text-align:center;
+gap:40px;
+}
+
+}
