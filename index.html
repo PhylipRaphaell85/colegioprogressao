@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colégio Progressao</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+
+
+<!-- ==========================================================
+                     NAVEGAÇÃO - MENU
+========================================================== 
+-->
+
+
+<header>
+  <div class="logo">
+    <p class="titulo-site">
+  Colégio Progressão <br>
+  <span>Educação Infantil, Fundamental I e Fundamental II</span>
+</p>
+    <img src="logo-colegio.png" alt="Colégio Progressão">
+    
+    
+  </div>
+  
+  
+
+    <button class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <p class="titulo">
+    Colégio Progressão <br>
+    <span>Educação Infantil, Fundamental I e Fundamental II</span>
+  </p>
+
+  <nav class="menu" id="nav">
+    <a href="#">Início</a>
+    <a href="#galeria">Momentos</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+    <a href="https://wa.me/5581994212337" class="btn-matricula">Matrícula 2026</a>
+  </nav>
+</header>
+
+<!-- ==========================================================
+                     BANER ESCOLAR
+========================================================== 
+-->
+<section class="banner-escolar">
+
+  <div class="container">
+
+    <div class="banner-texto">
+<div class="selo-matriculas">
+
+    <div class="icone-selo">
+        <i class="fa-solid fa-graduation-cap"></i>
+    </div>
+
+    <div class="texto-selo">
+        <span class="linha1">Matrículas Abertas 2026</span>
+        <span class="linha2">Vagas Limitadas</span>
+    </div>
+
+</div>
+
+<div class="selo-matricula">
+
+
+
+</div>
+      <h1>
+        Colégio <br>
+        <strong>Progressão</strong>
+      </h1>
+
+      <h3>DO MARTENAL AO 9º ANO</h3>
+
+      <p>
+        Educação de qualidade com princípios cristãos<br>
+        que transformam positivamente  a vida dos estudantes.
+      </p>
+
+     <div class="beneficios">
+
+  <div class="beneficio-item">
+    <span class="icone-check">✔</span>
+    <p>Ensino com princípios cristãos</p>
+  </div>
+
+  <div class="beneficio-item">
+    <span class="icone-check">✔</span>
+    <p>Professores qualificados</p>
+  </div>
+
+  <div class="beneficio-item">
+    <span class="icone-check">✔</span>
+    <p>Estrutura moderna e segura</p>
+  </div>
+
+  <div class="beneficio-item">
+    <span class="icone-check">✔</span>
+    <p>Melhores resultados</p>
+  </div>
+
+</div>
+
+
+
+<!-- ==========================================================
+botão garanta sua vaga-->
+
+
+<div class="botoes">
+
+<a href="#" class="btn btn-vaga" onclick="abrirFormulario()">GARANTA SUA VAGA</a>
+<div id="popup-formulario" class="popup">
+
+<div class="form-box">
+
+<span class="fechar" onclick="fecharFormulario()">✕</span>
+
+<h2>Pré-Matrícula</h2>
+<p class="sub">Preencha os dados e entraremos em contato</p>
+
+<form id="formMatricula">
+
+<input type="text" id="responsavel" placeholder="Nome do responsável" required>
+
+<input type="text" id="aluno" placeholder="Nome do aluno" required>
+
+<select id="serie" required>
+<option value="">Série desejada</option>
+<option>Maternal</option>
+<option>Infantil</option>
+<option>Fundamental I</option>
+<option>Fundamental II</option>
+
+</select>
+
+<select id="acessibilidade" onchange="mostrarAcessibilidade()">
+<option value="">Possui alguma acessibilidade?</option>
+<option value="Não">Não</option>
+<option value="Sim">Sim</option>
+</select>
+
+<div id="campo-acessibilidade" style="display:none; margin-top:10px;">
+
+<select id="qualAcessibilidade">
+<option value="">Qual acessibilidade?</option>
+<option>Autismo</option>
+<option>TDAH</option>
+<option>Cadeirante</option>
+<option>Deficiência visual</option>
+<option>Deficiência auditiva</option>
+<option>Outra</option>
+</select>
+
+</div>
+
+<input type="tel" id="telefone" placeholder="Telefone para contato" required>
+
+<button type="button" onclick="enviarFormulario()">
+Enviar Pré-Matrícula
+</button>
+
+<p id="mensagem-sucesso"></p>
+<p id="mensagem-erro"></p>
+
+</form>
+
+</div>
+</div>
+
+<!-- =========================================
+          botão  ÁREA DO ALUNO
+========================================= -->
+
+
+
+<div class="painelaluno">
+
+<button class="btn-main" onclick="abrirJanelaAluno()">
+JÁ SOU ALUNO
+</button>
+
+</div>
+
+
+<!-- JANELA TURMAS -->
+
+<div class="janela" id="janela-ja-aluno">
+
+<div class="janela-box">
+
+<span class="fechar" onclick="fecharJanela('janela-ja-aluno')">✖</span>
+
+<h2>Escolha a Turma</h2>
+
+<div class="turmas">
+
+<button onclick="abrirMaterial('Maternal')">Maternal</button>
+<button onclick="abrirMaterial('Maternal II')">Maternal II</button>
+<button onclick="abrirMaterial('Infantil')">Infantil</button>
+<button onclick="abrirMaterial('Fundamental I')">Fundamental I</button>
+<button onclick="abrirMaterial('Fundamental II')">Fundamental II</button>
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- JANELA MATERIAL -->
+
+<div class="janela" id="janela-material">
+
+<div class="janela-box material">
+
+<span class="fechar" onclick="fecharJanela('janela-material')">✖</span>
+
+<h2 id="tituloTurma"></h2>
+
+<div class="grid-material">
+
+<div class="card">
+
+<h3>Fardamento</h3>
+
+<img src="IMAGEM/fardamento/fardamentoinfantil.png">
+
+<div class="tamanhos">
+
+<button onclick="selecionarTamanho(event,'P')">P</button>
+<button onclick="selecionarTamanho(event,'M')">M</button>
+<button onclick="selecionarTamanho(event,'G')">G</button>
+
+</div>
+
+<div id="precoFarda" class="preco"></div>
+
+</div>
+
+
+<div class="card">
+
+<h3>Livro</h3>
+
+<img src="IMAGEM/fardamento/LIVROS inf.png">
+
+<div id="precoLivro" class="preco"></div>
+
+</div>
+
+</div>
+
+
+<div class="acoes">
+
+<button class="btn-whats" onclick="falarSecretaria()">
+💬 Falar com Secretária
+</button>
+
+<button class="btn-download" onclick="baixarLista()">
+⬇ Baixar Lista Material
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+<!-- ==========================================================
+botão saiba mais-->
+
+<a href="#" class="btn btn-saiba" onclick="abrirHorario()">NOSSOS HORÁRIOS</a>
+
+
+
+<div id="modalHorario" class="modal-horario">
+
+<div class="modal-box">
+
+<span class="fecha" onclick="fecharHorario()">✕</span>
+
+<h2 class="titulo-modal">Horário das Aulas</h2>
+
+<div class="horarios-grid">
+
+<div class="horario-card">
+<div class="icone">⏰</div>
+
+<h3>Ed. Infantil e Fundamental I</h3>
+
+<p><strong>Manhã:</strong> 07h30 às 11h30</p>
+<p><strong>Tarde:</strong> 13h30 às 17h30</p>
+
+</div>
+
+
+<div class="horario-card">
+
+<div class="icone">📚</div>
+
+<h3>Ensino Fundamental II</h3>
+
+<p>Turmas apenas no turno da manhã</p>
+<p><strong>Manhã:</strong> 07h30 às 11h50</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+      <div class="numeros">
+        <div>
+          <strong>+15<span>ANOS</span></strong>
+          <span>EDUCANDO</span>
+        </div>
+
+        <div>
+          <strong>+1200</strong>
+          <span>ALUNOS FORMADOS</span>
+        </div>
+
+        <div>
+          <strong>98%<span>Em</span></strong>
+          <span>APROVAÇÃO</span>
+        </div>
+      </div>
+
+    </div>
+
+   
+
+  </div>
+
+</section>
+
+<!-- ==========================================================
+                     BANER SLIDE
+========================================================== 
+-->
+
+<section class="baner" id="baner">
+
+  <!-- Slides -->
+  <div class="slider">
+    <div class="slide active" style="background-image: url('IMAGEM/baner/Capturar1.png');"></div>
+    <div class="slide" style="background-image: url('IMAGEM/baner/Capturar2.jpg');"></div>
+    <div class="slide" style="background-image: url('IMAGEM/baner/Capturar3.png');"></div>
+        <div class="slide" style="background-image: url('IMAGEM/baner/Capturar4.png');"></div>
+
+  </div>
+
+  <!-- Degradê -->
+  <div class="overlay"></div>
+
+  <!-- Conteúdo -->
+  <div class="hero-content">
+    <h1>Educação Cristã com Excelência</h1>
+    <p>Formando cidadãos preparados para o futuro, com conhecimento, fé e valores sólidos.</p>
+    <a href="https://wa.me/5581994212337" class="btn-hero">Agende uma Visita</a>
+  </div>
+
+</section>
+<!-- ==========================================================
+                     MOMENTOS 
+========================================================== 
+-->
+
+<section id="galeria" class="galeria">
+  <div class="container">
+<div class="titulo-galeria">
+
+<p class="secao-topo">NOSSO DIA A DIA</p>
+
+<div class="titulo-wrapper">
+<h2 class="secao-titulo">
+Momentos <span>Especiais</span>
+</h2>
+
+<div class="decoracao"></div>
+</div>
+
+<p class="secao-subtitulo">
+Confira alguns momentos do cotidiano dos nossos alunos
+</p>
+
+</div>
+</div>
+  
+
+   <div class="galeria-slider">
+    
+  <div class="galeria-track">
+
+
+    <div class="galeria-card eventos">
+      <img src="IMAGEM/Momentos/03.webp" onclick="abrirGaleriaModal(this.src)">
+    </div>
+
+    <div class="galeria-card escola">
+      <img src="IMAGEM/Momentos/01.webp" onclick="abrirGaleriaModal(this.src)">
+    </div>
+
+    <div class="galeria-card alunos">
+      <img src="IMAGEM/Momentos/02.webp" onclick="abrirGaleriaModal(src)">
+    </div>
+
+    <div class="galeria-card eventos">
+      <img src="IMAGEM/Momentos/04.webp" onclick="abrirGaleriaModal(src)">
+    </div> 
+    
+    <div class="galeria-card eventos">
+      <img src="IMAGEM/Momentos/05.webp" onclick="abrirGaleriaModal(src)">
+    </div>
+
+     <div class="galeria-card eventos">
+      <img src="IMAGEM/Momentos/06.webp" onclick="abrirGaleriaModal(src)">
+    </div>
+
+     <div class="galeria-card eventos">
+      <img src="IMAGEM/Momentos/07.webp" onclick="abrirGaleriaModal(src)">
+    </div>
+
+     <div class="galeria-card eventos">
+      <img src="IMAGEM/Momentos/08.webp" onclick="abrirGaleriaModal(src)">
+    </div>
+
+     <div class="galeria-card eventos">
+      <img src="IMAGEM/Momentos/09.webp" onclick="abrirGaleriaModal(src)">
+    </div>
+
+     <div class="galeria-card eventos">
+      <img src="IMAGEM/Momentos/10.webp" onclick="abrirGaleriaModal(src)">
+    </div>
+
+     <div class="galeria-card eventos">
+      <img src="IMAGEM/Momentos/11.webp" onclick="abrirGaleriaModal(src)">
+    </div>
+
+    <!-- DUPLICA AS IMAGENS PARA LOOP INFINITO -->
+    <div class="galeria-card eventos">
+      <img src="" onclick="abrirGaleriaModal(src)">
+    </div>
+
+    <div class="galeria-card escola">
+      <img src="" onclick="abrirGaleriaModal(src)">
+    </div>
+
+  </div>
+
+</div>
+    <span class="redes-confira">Alguns momentos em nossas redes sociais!</span>
+
+<div class="redes-sociais">
+
+  <a href="https://www.facebook.com/p/Col%C3%A9gio-Progress%C3%A3o-Caruaru-100063212562394/" target="_blank" class="rede facebook">
+    <span class="icon">
+      <!-- Facebook -->
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.3 0-1.7.8-1.7 1.6V12H17l-.4 3h-2.2v7A10 10 0 0 0 22 12z"/>
+      </svg>
+    </span>
+    <span>Siga-nos no Facebook</span>
+  </a>
+
+  <a href="https://www.youtube.com/@colegioprogressao7303" target="_blank" class="rede youtube">
+    <span class="icon">
+      <!-- YouTube -->
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M21.8 8s-.2-1.4-.8-2c-.8-.8-1.7-.8-2.1-.9C15.9 4.8 12 4.8 12 4.8h0s-3.9 0-6.9.3c-.4.1-1.3.1-2.1.9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.6C2 14.4 2.2 16 2.2 16s.2 1.4.8 2c.8.8 1.9.8 2.4.9 1.7.2 6.6.3 6.6.3s3.9 0 6.9-.3c.4-.1 1.3-.1 2.1-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.6C22 9.6 21.8 8 21.8 8zM10 15V9l5 3-5 3z"/>
+      </svg>
+    </span>
+    <span>Inscreva-se no YouTube</span>
+  </a>
+
+  <a href="https://www.instagram.com/colegio_progressao/" target="_blank" class="rede instagram">
+    <span class="icon">
+      <!-- Instagram -->
+ <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+</svg>
+
+
+    </span>
+    <span>Siga-nos no Instagram</span>
+  </a>
+
+
+
+
+</div>
+
+  </a>
+</div>
+</section>
+
+<!-- MODAL -->
+
+<div id="galeriaModal" class="galeria-modal" onclick="fecharGaleriaModal()">
+  <img id="galeriaModalImg">
+</div>
+
+
+<!-- ==========================================================
+                     Card MIssão, Valores e Visão  
+========================================================== 
+!-- -->
+ 
+<section id="sobre">
+  <div class="titulo-sobre">
+
+<p class="secao-topo">NOSSO COLÉGIO</p>
+
+<div class="titulo-wrapper">
+<h2 class="titulo-sobre-principal">Sobre Nós</h2>
+<div class="linha-sobre"></div>
+</div>
+
+<p class="texto-sobre">
+Somos um espaço físico, pedagógico, político e cultural, com a missão de formar
+cidadãos capazes de aprender e compartilhar diversos conhecimentos,
+ampliando assim a sua visão e perspectiva de mundo através de princípios,
+união, respeito e autorresponsabilidade.
+</p>
+
+</div>
+
+    <div class="grid">
+      <div class="card1" >
+      <h3 class="">Missão</h3>
+      <p> <strong>A missão do Colégio Progressão</strong> 
+     é proporcionar aos nossos alunos uma educação e ensino de 
+     qualidade com condições adequadas para promover o seu bem-estar,
+    ampliando assim as suas experiências e estimulando o seu interesse 
+     pelos processos de conhecimento.</p>       </div>
+
+      <div class="card2">
+        
+        <h3>Valores</h3>
+        <p> Principios Cristãos<br>
+           <i class="fa-regular fa-circle-check"></i>
+           Responsabilidade<br>
+           <i class="fa-regular fa-circle-check"></i>
+           Respeito <br> 
+           <i class="fa-regular fa-circle-check"></i>
+           Obediência<br>
+           <i class="fa-regular fa-circle-check"></i>
+           Lealdade<br>
+           <i class="fa-regular fa-circle-check"></i>
+           Humildade <br>
+           <i class="fa-regular fa-circle-check"></i>
+           Honestidade
+     </div>
+
+
+      <div class="card3">
+        <h3>Visão</h3>
+         <p>  Ser <strong>referência</strong> em educação de qualidade
+           com principios que buscam transformar e contribuir de forma 
+           positiva e significativa na vida de nossos educandos.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+ <!-- ==========================================================
+                     Card NIVEIS DE ENSINO  
+========================================================== 
+!-- -->
+
+<section id="ensino">
+  <div class="nivel_ensino">
+    <h2>Níveis de Ensino</h2> 
+
+    <div class="grid">
+
+      <div class="cardinf">
+      <img src="IMAGEM/cad/infantil.png" alt="Educação Infantil">
+  
+  <div class="conteudo">
+    <h3>Educação Infantil</h3>
+    <p>Ensino lúdico e acolhedor, com foco no desenvolvimento cognitivo, social, emocional e espiritual.</p>
+  </div>
+</div>
+
+      <div class="cardI">
+        <img src="IMAGEM/cad/fudI.jpeg" alt="">
+        <div class="conteudo">
+         
+        <h3>Fundamental I</h3>
+               <p>Base sólida em leitura, escrita, matemática e valores, com metodologias ativas e acompanhamento individual.</p>
+      </div>
+      </div>
+
+
+      <div class="cardII">
+        <img src="IMAGEM/cad/fudII.jpeg" alt="">
+         <div class="conteudo">
+        <h3>Fundamental II</h3>
+                <p>Preparação acadêmica, pensamento crítico, formação ética e desenvolvimento da autonomia.</p>
+      </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</section>
+
+ <!-- ==========================================================
+                    BANER MATRICULA 
+========================================================== 
+!-- -->
+
+
+<section class="banner-matricula">
+  <div class="conteudo">
+    <h1>Matrículas Abertas 2026</h1>
+    <p>
+      Garanta já a vaga do seu filho em uma escola que transforma vidas
+      através da educação e dos valores cristãos.
+    </p>
+    <a href="https://wa.me/5581994212337" class="btn-whatsapp">
+      <i class="fa-brands fa-whatsapp"></i>
+       Fale Conosco pelo WhatsApp
+    </a>
+  </div>
+
+<div class="wave-menu">
+  <svg viewBox="0 20 1440 100" preserveAspectRatio="none">
+    <path fill="#ffffff"
+      d="M0,64L80,74.7C160,85,320,107,480,101.3C640,96,800,64,960,53.3C1120,43,1280,53,1360,58.7L1440,64L1440,120L0,120Z">
+    </path>
+  </svg>
+
+</div>
+</section>
+
+ <!-- ==========================================================
+                   RODAPE
+========================================================== 
+!-- -->
+
+<section id="contato" class="contato">
+  <div class="container footer-grid">
+
+    <div class="footer-box">
+      <h3>Contato</h3>
+      <p><i class="fas fa-phone"></i> (81) 99421-2337</p>
+      <p><i class="fas fa-envelope"></i>reservadevagascolegioprogressao@gmail.com</p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Endereço</h3>
+      <p><i class="fas fa-map-marker-alt"></i> Rua Capitão Nilo Ferreira da Costa, <br> nº 180 - Salgado - Caruaru / PE</p>
+      
+      <p>CEP: 55019-365</p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Atendimento</h3>
+      <p><i class="far fa-clock"></i> Manhã 7:30 às 11:30</p>
+      <p><i class="far fa-clock"></i> Tarde 13:30 às 17:30</p>
+    </div>
+
+  </div>
+
+  <div class="mapa">
+    <iframe 
+      src="https://www.google.com/maps?q=Rua%20Capitão%20Nilo%20Ferreira%20da%20Costa%20180%20Caruaru%20PE&output=embed"
+      loading="lazy">
+    </iframe>
+  </div>
+
+</section>
+
+<footer class=" rodape">
+  <p>© 2026 Escola Colégio Progressão — Todos os direitos reservados.</p>
+</footer>
+
+ <!-- ==========================================================
+                    BOTÃO WHATSAPP
+========================================================== 
+!-- -->
+
+
+<a href="https://wa.me/5581994212337" target="_blank" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+
+</body>
+
+<script src="scripts.js"></script>
+</html>
