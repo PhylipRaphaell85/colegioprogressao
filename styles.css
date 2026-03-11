@@ -2156,10 +2156,6 @@ Desktop grande / Notebook / Tablet / Mobile
 ========================================================== */
 
 @media (max-width: 1366px){
-body{
-transform:scale(0.92);
-transform-origin:top center;
-}
 
 .container{
   padding:10px 30px 0 30px;
@@ -2249,10 +2245,7 @@ transform-origin:top center;
 ========================================================== */
 
 @media (max-width:1024px){
-body{
-transform:scale(0.92);
-transform-origin:top center;
-}
+
 .container{
 flex-direction:column;
 text-align:center;
@@ -2293,9 +2286,8 @@ font-size:40px;
   padding: 0 20px;
 }
 
-body{
-transform:scale(0.92);
-transform-origin:top center;
+body {
+  padding-top: 90px;
 }
 
 .logo img {
