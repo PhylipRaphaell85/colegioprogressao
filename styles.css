@@ -2156,10 +2156,19 @@ Desktop grande / Notebook / Tablet / Mobile
 ========================================================== */
 
 @media (max-width: 1366px){
+body{
+transform:scale(0.92);
+transform-origin:top center;
+}
 
 .container{
   padding:10px 30px 0 30px;
 
+}
+
+.banner-escolar {
+  margin-top: -70px;
+ padding: 120px 20px; 
 }
 
 
@@ -2240,7 +2249,10 @@ Desktop grande / Notebook / Tablet / Mobile
 ========================================================== */
 
 @media (max-width:1024px){
-
+body{
+transform:scale(0.92);
+transform-origin:top center;
+}
 .container{
 flex-direction:column;
 text-align:center;
@@ -2281,8 +2293,9 @@ font-size:40px;
   padding: 0 20px;
 }
 
-body {
-  padding-top: 90px;
+body{
+transform:scale(0.92);
+transform-origin:top center;
 }
 
 .logo img {
