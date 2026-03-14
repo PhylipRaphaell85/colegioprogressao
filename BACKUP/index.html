@@ -182,106 +182,73 @@ Enviar Pré-Matrícula
 
 
 <div class="painelaluno">
-<a class="btn btn-main"  id="openjanela">JÁ SOU ALUNO</a>
+<a class="btn btn-main" onclick="abrirJanelaAluno()">
+JÁ SOU ALUNO
+</a>
 </div>
 
-  <div class="janela" id="janelaAluno">
-    <div class="janela-conteudo">
-      <span class="close-janela" id="closeJanela">&times;</span>
-      <img src="logo-colegio.png" alt="Logo" class="janela-logo">
-      <p class="janela-texto">Escolha uma das opções</p>
-      <button class="janela-card floating">
-        <i class="fas fa-book"></i> Livro
-      </button>
-    <button class="janela-card floating" id="btnCatalogo" onclick="abrirCatalogo()">
-  <i class="fas fa-tshirt"></i> Fardamentos
+
+<!-- JANELA TURMAS -->
+
+<div class="janela" id="janela-ja-aluno">
+<div class="janela-box">
+<span class="fechar" onclick="fecharJanela('janela-ja-aluno')">✖</span>
+<h2>Escolha a Turma</h2>
+<div class="turmas">
+<button onclick="abrirMaterial('Maternal')">Maternal</button>
+<button onclick="abrirMaterial('Maternal II')">Maternal II</button>
+<button onclick="abrirMaterial('Infantil')">Infantil</button>
+<button onclick="abrirMaterial('Fundamental I')">Fundamental I</button>
+<button onclick="abrirMaterial('Fundamental II')">Fundamental II</button>
 </button>
 </div>
-  </div>
-<!-- ================= FARDAMENTO ================= -->
-<div id="catalogoModal" class="catalogo-fundo">
+</div>
+</div>
 
-  <div class="catalogo-container">
+<!-- JANELA MATERIAL -->
 
-    <span class="fecharcatalago" onclick="fecharCatalogo()">×</span>
+<div class="janela" id="janela-material">
+<div class="janela-box material">
+<span class="fechar" onclick="fecharJanela('janela-material')">✖</span>
+<h2 id="tituloTurma"></h2>
+<div class="grid-material">
+<div class="card">
+<h3>Fardamento</h3>
+<img src="IMAGEM/fardamento/fardamentoinfantil.png">
+<div class="tamanhos">
 
-    <img src="logo-colegio.png" alt="Logo" class="catalago-logo">
+<button onclick="selecionarTamanho(event,'P')">P</button>
+<button onclick="selecionarTamanho(event,'M')">M</button>
+<button onclick="selecionarTamanho(event,'G')">G</button>
 
-    <h2 class="titul">Fardamento Escolar</h2>
+</div>
+<div id="precoFarda" class="preco"></div>
+</div>
+<div class="card">
+<h3>Livro</h3>
+<img src="IMAGEM/fardamento/LIVROS inf.png">
+<div id="precoLivro" class="preco"></div>
+</div>
+</div>
+<div class="acoes">
 
-    <p class="catalago-texto">Escolha uma das opções</p>
+<button class="btn-whats" onclick="falarSecretaria()">
+💬 Falar com Secretária
+</button>
 
-    <!-- GRID DOS CARDS -->
-    <div class="catalogo-cards">
+<button class="btn-download" onclick="baixarLista()">
+⬇ Baixar Lista Material
+</button>
 
-      <div class="cardcatalago" onclick="abrirModalCatalogo('camisa', this)">
-        <img src="fardamento/camisa.JPG">
-        <span>Camisa</span>
-      </div>
+</div>
 
-      <div class="cardcatalago" onclick="abrirModalCatalogo('camiseta', this)">
-        <img src="fardamento/camiseta.JPG">
-        <span>Camiseta</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('jardineira', this)">
-        <img src="fardamento/jardineira.JPG">
-        <span>Jardineira</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('casaco', this)">
-        <img src="fardamento/casaco.JPG">
-        <span>Casaco</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('calca', this)">
-        <img src="fardamento/calça.JPG">
-        <span>Calça</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('short', this)">
-        <img src="fardamento/shot.JPG">
-        <span>Short</span>
-      </div>
-
-      
-      <div class="cardcatalago" onclick="abrirModalCatalogo('meia', this)">
-        <img src="fardamento/camisa.JPG">
-        <span>Meia</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('shortsaia', this)">
-        <img src="fardamento/shortsaia.JPG">
-        <span>Short-Saia</span>
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </div>
 
 
-<!-- ================= MODAL PRODUTO ================= -->
-<div id="modal-catalogo" class="modal-catalogo">
-  <div class="modal-box">
-    <span class="fec" onclick="fecharModalCatalogo()">×</span>
 
-    <div class="modal-grid">
-      <div class="modal-img">
-        <img id="imgProduto">
-      </div>
 
-      <div class="modal-info">
-        <h2 id="tituloProduto"></h2>
-       <div id="precoProduto"></div>
-        <a id="btnWhats" target="_blank">
-          <button class="btn-whats">Pedir no WhatsApp</button>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- ==========================================================
 botão saiba mais-->
 

@@ -38,108 +38,71 @@ links.forEach(link => {
 
 //  =================SOU ALUNO===============
 
-const openJanelaBtn = document.getElementById('openjanela'); // corresponde exatamente ao seu id
-const janela = document.getElementById('janelaAluno');
-const closeJanelaBtn = document.getElementById('closeJanela');
+let turmaSelecionada=""
+let tamanhoSelecionado=""
 
-// abrir janela
-openJanelaBtn.addEventListener('click', () => {
-  janela.style.display = 'flex';
-});
+const dados={
 
-// fechar ao clicar no X
-closeJanelaBtn.addEventListener('click', () => {
-  janela.style.display = 'none';
-});
-
-// fechar ao clicar fora
-window.addEventListener('click', (e) => {
-  if (e.target === janela) {
-    janela.style.display = 'none';
-  }
-});
-
-
-
-function abrirCatalogo(){
-  document.getElementById("catalogoModal").style.display = "flex";
+"Maternal":{livro:120,farda:{P:80,M:90,G:100},lista:"listas/maternal.pdf"},
+"Maternal II":{livro:130,farda:{P:85,M:95,G:105},lista:"listas/maternal2.pdf"},
+"Infantil":{livro:150,farda:{P:90,M:100,G:110},lista:"listas/infantil.pdf"},
+"Fundamental I":{livro:180,farda:{P:100,M:110,G:120},lista:"listas/fund1.pdf"},
+"Fundamental II":{livro:220,farda:{P:110,M:120,G:130},lista:"listas/fund2.pdf"}
 }
 
-function fecharCatalogo(){
-  document.getElementById("catalogoModal").style.display = "none";
+function abrirJanelaAluno(){
+document.getElementById("janela-ja-aluno").style.display="flex"
 }
 
-function abrirModalCatalogo(tipo, card){
-
-let titulo = document.getElementById("tituloProduto")
-let preco = document.getElementById("precoProduto")
-let whats = document.getElementById("btnWhats")
-
-/* pegar imagem do card clicado */
-let img = card.querySelector("img").src
-document.getElementById("imgProduto").src = img
-
-/* CAMISA */
-if(tipo === "camisa"){
-
-titulo.innerHTML = "Camisa Escolar"
-
-preco.innerHTML = `
-<p>02 a 06 anos: <b>R$70</b></p>
-<p>08 a 12 anos: <b>R$80</b></p>
-<p>14+ anos: <b>R$90</b></p>
-`
+function fecharJanela(id){
+document.getElementById(id).style.display="none"
 }
 
-/* CASACO */
-if(tipo === "casaco"){
-
-titulo.innerHTML = "Casaco Escolar"
-
-preco.innerHTML = `
-<p>02 a 06 anos: <b>R$90,00</b></p>
-<p>08 a 12 anos: <b>R$100,00</b></p>
-<p>14+ anos: <b>R$130,00</b></p>
-`
+function abrirMaterial(turma){
+turmaSelecionada=turma
+fecharJanela("janela-ja-aluno")
+document.getElementById("janela-material").style.display="flex"
+document.getElementById("tituloTurma").innerText=turma
+document.getElementById("precoLivro").innerText="Livro R$ "+dados[turma].livro + ",00"
 
 }
 
-whats.href="https://wa.me/5581999999999?text=Olá quero informações sobre o fardamento"
+function selecionarTamanho(event,tamanho){
+tamanhoSelecionado=tamanho
+document.querySelectorAll(".tamanhos button")
+.forEach(btn=>btn.classList.remove("active"))
+event.target.classList.add("active")
 
-/* abrir modal */
-document.getElementById("modal-catalogo").style.display="flex"
+let preco=dados[turmaSelecionada].farda[tamanho]
+document.getElementById("precoFarda").innerHTML = "Fardamento<br>R$" + preco + ",00";
+}
+
+function falarSecretaria(){
+
+  if(!tamanhoSelecionado){
+alert("Escolha o tamanho do fardamento")
+return
+}
+
+let precoLivro=dados[turmaSelecionada].livro
+let precoFarda=dados[turmaSelecionada].farda[tamanhoSelecionado]
+let mensagem=`Olá, gostaria de adquirir o material escolar.
+
+Turma: ${turmaSelecionada}
+Livro: R$ ${precoLivro}
+Fardamento
+Tamanho: ${tamanhoSelecionado}
+Preço: R$ ${precoFarda}`
+
+let url="https://wa.me/5581993954032?text="+encodeURIComponent(mensagem)
+93954032
+window.open(url)
 
 }
 
-function fecharModalCatalogo(){
-
-document.getElementById("modal-catalogo").style.display="none"
-
+function baixarLista(){
+window.open(dados[turmaSelecionada].lista)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //  =================FIM BOTAO SOU ALUDO ===============
 
