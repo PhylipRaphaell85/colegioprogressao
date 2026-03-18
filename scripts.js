@@ -192,6 +192,12 @@ const kits = {
   }
 };
 
+// Função para fechar o modal de anos
+function fecharAnos() {
+  document.getElementById("modalAnos").style.display = "none";
+}
+
+
 function abrirCategorias(){
   document.getElementById("modalCategorias").style.display="flex";
   document.getElementById("modalAnos").style.display="none";
@@ -233,6 +239,12 @@ if(cat=="fund2"){
   
   document.getElementById("modalCategorias").style.display="none";
   document.getElementById("modalAnos").style.display="flex";
+
+
+
+
+
+  
 }
 
 function abrirProduto(id){
