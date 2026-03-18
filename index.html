@@ -10,7 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
+  <style>
+    
+  </style>
 </head>
 <body>
 
@@ -39,9 +41,10 @@
   <nav class="menu" id="nav">
     <a href="#">Início</a>
     <a href="#galeria">Momentos</a>
+    <a href="#sobre">Projetos</a>
     <a href="#sobre">Sobre</a>
     <a href="#contato">Contato</a>
-    <a href="https://wa.me/5581994212337" class="btn-matricula">Matrícula 2026</a>
+    <a href="#" class="btn-matricula" onclick="abrirFormulario()">Matrícula 2027</a>
   </nav>
 </header>
 
@@ -61,7 +64,7 @@
     </div>
 
     <div class="texto-selo">
-        <span class="linha1">Matrículas Abertas 2026</span>
+        <span class="linha1">Matrículas Abertas 2027</span>
         <span class="linha2">Vagas Limitadas</span>
     </div>
 
@@ -141,7 +144,7 @@ botão garanta sua vaga-->
 </select>
 
 <select id="acessibilidade" onchange="mostrarAcessibilidade()">
-<option value="">Possui alguma acessibilidade?</option>
+<option value="">Necessita de acessibilidade?</option>
 <option value="Não">Não</option>
 <option value="Sim">Sim</option>
 </select>
@@ -177,211 +180,47 @@ Enviar Pré-Matrícula
 <!-- =========================================
           botão  ÁREA DO ALUNO
 ========================================= -->
-
-
 <div class="painelaluno">
-<a class="btn btn-main"  id="openjanela">JÁ SOU ALUNO</a>
+  <a class="btn btn-main" id="openJanela">Nossa Loja</a>
 </div>
 
-  <div class="janela" id="janelaAluno">
-    <div class="janela-conteudo">
-      <span class="close-janela" id="closeJanela">&times;</span>
-      <img src="logo-colegio.png" alt="Logo" class="janela-logo">
-      <p class="janela-texto">Escolha uma das opções</p>
-      <button class="janela-card floating" onclick="abrirCategorias()">
-        <i class="fas fa-book" ></i> Livro</button>
-    <button class="janela-card floating" id="btnCatalogo" onclick="abrirCatalogo()">
-  <i class="fas fa-tshirt"></i> Fardamentos
-</button>
-</div>
-  </div>
+<div class="janela" id="janelaAluno">
+  <div class="janela-conteudo">
+    <span class="close-janela" id="closeJanela">&times;</span>
+    <img src="logo-colegio.png" class="janela-logo">
+    <p id="mensagemInicial">Escolha uma categoria</p>
 
-  <!-- ================= CATALAGO FARDAMENTO ================= -->
-<div id="catalogoModal" class="catalogo-fundo">
-
-  <div class="catalogo-container">
-
-    <span class="fecharcatalago" onclick="fecharCatalogo()">×</span>
-
-    <img src="logo-colegio.png" alt="Logo" class="catalago-logo">
-
-    <h2 class="titul">Fardamento Escolar</h2>
-
-    <p class="catalago-texto">Escolha uma das opções</p>
-
-    <!-- GRID DOS CARDS -->
-    <div class="catalogo-cards">
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('camisa', this)">
-        <img src="fardamento/camisa.JPG">
-        <span>Camisa</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('camiseta', this)">
-        <img src="fardamento/camiseta.JPG">
-        <span>Camiseta</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('jardineira', this)">
-        <img src="fardamento/jardineira.JPG">
-        <span>Jardineira</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('casaco', this)">
-        <img src="fardamento/casaco.JPG">
-        <span>Casaco</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('calca', this)">
-        <img src="fardamento/calça.JPG">
-        <span>Calça</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('short', this)">
-        <img src="fardamento/shot.JPG">
-        <span>Short</span>
-      </div>
-
-      
-      <div class="cardcatalago" onclick="abrirModalCatalogo('meia', this)">
-        <img src="fardamento/camisa.JPG">
-        <span>Meia</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('shortsaia', this)">
-        <img src="fardamento/shortsaia.JPG">
-        <span>Short-Saia</span>
-      </div>
-
+    <div class="abas">
+      <button class="aba-btn" data-aba="livros">Livros</button>
+      <button class="aba-btn" data-aba="fardamentos">Fardamentos</button>
     </div>
 
-  </div>
-
-</div>
-
-
-<!-- ================= MODAL FARDAMENTO ================= -->
-
-
-<div id="modal-catalogo" class="modal-catalogo">
-  <div class="modal-boxf">
-    
-    <span class="fec" onclick="fecharModalCatalogo()">×</span>
-
-    <div class="modal-grid">
-      <!-- IMAGEM DO PRODUTO -->
-      <div class="modal-img">
-        <img id="imgProduto" alt="Produto">
+    <div id="conteudo-abas">
+      <div class="aba conteudo-livros">
+        <div class="grid-livro" id="gridLivros"></div>
       </div>
 
-      <!-- INFORMAÇÕES DO PRODUTO -->
-      <div class="modal-info">
-        <h2 id="tituloProduto"></h2>
-
-        <!-- SELETOR DE IDADE -->
-        <label for="idadeProduto">Selecione a idade:</label>
-        <select id="idadeProduto" onchange="atualizarPreco()">
-          <option value="">--Escolha--</option>
-          <option value="02-06">02 a 06 anos</option>
-          <option value="08-12">08 a 12 anos</option>
-          <option value="14+">14+ anos</option>
-        </select>
-
-        <!-- PREÇO DO PRODUTO -->
-        <div id="precoProduto"></div>
-
-        <!-- BOTÃO WHATSAPP -->
-        <a id="btnWhats" target="_blank">
-          <button class="btn-whats">Pedir no WhatsApp</button>
-        </a>
+      <div class="aba conteudo-fardamentos">
+        <div class="grid-fardamento" id="gridFardamentos"></div>
       </div>
     </div>
+
+    <div id="btnCarrinhoTopo" class="icone-carrinho">🛒</div>
+
+    <div id="carrinho" class="carrinho">
+      <h3>Carrinho</h3>
+      <div id="itensCarrinho"></div>
+      <div id="totalCarrinho"></div>
+
+      <div class="botoes-carrinho">
+        <button id="btnWhatsCarrinho" class="btn-whats">Pagar WhatsApp</button>
+        <button id="btnCartao" class="btn-cartao">Pagar Cartão</button>
+      </div>
+    </div>
+
+    <div id="mensagem" class="mensagem">Item adicionado!</div>
   </div>
 </div>
-
-  <!-- ================= CATALAGO LIVROS ================= -->
-
-<div id="modalCategorias" class="modal">
-<div class="modal-box">
-<span class="fe" onclick="fecharCategorias()">×</span>
-
-
-    <img src="livros/logo-colegiolivros.png" alt="Logo" class="catalago-logo">
-
-    <h2 class="titul">Kit Livro Escolar</h2>
-
-    <p class="catalago-texto">Escolha uma Categoria</p>
-
-<div class="grid-livro">
-<div class="cardlivros" onclick="abrirAnos('maternal')">
-<img src="IMAGEM/ALUNOS/maternal.jpg">
-<p>Maternal</p>
-</div>
-
-<div class="cardlivros" onclick="abrirAnos('infantil')">
-<img src="IMAGEM/ALUNOS/infantil2.jpeg">
-<p>Infantil</p>
-</div>
-
-<div class="cardlivros" onclick="abrirAnos('fund1')">
-<img  src="IMAGEM/ALUNOS/fudI-convertido-de-jpeg.webp">
-<p>Fundamental I</p>
-</div>
-
-<div class="cardlivros" onclick="abrirAnos('fund2')">
-<img src="IMAGEM/ALUNOS/fudII.jpeg">
-<p>Fundamental II</p>
-</div>
-</div>
-</div>
-</div>
-
-
-
-<!-- MODAL ANOS -->
-
-<div id="modalAnos" class="modal">
-<div class="modal-ano">
-<span class="fechar" onclick="fecharAnos()">×</span>
-<img src="logo-colegio.png" alt="Logo" class="catalago-logo">
-<h2>Escolha o Ano</h2>
-<div id="gridAnos" class="grid-ano"></div>
-<button onclick="abrirCategorias()" class="btn-voltar">
-⬅ Voltar
-</button>
-</div>
-</div>
-
-
-
-<!-- MODAL PRODUTO -->
-
-<div id="modalProduto" class="modallivroproduto">
-<div class="modal-box-produto">
-<span class="fechar" onclick="fecharProduto()">×</span>
-<h2 id="nomeKit"></h2>
-<div class="produto-container">
-<img class="img-kit" id="imagemKit">
-<div class="info"><span>KIT COM OS LIVROS:</span>
-<div id="listaLivros"></div>
-</div>
-</div>
-<p id="precoKit" class="preco"></p>
-<div class="botoes">
-
-<button onclick="voltarAnos()" class="btn-voltar">
-⬅ Voltar
-</button>
-
-<button onclick="comprar()" class="bt-whats">
-Comprar no WhatsApp
-</button>
-</div>
-</div>
-</div>
-
-
-
 <!-- ==========================================================
 botão saiba mais-->
 
@@ -391,7 +230,7 @@ botão saiba mais-->
 
 <div id="modalHorario" class="modal-horario">
 
-<div class="modal-box1">
+<div class="modal-box">
 
 <span class="fecha" onclick="fecharHorario()">✕</span>
 
@@ -465,10 +304,10 @@ botão saiba mais-->
 
   <!-- Slides -->
   <div class="slider">
-    <div class="slide active" style="background-image: url('IMAGEM/baner/Capturar2.webp');"></div>
-    <div class="slide" style="background-image: url('IMAGEM/baner/Capturar1.webp');"></div>
-    <div class="slide" style="background-image: url('IMAGEM/baner/Capturar3.webp');"></div>
-    <div class="slide" style="background-image: url('IMAGEM/baner/Capturar4.webp');"></div>
+    <div class="slide active" style="background-image: url('IMAGEM/baner/Capturar1.png');"></div>
+    <div class="slide" style="background-image: url('IMAGEM/baner/Capturar2.jpg');"></div>
+    <div class="slide" style="background-image: url('IMAGEM/baner/Capturar3.png');"></div>
+        <div class="slide" style="background-image: url('IMAGEM/baner/Capturar4.png');"></div>
 
   </div>
 
@@ -706,7 +545,7 @@ união, respeito e autorresponsabilidade.
     <div class="grid">
 
   <div class="cardinf">
-    <img src="IMAGEM/cad/infantil.webp" alt="Educação Infantil">
+    <img src="IMAGEM/cad/infantil.png" alt="Educação Infantil">
 
 
 <div class="conteudo">
@@ -718,7 +557,7 @@ união, respeito e autorresponsabilidade.
   </div>
 
   <div class="cardinf">
-    <img src="IMAGEM/cad/fudI.webp" alt="Fundamental I">
+    <img src="IMAGEM/cad/fudI.jpeg" alt="Fundamental I">
 
 
 <div class="conteudo">
@@ -730,7 +569,7 @@ união, respeito e autorresponsabilidade.
   </div>
 
   <div class="cardinf">
-    <img src="IMAGEM/cad/fudII.webp" alt="Fundamental II">
+    <img src="IMAGEM/cad/fudII.jpeg" alt="Fundamental II">
 
 <div class="conteudo">
   <h3>Fundamental II</h3>
@@ -754,14 +593,13 @@ união, respeito e autorresponsabilidade.
 
 <section class="banner-matricula">
   <div class="conteudo">
-    <h1>Matrículas Abertas 2026</h1>
+    <h1>Matrículas Abertas 2027</h1>
     <p>
       Garanta já a vaga do seu filho em uma escola que transforma vidas
       através da educação e dos valores cristãos.
     </p>
     <a href="https://wa.me/5581994212337" class="btn-whatsapp">
-      <i class="fa-brands fa-whatsapp"></i>
-       Fale Conosco!
+       Preencha o Forumulario!
     </a>
   </div>
 

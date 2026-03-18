@@ -10,7 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
+  <style>
+    
+  </style>
 </head>
 <body>
 
@@ -23,13 +25,21 @@
 
 <header>
   <div class="logo">
-       <img src="logo-colegio.png" alt="Colégio Progressão">
-      </div>
-     <button class="menu-toggle" id="menu-toggle">
+    <p class="titulo-site">
+  Colégio Progressão <br>
+  <span>Educação Infantil, Fundamental I e Fundamental II</span>
+</p>
+    <img src="logo-colegio.png" alt="Colégio Progressão">
+    
+    
+  </div>
+  
+
+    <button class="menu-toggle" id="menu-toggle">
     <span></span>
     <span></span>
     <span></span>
-    </button>
+  </button>
 
   <p class="titulo">
     Colégio Progressão <br>
@@ -108,292 +118,19 @@
 
 </div>
 
+      <div class="botoes">
 
+<a href="#https://wa.me/5581994212337" class="btn btn-vaga">GARANTA SUA VAGA</a>
 
-<!-- ==========================================================
-botão garanta sua vaga-->
-
-
-<div class="botoes">
-<a href="#" class="btn btn-vaga" onclick="abrirFormulario()">GARANTA SUA VAGA</a>
-<div id="popup-formulario" class="popup">
-
-<div class="form-box">
-
-<span class="fechar" onclick="fecharFormulario()">✕</span>
-
-<h2>Pré-Matrícula</h2>
-<p class="sub">Preencha os dados e entraremos em contato</p>
-
-<form id="formMatricula">
-
-<input type="text" id="responsavel" placeholder="Nome do responsável" required>
-
-<input type="text" id="aluno" placeholder="Nome do aluno" required>
-
-<select id="serie" required>
-<option value="">Série desejada</option>
-<option>Maternal</option>
-<option>Infantil</option>
-<option>Fundamental I</option>
-<option>Fundamental II</option>
-
-</select>
-
-<select id="acessibilidade" onchange="mostrarAcessibilidade()">
-<option value="">Possui alguma acessibilidade?</option>
-<option value="Não">Não</option>
-<option value="Sim">Sim</option>
-</select>
-
-<div id="campo-acessibilidade" style="display:none; margin-top:10px;">
-
-<select id="qualAcessibilidade">
-<option value="">Qual acessibilidade?</option>
-<option>Autismo</option>
-<option>TDAH</option>
-<option>Cadeirante</option>
-<option>Deficiência visual</option>
-<option>Deficiência auditiva</option>
-<option>Outra</option>
-</select>
-
-</div>
-
-<input type="tel" id="telefone" placeholder="Telefone para contato" required>
-
-<button type="button" onclick="enviarFormulario()">
-Enviar Pré-Matrícula
-</button>
-
-<p id="mensagem-sucesso"></p>
-<p id="mensagem-erro"></p>
-
-</form>
-
-</div>
-</div>
-
-<!-- =========================================
-          botão  ÁREA DO ALUNO
-========================================= -->
-
-
-<div class="painelaluno">
-<a class="btn btn-main"  id="openjanela">JÁ SOU ALUNO</a>
-</div>
-
-  <div class="janela" id="janelaAluno">
-    <div class="janela-conteudo">
-      <span class="close-janela" id="closeJanela">&times;</span>
-      <img src="logo-colegio.png" alt="Logo" class="janela-logo">
-      <p class="janela-texto">Escolha uma das opções</p>
-      <button class="janela-card floating" onclick="abrirCategorias()">
-        <i class="fas fa-book" ></i> Livro</button>
-    <button class="janela-card floating" id="btnCatalogo" onclick="abrirCatalogo()">
-  <i class="fas fa-tshirt"></i> Fardamentos
-</button>
-</div>
-  </div>
-
-  <!-- ================= CATALAGO FARDAMENTO ================= -->
-<div id="catalogoModal" class="catalogo-fundo">
-
-  <div class="catalogo-container">
-
-    <span class="fecharcatalago" onclick="fecharCatalogo()">×</span>
-
-    <img src="logo-colegio.png" alt="Logo" class="catalago-logo">
-
-    <h2 class="titul">Fardamento Escolar</h2>
-
-    <p class="catalago-texto">Escolha uma das opções</p>
-
-    <!-- GRID DOS CARDS -->
-    <div class="catalogo-cards">
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('camisa', this)">
-        <img src="fardamento/camisa.JPG">
-        <span>Camisa</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('camiseta', this)">
-        <img src="fardamento/camiseta.JPG">
-        <span>Camiseta</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('jardineira', this)">
-        <img src="fardamento/jardineira.JPG">
-        <span>Jardineira</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('casaco', this)">
-        <img src="fardamento/casaco.JPG">
-        <span>Casaco</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('calca', this)">
-        <img src="fardamento/calça.JPG">
-        <span>Calça</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('short', this)">
-        <img src="fardamento/shot.JPG">
-        <span>Short</span>
-      </div>
-
-      
-      <div class="cardcatalago" onclick="abrirModalCatalogo('meia', this)">
-        <img src="fardamento/camisa.JPG">
-        <span>Meia</span>
-      </div>
-
-      <div class="cardcatalago" onclick="abrirModalCatalogo('shortsaia', this)">
-        <img src="fardamento/shortsaia.JPG">
-        <span>Short-Saia</span>
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- ================= MODAL FARDAMENTO ================= -->
-
-
-<div id="modal-catalogo" class="modal-catalogo">
-  <div class="modal-boxf">
-    
-    <span class="fec" onclick="fecharModalCatalogo()">×</span>
-
-    <div class="modal-grid">
-      <!-- IMAGEM DO PRODUTO -->
-      <div class="modal-img">
-        <img id="imgProduto" alt="Produto">
-      </div>
-
-      <!-- INFORMAÇÕES DO PRODUTO -->
-      <div class="modal-info">
-        <h2 id="tituloProduto"></h2>
-
-        <!-- SELETOR DE IDADE -->
-        <label for="idadeProduto">Selecione a idade:</label>
-        <select id="idadeProduto" onchange="atualizarPreco()">
-          <option value="">--Escolha--</option>
-          <option value="02-06">02 a 06 anos</option>
-          <option value="08-12">08 a 12 anos</option>
-          <option value="14+">14+ anos</option>
-        </select>
-
-        <!-- PREÇO DO PRODUTO -->
-        <div id="precoProduto"></div>
-
-        <!-- BOTÃO WHATSAPP -->
-        <a id="btnWhats" target="_blank">
-          <button class="btn-whats">Pedir no WhatsApp</button>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <!-- ================= CATALAGO LIVROS ================= -->
-
-<div id="modalCategorias" class="modal">
-<div class="modal-box">
-<span class="fe" onclick="fecharCategorias()">×</span>
-
-
-    <img src="livros/logo-colegiolivros.png" alt="Logo" class="catalago-logo">
-
-    <h2 class="titul">Kit Livro Escolar</h2>
-
-    <p class="catalago-texto">Escolha uma Categoria</p>
-
-<div class="grid-livro">
-<div class="cardlivros" onclick="abrirAnos('maternal')">
-<img src="IMAGEM/ALUNOS/maternal.jpg">
-<p>Maternal</p>
-</div>
-
-<div class="cardlivros" onclick="abrirAnos('infantil')">
-<img src="IMAGEM/ALUNOS/infantil2.jpeg">
-<p>Infantil</p>
-</div>
-
-<div class="cardlivros" onclick="abrirAnos('fund1')">
-<img  src="IMAGEM/ALUNOS/fudI-convertido-de-jpeg.webp">
-<p>Fundamental I</p>
-</div>
-
-<div class="cardlivros" onclick="abrirAnos('fund2')">
-<img src="IMAGEM/ALUNOS/fudII.jpeg">
-<p>Fundamental II</p>
-</div>
-</div>
-</div>
-</div>
-
-
-
-<!-- MODAL ANOS -->
-
-<div id="modalAnos" class="modal">
-<div class="modal-ano">
-<span class="fechar" onclick="fecharAnos()">×</span>
-<img src="logo-colegio.png" alt="Logo" class="catalago-logo">
-<h2>Escolha o Ano</h2>
-<div id="gridAnos" class="grid-ano"></div>
-<button onclick="abrirCategorias()" class="btn-voltar">
-⬅ Voltar
-</button>
-</div>
-</div>
-
-
-
-<!-- MODAL PRODUTO -->
-
-<div id="modalProduto" class="modallivroproduto">
-<div class="modal-box-produto">
-<span class="fechar" onclick="fecharProduto()">×</span>
-<h2 id="nomeKit"></h2>
-<div class="produto-container">
-<img class="img-kit" id="imagemKit">
-<div class="info"><span>KIT COM OS LIVROS:</span>
-<div id="listaLivros"></div>
-</div>
-</div>
-<p id="precoKit" class="preco"></p>
-<div class="botoes">
-
-<button onclick="voltarAnos()" class="btn-voltar">
-⬅ Voltar
-</button>
-
-<button onclick="comprar()" class="bt-whats">
-Comprar no WhatsApp
-</button>
-</div>
-</div>
-</div>
-
-
-
-<!-- ==========================================================
-botão saiba mais-->
-
-<a href="#" class="btn btn-saiba" onclick="abrirHorario()">NOSSOS HORÁRIOS</a>
+<a href="#" class="btn btn-saiba" onclick="abrirHorario()">SAIBA MAIS</a>
 
 
 
 <div id="modalHorario" class="modal-horario">
 
-<div class="modal-box1">
+<div class="modal-box">
 
-<span class="fecha" onclick="fecharHorario()">✕</span>
+<span class="fechar" onclick="fecharHorario()">✕</span>
 
 <h2 class="titulo-modal">Horário das Aulas</h2>
 
@@ -433,7 +170,7 @@ botão saiba mais-->
 
       <div class="numeros">
         <div>
-          <strong>+15<span>ANOS</span></strong>
+          <strong>+20<span>ANOS</span></strong>
           <span>EDUCANDO</span>
         </div>
 
@@ -450,7 +187,9 @@ botão saiba mais-->
 
     </div>
 
-   
+    <div class="banner-imagem">
+      <img src="IMAGEM/MATRICULAS 2026.png" alt="Alunos do colégio">
+    </div>
 
   </div>
 
@@ -465,10 +204,10 @@ botão saiba mais-->
 
   <!-- Slides -->
   <div class="slider">
-    <div class="slide active" style="background-image: url('IMAGEM/baner/Capturar2.webp');"></div>
-    <div class="slide" style="background-image: url('IMAGEM/baner/Capturar1.webp');"></div>
-    <div class="slide" style="background-image: url('IMAGEM/baner/Capturar3.webp');"></div>
-    <div class="slide" style="background-image: url('IMAGEM/baner/Capturar4.webp');"></div>
+    <div class="slide active" style="background-image: url('IMAGEM/baner/Capturar1.png');"></div>
+    <div class="slide" style="background-image: url('IMAGEM/baner/Capturar2.jpg');"></div>
+    <div class="slide" style="background-image: url('IMAGEM/baner/Capturar3.png');"></div>
+        <div class="slide" style="background-image: url('IMAGEM/baner/Capturar4.png');"></div>
 
   </div>
 
@@ -483,15 +222,13 @@ botão saiba mais-->
   </div>
 
 </section>
-
-
 <!-- ==========================================================
                      MOMENTOS 
 ========================================================== 
 -->
 
 <section id="galeria" class="galeria">
-  <div class="container-galeria">
+  <div class="container">
 <div class="titulo-galeria">
 
 <p class="secao-topo">NOSSO DIA A DIA</p>
@@ -577,7 +314,7 @@ Confira alguns momentos do cotidiano dos nossos alunos
 
 <div class="redes-sociais">
 
-  <a href="https://www.facebook.com/p/Col%C3%A9gio-Progress%C3%A3o-Caruaru-100063212562394/" target="_blank" class="rede facebook">
+  <a href="#" target="_blank" class="rede facebook">
     <span class="icon">
       <!-- Facebook -->
       <svg viewBox="0 0 24 24" fill="currentColor">
@@ -587,7 +324,7 @@ Confira alguns momentos do cotidiano dos nossos alunos
     <span>Siga-nos no Facebook</span>
   </a>
 
-  <a href="https://www.youtube.com/@colegioprogressao7303" target="_blank" class="rede youtube">
+  <a href="#" target="_blank" class="rede youtube">
     <span class="icon">
       <!-- YouTube -->
       <svg viewBox="0 0 24 24" fill="currentColor">
@@ -632,7 +369,7 @@ Confira alguns momentos do cotidiano dos nossos alunos
 ========================================================== 
 !-- -->
  
-<section class="sobre" id="sobre">
+<section id="sobre">
   <div class="titulo-sobre">
 
 <p class="secao-topo">NOSSO COLÉGIO</p>
@@ -651,7 +388,7 @@ união, respeito e autorresponsabilidade.
 
 </div>
 
-    <div class="gridsobre">
+    <div class="grid">
       <div class="card1" >
       <h3 class="">Missão</h3>
       <p> <strong>A missão do Colégio Progressão</strong> 
@@ -661,24 +398,21 @@ união, respeito e autorresponsabilidade.
      pelos processos de conhecimento.</p>       </div>
 
       <div class="card2">
-                <h3>Valores</h3>
-                
-          <p>
-<i class="fa-regular fa-circle-check"></i> Principios Cristãos<br>
-
-<i class="fa-regular fa-circle-check"></i> Responsabilidade<br>
-
-<i class="fa-regular fa-circle-check"></i> Respeito<br>
-
-<i class="fa-regular fa-circle-check"></i> Obediência<br>
-
-<i class="fa-regular fa-circle-check"></i> Lealdade<br>
-
-<i class="fa-regular fa-circle-check"></i> Humildade<br>
-
-<i class="fa-regular fa-circle-check"></i> Honestidade
-</p>
-
+        
+        <h3>Valores</h3>
+        <p> Principios Cristãos<br>
+           <i class="fa-regular fa-circle-check"></i>
+           Responsabilidade<br>
+           <i class="fa-regular fa-circle-check"></i>
+           Respeito <br> 
+           <i class="fa-regular fa-circle-check"></i>
+           Obediência<br>
+           <i class="fa-regular fa-circle-check"></i>
+           Lealdade<br>
+           <i class="fa-regular fa-circle-check"></i>
+           Humildade <br>
+           <i class="fa-regular fa-circle-check"></i>
+           Honestidade
      </div>
 
 
@@ -691,7 +425,7 @@ união, respeito e autorresponsabilidade.
       </div>
 
     </div>
-  
+  </div>
 </section>
 
  <!-- ==========================================================
@@ -705,42 +439,34 @@ união, respeito e autorresponsabilidade.
 
     <div class="grid">
 
-  <div class="cardinf">
-    <img src="IMAGEM/cad/infantil.webp" alt="Educação Infantil">
-
-
-<div class="conteudo">
-  <h3>Educação Infantil</h3>
-  <p>Ensino lúdico e acolhedor, com foco no desenvolvimento cognitivo, social, emocional e espiritual.</p>
-</div>
-
-
+      <div class="cardinf">
+      <img src="IMAGEM/cad/infantil.png" alt="Educação Infantil">
+  
+  <div class="conteudo">
+    <h3>Educação Infantil</h3>
+    <p>Ensino lúdico e acolhedor, com foco no desenvolvimento cognitivo, social, emocional e espiritual.</p>
   </div>
-
-  <div class="cardinf">
-    <img src="IMAGEM/cad/fudI.webp" alt="Fundamental I">
-
-
-<div class="conteudo">
-  <h3>Fundamental I</h3>
-  <p>Base sólida em leitura, escrita, matemática e valores, com metodologias ativas e acompanhamento individual.</p>
 </div>
 
-
-  </div>
-
-  <div class="cardinf">
-    <img src="IMAGEM/cad/fudII.webp" alt="Fundamental II">
-
-<div class="conteudo">
-  <h3>Fundamental II</h3>
-  <p>Preparação acadêmica, pensamento crítico, formação ética e desenvolvimento da autonomia.</p>
-</div>
+      <div class="cardI">
+        <img src="IMAGEM/cad/fudI.jpeg" alt="">
+        <div class="conteudo">
+         
+        <h3>Fundamental I</h3>
+               <p>Base sólida em leitura, escrita, matemática e valores, com metodologias ativas e acompanhamento individual.</p>
+      </div>
+      </div>
 
 
-  </div>
+      <div class="cardII">
+        <img src="IMAGEM/cad/fudII.jpeg" alt="">
+         <div class="conteudo">
+        <h3>Fundamental II</h3>
+                <p>Preparação acadêmica, pensamento crítico, formação ética e desenvolvimento da autonomia.</p>
+      </div>
+      </div>
 
-</div>
+    </div>
   </div>
 
 
@@ -761,7 +487,7 @@ união, respeito e autorresponsabilidade.
     </p>
     <a href="https://wa.me/5581994212337" class="btn-whatsapp">
       <i class="fa-brands fa-whatsapp"></i>
-       Fale Conosco!
+       Fale Conosco pelo WhatsApp
     </a>
   </div>
 
@@ -783,22 +509,23 @@ união, respeito e autorresponsabilidade.
 <section id="contato" class="contato">
   <div class="container footer-grid">
 
-    <div class="contato-box">
-      <h3>Contato</h3><br>
+    <div class="footer-box">
+      <h3>Contato</h3>
       <p><i class="fas fa-phone"></i> (81) 99421-2337</p>
-      <p><i class="fas fa-envelope"></i> reservadevagascolegioprogressao@gmail.com</p>
+      <p><i class="fas fa-envelope"></i> contato@escolacrista.com.br</p>
     </div>
 
-    <div class="endereco-box">
-      <h3>Endereço</h3><br>
-      <p><i class="fas fa-map-marker-alt"></i> Rua Capitão Nilo Ferreira da Costa,nº 180 <br>
-       Salgado - Caruaru / PE - CEP: 55019-365</p>
+    <div class="footer-box">
+      <h3>Endereço</h3>
+      <p><i class="fas fa-map-marker-alt"></i> Rua Capitão Nilo Ferreira da Costa, <br> nº 180 - Salgado - Caruaru / PE</p>
+      
+      <p>CEP: 55019-365</p>
     </div>
 
-    <div class="atendimento-box">
-      <h3>Atendimento</h3><br>
-      <p><i class="far fa-clock"></i> Manhã 7:30 às 11:30</p>
-      <p><i class="far fa-clock"></i> Tarde 13:30 às 17:30</p>
+    <div class="footer-box">
+      <h3>Atendimento</h3>
+      <p><i class="far fa-clock"></i> Seg a Sex: 07h às 17h</p>
+      <p>Sábado: 08h às 12h</p>
     </div>
 
   </div>

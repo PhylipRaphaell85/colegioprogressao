@@ -1,279 +1,331 @@
-/* menur */
-
+/* ================= HEADER SCROLL ================= */
 const header = document.querySelector('header');
 
 window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 80);
+  if(header){
+    header.classList.toggle('scrolled', window.scrollY > 80);
+  }
 });
 
-
-/* menur  HAMBURGUE */
-
+/* ================= MENU HAMBURGUER ================= */
 const menuToggle = document.getElementById("menu-toggle");
 const nav = document.getElementById("nav");
-const links = document.querySelectorAll("nav a");
 
-menuToggle.addEventListener("click", () => {
-  menuToggle.classList.toggle("active");
-  nav.classList.toggle("active");
-});
+if(menuToggle && nav){
+  const links = document.querySelectorAll("#nav a");
 
-links.forEach(link => {
-  link.addEventListener("click", () => {
-    menuToggle.classList.remove("active");
-    nav.classList.remove("active");
+  menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    nav.classList.toggle("active");
   });
-});
 
-
-  // Fecha ao clicar em link
-  document.querySelectorAll('#menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      toggle.classList.remove('active');
-      menu.classList.remove('active');
+  links.forEach(link => {
+    link.addEventListener("click", () => {
+      menuToggle.classList.remove("active");
+      nav.classList.remove("active");
     });
   });
-
-//  =================FUNCAO BOTOES GARANTA SUA VAGA, SOU ALUDO , HORARIO===============
-
-//  =================SOU ALUNO===============
-
-let turmaSelecionada=""
-let tamanhoSelecionado=""
-
-const dados={
-
-"Maternal":{livro:120,farda:{P:80,M:90,G:100},lista:"listas/maternal.pdf"},
-"Maternal II":{livro:130,farda:{P:85,M:95,G:105},lista:"listas/maternal2.pdf"},
-"Infantil":{livro:150,farda:{P:90,M:100,G:110},lista:"listas/infantil.pdf"},
-"Fundamental I":{livro:180,farda:{P:100,M:110,G:120},lista:"listas/fund1.pdf"},
-"Fundamental II":{livro:220,farda:{P:110,M:120,G:130},lista:"listas/fund2.pdf"}
 }
 
-function abrirJanelaAluno(){
-document.getElementById("janela-ja-aluno").style.display="flex"
+/* ================= BOTÃO SOU ALUNO ================= */
+const openJanelaBtn = document.getElementById('openjanela'); 
+const janela = document.getElementById('janelaAluno');
+const closeJanelaBtn = document.getElementById('closeJanela');
+
+if(openJanelaBtn && janela){
+  openJanelaBtn.addEventListener('click', () => {
+    janela.style.display = 'flex';
+  });
 }
 
-function fecharJanela(id){
-document.getElementById(id).style.display="none"
+if(closeJanelaBtn){
+  closeJanelaBtn.addEventListener('click', () => {
+    janela.style.display = 'none';
+  });
 }
 
-function abrirMaterial(turma){
-turmaSelecionada=turma
-fecharJanela("janela-ja-aluno")
-document.getElementById("janela-material").style.display="flex"
-document.getElementById("tituloTurma").innerText=turma
-document.getElementById("precoLivro").innerText="Livro R$ "+dados[turma].livro + ",00"
+window.addEventListener('click', (e) => {
+  if (e.target === janela) janela.style.display = 'none';
+});
 
+/* ================= CATALOGO FARDAMENTO ================= */
+function abrirCatalogo(){
+  document.getElementById("catalogoModal").style.display = "flex";
 }
 
-function selecionarTamanho(event,tamanho){
-tamanhoSelecionado=tamanho
-document.querySelectorAll(".tamanhos button")
-.forEach(btn=>btn.classList.remove("active"))
-event.target.classList.add("active")
-
-let preco=dados[turmaSelecionada].farda[tamanho]
-document.getElementById("precoFarda").innerHTML = "Fardamento<br>R$" + preco + ",00";
+function fecharCatalogo(){
+  document.getElementById("catalogoModal").style.display = "none";
 }
 
-function falarSecretaria(){
+const precos = {
+  camisa:{ "02-06":70,"08-12":80,"14+":90 },
+  camiseta:{ "02-06":70,"08-12":80,"14+":90 },
+  jardineira:{ "02-06":70,"08-12":80,"14+":90 },
+  casaco:{ "02-06":90,"08-12":100,"14+":130 },
+  calca:{ "02-06":70,"08-12":80,"14+":90 },
+  short:{ "02-06":70,"08-12":80,"14+":90 },
+  meia:{ "02-06":20,"08-12":30,"14+":30 },
+  shortsaia:{ "02-06":70,"08-12":80,"14+":90 }
+};
 
-  if(!tamanhoSelecionado){
-alert("Escolha o tamanho do fardamento")
-return
+let tipoAtual = "";
+
+function abrirModalCatalogo(tipo, card){
+  tipoAtual = tipo;
+
+  const img = card.querySelector("img").src;
+  document.getElementById("imgProduto").src = img;
+
+  document.getElementById("tituloProduto").innerHTML =
+    tipo.charAt(0).toUpperCase() + tipo.slice(1) + " Escolar";
+
+  document.getElementById("precoProduto").innerHTML = "";
+  document.getElementById("idadeProduto").value = "";
+
+  document.getElementById("modal-catalogo").style.display = "flex";
 }
 
-let precoLivro=dados[turmaSelecionada].livro
-let precoFarda=dados[turmaSelecionada].farda[tamanhoSelecionado]
-let mensagem=`Olá, gostaria de adquirir o material escolar.
-
-Turma: ${turmaSelecionada}
-Livro: R$ ${precoLivro}
-Fardamento
-Tamanho: ${tamanhoSelecionado}
-Preço: R$ ${precoFarda}`
-
-let url="https://wa.me/5581993954032?text="+encodeURIComponent(mensagem)
-93954032
-window.open(url)
-
+function fecharModalCatalogo(){
+  document.getElementById("modal-catalogo").style.display = "none";
 }
 
-function baixarLista(){
-window.open(dados[turmaSelecionada].lista)
+function atualizarPreco(){
+  const idade = document.getElementById("idadeProduto").value;
+  const precoDiv = document.getElementById("precoProduto");
+  const whats = document.getElementById("btnWhats");
+
+  if (idade && tipoAtual && precos[tipoAtual][idade]){
+    const valor = precos[tipoAtual][idade];
+
+    precoDiv.innerHTML = `Preço: <b>R$${valor},00</b>`;
+
+    whats.href = `https://wa.me/5581993954032?text=Olá, gostaria de informações sobre ${tipoAtual} (${idade}) - R$${valor},00`;
+  }
 }
 
-//  =================FIM BOTAO SOU ALUDO ===============
+/* ================= CATALOGO LIVROS ================= */
+const kits = {
+  // Maternal
+  maternal1: {
+    nome: "Maternal I",
+    preco: "R$550,00",
+    img: "livros/livro horizontal.jpg",
+    livros: ["Livro integrado","Kit C","Religião","Agenda"]
+  },
+  maternal2: {
+    nome: "Maternal II",
+    preco: "R$550,00",
+    img: "https://via.placeholder.com/150",
+    livros: ["Livro integrado","Kit C","Religião","Agenda"]
+  },
+
+  // Infantil
+  infantil1: {
+    nome: "Infantil I",
+    preco: "R$300",
+    img: "livros/INFANTIL 1.png",
+    livros: ["Português","Matemática"]
+  },
+  infantil2: {
+    nome: "Infantil II",
+    preco: "R$310",
+    img: "https://via.placeholder.com/150",
+    livros: ["Português","Matemática"]
+  },
+
+  // Fundamental 1
+  "fund1-1": {
+    nome: "1º Ano - Fundamental 1",
+    preco: "R$400,00",
+    img: "livros/fund1-1.png",
+    livros: ["Português","Matemática","Ciências"]
+  },
+  "fund1-2": {
+    nome: "2º Ano - Fundamental 1",
+    preco: "R$420,00",
+    img: "livros/fund1-2.png",
+    livros: ["Português","Matemática","Ciências","História"]
+  },
+  "fund1-3": {
+    nome: "3º Ano - Fundamental 1",
+    preco: "R$430,00",
+    img: "livros/fund1-3.png",
+    livros: ["Português","Matemática","Ciências","História","Geografia"]
+  },
+  "fund1-4": {
+    nome: "4º Ano - Fundamental 1",
+    preco: "R$440,00",
+    img: "livros/fund1-4.png",
+    livros: ["Português","Matemática","Ciências","História","Geografia","Inglês"]
+  },
+  "fund1-5": {
+    nome: "5º Ano - Fundamental 1",
+    preco: "R$450,00",
+    img: "livros/fund1-5.png",
+    livros: ["Português","Matemática","Ciências","História","Geografia","Inglês","Arte"]
+  },
+
+  // Fundamental 2
+  "fund2-6": {
+    nome: "6º Ano - Fundamental 2",
+    preco: "R$500,00",
+    img: "livros/fund2-6.png",
+    livros: ["Português","Matemática","Ciências","História","Geografia","Inglês"]
+  },
+  "fund2-7": {
+    nome: "7º Ano - Fundamental 2",
+    preco: "R$510,00",
+    img: "livros/fund2-7.png",
+    livros: ["Português","Matemática","Ciências","História","Geografia","Inglês","Arte"]
+  },
+  "fund2-8": {
+    nome: "8º Ano - Fundamental 2",
+    preco: "R$520,00",
+    img: "livros/fund2-8.png",
+    livros: ["Português","Matemática","Ciências","História","Geografia","Inglês","Arte","Educação Física"]
+  },
+  "fund2-9": {
+    nome: "9º Ano - Fundamental 2",
+    preco: "R$530,00",
+    img: "livros/fund2-9.png",
+    livros: ["Português","Matemática","Ciências","História","Geografia","Inglês","Arte","Educação Física","Redação"]
+  }
+};
+
+// Função para fechar o modal de anos
+function fecharAnos() {
+  document.getElementById("modalAnos").style.display = "none";
+}
+
+
+function abrirCategorias(){
+  document.getElementById("modalCategorias").style.display="flex";
+  document.getElementById("modalAnos").style.display="none";
+}
+
+function fecharCategorias(){
+  document.getElementById("modalCategorias").style.display="none";
+}
+
+function abrirAnos(cat){
+  categoriaAtual = cat;
+  let grid = document.getElementById("gridAnos");
+  grid.innerHTML = "";
+
+  
+  if(cat==="maternal"){
+    grid.innerHTML += `
+    <div class="card" onclick="abrirProduto('maternal1')"><p>Maternal I</p></div>
+    <div class="card" onclick="abrirProduto('maternal2')"><p>Maternal II</p></div>`;
+  }
+
+  if(cat==="infantil"){
+    grid.innerHTML += `
+    <div class="card" onclick="abrirProduto('infantil1')"><p>Infantil I</p></div>
+    <div class="card" onclick="abrirProduto('infantil2')"><p>Infantil II</p></div>`;
+  }
+
+if(cat=="fund1"){
+  for(let i=1;i<=5;i++){
+    grid.innerHTML += `<div class="card" onclick="abrirProduto('fund1-${i}')"><p>${i}º Ano</p></div>`;
+  }
+}
+
+if(cat=="fund2"){
+  for(let i=6;i<=9;i++){
+    grid.innerHTML += `<div class="card" onclick="abrirProduto('fund2-${i}')"><p>${i}º Ano</p></div>`;
+  }
+}
+  
+  document.getElementById("modalCategorias").style.display="none";
+  document.getElementById("modalAnos").style.display="flex";
 
 
 
-/*  cad horario */
+
+
+  
+}
+
+function abrirProduto(id){
+  let kit = kits[id];
+
+  document.getElementById("nomeKit").innerText = kit.nome;
+  document.getElementById("precoKit").innerText = kit.preco;
+  document.getElementById("imagemKit").src = kit.img;
+
+  let lista = "";
+  kit.livros.forEach(l => lista += "• " + l + "<br>");
+
+  document.getElementById("listaLivros").innerHTML = lista;
+
+  document.getElementById("modalAnos").style.display="none";
+  document.getElementById("modalProduto").style.display="flex";
+}
+
+function fecharProduto(){
+  document.getElementById("modalProduto").style.display="none";
+}
+
+function voltarAnos(){
+  document.getElementById("modalProduto").style.display="none";
+  document.getElementById("modalAnos").style.display="flex";
+}
+
+/* ================= WHATSAPP COMPRA ================= */
+function comprar(){
+  let nome = document.getElementById("nomeKit").innerText;
+  let preco = document.getElementById("precoKit").innerText;
+
+  let livros = document.getElementById("listaLivros").innerHTML
+    .replace(/<br>/g,"\n");
+
+  let msg = `Olá, quero este kit:\n${nome}\n${preco}\n${livros}`;
+
+  window.open("https://wa.me/5581993954032?text="+encodeURIComponent(msg));
+}
+
+/* ================= MODAL HORARIO ================= */
 function abrirHorario(){
-document.getElementById("modalHorario").style.display="flex";
+  document.getElementById("modalHorario").style.display="flex";
 }
 
 function fecharHorario(){
-document.getElementById("modalHorario").style.display="none";
+  document.getElementById("modalHorario").style.display="none";
 }
 
-window.onclick = function(event){
-let modal = document.getElementById("modalHorario");
-
-if(event.target == modal){
-modal.style.display = "none";
-}
-}
-
-
-/*  fomularios */
-
-// Abre o popup
-function abrirFormulario(){
-    document.getElementById("popup-formulario").style.display = "flex";
-}
-
-// Fecha o popup
-function fecharFormulario(){
-    document.getElementById("popup-formulario").style.display = "none";
-}
-
-// Mostra/esconde o campo de "Qual acessibilidade?"
-function mostrarAcessibilidade(){
-    var acessibilidade = document.getElementById("acessibilidade").value;
-    var campo = document.getElementById("campo-acessibilidade");
-
-    if(acessibilidade === "Sim"){
-        campo.style.display = "block";
-    } else {
-        campo.style.display = "none";
-    }
-}
-
-//  =================FIM BOTAO HORARIO ===============
-
-// Enviar formulário
-
-
-// ==================== ABRIR/FECHAR POPUP ====================
-const btnAbrir = document.getElementById("btnAbrir");
-const btnFechar = document.getElementById("btnFechar");
+/* ================= FORMULARIO ================= */
 const popup = document.getElementById("popup-formulario");
-const btnEnviar = document.getElementById("btnEnviar");
 
-// Abre o popup
-btnAbrir.addEventListener("click", () => {
-    popup.style.display = "flex";
-});
-
-// Fecha o popup e limpa tudo
-btnFechar.addEventListener("click", fecharFormulario);
-
-function fecharFormulario() {
-    popup.style.display = "none";
-
-    // Limpa todos os campos do formulário
-    document.getElementById("formMatricula").reset();
-
-    // Esconde o campo de acessibilidade condicional
-    document.getElementById("campo-acessibilidade").style.display = "none";
-
-    // Esconde mensagens de sucesso e erro
-    document.getElementById("mensagem-sucesso").style.display = "none";
-    document.getElementById("mensagem-erro").style.display = "none";
+function abrirFormulario(){
+  popup.style.display="flex";
 }
 
-// ==================== CAMPO ACESSIBILIDADE ====================
-document.getElementById("acessibilidade").addEventListener("change", mostrarAcessibilidade);
-
-function mostrarAcessibilidade() {
-    const acessibilidade = document.getElementById("acessibilidade").value;
-    document.getElementById("campo-acessibilidade").style.display = (acessibilidade === "Sim") ? "block" : "none";
+function fecharFormulario(){
+  popup.style.display="none";
+  document.getElementById("formMatricula").reset();
 }
 
-// ==================== ENVIO DE FORMULÁRIO ====================
-
-// Inicializa EmailJS
-(function(){
-    emailjs.init("SUA_PUBLIC_KEY"); // Substitua pela sua Public Key
-})();
-
-btnEnviar.addEventListener("click", enviarFormulario);
-
-function enviarFormulario() {
-    const responsavel = document.getElementById("responsavel").value.trim();
-    const aluno = document.getElementById("aluno").value.trim();
-    const serie = document.getElementById("serie").value.trim();
-    const telefone = document.getElementById("telefone").value.trim();
-    const acessibilidade = document.getElementById("acessibilidade").value.trim();
-    const qualAcessibilidade = document.getElementById("qualAcessibilidade").value.trim();
-    const erro = document.getElementById("mensagem-erro");
-    const sucesso = document.getElementById("mensagem-sucesso");
-
-    // VALIDAÇÃO
-    if(!responsavel || !aluno || !serie || !telefone || !acessibilidade){
-        erro.style.display = "block";
-        erro.innerHTML = "⚠️ Por favor, preencha todos os campos obrigatórios.";
-        return;
-    }
-    if(acessibilidade === "Sim" && !qualAcessibilidade){
-        erro.style.display = "block";
-        erro.innerHTML = "⚠️ Por favor, informe qual acessibilidade do aluno.";
-        return;
-    }
-
-    erro.style.display = "none";
-
-    // WHATSAPP
-    const mensagem =
-    `*NOVA PRÉ-MATRÍCULA 2026*\n\nResponsável: ${responsavel}\nAluno: ${aluno}\nSérie: ${serie}\nAcessibilidade: ${acessibilidade}\nTipo: ${qualAcessibilidade}\nTelefone: ${telefone}`;
-    const numero = "5581994212337";
-    window.open("https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem), "_blank");
-
-    // EMAILJS
-    const templateParams = { responsavel, aluno, serie, acessibilidade, tipo_acessibilidade: qualAcessibilidade, telefone };
-    emailjs.send("SEU_SERVICE_ID","SEU_TEMPLATE_ID",templateParams)
-        .then(() => console.log("Email enviado com sucesso!"));
-
-    sucesso.style.display = "block";
-    sucesso.innerHTML = "✅ Pré-matrícula enviada com sucesso!";
-
-    // Limpeza após envio
-    document.getElementById("formMatricula").reset();
-    document.getElementById("campo-acessibilidade").style.display = "none";
-
-    // Fecha popup automaticamente após 3 segundos
-    setTimeout(() => {
-        popup.style.display = "none";
-        sucesso.style.display = "none";
-    }, 3000);
-}
-
-//  =================FIM FUNCAO BOTOES GARANTA SUA VAGA, SOU ALUDO , HORARIO===============
-
-
-
-/* baner slides */
-const slides = document.querySelectorAll(".slide");
+/* ================= SLIDE ================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".slide");
   let index = 0;
 
-  function trocarSlide() {
-    slides[index].classList.remove("active");
-    index = (index + 1) % slides.length;
-    slides[index].classList.add("active");
+  if(slides.length > 0){
+    setInterval(() => {
+      slides.forEach(s => s.classList.remove("active"));
+      slides[index].classList.add("active");
+      index = (index + 1) % slides.length;
+    }, 5000);
   }
+});
 
-  setInterval(trocarSlide,90000); // troca a cada 4 segundos
-
-
-/* zomm cad momentos */
-
-
-function abrirGaleriaModal(src) {
-  document.getElementById("galeriaModal").style.display = "flex";
-  document.getElementById("galeriaModalImg").src = src;
+/* ================= GALERIA ================= */
+function abrirGaleriaModal(src){
+  document.getElementById("galeriaModal").style.display="flex";
+  document.getElementById("galeriaModalImg").src=src;
 }
 
-function fecharGaleriaModal() {
-  document.getElementById("galeriaModal").style.display = "none";
+function fecharGaleriaModal(){
+  document.getElementById("galeriaModal").style.display="none";
 }
