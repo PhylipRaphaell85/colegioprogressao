@@ -1941,7 +1941,7 @@ box-shadow:0 10px 25px rgba(0,0,0,0.08);
 cursor:pointer;
 transition:all .35s ease;
 position:relative;
-border:9px solid #fff; /* 2px * 1.4 */
+  border:9px solid #fff; /* 2px * 1.4 */
 
 }
 
@@ -3007,7 +3007,7 @@ background:white;
 color:black;
 padding:6px; /* antes 10px */
 border-radius:7px; /* antes 12px */
-max-width:180px; /* 40% menor que 300px */
+max-width:250px; /* 40% menor que 300px */
 width:90%;
 position:absolute;
 top:50%;
@@ -3031,14 +3031,16 @@ gap:8px;
 }
 
 /* imagem card */
-.cardlivros img{
-height:90px;
-}
+
 
 /* modal anos */
 .modal-ano{
 max-width:280px;
 padding:15px;
+
+}
+.modal-ano p {
+  color: orangered;
 }
 
 /* produto modal */
@@ -3261,10 +3263,15 @@ width:100%;
 /* ================= MODAL BOX / CATALOGO ================= */
 .modal-box {
     max-width: 490px;
-    width: 70%;
+    width: 75%;
     padding: 21px;
     font-size: 14px;
 }
+
+.cardlivros p {
+  color: orange;
+}
+
 
 .modal-grid {
     grid-template-columns: 1fr;
