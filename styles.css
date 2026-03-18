@@ -1941,6 +1941,7 @@ box-shadow:0 10px 25px rgba(0,0,0,0.08);
 cursor:pointer;
 transition:all .35s ease;
 position:relative;
+border:9px solid #fff; /* 2px * 1.4 */
 
 }
 
