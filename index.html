@@ -41,7 +41,7 @@
   <nav class="menu" id="nav">
     <a href="#">Início</a>
     <a href="#galeria">Momentos</a>
-    <a href="#sobre">Projetos</a>
+    <a href="">Projetos</a>
     <a href="#sobre">Sobre</a>
     <a href="#contato">Contato</a>
     <a href="#" class="btn-matricula" onclick="abrirFormulario()">Matrícula 2027</a>
@@ -165,9 +165,10 @@ botão garanta sua vaga-->
 
 <input type="tel" id="telefone" placeholder="Telefone para contato" required>
 
-<button type="button" onclick="enviarFormulario()">
+<button type="button"id="btnEnviar">
 Enviar Pré-Matrícula
 </button>
+
 
 <p id="mensagem-sucesso"></p>
 <p id="mensagem-erro"></p>
@@ -181,7 +182,7 @@ Enviar Pré-Matrícula
           botão  ÁREA DO ALUNO
 ========================================= -->
 <div class="painelaluno">
-  <a class="btn btn-main" id="openJanela">Nossa Loja</a>
+  <a class="btn btn-main" id="openJanela">NOSSA LOJA</a>
 </div>
 
 <div class="janela" id="janelaAluno">
@@ -255,7 +256,7 @@ botão saiba mais-->
 
 <h3>Ensino Fundamental II</h3>
 
-<p>Turmas apenas no turno da manhã</p>
+<p><strong>Turmas apenas </strong></p>
 <p><strong>Manhã:</strong> 07h30 às 11h50</p>
 
 </div>
@@ -464,6 +465,93 @@ Confira alguns momentos do cotidiano dos nossos alunos
 <div id="galeriaModal" class="galeria-modal" onclick="fecharGaleriaModal()">
   <img id="galeriaModalImg">
 </div>
+<!-- ==========================================================
+                     PROJETOS  
+========================================================== 
+!-- -->
+
+<section class="card-projetos">
+
+  <!-- TÍTULO -->
+  <div class="titulo-projeto">
+    <div class="titulo-wrapper">
+      <h2 class="titulo-projeto-principal">Nossos Projetos</h2>
+      <div class="linha-projeto"></div>
+    </div>
+  </div>
+
+  <!-- CARDS -->
+  <div class="cards-container">
+
+    <div class="projeto-card" onclick="abrirModal('Crencendo com Cristo','Tem  como  objetivo conduzir  os  alunos  ao  desenvolvimento  espiritual  e  moralatravés  de  experiências  mensais  que  apresentam  virtudes fundamentais da vida cristã.'
+    ,'projetos/card_1.png','projetos/CRESCENDO COM CRISTO  2026 - Colégio Progressão 2.pdf')">
+      <img src="projetos/teste.jpeg">
+      <div class="nome-projeto">Crencendo com Cristo</div>
+    </div>
+
+    <div class="projeto-card" onclick="abrirModal('Alimentação Saudável',
+    ' O Projeto Alimentação Saudável tem como objetivo conscientizar os alunos  sobre a importância de cuidar do corpo como um presente de Deus, promovendo hábitos alimentares equilibrados e responsáveis. '
+    ,'projetos/card_2.png','projetos/Projeto Alimentação.pdf')">
+      <img src="projetos/alimentacao.webp">
+      <div class="nome-projeto">Alimentação Saudável</div>
+    </div>
+
+    <div class="projeto-card" onclick="abrirModal('Pequeno Empreendedor',
+    'O Projeto Família Empreendedora tem como objetivo fortalecer a parceria entre escola e família por meio da valorização dos empreendimentos desenvolvidos pelos responsáveis dos alunos do Colégio Progressão.'
+    ,'projetos/card_3.png','projetos/Projeto Pequeno Empreendedor.pdf')">
+      <img src="projetos/empre.webp">
+      <div class="nome-projeto">Pequeno Empreendedor  </div>
+    </div>
+
+    <div class="projeto-card destaque" onclick="abrirModal('5 Destinos, uma só língua'
+    ,' O Projeto “5 Destinos, Uma Só Língua” é uma proposta pedagógica desenvolvida exclusivamente para os alunos do Ensino Fundamental II do Colégio Progressão, com o objetivo de ampliar a visão de mundo, o repertório cultural e o interesse pelo aprendizado da língua inglesa.'
+    ,'projetos/card_4.png','projetos/5 Destinos, uma só língua.pdf')">
+      <img src="projetos/destinos.webp">
+      <div class="nome-projeto">5 Destinos, uma só língua</div>
+    </div>
+
+    <div class="projeto-card" onclick="abrirModal('Inclusão',
+    ' O Projeto Inclusão tem como objetivo promover  uma cultura de respeito, empatia e valorização das diferenças, reconhecendo que cada pessoa foi criada por Deus de forma única e admirável. A inclusão é mais do que um direito, é um princípio bíblico e humano que reflete o amor de Cristo, que acolhe a todos sem distinção.'
+    ,'projetos/card_5.png','projetos/Inclusão.pdf')">
+      <img src="projetos/inclusao.webp">
+      <div class="nome-projeto">Inclusão</div>
+    </div>
+
+    <div class="projeto-card" onclick="abrirModal('Projeto Emoções',
+    'O Projeto Emoções tem como propósito conduzir os alunos  a compreenderem que Deus nos criou com emoções e sentimentos que fazem parte da nossa humanidade e foram planejados para refletir o Seu caráter e o Seu amor. ',
+    'projetos/card_6.png','projetos/Emoções 2026.pdf')">
+      <img src="projetos/emocoes.webp">
+      <div class="nome-projeto">Projeto Emoções </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-projetos" id="modal">
+  <div class="modal-projetos-content">
+    <span class="fechar-pr" onclick="fecharModal()">×</span>
+    <img id="modal-img">
+    <h3 id="modal-titulo"></h3>
+    <p id="modal-desc"></p>
+    <button onclick="irProjeto()">Baixar Projeto</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- ==========================================================
@@ -493,11 +581,8 @@ união, respeito e autorresponsabilidade.
     <div class="gridsobre">
       <div class="card1" >
       <h3 class="">Missão</h3>
-      <p> <strong>A missão do Colégio Progressão</strong> 
-     é proporcionar aos nossos alunos uma educação e ensino de 
-     qualidade com condições adequadas para promover o seu bem-estar,
-    ampliando assim as suas experiências e estimulando o seu interesse 
-     pelos processos de conhecimento.</p>       </div>
+      <p> <strong> Proporcionar </strong>aos nossos alunos uma educação de qualidade, em um ambiente adequado que promova o bem-estar,
+     ampliando suas experiências e estimulando o interesse pelos processos de aprendizagem.</p>       </div>
 
       <div class="card2">
                 <h3>Valores</h3>
@@ -529,6 +614,13 @@ união, respeito e autorresponsabilidade.
         </p>
       </div>
 
+ <div class="card1" >
+      <h3 class="">Seguro Escolar</h3>
+      <p> <strong>
+       Seguro que oferece cobertura 24 horas </strong>
+        para acidentes ocorridos durante atividades escolares, 
+        tanto no ambiente interno quanto externo, abrangendo também acidentes domésticos.
+    </p>       </div>
     </div>
   
 </section>
@@ -537,52 +629,48 @@ união, respeito e autorresponsabilidade.
                      Card NIVEIS DE ENSINO  
 ========================================================== 
 !-- -->
-
 <section id="ensino">
   <div class="nivel_ensino">
     <h2>Níveis de Ensino</h2> 
 
     <div class="grid">
 
-  <div class="cardinf">
-    <img src="IMAGEM/cad/infantil.png" alt="Educação Infantil">
+      <div class="cardinf">
+        <img src="IMAGEM/cad/maternal.jpeg" alt="Maternal">
+        <div class="conteudo">
+          <h3>Maternal</h3>
+          <p>É a primeira etapa da educação básica,  e a escola tem o papel
+              de acompanhar integralmente o desenvolvimento de cada criança
+                em uma de suas fases mais importantes</p>
+        </div>
+      </div>
 
+      <div class="cardinf">
+        <img src="IMAGEM/cad/infantil.png" alt="Educação Infantil">
+        <div class="conteudo">
+          <h3>Infantil I e II</h3>
+          <p>Ensino lúdico e acolhedor, com foco no desenvolvimento cognitivo, social, emocional e espiritual.</p>
+        </div>
+      </div>
 
-<div class="conteudo">
-  <h3>Educação Infantil</h3>
-  <p>Ensino lúdico e acolhedor, com foco no desenvolvimento cognitivo, social, emocional e espiritual.</p>
-</div>
+      <div class="cardinf">
+        <img src="IMAGEM/cad/fudI.jpeg" alt="Fundamental I">
+        <div class="conteudo">
+          <h3>Fundamental I</h3>
+          <p>Base sólida em leitura, escrita, matemática e valores, com metodologias ativas e acompanhamento individual.</p>
+        </div>
+      </div>
 
+      <div class="cardinf">
+        <img src="IMAGEM/cad/fudII.jpeg" alt="Fundamental II">
+        <div class="conteudo">
+          <h3>Fundamental II</h3>
+          <p>Preparação acadêmica, pensamento crítico, formação ética e desenvolvimento da autonomia.</p>
+        </div>
+      </div>
 
+    </div>
   </div>
-
-  <div class="cardinf">
-    <img src="IMAGEM/cad/fudI.jpeg" alt="Fundamental I">
-
-
-<div class="conteudo">
-  <h3>Fundamental I</h3>
-  <p>Base sólida em leitura, escrita, matemática e valores, com metodologias ativas e acompanhamento individual.</p>
-</div>
-
-
-  </div>
-
-  <div class="cardinf">
-    <img src="IMAGEM/cad/fudII.jpeg" alt="Fundamental II">
-
-<div class="conteudo">
-  <h3>Fundamental II</h3>
-  <p>Preparação acadêmica, pensamento crítico, formação ética e desenvolvimento da autonomia.</p>
-</div>
-
-
-  </div>
-
-</div>
-  </div>
-
-
 </section>
 
  <!-- ==========================================================
@@ -599,7 +687,7 @@ união, respeito e autorresponsabilidade.
       através da educação e dos valores cristãos.
     </p>
     <a href="https://wa.me/5581994212337" class="btn-whatsapp">
-       Preencha o Forumulario!
+       Preencha o Formulário!
     </a>
   </div>
 
