@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loja do Aluno</title>
+
+<link rel="stylesheet" href="loja.css">
+
+</head>
+<body>
+
+<header class="topo">
+
+  <!-- ESQUERDA -->
+  <div class="left">
+    <img src="logo-colegio.png" class="logo">
+      <p class="titulo">
+    Colégio Progressão <br>
+    <span>Educação Infantil, Fundamental I e Fundamental II</span>
+  </p>
+  
+  </div>
+
+  <!-- CENTRO -->
+  <div class="center">
+    <h1>Loja do Aluno</h1>
+
+    <nav class="menu">
+      <a href="../index.html">Início</a>
+      <a href="../index.html#galeria">Momentos</a>
+      <a href="#">Projetos</a>
+      <a href="../index.html#sobre">Sobre</a>
+      <a href="index.htmlcontato">Contato</a>
+    </nav>
+  </div>
+
+</header>
+
+
+<!-- 🛒 CARRINHO FIXO -->
+<div id="btnCarrinhoTopo" class="icone-carrinho">
+  🛒
+  <span id="contadorCarrinho" class="contador">0</span>
+</div>
+
+
+<main class="container">
+
+    <p id="mensagemInicial">Escolha uma categoria</p>
+
+    <div class="abas">
+        <button class="aba-btn active" data-aba="livros">Livros</button>
+        <button class="aba-btn" data-aba="fardamentos">Fardamentos</button>
+    </div>
+
+    <div id="conteudo-abas">
+
+        <!-- LIVROS -->
+        <div class="aba conteudo-livros active">
+            <div class="grid-livro" id="gridLivros"></div>
+        </div>
+
+        <!-- FARDAMENTOS -->
+        <div class="aba conteudo-fardamentos">
+            <div class="grid-fardamento" id="gridFardamentos"></div>
+        </div>
+
+    </div>
+
+</main>
+
+<!-- 🛒 CARRINHO LATERAL -->
+<div id="carrinho" class="carrinho">
+    <h3>Carrinho</h3>
+
+    <div id="itensCarrinho"></div>
+    <div id="totalCarrinho"></div>
+
+    <div class="botoes-carrinho">
+        <button id="btnWhatsCarrinho" class="btn-whats">Pagar WhatsApp</button>
+        <button id="btnCartao" class="btn-cartao">Pagar Cartão</button>
+    </div>
+</div>
+
+<div id="mensagem" class="mensagem">Item adicionado!</div>
+
+<script src="loja.js"></script>
+
+</body>
+</html>
