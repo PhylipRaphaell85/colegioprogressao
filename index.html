@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Colégio Progressao</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,15 +84,11 @@
 
 
 </div>
-      <h1>
-        Colégio <br>
-        <strong>Progressão</strong>
-      </h1>
-
+     
       <h3>DO MARTENAL AO 9º ANO</h3>
 
       <p>
-        Educação de qualidade com princípios cristãos<br>
+        Educação de qualidade com princípios cristãos
         que transformam positivamente  a vida dos estudantes.
       </p>
 
@@ -199,43 +196,28 @@ botão saiba mais-->
 <a href="#" class="btn btn-saiba" onclick="abrirHorario()">NOSSOS HORÁRIOS</a>
 
 
-
 <div id="modalHorario" class="modal-horario">
-
 <div class="modal-box">
-
 <span class="fecha" onclick="fecharHorario()">✕</span>
-
 <h2 class="titulo-modal">Horário das Aulas</h2>
-
 <div class="horarios-grid">
 
 <div class="horario-card">
 <div class="icone">⏰</div>
-
 <h3>Ed. Infantil e Fundamental I</h3>
-
 <p><strong>Manhã:</strong> 07h30 às 11h30</p>
 <p><strong>Tarde:</strong> 13h30 às 17h30</p>
-
 </div>
 
 
 <div class="horario-card">
-
 <div class="icone">📚</div>
-
 <h3>Ensino Fundamental II</h3>
-
 <p><strong>Turmas apenas </strong></p>
 <p><strong>Manhã:</strong> 07h30 às 11h50</p>
-
 </div>
-
 </div>
-
 </div>
-
 </div>
 
 
@@ -260,9 +242,6 @@ botão saiba mais-->
       </div>
 
     </div>
-
-   
-
   </div>
 
 </section>
@@ -436,6 +415,66 @@ Confira alguns momentos do cotidiano dos nossos alunos
 <div id="galeriaModal" class="galeria-modal" onclick="fecharGaleriaModal()">
   <img id="galeriaModalImg">
 </div>
+
+<!-- ==========================================================
+                     DEPOIMENTOS  
+========================================================== 
+!-- -->
+
+
+<section class="depoimentos">
+  <h2>Veja o que estão falando de nós</h2>
+
+  <div class="depoimentos-container">
+
+    <div class="card-depoimento">
+       <svg class="quote" viewBox="0 0 24 24">
+    <path d="M7 7H3v6h6V7H5c0-2 1-3 3-3V2C5 2 3 4 3 7v6h6V7zm14 0h-4v6h6V7h-4c0-2 1-3 3-3V2c-3 0-5 2-5 5v6h6V7z"/>
+  </svg>
+      <p>
+        O atendimento foi incrível! Superou todas as minhas expectativas e com certeza voltarei a utilizar os serviços.
+      </p>
+      <h4>— Maria Silva</h4>
+    </div>
+
+    <div class="card-depoimento">
+       <svg class="quote" viewBox="0 0 24 24">
+    <path d="M7 7H3v6h6V7H5c0-2 1-3 3-3V2C5 2 3 4 3 7v6h6V7zm14 0h-4v6h6V7h-4c0-2 1-3 3-3V2c-3 0-5 2-5 5v6h6V7z"/>
+  </svg>
+      <p>
+        Profissionalismo e qualidade definem essa equipe. Recomendo para qualquer pessoa que busca excelência.
+      </p>
+      <h4>— João Pereira</h4>
+    </div>
+
+    <div class="card-depoimento">
+           <svg class="quote" viewBox="0 0 24 24">
+    <path d="M7 7H3v6h6V7H5c0-2 1-3 3-3V2C5 2 3 4 3 7v6h6V7zm14 0h-4v6h6V7h-4c0-2 1-3 3-3V2c-3 0-5 2-5 5v6h6V7z"/>
+  </svg>
+      <p>
+        Uma experiência diferenciada! Tudo muito bem organizado e com um suporte impecável.
+      </p>
+      <h4>— Ana Costa</h4>
+    </div>
+
+    <div class="card-depoimento">
+            <svg class="quote" viewBox="0 0 24 24">
+    <path d="M7 7H3v6h6V7H5c0-2 1-3 3-3V2C5 2 3 4 3 7v6h6V7zm14 0h-4v6h6V7h-4c0-2 1-3 3-3V2c-3 0-5 2-5 5v6h6V7z"/>
+  </svg>
+      <p>
+        Fiquei impressionado com a dedicação e o cuidado em cada detalhe. Serviço de alto nível!
+      </p>
+      <h4>— Carlos Mendes</h4>
+    </div>
+
+    
+  </div>
+</section>
+
+
+
+
+
 <!-- ==========================================================
                      PROJETOS  
 ========================================================== 
@@ -456,42 +495,36 @@ Confira alguns momentos do cotidiano dos nossos alunos
 
     <div class="projeto-card" onclick="abrirModal('Crencendo com Cristo','Tem  como  objetivo conduzir  os  alunos  ao  desenvolvimento  espiritual  e  moralatravés  de  experiências  mensais  que  apresentam  virtudes fundamentais da vida cristã.'
     ,'projetos/card_1.png','projetos/CRESCENDO COM CRISTO  2026 - Colégio Progressão 2.pdf')">
-      <img src="projetos/teste.jpeg">
       <div class="nome-projeto">Crencendo com Cristo</div>
     </div>
 
     <div class="projeto-card" onclick="abrirModal('Alimentação Saudável',
     ' O Projeto Alimentação Saudável tem como objetivo conscientizar os alunos  sobre a importância de cuidar do corpo como um presente de Deus, promovendo hábitos alimentares equilibrados e responsáveis. '
     ,'projetos/card_2.png','projetos/Projeto Alimentação.pdf')">
-      <img src="projetos/alimentacao.webp">
       <div class="nome-projeto">Alimentação Saudável</div>
     </div>
 
     <div class="projeto-card" onclick="abrirModal('Pequeno Empreendedor',
     'O Projeto Família Empreendedora tem como objetivo fortalecer a parceria entre escola e família por meio da valorização dos empreendimentos desenvolvidos pelos responsáveis dos alunos do Colégio Progressão.'
     ,'projetos/card_3.png','projetos/Projeto Pequeno Empreendedor.pdf')">
-      <img src="projetos/empre.webp">
       <div class="nome-projeto">Pequeno Empreendedor  </div>
     </div>
 
-    <div class="projeto-card destaque" onclick="abrirModal('5 Destinos, uma só língua'
+    <div class="projeto-card " onclick="abrirModal('5 Destinos, uma só língua'
     ,' O Projeto “5 Destinos, Uma Só Língua” é uma proposta pedagógica desenvolvida exclusivamente para os alunos do Ensino Fundamental II do Colégio Progressão, com o objetivo de ampliar a visão de mundo, o repertório cultural e o interesse pelo aprendizado da língua inglesa.'
     ,'projetos/card_4.png','projetos/5 Destinos, uma só língua.pdf')">
-      <img src="projetos/destinos.webp">
       <div class="nome-projeto">5 Destinos, uma só língua</div>
     </div>
 
     <div class="projeto-card" onclick="abrirModal('Inclusão',
     ' O Projeto Inclusão tem como objetivo promover  uma cultura de respeito, empatia e valorização das diferenças, reconhecendo que cada pessoa foi criada por Deus de forma única e admirável. A inclusão é mais do que um direito, é um princípio bíblico e humano que reflete o amor de Cristo, que acolhe a todos sem distinção.'
     ,'projetos/card_5.png','projetos/Inclusão.pdf')">
-      <img src="projetos/inclusao.webp">
       <div class="nome-projeto">Inclusão</div>
     </div>
 
     <div class="projeto-card" onclick="abrirModal('Projeto Emoções',
     'O Projeto Emoções tem como propósito conduzir os alunos  a compreenderem que Deus nos criou com emoções e sentimentos que fazem parte da nossa humanidade e foram planejados para refletir o Seu caráter e o Seu amor. ',
     'projetos/card_6.png','projetos/Emoções 2026.pdf')">
-      <img src="projetos/emocoes.webp">
       <div class="nome-projeto">Projeto Emoções </div>
     </div>
 
@@ -508,17 +541,6 @@ Confira alguns momentos do cotidiano dos nossos alunos
     <button onclick="irProjeto()">Baixar Projeto</button>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

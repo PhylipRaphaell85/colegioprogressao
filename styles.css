@@ -13,7 +13,8 @@
    CONFIGURAÇÕES GERAIS DO SITE
 ========================================================== */
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
+  
+font-family: 'Poppins', sans-serif;
   background-color: #ffffff;
   padding-top: 150px; /* igual altura do header */
   overflow-x: hidden;
@@ -356,69 +357,6 @@ display:block;
 /* ==========================================================
 SEÇÃO DESTAQUE
 ========================================================== */
-.selo-matriculas{
-
-display:inline-flex;
-align-items:center;
-background:linear-gradient(180deg,#ffa726,#ff7a00);
-padding:12px 28px 12px 55px;
-border-radius:10px;
-color:white;
-font-weight:bold;
-position:relative;
-box-shadow:0 8px 20px rgba(0,0,0,0.25);
-margin-bottom: 30px;
-}
-
-
-/* ICONE GRANDE SALTANDO */
-
-.icone-selo{
-position:absolute;
-left:-35px;
-top:-30px;
-background:linear-gradient(180deg,#ffb74d,#ff8f00);
-width:70px;
-height:70px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:8px;
-font-size:30px;
-box-shadow:0 6px 15px rgba(0,0,0,0.3);
-
-
-}
-
-
-/* TEXTO */
-
-.texto-selo{
-display:flex;
-flex-direction:column;
-line-height:1.2;
-}
-
-
-/* MATRÍCULAS */
-
-.linha1{
-font-size:30px;
-}
-
-
-/* VAGAS LIMITADAS */
-
-.linha2{
-background:linear-gradient(180deg,#ffe082,#ffd54f);
-color:#454546;
-padding:3px 10px;
-border-radius:6px;
-font-size:16px;
-margin-top:4px;
-width:fit-content;
-
-}
 
 
 .banner-escolar{
@@ -430,75 +368,134 @@ height:900px; /* altura do banner */
 width:100%;   /* largura total da tela */
 padding-top:80px; /* espaço abaixo do header */
 }
-
+/* CONTAINER (BASE DO ALINHAMENTO) */
 .container{
-  padding: 0px 20px; 
-  max-width: 1400px;
-  margin: auto;
+  max-width:900px;
+    margin: 100px auto 0 40px; /* esquerda 40px */
+  padding: 0 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+ 
 }
 
+/* BLOCO DE TEXTO */
 .banner-texto{
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* ALINHA TUDO */
 }
 
+/* SELO */
+.selo-matriculas{
+  display:inline-flex;
+  align-items:center;
+  background:linear-gradient(180deg,#ffa726,#ff7a00);
+  padding:12px 28px 12px 70px; /* compensando o ícone */
+  border-radius:10px;
+  color:white;
+  font-weight:bold;
+  position:relative;
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+  margin-bottom: 15px;
+}
+
+/* ÍCONE */
+.icone-selo{
+  position:absolute;
+  left:-20px; /* AJUSTADO */
+  top:-20px;
+  background:linear-gradient(180deg,#ffb74d,#ff8f00);
+  width:65px;
+  height:65px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  font-size:28px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* TEXTO DO SELO */
+.texto-selo{
+  display:flex;
+  flex-direction:column;
+  line-height:1.2;
+}
+
+.linha1{
+  font-size:28px;
+}
+
+.linha2{
+  background:linear-gradient(180deg,#ffe082,#ffd54f);
+  color:#454546;
+  padding:3px 10px;
+  border-radius:6px;
+  font-size:14px;
+  margin-top:4px;
+  width:fit-content;
+}
+
+/* TITULOS */
 .banner-escolar h1{
-  font-size: 52px;
-  line-height: 1.1;
-  }
+  font-size:48px;
+  line-height:1.2;
+}
 
 .banner-escolar h1 strong{
   color: #ffc107;
 }
 
 .banner-escolar h3{
-margin-top:12px;
-font-weight:600;
-font-size:22px;
-color:#f4f4f5;
-padding-left:12px;
-border-left:4px solid #ff8a00;
+  margin-top:12px;
+  font-weight:600;
+  font-size:30px;
+  color:#f4f4f5;
+  padding-left:12px;
+  border-left:4px solid #ff8a00;
 }
 
 .banner-escolar p{
   margin-top: 15px;
-  line-height: 1.6;
+  line-height: 1.7;
+  max-width:520px;
 }
 
+/* BENEFÍCIOS */
 .beneficios{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px 40px;
-margin-top:25px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px 40px;
+  margin-top:25px;
 }
 
 .beneficio-item{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:12px;
-color:white;
-font-size:16px;
-text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start; /* CORRIGIDO */
+  gap:12px;
+  color:white;
+  font-size:16px;
+  text-align:left;
 }
 
 .beneficio-item p{
-margin:0;
+  margin:0;
 }
 
+/* ÍCONE CHECK */
 .icone-check{
-width:28px;
-height:28px;
-background:#ff7a00;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-font-size:14px;
-font-weight:bold;
+  width:28px;
+  height:28px;
+  background:#ff7a00;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:14px;
+  font-weight:bold;
 }
 /* ==========================================================
 BOTOES - LA SOU ALUNO - SAIBA MAIS- GARANTA SUA VAGA
@@ -521,11 +518,11 @@ text-align:center;
 display:flex;
 align-items:center;
 justify-content:center;
-width:160px; /* todos com mesmo tamanho */
+width:580px; /* todos com mesmo tamanho */
 height:42px;
 gap:8px;
 border-radius:40px;
-padding: 10px 10px;
+padding: 5px 5px;
 font-weight:600;
 text-decoration:none;
 border:none;
@@ -550,6 +547,7 @@ box-shadow:0 8px 20px rgba(0,0,0,0.25);
 .btn-vaga{
   background: linear-gradient(135deg, #facc15, #E65100);
 color:white;
+
 box-shadow:0 6px 15px rgba(0,0,0,0.2);
 }
 
@@ -565,8 +563,8 @@ background-color:#1e88e5;
 /* BOTÃO SAIBA */
 
 .btn-saiba{
-  background: linear-gradient(135deg, #facc15, #0e0101);
-  color:rgb(255, 255, 255);
+  background: white;
+  color:#1e88e5;
 }
 
 
@@ -898,13 +896,14 @@ font-weight:600;
 
 /* NUMEROS DA ESCOLA */
 
-.numeros{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:20px;
-flex-wrap:wrap;
-margin-top:40px;
+.numeros {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  margin-left: 20px; /* move para direita */
 }
 
 
@@ -1088,6 +1087,232 @@ animation:flash 4s infinite;
   }
 }
 
+/* ==========================================================
+   DEPOIMENTOS 
+========================================================== */
+.depoimentos {
+  font-family: 'Poppins', sans-serif;
+  padding: 80px 20px;
+  background:linear-gradient(
+to bottom,
+#ffffff 0%,
+#ffffff 20%,
+#e0f2fe 75%,
+#ffffff 100%
+);
+    
+  text-align: center;
+}
+
+.depoimentos h2 {
+  font-size: 42px;
+  margin-bottom: 50px;
+  color: #1e3a8a;
+}
+
+
+
+/* LINHA EMBAIXO */
+.depoimentos h2::after {
+  content: "";
+  display: block; /* ESSENCIAL */
+  width: 680px;
+  height: 3px;
+  background: orange;
+  margin: 10px auto 0;
+  border-radius: 10px;
+}
+
+.depoimentos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card-depoimento {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: left;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  position: relative;
+  transition: 0.3s;
+}
+
+
+.card-depoimento:hover {
+  transform: translateY(-5px);
+}
+
+.card-depoimento span {
+  font-family: 'Poppins', sans-serif;
+}
+
+.quote {
+  width: 30px;
+  height: 30px;
+  fill: #ff2d7a;
+  margin-bottom: 15px;
+}
+
+
+.card-depoimento p {
+  margin: 15px 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+.card-depoimento h4 {
+  font-size: 14px;
+  color: #333;
+}
+
+/* ==========================================================
+                        PROJETOS
+========================================================== */
+
+/* SECTION */
+
+/* TÍTULO */
+.titulo-projeto {
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.titulo-projeto-principal {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0B3C8C;
+  margin-bottom: 10px;
+}
+
+.titulo-wrapper {
+  display: inline-block;
+}
+
+.linha-projeto {
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #ff7a18);
+  border-radius: 10px;
+  margin-top: 8px;
+}
+
+/* CARDS */
+.card-projetos {
+  padding: 80px 20px;
+background:linear-gradient(
+to bottom,
+#ffffff 0%,
+#ffffff 20%,
+#ffac407c 75%,
+#ffffff 100%
+);
+    text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* GRID */
+.cards-container {
+  display: flex;
+  justify-content: center; /* centraliza na tela */
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap; /* NÃO QUEBRA LINHA */
+}
+
+/* CARD */
+.projeto-card {
+width: 250px;
+  background: #fdfdfd;
+  border-radius: 15px;
+  padding: 15px 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+
+/* NOME */
+.nome-projeto {
+  font-weight: 600;
+  font-size: 14px;
+  color: #1e3a8a;
+}
+
+/* LINHA LARANJA */
+.nome-projeto::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: orange;
+  margin: 8px auto 0;
+  border-radius: 10px;
+}
+
+/* HOVER */
+.projeto-card:hover {
+  transform: translateY(-8px) scale(1.03);
+}
+
+/* CARD EM DESTAQUE */
+.projeto-card.destaque {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+/* MODAL */
+.modal-projetos {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-projetos-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+.modal-projetos-content img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.fechar-pr {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.modal-projetos-content button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: orange;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
 /* ==========================================================
    GALERIA
@@ -1416,206 +1641,6 @@ transform:translateX(-80%);
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
-/* ==========================================================
-                        PROJETOS
-========================================================== */
-
-/* SECTION */
-
-/* TÍTULO */
-.titulo-projeto {
-  text-align: center;
-  max-width: 900px;
-  margin: auto;
-  margin-bottom: 40px;
-}
-
-.titulo-projeto-principal {
-  font-size: 48px;
-  font-weight: 800;
-  color: #0B3C8C;
-  margin-bottom: 10px;
-}
-
-.titulo-wrapper {
-  display: inline-block;
-}
-
-.linha-projeto {
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #f59e0b, #ff7a18);
-  border-radius: 10px;
-  margin-top: 8px;
-}
-
-/* CARDS */
-
-.cards-container {
-  display: flex;
-  gap: 20px;
-  justify-content: center; /* 🔥 centraliza */
-  align-items: center;
-  flex-wrap: wrap; /* quebra linha se precisar */
-  padding: 20px;
-  padding: 60px 30px;
-    background: linear-gradient(
-    to bottom,
-    #f8fafc 0%,
-    #e0f2fe 40%,
-    #ffffff 100%
-  );
-}
-.projeto-card {
-  width: 220px;
-  height: 280px;
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-  color: #001e40;
-
-
-}
-
-.projeto-card:hover {
-  transform: translateY(-8px);
-}
-
-
-.projeto-card img {
-  width: 100%;
-  height: calc(100% - 50px); /* ajusta com altura maior */
-}
-
-.projeto-card h3 {
-  font-size: 16px;
-  font-weight: bold;
-  color: #1e3a8a;
-}
-
-/* DESCRIÇÃO */
-.projeto-card p {
-  font-size: 13px;
-  color: #6b7280;
-}
-
-/* LINHA EMBAIXO */
-.projeto-card::after {
-  content: "";
-  width: 50px;
-  height: 3px;
-  background: orange;
-  margin: 10px auto 0;
-  border-radius: 10px;
-}
-
-/* NOME */
-.nome-projeto {
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #06214a;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-/* HOVER */
-.projeto-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-/* DESTAQUE */
-.destaque {
-  box-shadow: 0 10px 35px rgba(0,0,0,0.6);
-}
-
-
-
-/* MODAL */
-/* FUNDO DO MODAL */
-.modal-projetos {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 102, 204, 0.9); /* 🔵 fundo azul */
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-/* CONTEÚDO DO MODAL */
-.modal-projetos-content {
-  background: #fff;
-  width: 90%;
-  max-width: 400px;
-  border-radius: 12px;
-  overflow: hidden; /* 🔥 faz a imagem colar nas bordas */
-  position: relative;
-  text-align: center;
-  padding-bottom: 20px;
-}
-
-/* BOTÃO FECHAR (LARANJA CHAMATIVO) */
-.fechar-pr {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 28px;
-  font-weight: bold;
-  color: orange; /* 🟠 laranja */
-  cursor: pointer;
-}
-
-/* IMAGEM OCUPANDO TOPO E LATERAIS */
-.modal-projetos-content img {
-  width: 100%;
-  height: 100%;
-  max-height: 300px; /* controla altura */
-  object-fit: cover; /* 🔥 preenche sem distorcer */
-  display: block;
-}
-
-/* TÍTULO */
-#modal-titulo {
-  margin-top: 15px; /* espaço da imagem */
-  font-size: 20px;
-
-}
-
-/* DESCRIÇÃO */
-#modal-desc {
-  margin-top: 10px;
-  padding: 0 15px;
-    text-align: justify;
-}
-
-/* BOTÃO */
-.modal-projetos-content button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #007bff; /* 🔵 azul */
-  color: #fff; /* letra branca */
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.modal-projetos-content button:hover {
-  background: #0056b3;
-}
-
        /* ==========================================================
    SOBRE NÓS
 ========================================================== */
@@ -1837,7 +1862,7 @@ color: #0f2a44;
 .nivel_ensino h2::after {
 content: "";
 display: block;
-width: 400px;
+width: 500px;
 height: 5px;
 background: linear-gradient(90deg, #facc15, #E65100);
 margin: 12px auto 0;
@@ -2198,14 +2223,6 @@ padding:0 40px;
 
 }
 
-.container{
-    padding: 60px 0px;
-    max-width: 1400px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 
 .banner-escolar {
     background-image: url("IMAGEM/infantil/painel prin.jpeg");
@@ -2214,48 +2231,16 @@ padding:0 40px;
     background-repeat: no-repeat;
     width: 100%;
     min-height: 100vh;
-    padding-top: 90px;
+    padding-top: 70px;
 }
 
 
 
-.container{
-  max-width: 900px;
-  margin-left: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+
 
 .banner-texto{
   max-width: 700px;
 }
-
-
-
-.banner-escolar p{
-  font-size:18px;
-  max-width:600px;
-}
-
-.banner-escolar h1{
-  font-size: 52px;
-  line-height: 1.1;
-  }
-
-.banner-escolar h1 strong{
-  color: #ffc107;
-}
-
-.banner-escolar h3{
-margin-top:12px;
-font-weight:600;
-font-size:22px;
-color:#f4f4f5;
-padding-left:12px;
-border-left:4px solid #ff8a00;
-}
-
 
 
 /* BENEFÍCIOS */
@@ -2267,39 +2252,7 @@ border-left:4px solid #ff8a00;
   font-size:16px;
 }
 
-.beneficios{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px 40px;
-margin-top:25px;
-}
 
-.beneficio-item{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:12px;
-color:white;
-font-size:16px;
-text-align:center;
-}
-
-.beneficio-item p{
-margin:0;
-}
-
-.icone-check{
-width:28px;
-height:28px;
-background:#ff7a00;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-font-size:14px;
-font-weight:bold;
-}
 
 
 
@@ -2409,6 +2362,11 @@ body {
     margin: 0;
 }
 
+#loader{
+  position:absolute;
+
+} 
+
 /* Conteúdo principal ocupa o espaço restante */
 main, .container {
     flex: 1; /* empurra o rodapé para cima se não houver conteúdo suficiente */
@@ -2423,7 +2381,7 @@ header{
     gap:10px;
     padding:0 15px;
 }
-
+ 
 
 
 /* MENU HAMBURGUER */
@@ -2448,10 +2406,11 @@ header{
 
 /* TITULO AO LADO DA LOGO */
 .titulo{
-    font-size:14px;
-    line-height:1.1;
+  font-size:13px;
+  line-height:1.2;
+  max-width: 280px; /* LIMITA O ESPAÇO */
+  white-space: normal; /* permite quebrar */
 }
-
 /* MENU ESCONDIDO */
 .menu {
     display: none;
@@ -2460,7 +2419,7 @@ header{
     flex-direction: row;
     position: absolute;
     top: 70px;
-    left: 0;
+    right: 150px;
     width: 100%;
     background: #062A5E;
     padding: 25px 0;
@@ -2490,8 +2449,7 @@ header{
 
 /* ================= BANNER ESCOLAR ================= */
 .banner-escolar{
-    height:auto;
-    padding:60px 18px 50px 18px;
+    padding:10px 18px 50px 18px;
     background-position: left;
 }
 
@@ -3030,15 +2988,3 @@ width:100%;
     }
 }
 
-/* RESPONSIVO */
-@media (max-width: 1200px) {
-  .projeto-card { flex: 0 0 calc(100% / 5 - 10px); }
-}
-
-@media (max-width: 900px) {
-  .projeto-card { flex: 0 0 calc(100% / 3 - 10px); }
-}
-
-@media (max-width: 600px) {
-  .projeto-card { flex: 0 0 calc(100% / 2 - 10px); }
-}
