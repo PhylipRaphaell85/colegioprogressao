@@ -2381,8 +2381,8 @@ header{
     justify-content: center;    /* centraliza horizontalmente */
     flex-direction: row;
     position: absolute;
-    top: 70px;
-    right: 130px;
+    top: 84px;
+        right: -1px;
     width: 100%;
     background: #062A5E;
     padding: 25px 0;
@@ -2408,15 +2408,16 @@ header{
 /* Conteúdo principal ocupa o espaço restante */
 .containerescolar {
     margin-right:20px;
-    margin-top: -20px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* altura mínima da tela */
 }
 
 .banner-escolar{
-    padding:5px18px 50px 18px;
+    padding:0px;
     background-position: left;
+    height: 890px;
 }
 .banner-escolar h3 {
   font-size: 25px;
@@ -2489,28 +2490,49 @@ header{
 
 
 /* ================= BOTÕES ================= */
-
 .botoes {
     display: flex;
     gap: 10px;
     justify-content: center;
-    flex-wrap: wrap; /* evita quebrar feio no mobile */
+    flex-wrap: wrap;
 }
 
-.btn {
-    width: 130px;
-    height: 38px;
-    font-size: 10px;
-    padding: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} 
+/* dois em cima */
+.botoes .btn {
+    flex: 0 0 calc(50% - 10px);
+}
 
+/* o terceiro ocupa tudo embaixo */
+.botoes .btn:nth-child(3) {
+    flex: 0 0 100%;
+    max-width: 300px; /* opcional pra não ficar gigante */
+    margin: 0 auto;
+}
 
 .btn-horarios:hover{
     background:#1e40af;
     color:#ffffff;
+}
+
+.btn {
+    position: relative; /* ESSENCIAL */
+    overflow: hidden;   /* corta o excesso do ::before */
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%; /* começa fora */
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.2); /* exemplo */
+    transform: skewX(-53deg);
+    transition: 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%; /* anima atravessando */
 }
 
 
