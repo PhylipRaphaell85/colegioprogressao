@@ -61,7 +61,38 @@ body{
 }
 
 
+/* HAMBURGUER */
+.menu-toggle{
+  display:none;
+  width:30px;
+  height:22px;
+  flex-direction:column;
+  justify-content:space-between;
+  cursor:pointer;
+  z-index:1001;
+}
 
+.menu-toggle span{
+  display:block;
+  height:3px;
+  width:100%;
+  background:#fff;
+  border-radius:3px;
+  transition:0.3s;
+}
+
+/* ANIMAÇÃO PARA X */
+.menu-toggle.ativo span:nth-child(1){
+  transform:rotate(45deg) translate(5px,5px);
+}
+
+.menu-toggle.ativo span:nth-child(2){
+  opacity:0;
+}
+
+.menu-toggle.ativo span:nth-child(3){
+  transform:rotate(-45deg) translate(6px,-6px);
+}
 /* ==========================================================
    NAVEGAÇÃO - 
 ========================================================== */
@@ -434,3 +465,102 @@ select{
       }
 
       
+/* MOBILE */
+/* MOBILE */
+@media(max-width:900px){
+
+  .topo{
+    display:flex;
+    flex-direction:column;
+    padding:10px 15px;
+  }
+
+   .topo h1{
+    display:none;
+    font-size:20px;
+    margin-bottom:10px;
+    text-align:center;
+  }
+     /* CENTRALIZA TUDO */
+  .center{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+  }
+
+  .left{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+  }
+
+  .logo{
+    width:120px;
+    margin:0;
+  }
+
+  .menu-toggle{
+    display:flex;
+  }
+
+  .titulo{
+    margin-top:8px;
+    font-size:14px;
+  }
+
+  /* FUNDO ESCURO + BLUR */
+
+
+  /* MENU PREMIUM */
+.menu {
+    display: none;
+    align-items: center;        /* alinha verticalmente no centro */
+    justify-content: center;    /* centraliza horizontalmente */
+    flex-direction: row;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #062A5E;
+    padding: 25px 0;
+    gap: 18px;
+    text-align: center;         /* não é necessário para flex, mas não atrapalha */
+    color: #dbe9ff;
+}
+
+  .menu.ativo{
+    margin-top: 10px;
+    display: flex;
+
+  }
+
+
+.menu a{
+    font-size:15px;
+}
+
+
+  /* MOSTRA O H1 */
+ 
+
+
+  .menu a:hover{
+    background:#222;
+    border-radius:8px;
+  }
+
+  .carrinho {
+    position: 0;
+    width: 300px;
+    top:  200px;
+    left: 50px;
+  }
+}
+
+
+
+  /* MENU EM LINHA */
+ 
+

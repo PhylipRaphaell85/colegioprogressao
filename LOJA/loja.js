@@ -1,3 +1,27 @@
+const menuToggle = document.getElementById("menuToggle");
+const menu = document.getElementById("menu");
+
+// cria overlay dinamicamente
+const overlay = document.createElement("div");
+overlay.classList.add("overlay");
+document.body.appendChild(overlay);
+
+menuToggle.addEventListener("click", () => {
+  menu.classList.toggle("ativo");
+  menuToggle.classList.toggle("ativo");
+  overlay.classList.toggle("ativo");
+});
+
+// fechar ao clicar fora
+overlay.addEventListener("click", () => {
+  menu.classList.remove("ativo");
+  menuToggle.classList.remove("ativo");
+  overlay.classList.remove("ativo");
+});
+
+
+
+
 // ======= FORMATADOR DE PREÇO =======
 function formatarPreco(valor){
   return valor.toLocaleString('pt-BR', {

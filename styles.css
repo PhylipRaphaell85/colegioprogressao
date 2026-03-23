@@ -20,6 +20,84 @@ body {
   padding-top:85px;
 
 }
+/* ESCONDE TUDO */
+body.loading *:not(#loader):not(#loader *){
+  visibility:hidden;
+}
+
+/* MOSTRA LOADER */
+body.loading #loader{
+  visibility:visible;
+}
+/* LOADING TELA */
+#loader{
+  position:fixed;
+  inset:0;
+  background: linear-gradient(135deg,#062A5E,#1E63B7);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  transition:opacity 0.5s ease, visibility 0.5s;
+}
+
+/* CONTEÚDO */
+.loader-content{
+  text-align:center;
+  color:#fff;
+  font-family:Poppins;
+}
+
+.loader-content img{
+  width:320px;
+  margin-bottom:20px;
+  animation:fadeIn 1s ease;
+}
+
+/* SPINNER */
+.spinner{
+  width:40px;
+  height:40px;
+  border:4px solid rgba(255,255,255,0.2);
+  border-top:4px solid #fff;
+  border-radius:50%;
+  margin:0 auto 10px;
+  animation:spin 1s linear infinite;
+}
+
+/* ANIMAÇÕES */
+@keyframes spin{
+  to{ transform:rotate(360deg); }
+}
+
+@keyframes fadeIn{
+  from{ opacity:0; transform:translateY(-10px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+
+/* SAÍDA CINEMATOGRÁFICA */
+#loader.saindo{
+  animation:fadeCinema 0.8s ease forwards;
+}
+
+@keyframes fadeCinema{
+  0%{
+    opacity:1;
+    filter:blur(0);
+  }
+  100%{
+    opacity:0;
+    filter:blur(10px);
+  }
+}
+
+/* ESCONDER */
+#loader.hidden{
+  opacity:0;
+  visibility:hidden;
+}
+
 
 main {
   padding-top: 150px;
@@ -246,7 +324,6 @@ gap:10px;
 height:50px;
 margin:0;
 transition:0.3s ease;
-animation:zoomDown 2s infinite ease-in-out;
 }
 
 /* TITULO SEMPRE VISÍVEL */

@@ -298,3 +298,21 @@ window.onclick = e => {
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") fecharModal();
 });
+
+
+
+/* carregando... */
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+
+  // tempo da logo na tela
+  setTimeout(() => {
+    loader.classList.add("saindo");
+
+    setTimeout(() => {
+      loader.style.display = "none";
+      document.body.classList.remove("loading");
+    }, 800);
+
+  }, 1400);
+});
