@@ -357,6 +357,8 @@ display:block;
 /* ==========================================================
 SEÇÃO DESTAQUE
 ========================================================== */
+
+
 .banner-escolar{
 background-image:url("IMAGEM/infantil/painel prin.jpeg");
 background-size:cover;
@@ -2163,12 +2165,155 @@ MAPA ESTILIZADO
    RESPONSIVIDADE PARA NOTEBOOK
    Telas entre 1024px e 1366px
 ========================================================== */
+
 /* ==========================================================
-   TELAS GRANDES - 1920px (24 POLEGADAS)
+   RESPONSIVIDADE NOTEBOOK (1024px até 1366px)
 ========================================================== */
 
+@media (min-width: 1024px) and (max-width: 1366px){
 
+/* HEADER */
+header{
+  padding: 0 20px;
+}
 
+nav a{
+  font-size:16px;
+}
+
+/* LOGO */
+.logo img{
+  height:45px;
+}
+
+.titulo{
+  font-size:18px;
+}
+
+/* BANNER ESCOLAR */
+.banner-escolar{
+  height:auto; /* remove altura gigante */
+  padding: 60px 20px;
+  background-position:center;
+}
+
+.containerescolar{
+  margin: 60px auto;
+  max-width: 800px;
+}
+
+.banner-escolar h1{
+  font-size:36px;
+}
+
+.banner-escolar h3{
+  font-size:22px;
+}
+
+.banner-escolar p{
+  font-size:15px;
+}
+
+/* BENEFÍCIOS */
+.beneficios{
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.beneficio-item{
+  font-size:14px;
+}
+
+/* BOTÕES */
+.btn{
+  min-width:150px;
+  height:38px;
+  font-size:11px;
+}
+
+/* NUMEROS */
+.numeros{
+  gap:25px;
+}
+
+.numeros strong{
+  font-size:24px;
+}
+
+/* HERO */
+.baner{
+  height:70vh;
+}
+
+.baner h1{
+  font-size:40px;
+}
+
+.baner p{
+  font-size:18px;
+}
+
+/* DEPOIMENTOS */
+.depoimentos h2{
+  font-size:32px;
+}
+
+.depoimentos h2::after{
+  width:400px;
+}
+
+/* PROJETOS */
+.cards-container{
+  flex-wrap:wrap; /* permite quebrar no notebook */
+}
+
+.projeto-card{
+  width:220px;
+}
+
+/* GALERIA */
+.galeria-card{
+  width:170px;
+  height:170px;
+}
+
+/* SOBRE */
+.titulo-sobre-principal{
+  font-size:36px;
+}
+
+.texto-sobre{
+  font-size:18px;
+}
+
+/* ENSINO */
+.nivel_ensino h2{
+  font-size:36px;
+}
+
+.nivel_ensino h2::after{
+  width:300px;
+}
+
+/* BANNER MATRÍCULA */
+.banner-matricula h1{
+  font-size:42px;
+}
+
+.banner-matricula p{
+  font-size:18px;
+}
+
+/* CONTATO */
+.footer-grid{
+  gap:20px;
+}
+
+.box{
+  padding:20px;
+}
+
+}
 
 
 
