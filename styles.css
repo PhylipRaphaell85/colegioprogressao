@@ -2195,6 +2195,7 @@ nav a{
   height:auto; /* remove altura gigante */
   padding: 60px 20px;
   background-position:center;
+  height:1000px;
 }
 
 .containerescolar{
