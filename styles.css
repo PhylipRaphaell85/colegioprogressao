@@ -153,7 +153,7 @@ header.scrolled .menu-toggle span {
 }
 
 .menu a {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 /* título escondido no desktop */
@@ -369,7 +369,7 @@ width:100%;   /* largura total da tela */
 padding-top:80px; /* espaço abaixo do header */
 }
 /* CONTAINER (BASE DO ALINHAMENTO) */
-.container{
+.containerescolar{
   max-width:900px;
     margin: 100px auto 0 40px; /* esquerda 40px */
   padding: 0 20px;
@@ -528,7 +528,7 @@ text-decoration:none;
 border:none;
 cursor:pointer;
 transition:all .3s ease;
-font-size:14px;
+font-size:12px;
 position:relative;
 overflow:hidden;
 }
@@ -2367,12 +2367,8 @@ body {
 
 } 
 
-/* Conteúdo principal ocupa o espaço restante */
-main, .container {
-    flex: 1; /* empurra o rodapé para cima se não houver conteúdo suficiente */
-    display: flex;
-    flex-direction: column;
-}
+
+
 /* ================= HEADER ================= */
 header{
     display:flex;
@@ -2419,7 +2415,7 @@ header{
     flex-direction: row;
     position: absolute;
     top: 70px;
-    right: 150px;
+    right: 130px;
     width: 100%;
     background: #062A5E;
     padding: 25px 0;
@@ -2439,21 +2435,28 @@ header{
     font-size:10px;
 }
 
-/* CONTAINER PRINCIPAL */
-.container{
-    flex-direction:column;
-    padding:0 20px;
-    text-align:center;
-    gap:35px;
-}
+
 
 /* ================= BANNER ESCOLAR ================= */
+/* Conteúdo principal ocupa o espaço restante */
+.containerescolar {
+    margin-right:20px;
+    margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* altura mínima da tela */
+}
+
 .banner-escolar{
-    padding:10px 18px 50px 18px;
+    padding:5px18px 50px 18px;
     background-position: left;
+}
+.banner-escolar h3 {
+  font-size: 25px;
 }
 
 .banner-escolar p {
+    text-align: justify;
     color: white;
     margin-top: 0;
 }
@@ -2517,14 +2520,33 @@ header{
     margin-top:18px;
 }
 
-.botoes{
-display:flex;
-flex-wrap:wrap; /* permite quebrar linha */
-justify-content:center;
-align-items:center;
-gap:10px;
-margin-top:25px;
+
+/* ================= BOTÕES ================= */
+
+.botoes {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap; /* evita quebrar feio no mobile */
 }
+
+.btn {
+    width: 130px;
+    height: 38px;
+    font-size: 10px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+
+.btn-horarios:hover{
+    background:#1e40af;
+    color:#ffffff;
+}
+
+
 
 /* ================= NUMEROS ================= */
 .numeros{
@@ -2550,28 +2572,92 @@ margin-top:25px;
     font-size:10px;
 }
 
-/* ================= BOTÕES ================= */
-
-
-.btn{
-    width:130px;
-    height:38px;
-    font-size:10px;
-    padding:6px;
+/* ================= BANER ================= */
+.baner p{
+    padding: 10px;
 }
 
-.btn-saiba{
-    background:#ffffff;
-    color:#1e40af;
-    border:2px solid #f8f8f8;
+.btn-hero {
+
+    padding: 11px 25px;
+  
 }
 
-.btn-horarios:hover{
-    background:#1e40af;
-    color:#ffffff;
+   .redes-sociais {
+        gap: 6px; /* menos espaço entre eles */
+    }
+
+    .rede {
+        flex: 0 1 auto; /* não força ocupar tudo */
+        padding: 2px 20px; /* menor */
+        font-size: 10px;
+        gap: 5px;
+        align-items: center;
+    }
+
+    .rede span:last-child {
+        font-size: 9px; /* texto menor */
+    }
+
+    .icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+
+/* ================= DEPOIMENTOS ================= */
+
+.depoimentos h2 {
+ font-size: 34px;
+    }
+
+    .depoimentos h2::after {
+  
+    width: 100%;
+  
+    }
+ .depoimentos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr)); /* 250 → 125 */
+    gap: 12px; /* 25 → 12 */
+    max-width: 550px; /* 1100 → 550 */
+    margin: auto;
 }
+
+ .card-depoimento  {
+   font-size: 10px;
+}
+
+ .card-depoimento h4 {
+   font-size: 10px;
+}
+
+/* ================= PROJETOS ================= */
+.titulo-projeto-principal {
+    font-size: 32px;
+   }
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 por linha */
+    gap: 15px;
+    justify-items: center;
+  }
+
+  .projeto-card {
+    width: 100%; /* ocupa a coluna */
+    max-width: 180px; /* menor pra caber melhor */
+  }
+
+
+
+
 
 /* ================= TEXTO SOBRE MOBILE ================= */
+.secao-titulo,
+.titulo-sobre-principal{
+    font-size:34px;
+}
 .texto-sobre{
     font-size:16px;
     line-height:1.6;
@@ -2579,6 +2665,43 @@ margin-top:25px;
     margin-top:20px;
     margin-bottom:50px;
 }
+
+
+.sobre{
+    padding: 0; /* remove todo o padding no mobile */
+}
+
+.gridsobre {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 por linha */
+    gap: 12px;
+    max-width: 550px;
+    margin: auto;
+}
+
+.card1,
+.card2,
+.card3{
+    max-width:220px;
+    width:100%;
+    margin:auto;
+    padding:18px;
+}
+
+.card1 h3,
+.card2 h3,
+.card3 h3{
+    font-size:20px;
+}
+
+.card1 p,
+.card2 p,
+.card3 p{
+    font-size:10px;
+    line-height:1.6;
+}
+
+
 
 /* ================= NÍVEIS DE ENSINO ================= */
 .nivel_ensino {
@@ -2592,9 +2715,42 @@ margin-top:25px;
 }
 
 .nivel_ensino h2::after{
-    width:200px;
+    width:300px;
     height:4px;
     margin:10px auto 0;
+}
+
+
+
+/* MATERIAL */
+.grid-material{
+    grid-template-columns:1fr;
+    gap:20px;
+}
+
+/* CARDS ENSINO */
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 por linha */
+    gap: 12px;
+    max-width: 550px;
+    margin: auto;
+}
+
+.cardinf h3{
+  font-size:13px;
+    line-height:1.6;
+  
+}
+
+.cardinf p{
+  font-size:10px;
+    line-height:1.6;
+  
+}
+
+.cardinf img{
+    height:110px;
 }
 
 /* ================= BANNER MATRÍCULA ================= */
@@ -2606,226 +2762,20 @@ margin-top:25px;
     font-size:30px;
 }
 .banner-matricula p{
+    padding: 0;
+    text-align: justify;
     font-size:13px;
 }
 
-/* ================= BOTÃO WHATSAPP ================= */
 .btn-whatsapp{
-    padding:12px 20px;
-    font-size:15px;
+   transform: translateY(-20px);
+    padding:12px 15px;
+    font-size:13px;
     border-radius:8px;
 }
 
-/* ================= CATALOGO ================= */
-.modal-catalogo{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%; /* ocupar toda a tela */
-height:100%;
-background:rgba(0,0,0,0.7);
-z-index:9999;
-justify-content:center;
-align-items:center;
-}
-
-
-.catalogo-cards{
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-}
-
-.cardcatalago{
-    padding:12px;
-}
-
-.modal-grid{
-    grid-template-columns:1fr;
-}
-
-/* HORÁRIOS */
-.horarios-grid{
-    grid-template-columns:1fr;
-}
-
-
-/* modal principal */
-.modal-box{
-max-width:95%;
-padding:25px 15px;
-}
-
-.modal-boxf{
-background:white;
-color:black;
-padding:6px; /* antes 10px */
-border-radius:7px; /* antes 12px */
-max-width:250px; /* 40% menor que 300px */
-width:90%;
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-}
-
-.btn-whats {
-    background: #25D366;
-    color: white;
-    border: none;
-    padding: 12px 0px;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-/* grid livros */
-.grid-livro{
-grid-template-columns:repeat(2,1fr);
-gap:8px;
-}
-
-/* imagem card */
-
-
-/* modal anos */
-.modal-ano{
-max-width:280px;
-padding:15px;
-
-}
-.modal-ano p {
-  color: orangered;
-}
-
-/* produto modal */
-.modal-box-produto{
-max-width:74%;
-padding:10px 20px;
-max-height:420px; /* limita altura */
-overflow:auto;
-}
-
-
-/* produto container */
-.produto-container{
-display:grid;
-grid-template-columns:120px 1fr; /* imagem | informações */
-gap:15px;
-align-items:start;
-}
-
-/* imagem produto */
-.produto-container img{
-width:120px;
-height:170px;
-object-fit:cover;
-}
-
-/* info produto */
-.info{
-width:100%;
-padding:10px;
-font-size:13px;
-}
-
-/* preço abaixo ocupando toda largura */
-.preco{
-grid-column:1 / -1; /* faz o preço ficar embaixo de tudo */
-font-size:22px;
-text-align:center;
-margin-top:10px;
-}
-
-
-
-.botoes button{
-width:100%;
-}
-
-/* MATERIAL */
-.grid-material{
-    grid-template-columns:1fr;
-    gap:20px;
-}
-
-/* CARDS ENSINO */
-.grid{
-    grid-template-columns:1fr;
-    gap:18px;
-    padding:20px;
-}
-
-.cardinf{
-    max-width:320px;
-    margin:auto;
-}
-
-.cardinf img{
-    height:160px;
-}
-
-/* GALERIA */
-.galeria-track{
-    gap:12px;
-}
-
-.galeria-card{
-    width:160px;
-    height:160px;
-    min-width:160px;
-}
-
-/* TITULOS */
-.secao-titulo,
-.titulo-sobre-principal{
-    font-size:34px;
-}
-   .redes-sociais {
-        transform: scale(0.7);  /* reduz 30% */
-        transform-origin: top center; /* mantém centralizado ao reduzir */
-    }
-/* CARDS SOBRE NÓS */
-.sobre{
-    padding: 0; /* remove todo o padding no mobile */
-}
-
-.gridsobre{
-    grid-template-columns:1fr;
-    gap:20px;
-    padding:0 20px;
-    justify-items:center;
-}
-
-
-.card1,
-.card2,
-.card3{
-    max-width:320px;
-    width:100%;
-    margin:auto;
-    padding:18px;
-}
-
-.card1 h3,
-.card2 h3,
-.card3 h3{
-    font-size:22px;
-}
-
-.card1 p,
-.card2 p,
-.card3 p{
-    font-size:15px;
-    line-height:1.6;
-}
 
 /* ================= CONTATO ================= */
-
-.contato {
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-
-    padding: 20px 15px; /* diminui altura da seção */
-  }
 
   .contato .container {
     flex-direction: column; /* empilha as caixas verticalmente */
@@ -2842,37 +2792,21 @@ width:100%;
     font-size: 14px; /* fonte menor para caber melhor */
   }
 
+ .footer-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 em cima */
+    gap: 10px;
+  }
 
-.footer-grid{
-    display: grid;
-    grid-template-columns: 1fr; /* 1 coluna no mobile */
-    gap: 20px;
-    justify-items: center;
-}
+  .contato-box,
+  .endereco-box,
+  .atendimento-box {
+    text-align: left;
+  }
 
-.box{
-    max-width: 100%;
-    width: auto;
-    gap:16px;
-    padding:20px;
-    text-align:center;
-    box-sizing:border-box;
-}
-
-.box h3{
-    font-size:1.35rem;
-}
-
-.box p{
-    font-size:0.85rem;
-    line-height:1.5;
-    word-break: break-word;
-}
-
-.box i{
-    margin-right:10px;
-    font-size:1.2rem;
-}
+  .atendimento-box {
+    grid-column: span 2; /* ocupa linha toda */
+   
+  }
 
 /* MAPA */
 .mapa{
@@ -2882,109 +2816,16 @@ width:100%;
 .mapa iframe{
     width:100%;
     max-width:100%;
-    height:250px;
+    height:150px;
 }
-
-/* ================= RODAPÉ ================= */
-/* ================= RODAPÉ MOBILE ================= */
-.rodape {
-    position: relative; /* fica logo após o conteúdo */
-    margin-top: 0;      /* sem espaço extra abaixo */
-    width: 100%;
-    box-sizing: border-box;
-    height: 90px; /* mapa menor em celular */
-
-}
-
-.rodape p {
-    font-size:13px;
-    max-width: 1200px;
-    margin: 0 auto;
-    word-wrap: break-word;
-}
-
- .whatsapp-float {
-    position: fixed;   /* garante que continue flutuando */
-    bottom:100px;      /* sobe mais no celular */
-    right: 15px;
-    z-index: 99999;    /* acima do footer */
+  /* rodapé */
+  .rodape {
+    margin-bottom: 70px;
+    text-align: center;
+    font-size: 10px;
   }
 
-  .whatsapp-float:hover {
-  transform: scale(1.1);
+  .whatsapp-float {
+    bottom: 150px; /* sobe mais */
 }
-
-/* ================= MODAL BOX / CATALOGO ================= */
-.modal-box {
-    max-width: 490px;
-    width: 75%;
-    padding: 21px;
-    font-size: 14px;
 }
-
-.cardlivros p {
-  color: orange;
-}
-
-
-.modal-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.modal-img img {
-    width: 100%;
-    border-radius: 8px;
-}
-
-.janela-conteudo {
-    max-width: 400px;
-    width: 72%;
-    padding: 40px 28px;
-    font-size: 14px;
-}
-
-.janela-logo {
-    width: 104px;
-    margin-bottom: 20px;
-}
-
-.janela-texto {
-    font-size: 18px;
-    margin-bottom: 28px;
-}
-
-.janela-card {
-    width: 128px;
-    padding: 14px 0;
-    font-size: 14px;
-    margin: 12px;
-}
-
-.janela-card i {
-    font-size: 16px;
-    margin-right: 6px;
-}
-
-.cardcatalago img {
-    width: 50px;
-    height: 50px;
-}
-
-.cardcatalago span {
-    font-size: 9px;
-}
-
-.titul {
-    font-size: 16px;
-}
-
-.catalago-texto {
-    font-size: 11px;
-
-}
-    .cardcatalago span {
-        font-size: 15px;
-    }
-}
-
