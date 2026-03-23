@@ -2317,8 +2317,7 @@ nav a{
 
 
 /* ==========================================================
-RESPONSIVO MOBILE
-HEADER: MENU HAMBURGUER - LOGO - TITULO
+RESPONSIVO MOBILE max-width:900px
 ========================================================== */
 @media (max-width:900px){
 
@@ -2382,8 +2381,8 @@ header{
     flex-direction: row;
     position: absolute;
     top: 84px;
-        right: -1px;
-    width: 100%;
+    right: -1PX;
+    width: 105%;
     background: #062A5E;
     padding: 25px 0;
     gap: 18px;
@@ -2398,10 +2397,10 @@ header{
     display: flex;
 }
 /* LINKS MENU */
-.menu a{
-    font-size:10px;
-}
 
+.btn-matricula{
+  display: none;
+}
 
 
 /* ================= BANNER ESCOLAR ================= */
@@ -2536,6 +2535,52 @@ header{
 }
 
 
+
+/* ================= HORRARIO
+ ================= */
+
+
+  .modal-box {
+    width: 95%;
+    max-width: 500px;
+    padding: 25px;
+  }
+
+  .titulo-modal {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  /* GRID continua 2 colunas, mas mais fluido */
+  .horarios-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .horario-card {
+    padding: 15px;
+  }
+
+  .horario-card h3 {
+    font-size: 14px;
+  }
+
+  .horario-card p {
+    color: #0f2a44;
+    font-size: 11px;
+  }
+
+  .icone {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .fecha {
+    font-size: 16px;
+    top: 10px;
+    right: 12px;
+  }
 
 /* ================= NUMEROS ================= */
 .numeros{
@@ -2816,4 +2861,274 @@ header{
   .whatsapp-float {
     bottom: 150px; /* sobe mais */
 }
+}
+
+
+
+/* =========================================
+📱 RESPONSIVO - IPHONE XR (até 414px)
+========================================= */
+@media (max-width: 414px) {
+
+  body {
+    padding-top: 80px;
+  }
+
+  /* HEADER */
+  header {
+    padding: 0 15px;
+    height: 70px;
+  }
+
+  .logo {
+    margin-left: 0;
+    gap: 6px;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
+  .titulo {
+    font-size: 14px;
+  }
+
+  /* MENU MOBILE */
+ 
+.menu {
+   
+    top: 64px;
+   
+}
+
+
+
+/* MENU QUANDO ABRIR */
+.menu.active {
+    display: flex;
+}
+
+
+  nav {
+    display: none;
+  }
+
+  /* BANNER PRINCIPAL */
+  .banner-escolar {
+    margin-top: -10px;
+    background-position: left;
+  }
+
+.containerescolar {
+    margin-right:20px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* altura mínima da tela */
+}
+
+  .banner-texto {
+    align-items: flex-start;
+  }
+
+  .banner-escolar h1 {
+    font-size: 26px;
+  }
+
+  .banner-escolar h3 {
+    font-size: 18px;
+  }
+
+  .banner-escolar p {
+    font-size: 14px;
+  }
+
+  /* BENEFÍCIOS */
+  .beneficios {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* BOTÕES */
+  .botoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* 2 botões na primeira linha */
+.botoes .btn {
+  width: 48%;
+}
+
+/* 3º botão ocupa linha inteira */
+.botoes .btn:nth-child(3) {
+  width: 100%;
+}
+  .btn {
+    min-width: 140px;
+    font-size: 11px;
+    height: 38px;
+  }
+
+
+  .modal-box {
+    width: 95%;
+    max-width: 500px;
+    padding: 25px;
+  }
+
+  .titulo-modal {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  /* GRID continua 2 colunas, mas mais fluido */
+  .horarios-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .horario-card {
+    padding: 15px;
+  }
+
+  .horario-card h3 {
+    font-size: 14px;
+  }
+
+  .horario-card p {
+    color: #0f2a44;
+    font-size: 11px;
+  }
+
+  .icone {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .fecha {
+    font-size: 16px;
+    top: 10px;
+    right: 12px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* NÚMEROS */
+  .numeros {
+    gap: 15px;
+    margin-left: 0;
+  }
+
+  .numeros div {
+    min-width: 90px;
+  }
+
+  .numeros strong {
+    font-size: 20px;
+  }
+
+  /* HERO */
+  .baner {
+    height: auto;
+    padding: 60px 15px;
+  }
+
+  /* DEPOIMENTOS */
+  .depoimentos h2 {
+    font-size: 26px;
+  }
+
+  .depoimentos h2::after {
+    width: 200px;
+  }
+
+  /* PROJETOS */
+  .cards-container {
+    flex-wrap: wrap;
+  }
+
+  .projeto-card {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* GALERIA */
+  .secao-titulo {
+    font-size: 28px;
+  }
+
+  .secao-subtitulo {
+    font-size: 14px;
+  }
+
+  .galeria-card {
+    min-width: 140px;
+    height: 140px;
+  }
+
+  /* SOBRE */
+  .titulo-sobre-principal {
+    font-size: 28px;
+  }
+
+  .texto-sobre {
+    font-size: 16px;
+  }
+
+  /* CARDS INF */
+  .nivel_ensino h2 {
+    font-size: 28px;
+  }
+
+  .nivel_ensino h2::after {
+    width: 200px;
+  }
+
+  /* BANNER MATRÍCULA */
+  .banner-matricula h1 {
+    font-size: 30px;
+  }
+
+  .banner-matricula p {
+    font-size: 16px;
+  }
+
+  .btn-whatsapp {
+    font-size: 16px;
+    padding: 14px 20px;
+  }
+
+  /* CONTATO */
+  .footer-grid {
+    flex-direction: column;
+  }
+
+  .mapa iframe {
+    height: 300px;
+  }
+
+  /* WHATSAPP FLOAT */
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
 }
