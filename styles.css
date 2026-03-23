@@ -2349,6 +2349,175 @@ padding:0 40px;
 }
 
 }
+
+/* ==========================================================
+   RESPONSIVO PARA NOTEBOOK 1366x768
+========================================================== */
+
+@media (max-width: 1366px) {
+
+  body {
+    padding-top: 80px;
+  }
+
+  header {
+    height: 70px;
+    padding: 0 20px;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
+
+  /* ================= BANNER ================= */
+
+  .banner-escolar {
+    height: auto;
+    padding: 200px 20px 60px;
+  }
+
+  .container {
+ margin-top: -160px; /* sobe */
+    padding: 0 ;
+    align-items: flex-start;
+  }
+
+  .banner-escolar h1 {
+    font-size: 34px;
+  }
+
+  .banner-escolar h3 {
+    font-size: 22px;
+  }
+
+  .beneficios {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* ================= BOTÕES ================= */
+
+  .btn {
+    max-width: 350px;
+    height: 40px;
+    font-size: 13px;
+  }
+
+
+
+  .botoes {
+    justify-content: flex-start;
+  }
+
+  /* ================= NÚMEROS ================= */
+
+  .numeros {
+    margin-left: 10px;
+    gap: 10px;
+  }
+
+  .numeros strong {
+    font-size: 24px;
+  }
+
+  /* ================= HERO ================= */
+
+  .baner {
+    height: 70vh;
+  }
+
+  .baner h1 {
+    font-size: 36px;
+  }
+
+  .baner p {
+    font-size: 18px;
+  }
+
+  /* ================= PROJETOS ================= */
+
+  .cards-container {
+    flex-wrap: wrap; /* IMPORTANTE */
+  }
+
+  .projeto-card {
+    width: 200px;
+  }
+
+  /* ================= DEPOIMENTOS ================= */
+
+  .depoimentos h2 {
+    font-size: 30px;
+  }
+
+  .depoimentos h2::after {
+    width: 300px;
+  }
+
+  /* ================= GALERIA ================= */
+
+  .secao-titulo {
+    font-size: 36px;
+  }
+
+  .secao-subtitulo {
+    font-size: 16px;
+  }
+
+  .galeria-card {
+    width: 160px;
+    height: 160px;
+  }
+
+  /* ================= SOBRE ================= */
+
+  .titulo-sobre-principal {
+    font-size: 34px;
+  }
+
+  .texto-sobre {
+    font-size: 18px;
+  }
+
+  /* ================= CARDS ================= */
+
+  .card1,
+  .card2,
+  .card3 {
+    padding: 30px 20px;
+  }
+
+  /* ================= NÍVEIS ================= */
+
+  .nivel_ensino h2 {
+    font-size: 34px;
+  }
+
+  .nivel_ensino h2::after {
+    width: 250px;
+  }
+
+  /* ================= BANNER MATRÍCULA ================= */
+
+  .banner-matricula h1 {
+    font-size: 36px;
+  }
+
+  .banner-matricula p {
+    font-size: 18px;
+  }
+
+  /* ================= CONTATO ================= */
+
+  .footer-grid {
+    flex-direction: column;
+  }
+
+}
 /* ==========================================================
 RESPONSIVO MOBILE
 HEADER: MENU HAMBURGUER - LOGO - TITULO
