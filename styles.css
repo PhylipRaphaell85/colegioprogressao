@@ -357,12 +357,11 @@ display:block;
 /* ==========================================================
 SEÇÃO DESTAQUE
 ========================================================== */
-
-
 .banner-escolar{
 background-image:url("IMAGEM/infantil/painel prin.jpeg");
 background-size:cover;
 background-position:center -100px; /* imagem mais para cima */
+background-repeat: no-repeat;
 color:white;
 height:1250px;
 width:100%;
