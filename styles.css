@@ -2264,9 +2264,7 @@ nav a{
 }
 
 /* PROJETOS */
-.cards-container{
-  flex-wrap:wrap; /* permite quebrar no notebook */
-}
+
 
 .projeto-card{
   width:220px;
