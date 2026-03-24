@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Colégio</title>
+
+<style>
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:'Segoe UI', Arial;
+  background:linear-gradient(135deg,#062A5E,#1E63B7);
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.box{
+  background:linear-gradient(135deg,#1E63B7,#174a91);
+  padding:35px 25px; /* AUMENTEI */
+  border-radius:20px;
+  width:380px;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  gap:20px; /* 👈 PRINCIPAL */
+    /* SOMBRA NORMAL */
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.25),
+
+    /* BRILHO BRANCO */
+    0 0 25px rgba(255,255,255,0.25);
+
+
+}
+
+.logo{
+  width:150px;
+  margin:0 auto;
+}
+
+h2{text-align:center;}
+
+.section{
+  font-size:13px;
+  font-weight:bold;
+  opacity:0.85;
+  margin-top:10px; /* 👈 separa "Responsável" */
+}
+
+.input-group{position:relative;  margin-top:20px; /* 👈 separa "Responsável" */}
+
+.input-group i{
+  position:absolute;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  
+}
+
+.input-group input{
+  width:100%;
+  padding:14px 14px 14px 38px;
+  border-radius:12px;
+  border:none;
+  outline:none;
+}
+
+.input-group label{
+  position:absolute;
+  left:38px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:13px;
+  color:#666;
+  transition:0.3s;
+  pointer-events:none;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label{
+  top:-6px;
+  font-size:11px;
+  color:#0B3C8C;
+  background:#fff;
+  padding:0 5px;
+  border-radius:5px;
+}
+
+.icon{
+  position:absolute;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  width:18px;
+  height:18px;
+  color:#ff7a00; /* 🔥 LARANJA */
+}
+button{
+  width:70%; /* menor */
+  margin:15px auto 0; /* centraliza */
+  padding:15px;
+  border:none;
+  border-radius:12px;
+  background:#0B3C8C;
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+  display:block;
+}
+
+.link{
+  text-align:center;
+  cursor:pointer;
+  margin-top:20px;
+}
+
+.hidden{display:none;}
+
+
+/* 🔥 POPUP MODERNO */
+.popup{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.popup.show{
+  display:flex; /* 👈 MOSTRA */
+}
+
+.popup-box{
+  background:white;
+  padding:25px 20px;
+  border-radius:15px;
+  text-align:center;
+  width:280px;
+  animation:fadeIn 0.3s ease;
+}
+
+.popup-box p{
+  margin-bottom:20px;
+  font-weight:500;
+  color:#333;
+  white-space:pre-line;
+}
+
+.popup-box button{
+  background:#0B3C8C;
+  color:white;
+  border:none;
+  padding:10px 20px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+@keyframes fadeIn{
+  from{transform:scale(0.8); opacity:0;}
+  to{transform:scale(1); opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<img src="logo-colegio.png" class="logo">
+
+<!-- LOGIN -->
+<div id="loginBox">
+<h2>Login</h2>
+
+<div class="input-group">
+  <i>🔑</i>
+  <input type="text" id="chaveLogin" placeholder=" ">
+  <label>Digite sua chave</label>
+</div>
+
+<button onclick="login()">Entrar</button>
+<div class="link" onclick="mostrarCadastro()">Cadastrar</div>
+</div>
+
+<!-- CADASTRO -->
+<div id="cadastroBox" class="hidden">
+
+<h2>Cadastro</h2>
+
+<div class="section">Responsável</div>
+
+<div class="input-group">
+    <svg class="icon" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+  </svg>
+  <input type="text" id="nomeResp" placeholder=" ">
+  <label>Nome do responsável</label>
+</div>
+
+<div class="input-group">
+  <svg class="icon" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M2 4h20v16H2V4zm2 2v12h16V6H4zm2 2h6v2H6V8zm0 4h10v2H6v-2z"/>
+  </svg>
+  <input type="text" id="cpfResp" placeholder=" ">
+  <label>CPF do responsável</label>
+</div>
+
+<div class="input-group">
+  <svg class="icon" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M6.6 10.8c1.4 2.7 3.9 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.3 21 3 13.7 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2.2 2.2z"/>
+  </svg>
+  <input type="text" id="telResp" placeholder=" ">
+  <label>Telefone</label>
+</div>
+
+<div class="section">Aluno</div>
+
+<div class="input-group">
+   <svg class="icon" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 3L1 9l11 6 9-4.9V17h2V9L12 3zm0 13L5 12v4c0 2.2 3.1 4 7 4s7-1.8 7-4v-4l-7 4z"/>
+  </svg>
+  <input type="text" id="nomeAluno" placeholder=" ">
+  <label>Nome do aluno</label>
+</div>
+
+<div class="input-group">
+  <svg class="icon" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M2 4h20v16H2V4zm2 2v12h16V6H4zm2 2h6v2H6V8zm0 4h10v2H6v-2z"/>
+  </svg>
+  <input type="text" id="cpfAluno" placeholder=" ">
+  <label>CPF do aluno</label>
+</div>
+
+<div class="input-group">
+  <svg class="icon" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M7 2h10c1.1 0 2 .9 2 2v16c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2zm5 19c.8 0 1.5-.7 1.5-1.5S12.8 18 12 18s-1.5.7-1.5 1.5S11.2 21 12 21zm-4-4h8V5H8v12z"/>
+  </svg>
+  <input type="text" id="telAluno" placeholder=" ">
+  <label>Telefone</label>
+</div>
+
+<button onclick="cadastrar()">Cadastrar</button>
+<div class="link" onclick="mostrarLogin()">Voltar</div>
+
+</div>
+
+</div>
+<!-- 🔥 POPUP -->
+<div id="popup" class="popup hidden">
+  <div class="popup-box">
+    <p id="popupMsg"></p>
+    <button onclick="fecharPopup()">OK</button>
+  </div>
+</div>
+
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbxJhujz2_krlRSnduyOGzN5m8-SntIVtIg90QPodShBGMGCItcRrZQjBjvXU9HWGPWo/exec";
+
+// TROCA DE TELA
+function mostrarCadastro(){
+  document.getElementById("loginBox").classList.add("hidden");
+  document.getElementById("cadastroBox").classList.remove("hidden");
+}
+
+function mostrarLogin(){
+  document.getElementById("cadastroBox").classList.add("hidden");
+  document.getElementById("loginBox").classList.remove("hidden");
+}
+
+// POPUP
+function mostrarPopup(msg){
+  if(!msg || msg.trim() === "") return;
+
+  document.getElementById("popupMsg").innerText = msg;
+  document.getElementById("popup").classList.add("show");
+}
+
+function fecharPopup(){
+  document.getElementById("popup").classList.remove("show");
+}
+
+// CADASTRO
+function cadastrar(){
+
+  let nomeResp = document.getElementById("nomeResp").value;
+  let cpfResp = document.getElementById("cpfResp").value;
+  let telResp = document.getElementById("telResp").value;
+
+  let nomeAluno = document.getElementById("nomeAluno").value;
+  let cpfAluno = document.getElementById("cpfAluno").value;
+  let telAluno = document.getElementById("telAluno").value;
+
+  if(!nomeResp || !cpfResp || !telResp || !nomeAluno || !cpfAluno || !telAluno){
+    mostrarPopup("Preencha todos os campos!");
+    return;
+  }
+
+  let chave = nomeResp.split(" ")[0].toLowerCase() + cpfResp.slice(-3);
+
+  fetch(API_URL,{
+    method:"POST",
+    body:JSON.stringify({
+      nomeResp,
+      cpfResp,
+      telResp,
+      nomeAluno,
+      cpfAluno,
+      telAluno,
+      chave
+    })
+  })
+  .then(res => res.text())
+  .then(()=>{
+
+    mostrarPopup("Cadastro realizado!\nSua chave: " + chave);
+
+    // 🔥 VOLTA AUTOMÁTICA PRO LOGIN + PREENCHE CHAVE
+    setTimeout(()=>{
+      fecharPopup();
+      mostrarLogin();
+      document.getElementById("chaveLogin").value = chave;
+    }, 2000);
+
+  })
+  .catch(()=>{
+    mostrarPopup("Erro ao cadastrar");
+  });
+}
+
+// LOGIN
+function login(){
+  let chave = document.getElementById("chaveLogin").value.trim();
+
+  if(!chave){
+    mostrarPopup("Digite sua chave!");
+    return;
+  }
+
+  fetch(API_URL + "?chave=" + chave)
+  .then(res => res.json())
+  .then(data=>{
+    if(data && data.existe){
+      localStorage.setItem("logado","true");
+      localStorage.setItem("chave", chave);
+      window.location.href = "loja.html";
+    }else{
+      mostrarPopup("Chave inválida");
+    }
+  })
+  .catch(()=>{
+    mostrarPopup("Erro ao conectar com servidor");
+  });
+}
+
+// MÁSCARAS
+function mascaraCPF(v){
+  v=v.replace(/\D/g,'');
+  v=v.replace(/(\d{3})(\d)/,'$1.$2');
+  v=v.replace(/(\d{3})(\d)/,'$1.$2');
+  v=v.replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+  return v;
+}
+
+function mascaraTel(v){
+  v=v.replace(/\D/g,'');
+  v=v.replace(/(\d{2})(\d)/,'($1) $2');
+  v=v.replace(/(\d{5})(\d)/,'$1-$2');
+  return v;
+}
+
+// INPUTS
+document.getElementById("cpfResp").oninput = e => e.target.value = mascaraCPF(e.target.value);
+document.getElementById("cpfAluno").oninput = e => e.target.value = mascaraCPF(e.target.value);
+document.getElementById("telResp").oninput = e => e.target.value = mascaraTel(e.target.value);
+document.getElementById("telAluno").oninput = e => e.target.value = mascaraTel(e.target.value);
+</script>
+
+</body>
+</html>

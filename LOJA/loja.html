@@ -9,6 +9,20 @@
 
 </head>
 <body>
+  
+ <!-- lOGIM  -->
+
+
+<script>
+if(localStorage.getItem("logado") !== "true"){
+  window.location.href = "login.html";
+}
+</script>
+
+
+
+
+ <!-- FIM lOGIM  -->
 
 <header class="topo">
 
@@ -21,6 +35,8 @@
   <span></span>
   <span></span>
 </div>
+
+
       <p class="titulo">
     Colégio Progressão <br>
     <span>Educação Infantil, Fundamental I e Fundamental II</span>
@@ -39,7 +55,9 @@
       <a href="../index.html#projetos">Projetos</a>
       <a href="../index.html#sobre">Sobre</a>
       <a href="../index.html#contato">Contato</a>
+      <button class="btn-logout" onclick="logout()" style="margin-left:20px;">Sair</button>
     </nav>
+   
   </div>
 
 </header>
