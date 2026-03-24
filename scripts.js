@@ -268,36 +268,26 @@ function fecharGaleriaModal() {
 
 
 // ================= PROJETO =================
+function mostrarCard(num){
+  const container = document.querySelector('.cards');
+  const cards = document.querySelectorAll('.card');
 
-let linkAtual = "#";
+  cards.forEach(c => c.style.display = 'none');
 
-function abrirModal(titulo, descricao, imagem, link="#") {
-  document.getElementById("modal").style.display = "flex";
-  document.getElementById("modal-titulo").innerText = titulo;
-  document.getElementById("modal-desc").innerText = descricao;
-  document.getElementById("modal-img").src = imagem;
-  linkAtual = link;
+  const card = document.getElementById('card'+num);
+  card.style.display = 'block';
+
+  container.classList.add('ativo');
 }
 
-function fecharModal() {
-  document.getElementById("modal").style.display = "none";
-}
+// fechar ao clicar fora
 
-function irProjeto() {
-  const link = document.createElement("a");
-  link.href = linkAtual;
-  link.download = "";
-  link.click();
-}
-
-/* FECHAR */
-window.onclick = e => {
-  if (e.target.id === "modal") fecharModal();
-};
-
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape") fecharModal();
+document.querySelector('.cards').addEventListener('click', function(e){
+  if(e.target.classList.contains('cards')){
+    this.classList.remove('ativo');
+  }
 });
+
 
 
 
