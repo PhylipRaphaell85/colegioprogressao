@@ -17,6 +17,25 @@ body{
   justify-content:center;
   align-items:center;
 }
+.box{
+  position: relative;
+}
+
+/* BOTÃO FECHAR */
+.fechar{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+  transition: 0.2s;
+}
+
+.fechar:hover{
+  color: red;
+  transform: scale(1.2);
+}
 
 .box{
   background:linear-gradient(135deg,#1E63B7,#174a91);
@@ -168,6 +187,8 @@ button{
   from{transform:scale(0.8); opacity:0;}
   to{transform:scale(1); opacity:1;}
 }
+
+
 </style>
 </head>
 
@@ -179,6 +200,7 @@ button{
 
 <!-- LOGIN -->
 <div id="loginBox">
+   <div class="fechar" onclick="voltarHome()">✖</div>
 <h2>Login</h2>
 
 <div class="input-group">
@@ -188,6 +210,7 @@ button{
 </div>
 
 <button onclick="login()">Entrar</button>
+
 <div class="link" onclick="mostrarCadastro()">Cadastrar</div>
 </div>
 
@@ -263,6 +286,11 @@ button{
 </div>
 
 <script>
+function voltarHome(){
+  window.location.href = "../index.html"; 
+}
+
+
 const API_URL = "https://script.google.com/macros/s/AKfycbxJhujz2_krlRSnduyOGzN5m8-SntIVtIg90QPodShBGMGCItcRrZQjBjvXU9HWGPWo/exec";
 
 // TROCA DE TELA
