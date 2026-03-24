@@ -2710,21 +2710,6 @@ header{
 }
 
 /* ================= PROJETOS ================= */
-.titulo-projeto-principal {
-    font-size: 32px;
-   }
-
-  .cards-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 por linha */
-    gap: 15px;
-    justify-items: center;
-  }
-
-  .projeto-card {
-    width: 100%; /* ocupa a coluna */
-    max-width: 180px; /* menor pra caber melhor */
-  }
 
 
 
@@ -2906,7 +2891,107 @@ header{
 }
 }
 
+/* =========================
+   AJUSTE REAL IPHONE 14
+========================= */
+@media (max-width: 430px){
 
+  .projetos{
+    padding: 40px 10px;
+  }
+
+  .projetos h2{
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .linha{
+    width: 210px;
+    margin: 10px auto 20px;
+  }
+
+   .botoes-projeto{
+    display: flex;
+    flex-direction: column; /* 🔥 coluna */
+  }
+
+  .btn-projeto{
+    height: 30px;
+    display: flex;
+    align-items: center;
+  
+    width: 100%;
+    font-size: 13px;
+    text-align: left;
+  }
+
+  .icone-projeto{
+    min-width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f7941d;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+
+  .btn-projeto span{
+    flex: 1;
+    line-height: 1.3;
+  }
+
+  /* CARDS (corrige sair da tela) */
+   
+  .cards{
+    padding: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card{
+    width: 100%;
+    max-width: 280px; /* tamanho ideal mobile */
+    border-radius: 16px;
+  }
+
+  .card img{
+    height: 180px;
+  }
+
+  .card-content{
+    padding: 14px;
+  }
+
+  .card span{
+    font-size: 12px;
+  }
+
+  .card h3{
+    font-size: 16px;
+  }
+
+  .card p{
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* 🔥 botão corrigido (ANTES estava quebrando tudo) */
+  .btn-cardp{
+    display: block;
+    margin: 12px auto 0; /* centraliza */
+    font-size: 12px;
+    padding: 8px 14px;
+    width: 100px;
+  }
+
+
+
+
+
+}
 
 /* =========================================
 📱 RESPONSIVO - IPHONE XR (até 414px)
