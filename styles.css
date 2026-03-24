@@ -1140,6 +1140,14 @@ to bottom,
 .projetos{
   padding:60px 20px;
   text-align:center;
+  background:linear-gradient(
+to bottom,
+#ffffff 0%,
+#ffffff 20%,
+#ffac4033 75%,
+#ffffff 100%
+);
+
 }
 
 .projetos h2{
