@@ -44,64 +44,46 @@ body{
   margin-right: 30PX;
   width:150px;
 }
-
 .perfil{
-  position: relative;
   display: flex;
   align-items: center;
-  gap: 8px;
-  cursor: pointer;
+  gap: 10px;
+  background: rgba(255,255,255,0.1);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+
+  /* 🔥 IMPORTANTE */
+  flex-wrap: nowrap;       /* NÃO QUEBRA LINHA */
+  white-space: nowrap;     /* NÃO QUEBRA TEXTO */
 }
 
-.menu-usuario{
-   top: 120%;
-  right: 5px;
-  width: 110px; /* 🔥 define largura fixa */
-  backdrop-filter: blur(10px);
-  border-radius: 14px;
-  padding: 1px 1px;
+/* BLOCO DO TEXTO (nome + título) */
+.perfil-info{
   display: flex;
-  justify-content: center; /* 🔥 CENTRALIZA */
-  align-items: center;
-  opacity: 0;
-  transform: translateY(-10px);
-  pointer-events: none;
-  transition: 0.25s ease;
+  flex-direction: column;
+  line-height: 1.1;
 }
 
-/* quando abrir */
-.menu-usuario.show{
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+/* limita crescimento */
+.perfil-info span{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
 }
 
-/* botão sair estilizado */
-.menu-usuario button{
-  width: 100%; /* 🔥 menor */
-  text-align: center;
+/* botão sair */
+.btn-logout{
   background: #ff7a00;
   color: white;
   border: none;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 6px 10px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
-   text-align: center;
-}
 
-.menu-usuario button:hover{
-  background: white;
-  color: #ff7a00;
-}
-.perfil{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  background:rgba(255,255,255,0.1);
-  padding:6px 12px;
-  border-radius:20px;
-  font-size:14px;
+  /* 🔥 NÃO DEIXA ESTOURAR */
+  flex-shrink: 0;
 }
 
 .perfil .icone{

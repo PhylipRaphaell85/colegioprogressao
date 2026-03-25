@@ -23,10 +23,6 @@ document.addEventListener("DOMContentLoaded", carregarUsuario);
 
 // BOTÃO USUÁRIO LOGADO
 
-function toggleMenu(){
-  const menu = document.getElementById("menuUsuario");
-  menu.classList.toggle("show");
-}
 
 function logout(){
   // limpa tudo
