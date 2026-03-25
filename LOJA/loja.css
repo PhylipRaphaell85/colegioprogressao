@@ -163,7 +163,8 @@ body{
 nav {
   display: flex;
   flex-wrap: wrap-reverse;
- 
+  gap: 30px;
+  
 }
 
 
