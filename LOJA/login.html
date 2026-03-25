@@ -33,7 +33,7 @@ body{
 }
 
 .fechar:hover{
-  color: red;
+  color: orange;
   transform: scale(1.2);
 }
 
@@ -132,14 +132,22 @@ button{
 }
 
 button:hover{
-  background: #ff7a00;
-  color: white;
+  background: #ff8c00; /* laranja mais forte */
+  color: #fff;
 }
+
+
 
 .link{
   text-align:center;
   cursor:pointer;
   margin-top:20px;
+  color: white;
+  transform: 0,2s;
+}
+
+.link:hover{
+  color: orangered;
 }
 
 .hidden{display:none;}
@@ -188,8 +196,6 @@ button:hover{
   cursor:pointer;
 }
 
-
-
 @keyframes fadeIn{
   from{transform:scale(0.8); opacity:0;}
   to{transform:scale(1); opacity:1;}
@@ -218,7 +224,7 @@ button:hover{
 
 <button onclick="login()">Entrar</button>
 
-<div class="link" onclick="mostrarCadastro()">Cadastrar</div>
+<div class="link" onclick="mostrarCadastro()">Não possui cadastro? Cadastre-se.</div>
 </div>
 
 <!-- CADASTRO -->
@@ -266,14 +272,20 @@ button:hover{
   <svg class="icon" viewBox="0 0 24 24">
     <path fill="currentColor" d="M2 4h20v16H2V4zm2 2v12h16V6H4zm2 2h6v2H6V8zm0 4h10v2H6v-2z"/>
   </svg>
-  <input type="text" id="matricula" placeholder=" ">
-  <label>Matricula</label>
+  <input type="text" id="cpfAluno" placeholder=" ">
+  <label>CPF do aluno</label>
 </div>
 
-
+<div class="input-group">
+  <svg class="icon" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M7 2h10c1.1 0 2 .9 2 2v16c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2zm5 19c.8 0 1.5-.7 1.5-1.5S12.8 18 12 18s-1.5.7-1.5 1.5S11.2 21 12 21zm-4-4h8V5H8v12z"/>
+  </svg>
+  <input type="text" id="telAluno" placeholder=" ">
+  <label>Telefone</label>
+</div>
 
 <button onclick="cadastrar()">Cadastrar</button>
-<div class="link" onclick="mostrarLogin()">Voltar</div>
+<div class="link" onclick="mostrarLogin()">Já possui cadastro? Voltar</div>
 
 </div>
 
@@ -285,7 +297,6 @@ button:hover{
     <button onclick="fecharPopup()">OK</button>
   </div>
 </div>
-
 
 <script>
 function voltarHome(){
@@ -308,6 +319,8 @@ function mostrarLogin(){
 
 // POPUP
 function mostrarPopup(msg){
+  if(!msg || msg.trim() === "") return;
+
   document.getElementById("popupMsg").innerText = msg;
   document.getElementById("popup").classList.add("show");
 }
@@ -322,13 +335,17 @@ function cadastrar(){
   let nomeResp = document.getElementById("nomeResp").value;
   let cpfResp = document.getElementById("cpfResp").value;
   let telResp = document.getElementById("telResp").value;
-  let nomeAluno = document.getElementById("nomeAluno").value;
-  let matricula = document.getElementById("matricula").value;
 
-  if(!nomeResp || !cpfResp || !telResp || !nomeAluno || !matricula){
+  let nomeAluno = document.getElementById("nomeAluno").value;
+  let cpfAluno = document.getElementById("cpfAluno").value;
+  let telAluno = document.getElementById("telAluno").value;
+
+  if(!nomeResp || !cpfResp || !telResp || !nomeAluno || !cpfAluno || !telAluno){
     mostrarPopup("Preencha todos os campos!");
     return;
   }
+
+  let chave = nomeResp.split(" ")[0].toLowerCase() + cpfResp.slice(-3);
 
   fetch(API_URL,{
     method:"POST",
@@ -337,32 +354,35 @@ function cadastrar(){
       cpfResp,
       telResp,
       nomeAluno,
-      matricula,
-      chave: matricula
+      cpfAluno,
+      telAluno,
+      chave
     })
   })
   .then(res => res.text())
   .then(()=>{
-    mostrarPopup("Cadastro realizado!\nMatrícula: " + matricula);
 
+    mostrarPopup("Cadastro realizado!\nSua chave: " + chave);
+
+    // 🔥 VOLTA AUTOMÁTICA PRO LOGIN + PREENCHE CHAVE
     setTimeout(()=>{
       fecharPopup();
       mostrarLogin();
-      document.getElementById("chaveLogin").value = matricula;
-    },2000);
+      document.getElementById("chaveLogin").value = chave;
+    }, 2000);
+
   })
   .catch(()=>{
     mostrarPopup("Erro ao cadastrar");
   });
 }
 
-
 // LOGIN
 function login(){
   let chave = document.getElementById("chaveLogin").value.trim();
 
   if(!chave){
-    mostrarPopup("Digite sua matrícula!");
+    mostrarPopup("Digite sua chave!");
     return;
   }
 
@@ -370,27 +390,45 @@ function login(){
   .then(res => res.json())
   .then(data=>{
 
-    console.log("RETORNO API:", data); // 👈 COLOCA AQUI
+    console.log("RETORNO API:", data); // 🔥 debug
 
     if(data && data.existe){
 
       localStorage.setItem("logado","true");
       localStorage.setItem("chave", chave);
 
-      if(data.nomeResp){
-        localStorage.setItem("nomeResp", data.nomeResp);
-      }
+      // 🔥 ESSA LINHA RESOLVE
+      localStorage.setItem("nomeResp", data.nomeResp);
 
       window.location.href = "loja.html";
 
     }else{
-      mostrarPopup("Matrícula inválida");
+      mostrarPopup("Chave inválida");
     }
   })
   .catch(()=>{
     mostrarPopup("Erro ao conectar com servidor");
   });
 }
+// MÁSCARAS
+function mascaraCPF(v){
+  v=v.replace(/\D/g,'');
+  v=v.replace(/(\d{3})(\d)/,'$1.$2');
+  v=v.replace(/(\d{3})(\d)/,'$1.$2');
+  v=v.replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+  return v;
+}
+
+function mascaraTel(v){
+  v=v.replace(/\D/g,'');
+  v=v.replace(/(\d{2})(\d)/,'($1) $2');
+  v=v.replace(/(\d{5})(\d)/,'$1-$2');
+  return v;
+}
+
+// INPUTS
+document.getElementById("cpfResp").oninput = e => e.target.value = mascaraCPF(e.target.value);
+document.getElementById("telResp").oninput = e => e.target.value = mascaraTel(e.target.value);
 </script>
 
 </body>
