@@ -3,6 +3,52 @@ function usuarioLogado(){
   return localStorage.getItem("logado") === "true";
 }
 
+function carregarUsuario(){
+  const logado = localStorage.getItem("logado");
+  const nome = localStorage.getItem("nomeResp");
+
+  const perfil = document.getElementById("perfilUsuario");
+  const nomeEl = document.getElementById("nomeUsuario");
+
+  if(!perfil || !nomeEl) return; // 🔥 evita erro
+
+  if(logado === "true" && nome){
+    perfil.classList.remove("hidden");
+    nomeEl.innerText = nome;
+  }
+}
+
+// chama quando carregar a página
+document.addEventListener("DOMContentLoaded", carregarUsuario);
+
+// BOTÃO USUÁRIO LOGADO
+
+function toggleMenu(){
+  const menu = document.getElementById("menuUsuario");
+  menu.classList.toggle("show");
+}
+
+function logout(){
+  // limpa tudo
+  localStorage.removeItem("logado");
+  localStorage.removeItem("nomeResp");
+  localStorage.removeItem("chave");
+
+  // volta pro login ou início
+  window.location.href = "../login.html"; // ajusta se precisar
+}
+
+
+
+
+
+// FIM BOTÃO USUÁRIO LOGADO
+
+
+
+
+
+// MENSSAGENS DE ERRO
 function mostrarPopup(msg){
   document.getElementById("popupMsg").innerText = msg;
   document.getElementById("popup").classList.add("show");
@@ -25,87 +71,6 @@ function mostrarLogin(){
   document.getElementById("cadastroBox").classList.add("hidden");
   document.getElementById("loginBox").classList.remove("hidden");
 }
-
-// CADASTRO
-function cadastrar(){
-  let nomeResp = document.getElementById("nomeResp").value;
-  let cpf = document.getElementById("cpfResp").value;
-  let nomeAluno = document.getElementById("nomeAluno").value;
-
-  if(!nomeResp || !cpf || !nomeAluno){
-    alert("Preencha todos os campos");
-    return;
-  }
-
-  let primeiroNome = nomeResp.split(" ")[0].toLowerCase();
-  let ultimosCpf = cpf.slice(-3);
-
-  let chave = primeiroNome + ultimosCpf;
-
-  let usuario = {
-    nomeResp,
-    cpf,
-    nomeAluno,
-    chave
-  };
-
-  let dados = JSON.parse(localStorage.getItem("usuarios")) || [];
-  dados.push(usuario);
-
-  localStorage.setItem("usuarios", JSON.stringify(dados));
-
-  document.getElementById("msgCadastro").innerHTML =
-  `Cadastro feito! <br> Sua chave é: <b>${chave}</b>`;
-}
-
-// LOGIN
-function login(){
-  let chave = document.getElementById("chaveLogin").value;
-
-  let dados = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-  let usuario = dados.find(u => u.chave === chave);
-
-  if(usuario){
-    localStorage.setItem("logado", "true");
-
-    alert("Login realizado!");
-
-    // REDIRECIONAR PARA SUA LOJA
-    window.location.href = "index.html";
-  }else{
-    alert("Chave inválida!");
-  }
-}
-
-// EXPORTAR PARA EXCEL
-function exportarExcel(){
-  let dados = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-  if(dados.length === 0){
-    alert("Nenhum cadastro");
-    return;
-  }
-
-  let csv = "Nome Responsável,CPF,Aluno,Chave\n";
-
-  dados.forEach(u=>{
-    csv += `${u.nomeResp},${u.cpf},${u.nomeAluno},${u.chave}\n`;
-  });
-
-  let blob = new Blob([csv], {type: 'text/csv'});
-  let url = URL.createObjectURL(blob);
-
-  let a = document.createElement("a");
-  a.href = url;
-  a.download = "cadastros.csv";
-  a.click();
-}
-
-
-
-
-
 
 
 
@@ -442,3 +407,4 @@ function logout(){
   localStorage.clear();
   window.location.href = "login.html";
 }
+

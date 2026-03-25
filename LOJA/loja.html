@@ -23,6 +23,23 @@
   <!-- ESQUERDA -->
   <div class="left">
     <img src="logo-colegio.png" class="logo">
+<div id="perfilUsuario" class="perfil hidden" onclick="toggleMenu()">
+  
+  <span class="icone">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="white">
+      <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+    </svg>
+  </span>
+
+  <span id="nomeUsuario"></span>
+
+  <!-- MENU -->
+  <div id="menuUsuario" class="menu-usuario">
+     <button class="btn-logout" onclick="logout()" style="margin-left:20px;">Sair</button>
+  </div>
+
+</div>
+
       <!-- BOTÃO HAMBÚRGUER -->
 <div id="menuToggle" class="menu-toggle">
   <span></span>
@@ -49,7 +66,7 @@
       <a href="../index.html#projetos">Projetos</a>
       <a href="../index.html#sobre">Sobre</a>
       <a href="../index.html#contato">Contato</a>
-      <button class="btn-logout" onclick="logout()" style="margin-left:20px;">Sair</button>
+     
     </nav>
    
   </div>
@@ -104,7 +121,7 @@
 
 <div id="mensagem" class="mensagem">Item adicionado!</div>
 
-<script src="loja.js"></script>
+
 
 <div id="popup" class="popup">
   <div class="popup-box">
@@ -113,4 +130,5 @@
   </div>
 </div>
 </body>
+<script src="loja.js"></script>
 </html>

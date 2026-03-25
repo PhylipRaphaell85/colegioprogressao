@@ -45,6 +45,86 @@ body{
   width:150px;
 }
 
+.perfil{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.menu-usuario{
+   top: 120%;
+  right: 5px;
+  width: 110px; /* 🔥 define largura fixa */
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 1px 1px;
+  display: flex;
+  justify-content: center; /* 🔥 CENTRALIZA */
+  align-items: center;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: 0.25s ease;
+}
+
+/* quando abrir */
+.menu-usuario.show{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* botão sair estilizado */
+.menu-usuario button{
+  width: 100%; /* 🔥 menor */
+  text-align: center;
+  background: #ff7a00;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+   text-align: center;
+}
+
+.menu-usuario button:hover{
+  background: white;
+  color: #ff7a00;
+}
+.perfil{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255,255,255,0.1);
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:14px;
+}
+
+.perfil .icone{
+  font-size:18px;
+}
+
+.icone{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background: orange;
+}
+
+.hidden{
+  display:none;
+}
+
+#nomeUsuario{
+  font-weight: 500;
+}
 /* TEXTO */
 .titulo{
   margin:0;
@@ -102,13 +182,15 @@ nav {
   display: flex;
   flex-wrap: wrap-reverse;
   gap: 30px;
+  
 }
 
 
 nav a{
+  margin-right: 40px;
   text-decoration:none;
   color:#fff;
-  font-size:20px;
+  font-size:18px;
   font-weight:600;
   position:relative;
   transition: 0.3s;
