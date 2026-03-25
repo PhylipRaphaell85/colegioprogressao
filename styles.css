@@ -1360,7 +1360,7 @@ background:linear-gradient(
 to bottom,
 #ffffff 0%,
 #ffffff 20%,
-#FFAB40 75%,
+#ffb347 85%,
 #ffffff 100%
 );
 
@@ -2179,7 +2179,7 @@ MAPA ESTILIZADO
 
 .mapa iframe {
   width: 100%;
-  height: 450px;
+  height: 250px;
   border: none;
 }
 
