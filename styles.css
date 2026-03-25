@@ -1016,7 +1016,7 @@ animation:flash 4s infinite;
   background: linear-gradient(
     to bottom,
     rgba(255,255,255,0.95) 0%,
-    rgba(0, 0, 0, 0.377) 90%,
+    rgba(0, 0, 0, 0.377) 40%,
     rgba(255,255,255,0.95) 100%
   );
   z-index: 1;
