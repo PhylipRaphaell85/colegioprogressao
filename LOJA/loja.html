@@ -13,12 +13,6 @@
  <!-- lOGIM  -->
 
 
-<script>
-if(localStorage.getItem("logado") !== "true"){
-  window.location.href = "login.html";
-}
-</script>
-
 
 
 
@@ -112,5 +106,11 @@ if(localStorage.getItem("logado") !== "true"){
 
 <script src="loja.js"></script>
 
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <p id="popupMsg"></p>
+    <button onclick="fecharPopup()">OK</button>
+  </div>
+</div>
 </body>
 </html>

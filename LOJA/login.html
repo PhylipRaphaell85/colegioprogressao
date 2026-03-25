@@ -259,17 +259,11 @@ button{
   <svg class="icon" viewBox="0 0 24 24">
     <path fill="currentColor" d="M2 4h20v16H2V4zm2 2v12h16V6H4zm2 2h6v2H6V8zm0 4h10v2H6v-2z"/>
   </svg>
-  <input type="text" id="cpfAluno" placeholder=" ">
-  <label>CPF do aluno</label>
+  <input type="text" id="matricula" placeholder=" ">
+  <label>Matricula</label>
 </div>
 
-<div class="input-group">
-  <svg class="icon" viewBox="0 0 24 24">
-    <path fill="currentColor" d="M7 2h10c1.1 0 2 .9 2 2v16c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2zm5 19c.8 0 1.5-.7 1.5-1.5S12.8 18 12 18s-1.5.7-1.5 1.5S11.2 21 12 21zm-4-4h8V5H8v12z"/>
-  </svg>
-  <input type="text" id="telAluno" placeholder=" ">
-  <label>Telefone</label>
-</div>
+
 
 <button onclick="cadastrar()">Cadastrar</button>
 <div class="link" onclick="mostrarLogin()">Voltar</div>
@@ -285,12 +279,8 @@ button{
   </div>
 </div>
 
+
 <script>
-function voltarHome(){
-  window.location.href = "../index.html"; 
-}
-
-
 const API_URL = "https://script.google.com/macros/s/AKfycbxJhujz2_krlRSnduyOGzN5m8-SntIVtIg90QPodShBGMGCItcRrZQjBjvXU9HWGPWo/exec";
 
 // TROCA DE TELA
@@ -306,8 +296,6 @@ function mostrarLogin(){
 
 // POPUP
 function mostrarPopup(msg){
-  if(!msg || msg.trim() === "") return;
-
   document.getElementById("popupMsg").innerText = msg;
   document.getElementById("popup").classList.add("show");
 }
@@ -322,17 +310,13 @@ function cadastrar(){
   let nomeResp = document.getElementById("nomeResp").value;
   let cpfResp = document.getElementById("cpfResp").value;
   let telResp = document.getElementById("telResp").value;
-
   let nomeAluno = document.getElementById("nomeAluno").value;
-  let cpfAluno = document.getElementById("cpfAluno").value;
-  let telAluno = document.getElementById("telAluno").value;
+  let matricula = document.getElementById("matricula").value;
 
-  if(!nomeResp || !cpfResp || !telResp || !nomeAluno || !cpfAluno || !telAluno){
+  if(!nomeResp || !cpfResp || !telResp || !nomeAluno || !matricula){
     mostrarPopup("Preencha todos os campos!");
     return;
   }
-
-  let chave = nomeResp.split(" ")[0].toLowerCase() + cpfResp.slice(-3);
 
   fetch(API_URL,{
     method:"POST",
@@ -341,23 +325,19 @@ function cadastrar(){
       cpfResp,
       telResp,
       nomeAluno,
-      cpfAluno,
-      telAluno,
-      chave
+      matricula,
+      chave: matricula
     })
   })
   .then(res => res.text())
   .then(()=>{
+    mostrarPopup("Cadastro realizado!\nMatrícula: " + matricula);
 
-    mostrarPopup("Cadastro realizado!\nSua chave: " + chave);
-
-    // 🔥 VOLTA AUTOMÁTICA PRO LOGIN + PREENCHE CHAVE
     setTimeout(()=>{
       fecharPopup();
       mostrarLogin();
-      document.getElementById("chaveLogin").value = chave;
-    }, 2000);
-
+      document.getElementById("chaveLogin").value = matricula;
+    },2000);
   })
   .catch(()=>{
     mostrarPopup("Erro ao cadastrar");
@@ -369,7 +349,7 @@ function login(){
   let chave = document.getElementById("chaveLogin").value.trim();
 
   if(!chave){
-    mostrarPopup("Digite sua chave!");
+    mostrarPopup("Digite sua matrícula!");
     return;
   }
 
@@ -381,35 +361,13 @@ function login(){
       localStorage.setItem("chave", chave);
       window.location.href = "loja.html";
     }else{
-      mostrarPopup("Chave inválida");
+      mostrarPopup("Matrícula inválida");
     }
   })
   .catch(()=>{
-    mostrarPopup("Erro ao conectar com servidor");
+    mostrarPopup("Erro ao conectar");
   });
 }
-
-// MÁSCARAS
-function mascaraCPF(v){
-  v=v.replace(/\D/g,'');
-  v=v.replace(/(\d{3})(\d)/,'$1.$2');
-  v=v.replace(/(\d{3})(\d)/,'$1.$2');
-  v=v.replace(/(\d{3})(\d{1,2})$/,'$1-$2');
-  return v;
-}
-
-function mascaraTel(v){
-  v=v.replace(/\D/g,'');
-  v=v.replace(/(\d{2})(\d)/,'($1) $2');
-  v=v.replace(/(\d{5})(\d)/,'$1-$2');
-  return v;
-}
-
-// INPUTS
-document.getElementById("cpfResp").oninput = e => e.target.value = mascaraCPF(e.target.value);
-document.getElementById("cpfAluno").oninput = e => e.target.value = mascaraCPF(e.target.value);
-document.getElementById("telResp").oninput = e => e.target.value = mascaraTel(e.target.value);
-document.getElementById("telAluno").oninput = e => e.target.value = mascaraTel(e.target.value);
 </script>
 
 </body>

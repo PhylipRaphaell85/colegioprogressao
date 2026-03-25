@@ -1,4 +1,20 @@
 
+function usuarioLogado(){
+  return localStorage.getItem("logado") === "true";
+}
+
+function mostrarPopup(msg){
+  document.getElementById("popupMsg").innerText = msg;
+  document.getElementById("popup").classList.add("show");
+}
+
+function fecharPopup(){
+  document.getElementById("popup").classList.remove("show");
+}
+
+
+
+
 // TROCAR TELAS
 function mostrarCadastro(){
   document.getElementById("loginBox").classList.add("hidden");
@@ -384,9 +400,18 @@ function carregarFardamentos(){
 
 // ======= WHATSAPP =======
 document.getElementById('btnWhatsCarrinho').onclick=()=>{
-  if(carrinho.length===0) return alert('Carrinho vazio');
 
-  let msg='Pedido:%0A';
+  if(!usuarioLogado()){
+    mostrarPopup("Faça login para finalizar a compra!");
+    setTimeout(()=>{
+      window.location.href = "login.html";
+    }, 1500);
+    return;
+  }
+
+  if(carrinho.length===0) return mostrarPopup('Carrinho vazio');
+
+  let msg='Gostaria de adquiri esse produto:%0A';
   carrinho.forEach(i=>{
     msg+=`${i.nome} x${i.qtd} - ${formatarPreco(i.preco*i.qtd)}%0A`;
   });
@@ -396,11 +421,22 @@ document.getElementById('btnWhatsCarrinho').onclick=()=>{
 
 // ======= CARTÃO =======
 document.getElementById('btnCartao').onclick=()=>{
-  if(carrinho.length===0) return alert('Carrinho vazio');
+
+  if(!usuarioLogado()){
+    mostrarPopup("Faça login para finalizar a compra!");
+    setTimeout(()=>{
+      window.location.href = "login.html";
+    }, 1500);
+    return;
+  }
+
+  if(carrinho.length===0) return mostrarPopup('Carrinho vazio');
 
   let total=carrinho.reduce((a,b)=>a+b.preco*b.qtd,0);
-  alert('Pagamento em breve. Total: '+formatarPreco(total));
+  mostrarPopup('Pagamento em breve.\nTotal: '+formatarPreco(total));
 };
+
+
 
 function logout(){
   localStorage.clear();
