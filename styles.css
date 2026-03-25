@@ -2190,6 +2190,7 @@ MAPA ESTILIZADO
   box-shadow: 0 6px 16px rgba(0,0,0,0.35);
   z-index: 999;
   transition: 0.3s ease;
+   text-decoration: none;
 }
 
 .whatsapp-float:hover {
@@ -2887,7 +2888,7 @@ header{
   }
 
   .whatsapp-float {
-    bottom: 150px; /* sobe mais */
+    bottom: 40px; /* sobe mais */
 }
 }
 
@@ -3179,12 +3180,10 @@ header{
   }
 
   /* DEPOIMENTOS */
-  .depoimentos h2 {
-    font-size: 26px;
-  }
+  
 
   .depoimentos h2::after {
-    width: 200px;
+    width: 260px;
   }
 
   /* PROJETOS */
