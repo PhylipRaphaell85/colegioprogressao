@@ -1016,7 +1016,7 @@ animation:flash 4s infinite;
   background: linear-gradient(
     to bottom,
     rgba(255,255,255,0.95) 0%,
-    rgba(0, 0, 0, 0.377) 90%,
+    rgba(0, 0, 0, 0.377) 40%,
     rgba(255,255,255,0.95) 100%
   );
   z-index: 1;
@@ -1360,7 +1360,7 @@ background:linear-gradient(
 to bottom,
 #ffffff 0%,
 #ffffff 20%,
-#FFAB40 75%,
+#ffb347 85%,
 #ffffff 100%
 );
 
@@ -2179,7 +2179,7 @@ MAPA ESTILIZADO
 
 .mapa iframe {
   width: 100%;
-  height: 450px;
+  height: 250px;
   border: none;
 }
 
