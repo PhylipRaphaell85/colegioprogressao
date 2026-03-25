@@ -250,13 +250,13 @@ const kits={
   maternal2:{nome:"Maternal II",preco:550,img:"https://via.placeholder.com/150"},
 
   infantil1:{nome:"Infantil I",preco:300,img:"https://via.placeholder.com/150"},
-  infantil2:{nome:"Infantil II",preco:310,img:"https://via.placeholder.com/150"},
+  infantil2:{nome:"Infantil II",preco:310,img:"livros/infant2.png"},
 
-  fundamental1:{nome:"1º Ano Fundamental I",preco:450,img:"https://via.placeholder.com/150"},
-  fundamental2:{nome:"2º Ano Fundamental I",preco:450,img:"https://via.placeholder.com/150"},
-  fundamental3:{nome:"3º Ano Fundamental I",preco:450,img:"https://via.placeholder.com/150"},
-  fundamental4:{nome:"4º Ano Fundamental I",preco:450,img:"https://via.placeholder.com/150"},
-  fundamental5:{nome:"5º Ano Fundamental I",preco:450,img:"https://via.placeholder.com/150"},
+  fundamental1:{nome:"1º Ano Fundamental I",preco:450,img:"livros/1ano.png"},
+  fundamental2:{nome:"2º Ano Fundamental I",preco:450,img:"livros/2ano.png"},
+  fundamental3:{nome:"3º Ano Fundamental I",preco:450,img:"livros/3ano.png"},
+  fundamental4:{nome:"4º Ano Fundamental I",preco:450,img:"livros/4ano.png"},
+  fundamental5:{nome:"5º Ano Fundamental I",preco:450,img:"livros/5ano.png"},
 
   fundamental6:{nome:"6º Ano Fundamental II",preco:450,img:"https://via.placeholder.com/150"},
   fundamental7:{nome:"7º Ano Fundamental II",preco:450,img:"https://via.placeholder.com/150"},
