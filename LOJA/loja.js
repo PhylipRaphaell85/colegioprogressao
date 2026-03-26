@@ -246,10 +246,10 @@ function atualizarCarrinho(){
 
 // KITS
 const kits={
-  maternal1:{nome:"Kit Maternal I",preco:550,img:"livros/livro horizontal.jpg"},
-  maternal2:{nome:"Maternal II",preco:550,img:"https://via.placeholder.com/150"},
+  maternal1:{nome:"Kit Maternal I",preco:550,img:"livros/m1.png"},
+  maternal2:{nome:"Maternal II",preco:550,img:"livros/m2.png"},
 
-  infantil1:{nome:"Infantil I",preco:300,img:"https://via.placeholder.com/150"},
+  infantil1:{nome:"Infantil I",preco:300,img:"livros/infant1.png"},
   infantil2:{nome:"Infantil II",preco:310,img:"livros/infant2.png"},
 
   fundamental1:{nome:"1º Ano Fundamental I",preco:450,img:"livros/1ano.png"},
