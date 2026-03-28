@@ -2350,6 +2350,9 @@ nav a{
   font-size:24px;
 }
 
+
+ 
+
 /* HERO */
 .baner{
   height:70vh;
@@ -2360,6 +2363,7 @@ nav a{
 }
 
 .baner p{
+  
   font-size:18px;
 }
 
@@ -2403,13 +2407,22 @@ nav a{
   width:300px;
 }
 
+
 /* BANNER MATRÍCULA */
+ .banner-matricula {
+    min-height: 420px; /* diminui altura */
+    padding: 40px 20px;
+    background-position: center; /* mantém foco central */
+  }
+
 .banner-matricula h1{
   font-size:42px;
 }
 
 .banner-matricula p{
-  font-size:18px;
+    font-size: 18px;
+  max-width: 500px; /* controla onde o texto quebra */
+  line-height: 1.5;
 }
 
 /* CONTATO */

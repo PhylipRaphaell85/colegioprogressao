@@ -47,7 +47,7 @@ body{
 .logo{
     margin-left: 50PX;
   margin-right: 30PX;
-  width:150px;
+  width:120px;
 }
 .perfil{
   display: flex;
@@ -174,10 +174,10 @@ nav {
 
 
 nav a{
-  margin-right: 40px;
+  margin-right: 20px;
   text-decoration:none;
   color:#fff;
-  font-size:18px;
+  font-size:14px;
   font-weight:600;
   position:relative;
   transition: 0.3s;
