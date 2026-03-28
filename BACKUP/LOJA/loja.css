@@ -2,12 +2,7 @@
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background-image: url(fundo.webp);
-  background-repeat: no-repeat;
-  background-size: cover;       /* 🔥 faz cobrir toda a tela */
-  background-position: center;  /* 🔥 centraliza a imagem */
-  background-attachment: fixed; /* opcional: efeito fixo */
-  
+  background:#062A5E;
   color:white;
 }
 
@@ -221,7 +216,7 @@ nav a:hover::after{
 /* CONTAINER */
 .container{
   padding:20px;
-  
+  text-align:center;
 }
 
 #mensagemInicial {
@@ -229,52 +224,6 @@ nav a:hover::after{
   font-size: 18px;
   margin-bottom: 60px;
 }
-
-
-
-/* LAYOUT */
-.layout-loja{
-  display:flex;
-  gap:20px;
-}
-
-/* MENU LATERAL */
-
-.menu-lateral{
-  width:220px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-/* BOTÕES PRINCIPAIS */
-.aba-btn{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:10px;
-  background:#0B3C8C;
-  color:#fff;
-  cursor:pointer;
-  text-align:left;
-  font-weight:bold;
-  transition:0.3s;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* 🔥 sombra branca */
-}
-
-.aba-btn:hover{
-  background:orange;
-}
-.aba-btn.active{
-  background:#0d4c8f;
-  color: white;
-}
-
-.aba.active{
-  display:block;
-}
-
-
 .abas{
   display:flex;
   gap:10px;
@@ -285,67 +234,42 @@ nav a:hover::after{
   display:none;
 }
 
-.aba.ativa{
+.aba-btn{
+  flex:1;
+  padding:10px;
+  cursor:pointer;
+  background:#ffffff;
+  color: #0d4c8f;
+  border:none;
+  border-radius:6px;
+  font-weight:bold;
+}
+
+.aba-btn.active{
+  background:#0d4c8f;
+  color: white;
+}
+
+.aba.active{
   display:block;
 }
 
 
 
 
-/* FILTROS */
-.filtros{
-  display:none;
-  flex-direction:column;
-  gap:8px;
-  padding-left:10px;
-
-}
-
-.filtros.ativo{
-  display:flex;
-}
-
-.filtros button{
-  padding:8px;
-  border:none;
-  border-radius:8px;
-  background:#eee;
-  cursor:pointer;
-  text-align:center;
-  font-size: 14px;
-}
-
-.filtros button:hover{
-  background:#929191;
-}
+/* GRID CARDS */
 
 
-
-/* CONTEÚDO DIREITA */
-.conteudo-direita{
-  flex:1;
-}
-
-/* ESCONDER GRID INICIAL */
 .grid-livro, .grid-fardamento{
   display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(150px,1fr));
-  gap:15px;
-   margin-left: 80px;
-
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap:16px;
+  padding:10px;
 }
-
-.grid-livro.ativo,
-.grid-fardamento.ativo{
-  display:grid;
-}
-
-
-
 
 
 /* ================= CARD PREMIUM ================= */
-.cardlivros{
+.cardlivros, .cardfardamento{
   position:relative;
   cursor:pointer;
   border-radius:14px;
@@ -362,29 +286,14 @@ nav a:hover::after{
   
 }
 
-
-.cardlivros:hover{
+/* ================= HOVER ================= */
+.cardlivros:hover, .cardfardamento:hover{
   transform:translateY(-6px) scale(1.03);
   box-shadow:0 16px 30px rgba(0,0,0,0.25);
 }
 
-
-.cardlivros h3 {
-  color: #001e40;
-  text-align:center;
-  margin:0 0 10px 0;
-  font-size: 18px;
-
-}
-
-.cardlivros p{
-  color:#ff9800;
-  font-weight:600;
-  font-size:15px;
-  margin:4px 0;
-}
-
-.cardlivros::before{
+/* ================= EFEITO BRILHO ================= */
+.cardlivros::before, .cardfardamento::before{
   content:'';
   position:absolute;
   top:0;
@@ -395,18 +304,16 @@ nav a:hover::after{
   transition:0.5s;
 }
 
-.cardlivros:hover::before{
+.cardlivros:hover::before, .cardfardamento:hover::before{
   left:100%;
 }
-
-
-
 
 /* ================= IMAGEM ================= */
 .cardlivros img {
   width:100%;
   height:90px;
-    object-fit:cover;
+  
+  object-fit:cover;
   border-radius:8px;
   transition:transform 0.3s ease;
 }
@@ -417,6 +324,8 @@ nav a:hover::after{
   object-fit:contain;
   border-radius:8px;
   transition:transform 0.3s ease;
+
+
 }
 
 
@@ -424,128 +333,18 @@ nav a:hover::after{
 .cardfardamento:hover img{
   transform:scale(1.08);
 }
-/* ================= IMAGEM ================= */
 
-
-.cardfardamento{
-  position:relative;
-  cursor:pointer;
-  border-radius:14px;
-  overflow:hidden;
-  padding:8px;
-  background:linear-gradient(145deg,#ffffff,#e6e6e6);
-  box-shadow:0 8px 20px rgba(0,0,0,0.15);
-  transition:all 0.3s ease;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  height:220px; /* reduzido proporcional */
-  color:black;
-  
-}
-
-.cardfardamento:hover{
-  transform:translateY(-6px) scale(1.03);
-  box-shadow:0 16px 30px rgba(0,0,0,0.25);
-}
-
-
-.cardfardamento::before{
-  content:'';
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:110%;
-  height:110%;
-  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);
-  transition:0.5s;
-}
-
-.cardfardamento:hover::before{
-  left:100%;
-}
-
-.cardfardamento h3 {
-  color: #001e40;
-  text-align:center;
-  margin:0 0 10px 0;
-  font-size: 18px;
-
-}
-
+/* ================= TÍTULO ================= */
+.cardlivros p, 
 .cardfardamento span{
   color:#ff9800;
   font-weight:600;
-  font-size:15px;
+  font-size:12px;
   margin:4px 0;
 }
 
-
-
-.conteudo-listas{
-  width: 100%;
-}
-
-.grid-listas{
- display:grid;
- margin-left: 80px;
-  grid-template-columns:repeat(auto-fill, minmax(150px,1fr));
-  gap:15px;
-}
-
-.cardlista{
-  position:relative;
-  cursor:pointer;
-  border-radius:14px;
-  overflow:hidden;
-  padding:8px;
-  background:linear-gradient(145deg,#ffffff,#e6e6e6);
-  box-shadow:0 8px 20px rgba(0,0,0,0.15);
-  transition:all 0.3s ease;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  height:220px; /* reduzido proporcional */
-  color:black;
-}
-
-.cardlista h3 {
-  color: #001e40;
-  text-align:center;
-  margin:0 0 10px 0;
-  font-size: 18px;
-
-}
-
-.cardlista img{
-   width:100%;
-  height:90px;
-  object-fit:cover;
-  border-radius:8px;
-  transition:transform 0.3s ease;
-}
-
-.btn-download{
-   margin-top:4px;
-  background:linear-gradient(45deg,#1976d2,#0d47a1);
-  color:white;
-  padding:4px;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-  font-weight:bold;
-  font-size:12px;
-  text-align: center;
-  text-decoration: none;
-  transition:all 0.3s ease;
-}
-
-.btn-download:hover{
-  background: orange;
-}
-
 /* ================= PREÇO ================= */
-.preco, 
+.precoFardamento, 
 .precoLivro{
   color:#0d47a1;
   font-weight:bold;
@@ -554,6 +353,7 @@ nav a:hover::after{
 }
 
 /* ================= INPUT ================= */
+input[type=number], 
 select{
   width:90px;
   margin-top:3px;
@@ -562,16 +362,6 @@ select{
   padding:2px;
   font-size:12px;
 }
-
-input[type=number]{
-  width:40px;
-  margin-top:3px;
-  border-radius:5px;
-  border:1px solid #ccc;
-  padding:2px;
-  font-size:12px;
-}
-
 
 /* ================= BOTÃO ================= */
 .btn-add{
@@ -639,10 +429,10 @@ input[type=number]{
 /* CARRINHO FLUTUANTE */ 
 
 .carrinho{
- 
+  color:#ff9800;
   display:none;
   position:fixed;
-  top:110px;
+  top:80px;
   right:60px;
   width:400px;
   max-width:90vw;
@@ -660,29 +450,6 @@ input[type=number]{
   text-align:center;
   margin:0 0 10px 0;
 }
-
-
- .carrinho span{
-  color:#1976d2;
-  font-size: 19px;
-  text-align:center;
-  font-weight: bold;
-}
- .carrinho spanq{
-  color:#fa8e00;
-  font-size: 15px;
-  text-align:center;
-}
-
- .carrinho spanp{
-  color:#d21919;
-  font-size: 14px;
-  text-align:center;
-  font-weight: bold;
-  
-}
-
-
  /* ITENS DO CARRINHO */
   /* ITENS DO CARRINHO */
 .itensCarrinhoItem{
@@ -703,16 +470,10 @@ input[type=number]{
 
 /* IMAGEM */
 .topoItem img{
-  width:80px;
-  height:80px;
+  width:70px;
+  height:70px;
   object-fit:cover;
   border-radius:6px;
-}
-
-#itensCarrinho{
-  overflow-y: auto;
-  max-height: 45vh;
-  padding-right: 5px;
 }
 
 /* DESCRIÇÃO */
@@ -744,7 +505,6 @@ input[type=number]{
   border-radius:6px;
   cursor:pointer;
   white-space:nowrap;
-  margin-left: 90px;
   height:fit-content;
 }
 
@@ -803,12 +563,10 @@ input[type=number]{
   transition:all 0.8s cubic-bezier(.5,-0.5,.5,1.5);
 }
       .btn-whats{
-        position: sticky;
         background:#25D366;
         color:white;}
         
       .btn-cartao{
-        position: sticky;
         background:#0d47a1;
         color:white;
       } 
@@ -966,24 +724,6 @@ input[type=number]{
     top:  200px;
     left: 50px;
   }
-  
-
-  
-/* BOTÃO FECHAR */
-.fechar-login{
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 20px;
-  cursor: pointer;
-  color: #ffffff;
-  transition: 0.2s;
-}
-
-.fechar-login:hover{
-  color: red;
-  transform: scale(1.2);
-}
 }
 
 

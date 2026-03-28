@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loja do Aluno</title>
+
+<link rel="stylesheet" href="loja.css">
+
+</head>
+<body>
+  
+ <!-- lOGIM  -->
+
+
+
+
+
+ <!-- FIM lOGIM  -->
+
+<header class="topo">
+
+  <!-- ESQUERDA -->
+  <div class="left">
+    <img src="logo-colegio.png" class="logo">
+<div id="perfilUsuario" class="perfil hidden" onclick="toggleMenu()">
+  
+  <span class="icone">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="white">
+      <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+    </svg>
+  </span>
+
+  <span id="nomeUsuario"></span>
+
+  <!-- MENU -->
+  <div id="menuUsuario" class="menu-usuario">
+     <button class="btn-logout" onclick="logout()" style="margin-left:20px;">Sair</button>
+  </div>
+
+</div>
+
+      <!-- BOTÃO HAMBÚRGUER -->
+<div id="menuToggle" class="menu-toggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+
+      <p class="titulo">
+    Colégio Progressão <br>
+    <span>Educação Infantil, Fundamental I e Fundamental II</span>
+  </p>
+  
+  </div>
+
+  <!-- CENTRO -->
+  <div class="center">
+    <h1>Loja do Aluno</h1>
+
+
+  <nav class="menu" id="menu">
+      <a href="../index.html">Início</a>
+      <a href="../index.html#galeria">Momentos</a>
+      <a href="../index.html#projetos">Projetos</a>
+      <a href="../index.html#sobre">Sobre</a>
+      <a href="../index.html#contato">Contato</a>
+     
+    </nav>
+   
+  </div>
+
+</header>
+
+
+<!-- 🛒 CARRINHO FIXO -->
+<div id="btnCarrinhoTopo" class="icone-carrinho">
+  🛒
+  <span id="contadorCarrinho" class="contador">0</span>
+</div>
+
+
+<main class="container">
+
+    <p id="mensagemInicial">Escolha uma categoria</p>
+
+    <div class="abas">
+        <button class="aba-btn active" data-aba="livros">Livros</button>
+        <button class="aba-btn" data-aba="fardamentos">Fardamentos</button>
+    </div>
+
+    <div id="conteudo-abas">
+
+        <!-- LIVROS -->
+        <div class="aba conteudo-livros active">
+            <div class="grid-livro" id="gridLivros"></div>
+        </div>
+
+        <!-- FARDAMENTOS -->
+        <div class="aba conteudo-fardamentos">
+            <div class="grid-fardamento" id="gridFardamentos"></div>
+        </div>
+
+    </div>
+
+</main>
+
+<!-- 🛒 CARRINHO LATERAL -->
+<div id="carrinho" class="carrinho">
+    <h3>Carrinho</h3>
+
+    <div id="itensCarrinho"></div>
+    <div id="totalCarrinho"></div>
+
+    <div class="botoes-carrinho">
+        <button id="btnWhatsCarrinho" class="btn-whats">Pagar WhatsApp</button>
+        <button id="btnCartao" class="btn-cartao">Pagar Cartão</button>
+    </div>
+</div>
+
+<div id="mensagem" class="mensagem">Item adicionado!</div>
+
+
+
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <p id="popupMsg"></p>
+    <button onclick="fecharPopup()">OK</button>
+  </div>
+</div>
+</body>
+<script src="loja.js"></script>
+</html>

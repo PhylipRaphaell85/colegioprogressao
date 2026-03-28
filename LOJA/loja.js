@@ -1,4 +1,3 @@
-
 function usuarioLogado(){
   return localStorage.getItem("logado") === "true";
 }
@@ -10,7 +9,7 @@ function carregarUsuario(){
   const perfil = document.getElementById("perfilUsuario");
   const nomeEl = document.getElementById("nomeUsuario");
 
-  if(!perfil || !nomeEl) return; // 🔥 evita erro
+  if(!perfil || !nomeEl) return;
 
   if(logado === "true" && nome){
     perfil.classList.remove("hidden");
@@ -18,25 +17,55 @@ function carregarUsuario(){
   }
 }
 
-// chama quando carregar a página
+// ================== SESSÃO ==================
+
+// salva horário da última atividade
+function salvarSessao() {
+  const agora = new Date().getTime();
+  localStorage.setItem("ultimaSessao", agora);
+}
+
+// verifica se expirou
+function verificarSessao() {
+  const ultima = localStorage.getItem("ultimaSessao");
+
+  if (!ultima) return;
+
+  const agora = new Date().getTime();
+  const diferenca = agora - ultima;
+
+  const limite = 3 * 60 * 1000; // 3 minutos
+
+  if (diferenca > limite) {
+    logout();
+  }
+}
+
+// 🔥 ORDEM CORRETA
+verificarSessao(); // primeiro verifica
+salvarSessao();    // depois salva
+
+// mantém sessão ativa
+setInterval(() => {
+  salvarSessao();
+}, 30000);
+
+// ================== LOGIN UI ==================
+
 document.addEventListener("DOMContentLoaded", carregarUsuario);
 
-// BOTÃO USUÁRIO LOGADO
-
+// ================== LOGOUT ==================
 
 function logout(){
-  // limpa tudo
   localStorage.removeItem("logado");
   localStorage.removeItem("nomeResp");
   localStorage.removeItem("chave");
+  localStorage.removeItem("ultimaSessao");
 
-  // volta pro login ou início
-  window.location.href = "../login.html"; // ajusta se precisar
+  window.location.href = "../login.html";
 }
 
-
 // FIM BOTÃO USUÁRIO LOGADO
-
 
 // MENSSAGENS DE ERRO
 function mostrarPopup(msg){
@@ -178,9 +207,10 @@ function atualizarCarrinho(){
       <div class="topoItem">
         <img src="${item.img}">
         <div>
+          <spanq>Qtd: ${item.qtd}</span> <br>
           <span>${item.nome}</span>
-          <span>Qtd: ${item.qtd}</span>
-          <span>${formatarPreco(item.preco * item.qtd)}</span>
+        
+          <spanp>${formatarPreco(item.preco * item.qtd)}</span>
         </div>
         <button class="removerItem">Remover</button>
       </div>
@@ -195,7 +225,7 @@ function atualizarCarrinho(){
     total += item.preco * item.qtd;
   });
 
-  totalCarrinhoDiv.innerHTML=`Total: ${formatarPreco(total)}`;
+totalCarrinhoDiv.innerHTML = `Total: <span style="color:red;">${formatarPreco(total)}</span>`;
   atualizarContador();
 }
 
@@ -393,7 +423,7 @@ const fardamentos = [
     precos:{ '02':70,'04':70,'06':70,'08':80,'10':80,'12':80,'14':90,'16':90 } },
 
   { tipo:'Jardineira', img:'fardamento/jardineira.JPG', categoria:'infantil',
-    precos:{ '02':70,'04':70,'06':70,'08':80,'10':80,'12':80,'14':90,'16':90 } },
+    precos:{ '02':70,'04':70,'06':70,'08':80,'10':80 } },
 
   { tipo:'Casaco', img:'fardamento/casaco.JPG', categoria:'infantil',
     precos:{ '02':90,'04':90,'06':90,'08':100,'10':100,'12':100,'14':130,'16':130 } },
@@ -447,9 +477,24 @@ function mostrarFardamentos(lista){
   lista.forEach((item,index)=>{
 
     let opcoes = '';
-    for(let t in item.precos){
-      opcoes += `<option value="${t}">${t}</option>`;
+
+    // 🔥 pega os tamanhos
+    let tamanhos = Object.keys(item.precos);
+
+    // 🔥 verifica se são números ou letras
+    if(!isNaN(tamanhos[0])){
+      // 👉 ordena números (2,4,6,8...)
+      tamanhos.sort((a,b) => a - b);
+    } else {
+      // 👉 ordem personalizada (P, M, G...)
+      const ordem = ['PP','P','M','G','GG','XG'];
+      tamanhos.sort((a,b) => ordem.indexOf(a) - ordem.indexOf(b));
     }
+
+    // 🔥 monta as opções já ordenadas
+    tamanhos.forEach(t => {
+      opcoes += `<option value="${t}">${t}</option>`;
+    });
 
     grid.innerHTML += `
       <div class="cardfardamento">
@@ -564,10 +609,4 @@ document.getElementById('btnCartao').onclick=()=>{
   mostrarPopup('Pagamento em breve.\nTotal: '+formatarPreco(total));
 };
 
-
-
-function logout(){
-  localStorage.clear();
-  window.location.href = "login.html";
-}
 
