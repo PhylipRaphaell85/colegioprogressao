@@ -1804,7 +1804,8 @@ CARDS BASE
 
 .card1,
 .card2,
-.card3{
+.card3,
+.card4{
 background:#ffffff;
 padding: 30px 20px; /* antes 50px 30px */
 border-radius:18px;
@@ -1826,7 +1827,8 @@ flex-direction: column;
 
 .card1::before,
 .card2::before,
-.card3::before{
+.card3::before,
+.card4::before{
 
 content:"";
 position:absolute;
@@ -1845,7 +1847,8 @@ TITULOS
 
 .card1 h3,
 .card2 h3,
-.card3 h3{
+.card3 h3,
+.card4 h3{
 
 font-size:22px;
 margin-bottom:15px;
@@ -1862,7 +1865,8 @@ TEXTOS
 
 .card1 p,
 .card2 p,
-.card3 p{
+.card3 p,
+.card4 p{
 font-size:15px;
 line-height:1.7;
 color:#444;
@@ -1889,7 +1893,8 @@ EFEITO HOVER
 
 .card1:hover,
 .card2:hover,
-.card3:hover{
+.card3:hover,
+.card4:hover{
 
 transform:translateY(-12px) scale(1.02);
 
@@ -2820,16 +2825,28 @@ header{
     margin: auto;
 }
 
-.card1,
-.card2,
-.card3{
-    max-width:220px;
-    width:100%;
-    margin:auto;
-    padding:18px;
+
+
+  .card1,
+    .card2,
+    .card3,
+    .card4{
+        max-width: 100%;
+        min-height: 260px;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+
+.card4 h3{
+  font-size:18px;
+
 }
 
-.card1 h3,
+
+
+
 .card2 h3,
 .card3 h3{
     font-size:20px;
@@ -2837,8 +2854,9 @@ header{
 
 .card1 p,
 .card2 p,
-.card3 p{
-    font-size:10px;
+.card3 p,
+.card4 p{
+    font-size:12px;
     line-height:1.6;
 }
 
@@ -3066,7 +3084,16 @@ header{
     width: 100px;
   }
 
+   .banner-matricula {
+        justify-content: center; /* centraliza conteúdo */
+        align-items: center;
+        text-align: center;
 
+        min-height: 420px; /* menor altura */
+        padding: 40px 15px;
+
+        background-position: left;
+    }
 
 
 
