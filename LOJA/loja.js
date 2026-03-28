@@ -333,7 +333,7 @@ function mostrarLivros(lista){
         <input type="number" min="1" value="1" class="qtd">
 
        <button class="btn-add" onclick="addLivro(this)">  Comprar</button>
-          Comprar
+          
         </button>
       </div>
     `;
@@ -348,18 +348,23 @@ function addLivro(botao){
   const nome = card.querySelector('h3').innerText;
   const precoTexto = card.querySelector('p').innerText;
 
-  // extrai número do preço
   const preco = Number(precoTexto.replace(/[^\d,]/g,'').replace(',','.'));
-
   const qtd = parseInt(card.querySelector('.qtd').value) || 1;
   const img = card.querySelector('img').src;
 
-  carrinho.push({
-    nome: nome,
-    preco: preco,
-    qtd: qtd,
-    img: img
-  });
+  // 🔥 PROCURA SE JÁ EXISTE
+  const itemExistente = carrinho.find(item => item.nome === nome);
+
+  if(itemExistente){
+    itemExistente.qtd += qtd; // soma quantidade
+  } else {
+    carrinho.push({
+      nome: nome,
+      preco: preco,
+      qtd: qtd,
+      img: img
+    });
+  }
 
   atualizarCarrinho();
   animarAdicionar(card.querySelector('img'));

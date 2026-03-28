@@ -636,7 +636,7 @@ input[type=number]{
   color:#ff9800;
   display:none;
   position:fixed;
-  top:80px;
+  top:110px;
   right:60px;
   width:400px;
   max-width:90vw;
@@ -678,6 +678,12 @@ input[type=number]{
   height:70px;
   object-fit:cover;
   border-radius:6px;
+}
+
+#itensCarrinho{
+  overflow-y: auto;
+  max-height: 45vh;
+  padding-right: 5px;
 }
 
 /* DESCRIÇÃO */
@@ -767,10 +773,12 @@ input[type=number]{
   transition:all 0.8s cubic-bezier(.5,-0.5,.5,1.5);
 }
       .btn-whats{
+        position: sticky;
         background:#25D366;
         color:white;}
         
       .btn-cartao{
+        position: sticky;
         background:#0d47a1;
         color:white;
       } 
