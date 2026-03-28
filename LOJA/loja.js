@@ -240,42 +240,57 @@ function formatarPreco(valor){
 
 
 //====================LIVROS E FARDAMENTOS============================================
-// MOSTRAR / ESCONDER FILTROS DE LIVROS
-function abrirAba(tipo) {
+// ABRIR ABA
+function abrirAba(tipo, event) {
+  event.stopPropagation(); // evita fechar ao clicar no botão
 
-  const filtrosLivros = document.querySelector('.filtros-livros');
-  const filtrosFardamentos = document.querySelector('.filtros-fardamentos');
-  const filtrosLista = document.querySelector('.filtros-lista');
+  fecharTudo();
 
-  const abaLivros = document.querySelector('.conteudo-livros');
-  const abaFardamentos = document.querySelector('.conteudo-fardamentos');
-  const abaListas = document.querySelector('.conteudo-listas');
-
-  // reset
-  filtrosLivros.classList.remove('ativo');
-  filtrosFardamentos.classList.remove('ativo');
-  filtrosLista.classList.remove('ativo');
-
-  abaLivros.classList.remove('ativa');
-  abaFardamentos.classList.remove('ativa');
-  abaListas.classList.remove('ativa');
-
-  // ativar
   if (tipo === 'livros') {
-    filtrosLivros.classList.add('ativo');
-    abaLivros.classList.add('ativa');
+    document.querySelector('.filtros-livros').classList.add('ativo');
+    document.querySelector('.conteudo-livros').classList.add('ativa');
   }
 
   if (tipo === 'fardamentos') {
-    filtrosFardamentos.classList.add('ativo');
-    abaFardamentos.classList.add('ativa');
+    document.querySelector('.filtros-fardamentos').classList.add('ativo');
+    document.querySelector('.conteudo-fardamentos').classList.add('ativa');
   }
 
   if (tipo === 'lista-materiais') {
-    filtrosLista.classList.add('ativo');
-    abaListas.classList.add('ativa');
+    document.querySelector('.filtros-lista').classList.add('ativo');
+    document.querySelector('.conteudo-listas').classList.add('ativa');
   }
 }
+
+
+// FUNÇÃO CENTRAL DE FECHAR
+function fecharTudo() {
+  document.querySelector('.filtros-livros').classList.remove('ativo');
+  document.querySelector('.filtros-fardamentos').classList.remove('ativo');
+  document.querySelector('.filtros-lista').classList.remove('ativo');
+
+  document.querySelector('.conteudo-livros').classList.remove('ativa');
+  document.querySelector('.conteudo-fardamentos').classList.remove('ativa');
+  document.querySelector('.conteudo-listas').classList.remove('ativa');
+}
+
+
+// CLIQUE FORA
+document.addEventListener('click', function(e) {
+  const area = document.querySelector('.layout-loja');
+
+  if (!area.contains(e.target)) {
+    fecharTudo();
+  }
+});
+
+
+// TECLA ESC
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    fecharTudo();
+  }
+});
 
 //====================FECHAR AO CLICAR FORA============================================
 
