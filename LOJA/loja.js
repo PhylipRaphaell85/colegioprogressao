@@ -278,22 +278,10 @@ function abrirAba(tipo) {
 }
 
 //====================FECHAR AO CLICAR FORA============================================
-document.addEventListener('click', function(e) {
 
-  const menuLateral = document.querySelector('.menu-lateral');
 
-  // se clicou fora do menu lateral (botões + filtros)
-  if (!menuLateral.contains(e.target)) {
 
-    document.querySelector('.filtros-livros').classList.remove('ativo');
-    document.querySelector('.filtros-fardamentos').classList.remove('ativo');
-    document.querySelector('.filtros-lista').classList.remove('ativo');
 
-    document.querySelector('.conteudo-livros').classList.remove('ativa');
-    document.querySelector('.conteudo-fardamentos').classList.remove('ativa');
-    document.querySelector('.conteudo-listas').classList.remove('ativa');
-  }
-});
 
 //=========================LISTA DE MATERIAIS==========================================
 // ================= LISTAS =================
@@ -481,7 +469,7 @@ const fardamentos = [
   { tipo:'Calça Tactel', img:'fardamento/calça.JPG', categoria:'fund2',
     precos:{ '36':70,'38':80,'40':90,'42':80,'44':80 } },
 
-  { tipo:'Calça Bryn', img:'fardamento/calça.JPG', categoria:'fund2',
+  { tipo:'Calça Bryn', img:'fardamento/calçabryn.jpeg', categoria:'fund2',
     precos:{ '36':70,'38':80,'40':90,'42':80,'44':80 } }
 
 ];
