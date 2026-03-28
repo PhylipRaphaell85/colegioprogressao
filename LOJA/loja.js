@@ -35,13 +35,7 @@ function logout(){
 }
 
 
-
-
-
 // FIM BOTÃO USUÁRIO LOGADO
-
-
-
 
 
 // MENSSAGENS DE ERRO
@@ -58,10 +52,10 @@ function fecharPopup(){
 
 
 // TROCAR TELAS
-function mostrarCadastro(){
-  document.getElementById("loginBox").classList.add("hidden");
-  document.getElementById("cadastroBox").classList.remove("hidden");
-}
+//function mostrarCadastro(){
+//  document.getElementById("loginBox").classList.add("hidden");
+//  document.getElementById("cadastroBox").classList.remove("hidden");
+//}
 
 function mostrarLogin(){
   document.getElementById("cadastroBox").classList.add("hidden");
@@ -103,33 +97,7 @@ function formatarPreco(valor){
 }
 
 // ======= ABAS =======
-const abasBtns = document.querySelectorAll('.aba-btn');
-const abasConteudo = document.querySelectorAll('.aba');
 
-let livrosCarregados = false;
-let fardamentosCarregados = false;
-
-abasBtns.forEach(btn=>{
-  btn.onclick = ()=>{
-
-    abasBtns.forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-
-    abasConteudo.forEach(ab=>ab.classList.remove('active'));
-    document.querySelector('.conteudo-'+btn.dataset.aba).classList.add('active');
-
-    if(btn.dataset.aba === "livros" && !livrosCarregados){
-      carregarLivros();
-      livrosCarregados = true;
-    }
-
-    if(btn.dataset.aba === "fardamentos" && !fardamentosCarregados){
-      carregarFardamentos();
-      fardamentosCarregados = true;
-    }
-
-  }
-});
 
 // ======= MENSAGEM =======
 const mensagem = document.getElementById('mensagem');
@@ -242,122 +210,22 @@ function atualizarCarrinho(){
   atualizarContador();
 }
 
-// ======= PRODUTOS =======
+//==================================================================================
 
-// KITS
-const kits={
-  maternal1:{nome:"Kit Maternal I",preco:550,img:"livros/m1.png"},
-  maternal2:{nome:"Maternal II",preco:550,img:"livros/m2.png"},
 
-  infantil1:{nome:"Infantil I",preco:300,img:"livros/infant1.png"},
-  infantil2:{nome:"Infantil II",preco:310,img:"livros/infant2.png"},
 
-  fundamental1:{nome:"1º Ano Fundamental I",preco:450,img:"livros/1ano.png"},
-  fundamental2:{nome:"2º Ano Fundamental I",preco:450,img:"livros/2ano.png"},
-  fundamental3:{nome:"3º Ano Fundamental I",preco:450,img:"livros/3ano.png"},
-  fundamental4:{nome:"4º Ano Fundamental I",preco:450,img:"livros/4ano.png"},
-  fundamental5:{nome:"5º Ano Fundamental I",preco:450,img:"livros/5ano.png"},
 
-  fundamental6:{nome:"6º Ano Fundamental II",preco:450,img:"https://via.placeholder.com/150"},
-  fundamental7:{nome:"7º Ano Fundamental II",preco:450,img:"https://via.placeholder.com/150"},
-  fundamental8:{nome:"8º Ano Fundamental II",preco:450,img:"https://via.placeholder.com/150"},
-  fundamental9:{nome:"9º Ano Fundamental II",preco:450,img:"https://via.placeholder.com/150"}
-};
 
-// FARDAMENTOS
-const fardamentos=[
-  {tipo:'Camisa',img:'fardamento/camisa.JPG',precos:{'02-06':70,'08-12':80,'14+':90}},
-  {tipo:'Camiseta',img:'fardamento/camiseta.JPG',precos:{'02-06':70,'08-12':80,'14+':90}},
-  {tipo:'Jardineira',img:'fardamento/jardineira.JPG',precos:{'02-06':70,'08-12':80,'14+':90}},
-  {tipo:'Casaco',img:'fardamento/casaco.JPG',precos:{'02-06':90,'08-12':100,'14+':130}},
-  {tipo:'Calça',img:'fardamento/calça.JPG',precos:{'02-06':70,'08-12':80,'14+':90}},
-  {tipo:'Short',img:'fardamento/shot.JPG',precos:{'02-06':70,'08-12':80,'14+':90}},
-  {tipo:'Short-Saia',img:'fardamento/shortsaia.JPG',precos:{'02-06':70,'08-12':80,'14+':90}},
-  {tipo:'Meia',img:'fardamento/camisa.JPG',precos:{'02-06':20,'08-12':30,'14+':30}}
-];
 
-// ======= CARREGAR LIVROS =======
-function carregarLivros(){
-  const gridLivros = document.getElementById('gridLivros');
 
-  for(let key in kits){
-    let kit=kits[key];
 
-    let div = document.createElement('div');
-    div.className='cardlivros';
 
-    div.innerHTML=`
-      <img src="${kit.img}">
-      <p>${kit.nome}</p>
-      <div class="precoLivro">${formatarPreco(kit.preco)}</div>
-      <label>Qtd: <input type="number" value="1" min="1"></label>
-      <button class="btn-add">Adicionar</button>
-    `;
 
-    div.querySelector('.btn-add').onclick=()=>{
-      let qtd=parseInt(div.querySelector('input').value);
 
-      let exist = carrinho.find(i=>i.nome===kit.nome);
-      if(exist) exist.qtd += qtd;
-      else carrinho.push({nome:kit.nome,preco:kit.preco,qtd,img:kit.img});
 
-      animarAdicionar(div.querySelector('img'));
-      atualizarCarrinho();
-      mostrarMensagem();
-    };
 
-    gridLivros.appendChild(div);
-  }
-}
+//==================================================================================
 
-// ======= CARREGAR FARDAMENTOS =======
-function carregarFardamentos(){
-  const gridFardamentos = document.getElementById('gridFardamentos');
-
-  fardamentos.forEach(f=>{
-    let div=document.createElement('div');
-    div.className='cardfardamento';
-
-    div.innerHTML=`
-      <img src="${f.img}">
-      <span>${f.tipo}</span>
-      <select>
-        <option value="">Escolha</option>
-        <option value="02-06">02-06</option>
-        <option value="08-12">08-12</option>
-        <option value="14+">14+</option>
-      </select>
-      <div class="precoFardamento"></div>
-      <input type="number" value="1" min="1">
-      <button class="btn-add">Adicionar</button>
-    `;
-
-    const select = div.querySelector('select');
-    const precoDiv = div.querySelector('.precoFardamento');
-
-    select.onchange=()=>{
-      precoDiv.innerText = select.value ? formatarPreco(f.precos[select.value]) : '';
-    };
-
-    div.querySelector('.btn-add').onclick=()=>{
-      if(!select.value) return alert('Selecione a idade');
-
-      let qtd=parseInt(div.querySelector('input').value);
-      let preco=f.precos[select.value];
-      let nome=f.tipo+' ('+select.value+')';
-
-      let exist=carrinho.find(i=>i.nome===nome);
-      if(exist) exist.qtd+=qtd;
-      else carrinho.push({nome,preco,qtd,img:f.img});
-
-      animarAdicionar(div.querySelector('img'));
-      atualizarCarrinho();
-      mostrarMensagem();
-    };
-
-    gridFardamentos.appendChild(div);
-  });
-}
 
 // ======= WHATSAPP =======
 document.getElementById('btnWhatsCarrinho').onclick=()=>{
@@ -372,7 +240,7 @@ document.getElementById('btnWhatsCarrinho').onclick=()=>{
 
   if(carrinho.length===0) return mostrarPopup('Carrinho vazio');
 
-  let msg='Gostaria de adquiri esse produto:%0A';
+  let msg='Gostaria de adquirir esse(s) produto(s):%0A';
   carrinho.forEach(i=>{
     msg+=`${i.nome} x${i.qtd} - ${formatarPreco(i.preco*i.qtd)}%0A`;
   });

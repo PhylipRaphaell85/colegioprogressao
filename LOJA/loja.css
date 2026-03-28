@@ -216,7 +216,7 @@ nav a:hover::after{
 /* CONTAINER */
 .container{
   padding:20px;
-  text-align:center;
+  
 }
 
 #mensagemInicial {
@@ -224,27 +224,41 @@ nav a:hover::after{
   font-size: 18px;
   margin-bottom: 60px;
 }
-.abas{
+
+
+
+/* LAYOUT */
+.layout-loja{
   display:flex;
+  gap:20px;
+}
+
+/* MENU LATERAL */
+
+.menu-lateral{
+  width:220px;
+  display:flex;
+  flex-direction:column;
   gap:10px;
-  margin-bottom:20px;}
-
-
-.aba{
-  display:none;
 }
 
+/* BOTÕES PRINCIPAIS */
 .aba-btn{
-  flex:1;
-  padding:10px;
-  cursor:pointer;
-  background:#ffffff;
-  color: #0d4c8f;
+  width:100%;
+  padding:12px;
   border:none;
-  border-radius:6px;
+  border-radius:10px;
+  background:#0B3C8C;
+  color:#fff;
+  cursor:pointer;
+  text-align:left;
   font-weight:bold;
+  transition:0.3s;
 }
 
+.aba-btn:hover{
+  background:orange;
+}
 .aba-btn.active{
   background:#0d4c8f;
   color: white;
@@ -255,17 +269,69 @@ nav a:hover::after{
 }
 
 
+.abas{
+  display:flex;
+  gap:10px;
+  margin-bottom:20px;}
 
 
-/* GRID CARDS */
+.aba{
+  display:none;
+}
+
+.aba.ativa{
+  display:block;
+}
 
 
+
+
+/* FILTROS */
+.filtros{
+  display:none;
+  flex-direction:column;
+  gap:8px;
+  padding-left:10px;
+}
+
+.filtros.ativo{
+  display:flex;
+}
+
+.filtros button{
+  padding:8px;
+  border:none;
+  border-radius:8px;
+  background:#eee;
+  cursor:pointer;
+  text-align:left;
+}
+
+.filtros button:hover{
+  background:#ddd;
+}
+
+
+
+/* CONTEÚDO DIREITA */
+.conteudo-direita{
+  flex:1;
+}
+
+/* ESCONDER GRID INICIAL */
 .grid-livro, .grid-fardamento{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap:16px;
-  padding:10px;
+  grid-template-columns:repeat(auto-fill, minmax(150px,1fr));
+  gap:15px;
 }
+
+.grid-livro.ativo,
+.grid-fardamento.ativo{
+  display:grid;
+}
+
+
+
 
 
 /* ================= CARD PREMIUM ================= */
@@ -724,6 +790,24 @@ select{
     top:  200px;
     left: 50px;
   }
+  
+
+  
+/* BOTÃO FECHAR */
+.fechar-login{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #ffffff;
+  transition: 0.2s;
+}
+
+.fechar-login:hover{
+  color: red;
+  transform: scale(1.2);
+}
 }
 
 

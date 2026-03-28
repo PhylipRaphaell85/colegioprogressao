@@ -1593,7 +1593,7 @@ transform:translateX(0);
 }
 
 to{
-transform:translateX(-80%);
+transform:translateX(-55%);
 }
 
 }
@@ -1764,6 +1764,22 @@ color:#e65100;
 margin-bottom: 70px;
 }
 
+.btn-sobre{
+  margin-top:15px;
+  display:inline-block;
+  background:#ff7a00;
+  font-size: 10px;
+  color:#fff;
+  padding:10px 15px;
+  border-radius:20px;
+  text-decoration:none;
+  margin-left: 160px;
+}
+
+.btn-sobre:hover{
+  background:#1e40af;
+  color:#fff;
+}
     
 /* ==========================================================
    CARDS SOBRE
@@ -1914,7 +1930,7 @@ GRID
 ========================================= */
 
 .grid {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1926,74 +1942,78 @@ GRID
 /* =========================================
 CARD MODERNO
 ========================================= */
-
+/* CARD */
 .cardinf{
-background:#ffffff;
-border-radius:18px;
-overflow:hidden;
-position:relative;
-box-shadow:
-0 8px 20px rgba(0,0,0,0.06),
-0 18px 35px rgba(0,0,0,0.04);
-transition:0.35s;
+  background:#ffffff;
+  border-radius:18px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:
+  0 8px 20px rgba(0,0,0,0.06),
+  0 18px 35px rgba(0,0,0,0.04);
+  transition:0.35s;
+  display: flex;
+  flex-direction: column;
 }
 
-
-/* LINHA MODERNA NO TOPO */
-
+/* LINHA TOPO */
 .cardinf::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:4px;
-background:linear-gradient(90deg,#1e40af,#ff7a18,#f59e0b);
-
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg,#1e40af,#ff7a18,#f59e0b);
 }
 
-
-/* =========================================
-IMAGEM
-========================================= */
-
+/* IMAGEM */
 .cardinf img{
-width:100%;
-height:150px; /* menor */
-object-fit:cover;
-display:block;
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  display:block;
 }
 
-
-/* =========================================
-CONTEÚDO
-========================================= */
-
+/* CONTEÚDO */
 .cardinf .conteudo{
-padding:20px;
-text-align:center;
+  padding:20px;
+  text-align:center;
+  flex-grow: 1; /* empurra botão pra baixo */
 }
 
-
-/* TITULO */
-
+/* TÍTULO */
 .cardinf h3{
-font-size:22px;
-margin-bottom:10px;
-color:#0f2a44;
-font-weight:700;
-
+  font-size:22px;
+  margin-bottom:10px;
+  color:#0f2a44;
+  font-weight:700;
 }
-
 
 /* TEXTO */
-
 .cardinf p{
+  font-size:13px;
+  color:#555;
+  line-height:1.6;
+}
 
-font-size:13px;
-color:#555;
-line-height:1.6;
+/* BOTÃO */
+.btn-carinf{
+  align-self: flex-end; /* direita */
+  margin: 15px;
+  display:inline-block;
+  background:#ff7a00;
+  font-size: 10px;
+  color:#fff;
+  padding:10px 15px;
+  border-radius:20px;
+  text-decoration:none;
+  transition:0.3s;
+}
 
+.btn-carinf:hover{
+  background:#1e40af;
+  color:#fff;
 }
 
 
@@ -2014,10 +2034,16 @@ box-shadow:
    BANER MATRICULA
 ========================================================== */
 
+
 .banner-matricula {
-  background: linear-gradient(135deg, #f6b100, #f25c05);
-  padding: 100px 20px;
-  text-align: center;
+  display: flex;
+  justify-content: flex-start; /* joga tudo pra esquerda */
+  align-items: center;
+
+  background: url("SejaProgresão.jpg") center/cover no-repeat;
+
+  min-height: 560px;
+  padding: 60px 20px;
   color: white;
   position: relative;
   overflow: hidden;
@@ -2036,28 +2062,33 @@ box-shadow:
   left: 0;
 }
 
+/* CONTEÚDO */
 .conteudo {
   position: relative;
   max-width: 800px;
-  margin: auto;
+  margin: 0;              /* remove centralização */
   z-index: 2;
+  text-align: left;       /* alinha à esquerda */
+  padding-left: 40px;     /* espaço da borda */
 }
 
+/* TÍTULO */
 .banner-matricula h1 {
   font-size: 60px;
   font-weight: 800;
   margin-bottom: 20px;
 }
 
+/* TEXTO */
 .banner-matricula p {
   font-size: 23px;
-  line-height: 1;
+  line-height: 1.2;
   margin-bottom: 35px;
-  
 }
 
+/* BOTÃO */
 .btn-whatsapp {
-  background: #1e40af;
+  background: linear-gradient(135deg, #E65100);
   padding: 19px 30px;
   border-radius: 10px;
   color: white;

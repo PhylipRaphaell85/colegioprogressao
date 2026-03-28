@@ -32,7 +32,7 @@ body{
   transition: 0.2s;
 }
 
-.fechar:hover{
+.fechar-login:hover{
   color: red;
   transform: scale(1.2);
 }
@@ -138,7 +138,7 @@ button:hover{
 
 .link{
   text-align:center;
-  cursor:pointer;
+
   margin-top:20px;
 }
 
@@ -223,10 +223,10 @@ button:hover{
 
 <button onclick="login()">Entrar</button>
 
-<div class="link" onclick="mostrarCadastro()">Cadastrar</div>
+<div class="link" >Apenas alunos Matriculados!</div>
 </div>
 
-<!-- CADASTRO -->
+<!-- CADASTRO 
 <div id="cadastroBox" class="hidden">
 
 <h2>Cadastro</h2>
@@ -283,6 +283,7 @@ button:hover{
 </div>
 
 </div>
+-->
 <!-- 🔥 POPUP -->
 <div id="popup" class="popup hidden">
   <div class="popup-box">
@@ -301,10 +302,10 @@ function voltarHome(){
 const API_URL = "https://script.google.com/macros/s/AKfycbxJhujz2_krlRSnduyOGzN5m8-SntIVtIg90QPodShBGMGCItcRrZQjBjvXU9HWGPWo/exec";
 
 // TROCA DE TELA
-function mostrarCadastro(){
-  document.getElementById("loginBox").classList.add("hidden");
-  document.getElementById("cadastroBox").classList.remove("hidden");
-}
+//function mostrarCadastro(){
+//  document.getElementById("loginBox").classList.add("hidden");
+//  document.getElementById("cadastroBox").classList.remove("hidden");
+//}
 
 function mostrarLogin(){
   document.getElementById("cadastroBox").classList.add("hidden");
@@ -313,7 +314,7 @@ function mostrarLogin(){
 
 // POPUP
 function mostrarPopup(msg){
-  document.getElementById("popupMsg").innerText = msg;
+  document.getElementById("popupMsg").innerHTML = msg; // 🔥 troca aqui
   document.getElementById("popup").classList.add("show");
 }
 
@@ -321,6 +322,7 @@ function fecharPopup(){
   document.getElementById("popup").classList.remove("show");
 }
 
+/*
 // CADASTRO
 function cadastrar(){
 
@@ -359,7 +361,7 @@ function cadastrar(){
   .catch(()=>{
     mostrarPopup("Erro ao cadastrar");
   });
-}
+}*/
 
 
 // LOGIN
@@ -389,7 +391,7 @@ function login(){
       window.location.href = "loja.html";
 
     }else{
-      mostrarPopup("Matrícula inválida");
+      mostrarPopup("<strong>Matrícula não localizada.</strong> <br> Confira as informações digitadas ou entre em contato com a secretária");
     }
   })
   .catch(()=>{
@@ -397,6 +399,7 @@ function login(){
   });
 }
 </script>
+
 
 </body>
 </html>

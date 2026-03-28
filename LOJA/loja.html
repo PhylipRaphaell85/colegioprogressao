@@ -80,31 +80,50 @@
   <span id="contadorCarrinho" class="contador">0</span>
 </div>
 
-
 <main class="container">
 
-    <p id="mensagemInicial">Escolha uma categoria</p>
+  <div class="layout-loja">
 
-    <div class="abas">
-        <button class="aba-btn active" data-aba="livros">Livros</button>
-        <button class="aba-btn" data-aba="fardamentos">Fardamentos</button>
+    <!-- MENU LATERAL -->
+    <aside class="menu-lateral">
+
+      <!-- LIVROS -->
+      <button class="aba-btn" onclick="abrirAba('livros')">Livros</button>
+
+      <div class="filtros filtros-livros">
+        <button onclick="filtrarLivros('infantil')">Infantil</button>
+        <button onclick="filtrarLivros('fund1')">Fundamental I</button>
+        <button onclick="filtrarLivros('fund2')">Fundamental II</button>
+      </div>
+
+      <!-- FARDAMENTOS -->
+      <button class="aba-btn" onclick="abrirAba('fardamentos')">Fardamentos</button>
+
+      <div class="filtros filtros-fardamentos">
+        <button onclick="filtrarFardamento('infantil')">Infantil</button>
+        <button onclick="filtrarFardamento('fund1')">Fundamental I</button>
+        <button onclick="filtrarFardamento('fund2')">Fundamental II</button>
+      </div>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <div class="conteudo-direita">
+
+      <div class="aba conteudo-livros ativa">
+        <div class="grid-livro" id="gridLivros"></div>
+      </div>
+
+      <div class="aba conteudo-fardamentos">
+        <div class="grid-fardamento" id="gridFardamentos"></div>
+      </div>
+
     </div>
 
-    <div id="conteudo-abas">
-
-        <!-- LIVROS -->
-        <div class="aba conteudo-livros active">
-            <div class="grid-livro" id="gridLivros"></div>
-        </div>
-
-        <!-- FARDAMENTOS -->
-        <div class="aba conteudo-fardamentos">
-            <div class="grid-fardamento" id="gridFardamentos"></div>
-        </div>
-
-    </div>
+  </div>
 
 </main>
+
 
 <!-- 🛒 CARRINHO LATERAL -->
 <div id="carrinho" class="carrinho">
