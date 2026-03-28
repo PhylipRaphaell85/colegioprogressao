@@ -105,6 +105,18 @@
         <button onclick="filtrarFardamento('fund2')">Fundamental II</button>
       </div>
 
+      
+      <!-- LISTA MATERIAIS -->
+      <button class="aba-btn" onclick="abrirAba('lista-materiais')"> Lista Materiais</button>
+
+      <div class="filtros filtros-lista">
+        <button onclick="filtrarListas('infantil')">Infantil</button>
+  <button onclick="filtrarListas('fund1')">Fundamental I</button>
+  <button onclick="filtrarListas('fund2')">Fundamental II</button>
+      </div>
+
+    
+
     </aside>
 
     <!-- CONTEÚDO -->
@@ -118,6 +130,11 @@
         <div class="grid-fardamento" id="gridFardamentos"></div>
       </div>
 
+
+        <div class="aba conteudo-listas">
+      <div id="gridListas" class="grid-listas"></div>
+    </div>
+    
     </div>
 
   </div>

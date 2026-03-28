@@ -292,6 +292,7 @@ nav a:hover::after{
   flex-direction:column;
   gap:8px;
   padding-left:10px;
+
 }
 
 .filtros.ativo{
@@ -304,11 +305,12 @@ nav a:hover::after{
   border-radius:8px;
   background:#eee;
   cursor:pointer;
-  text-align:left;
+  text-align:center;
+  font-size: 14px;
 }
 
 .filtros button:hover{
-  background:#ddd;
+  background:#929191;
 }
 
 
@@ -323,6 +325,8 @@ nav a:hover::after{
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(150px,1fr));
   gap:15px;
+   margin-left: 80px;
+
 }
 
 .grid-livro.ativo,
@@ -335,7 +339,7 @@ nav a:hover::after{
 
 
 /* ================= CARD PREMIUM ================= */
-.cardlivros, .cardfardamento{
+.cardlivros{
   position:relative;
   cursor:pointer;
   border-radius:14px;
@@ -352,14 +356,29 @@ nav a:hover::after{
   
 }
 
-/* ================= HOVER ================= */
-.cardlivros:hover, .cardfardamento:hover{
+
+.cardlivros:hover{
   transform:translateY(-6px) scale(1.03);
   box-shadow:0 16px 30px rgba(0,0,0,0.25);
 }
 
-/* ================= EFEITO BRILHO ================= */
-.cardlivros::before, .cardfardamento::before{
+
+.cardlivros h3 {
+  color: #001e40;
+  text-align:center;
+  margin:0 0 10px 0;
+  font-size: 18px;
+
+}
+
+.cardlivros p{
+  color:#ff9800;
+  font-weight:600;
+  font-size:15px;
+  margin:4px 0;
+}
+
+.cardlivros::before{
   content:'';
   position:absolute;
   top:0;
@@ -370,16 +389,18 @@ nav a:hover::after{
   transition:0.5s;
 }
 
-.cardlivros:hover::before, .cardfardamento:hover::before{
+.cardlivros:hover::before{
   left:100%;
 }
+
+
+
 
 /* ================= IMAGEM ================= */
 .cardlivros img {
   width:100%;
   height:90px;
-  
-  object-fit:cover;
+    object-fit:cover;
   border-radius:8px;
   transition:transform 0.3s ease;
 }
@@ -390,8 +411,6 @@ nav a:hover::after{
   object-fit:contain;
   border-radius:8px;
   transition:transform 0.3s ease;
-
-
 }
 
 
@@ -399,18 +418,128 @@ nav a:hover::after{
 .cardfardamento:hover img{
   transform:scale(1.08);
 }
+/* ================= IMAGEM ================= */
 
-/* ================= TÍTULO ================= */
-.cardlivros p, 
+
+.cardfardamento{
+  position:relative;
+  cursor:pointer;
+  border-radius:14px;
+  overflow:hidden;
+  padding:8px;
+  background:linear-gradient(145deg,#ffffff,#e6e6e6);
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+  transition:all 0.3s ease;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  height:220px; /* reduzido proporcional */
+  color:black;
+  
+}
+
+.cardfardamento:hover{
+  transform:translateY(-6px) scale(1.03);
+  box-shadow:0 16px 30px rgba(0,0,0,0.25);
+}
+
+
+.cardfardamento::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:110%;
+  height:110%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);
+  transition:0.5s;
+}
+
+.cardfardamento:hover::before{
+  left:100%;
+}
+
+.cardfardamento h3 {
+  color: #001e40;
+  text-align:center;
+  margin:0 0 10px 0;
+  font-size: 18px;
+
+}
+
 .cardfardamento span{
   color:#ff9800;
   font-weight:600;
-  font-size:12px;
+  font-size:15px;
   margin:4px 0;
 }
 
+
+
+.conteudo-listas{
+  width: 100%;
+}
+
+.grid-listas{
+ display:grid;
+ margin-left: 80px;
+  grid-template-columns:repeat(auto-fill, minmax(150px,1fr));
+  gap:15px;
+}
+
+.cardlista{
+  position:relative;
+  cursor:pointer;
+  border-radius:14px;
+  overflow:hidden;
+  padding:8px;
+  background:linear-gradient(145deg,#ffffff,#e6e6e6);
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+  transition:all 0.3s ease;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  height:220px; /* reduzido proporcional */
+  color:black;
+}
+
+.cardlista h3 {
+  color: #001e40;
+  text-align:center;
+  margin:0 0 10px 0;
+  font-size: 18px;
+
+}
+
+.cardlista img{
+   width:100%;
+  height:90px;
+  object-fit:cover;
+  border-radius:8px;
+  transition:transform 0.3s ease;
+}
+
+.btn-download{
+   margin-top:4px;
+  background:linear-gradient(45deg,#1976d2,#0d47a1);
+  color:white;
+  padding:4px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:bold;
+  font-size:12px;
+  text-align: center;
+  text-decoration: none;
+  transition:all 0.3s ease;
+}
+
+.btn-download:hover{
+  background: orange;
+}
+
 /* ================= PREÇO ================= */
-.precoFardamento, 
+.preco, 
 .precoLivro{
   color:#0d47a1;
   font-weight:bold;
@@ -419,7 +548,6 @@ nav a:hover::after{
 }
 
 /* ================= INPUT ================= */
-input[type=number], 
 select{
   width:90px;
   margin-top:3px;
@@ -428,6 +556,16 @@ select{
   padding:2px;
   font-size:12px;
 }
+
+input[type=number]{
+  width:40px;
+  margin-top:3px;
+  border-radius:5px;
+  border:1px solid #ccc;
+  padding:2px;
+  font-size:12px;
+}
+
 
 /* ================= BOTÃO ================= */
 .btn-add{
