@@ -875,6 +875,99 @@ input[type=number]{
   to{transform:scale(1); opacity:1;}
 }
 /* MOBILE */
+
+
+/* ================= NOTEBOOK GRANDE 1366px ================= */
+@media (min-width: 1025px) and (max-width: 1366px){
+
+  /* HEADER MAIS EQUILIBRADO */
+.topo{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* agrupa logo + perfil */
+.left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* título */
+.topo h1{
+  transform:none;
+  margin-left:20px; /* controla o quanto vai pra esquerda */
+  font-size:20px;
+  white-space:nowrap;
+}
+  .logo{
+    width:110px;
+    margin-left:20px;
+  }
+
+  nav a{
+    font-size:13px;
+    margin-right:15px;
+  }
+
+  /* PERFIL */
+  .perfil-info span{
+    max-width:160px;
+  }
+
+  /* LAYOUT */
+  .layout-loja{
+    gap:20px;
+  }
+
+  /* MENU LATERAL */
+  .menu-lateral{
+    width:200px;
+  }
+
+  /* REMOVE DESALINHAMENTO */
+  .grid-livro,
+  .grid-fardamento,
+  .grid-listas{
+    margin-left:0;
+  }
+
+  /* GRID MAIS CHEIO (APROVEITA A TELA) */
+  .grid-livro,
+  .grid-fardamento,
+  .grid-listas{
+    grid-template-columns:repeat(auto-fill, minmax(160px,1fr));
+    gap:15px;
+  }
+
+  /* CARDS MAIS CONFORTÁVEIS */
+  .cardlivros,
+  .cardfardamento,
+  .cardlista{
+    height:220px;
+  }
+
+  .cardlivros h3,
+  .cardfardamento h3,
+  .cardlista h3{
+    font-size:16px;
+  }
+
+  /* CARRINHO AJUSTADO */
+  .carrinho{
+    width:360px;
+    right:30px;
+  }
+
+  /* BOTÃO CARRINHO */
+  .icone-carrinho{
+    bottom:40px;
+    right:20px;
+  }
+
+}
+
 /* MOBILE */
 @media(max-width:900px){
 
@@ -990,4 +1083,121 @@ input[type=number]{
 
   /* MENU EM LINHA */
  
+/* ================= IPHONE XR ================= */
+/* ================= MOBILE (iPhone XR) ================= */
+@media (max-width: 414px){
 
+   .perfil{
+    padding:6px 8px;
+    gap:6px;
+    font-size:12px;
+
+    flex-wrap:wrap;        /* 🔥 permite quebrar */
+    white-space:normal;    /* 🔥 permite quebrar texto */
+  }
+
+  .perfil-info{
+    max-width:100px;       /* 🔥 limita largura */
+  }
+
+  .perfil-info span{
+    font-size:11px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;    /* só o texto corta */
+  }
+
+  .btn-logout{
+    padding:4px 6px;
+    font-size:11px;
+  }
+
+  .icone{
+    width:26px;
+    height:26px;
+    font-size:14px;
+  }
+
+  .container {
+    padding: 20px;
+}
+
+  .layout-loja{
+    flex-direction:column; /* 🔥 joga menu pra cima */
+  }
+
+.menu-lateral{
+  display:flex;
+  gap:10px;
+}
+
+
+  .aba-btn{
+    flex:1;             /* 🔥 todos dividem igual */
+    font-size:12px;
+    padding:10px 27px;
+    text-align:center;
+  }
+
+  .aba-btn{
+  border-radius:12px;
+  background:linear-gradient(135deg,#0B3C8C,#1E63B7);
+}
+
+.filtros{
+  display:none;
+  flex-direction:column;
+  gap:8px;
+  padding-left:0;
+  width:100%; /* 🔥 força ocupar linha inteira */
+}
+
+.filtros.ativo{
+  display:flex;
+}
+
+   /* REMOVE O DESALINHAMENTO */
+  .grid-livro,
+  .grid-fardamento,
+  .grid-listas{
+    margin-left:0;              /* 🔥 remove o empurrão */
+    padding:0 10px;            /* 🔥 respiro lateral */
+    grid-template-columns:repeat(2, 1fr); /* 🔥 2 por linha */
+    gap:10px;
+  }
+
+  /* CARDS MAIS COMPACTOS */
+  .cardlivros,
+  .cardfardamento,
+  .cardlista{
+    height:auto;               /* 🔥 deixa o conteúdo mandar */
+    padding:6px;
+  }
+
+  /* TÍTULO MENOR */
+  .cardlivros h3,
+  .cardfardamento h3,
+  .cardlista h3{
+    font-size:14px;
+  }
+
+  /* IMAGEM AJUSTADA */
+  .cardlivros img,
+  .cardfardamento img,
+  .cardlista img{
+    height:80px;
+  }
+
+  /* TEXTO MENOR */
+  .cardlivros p,
+  .cardfardamento span{
+    font-size:13px;
+  }
+
+  /* BOTÕES */
+  .btn-add,
+  .btn-download{
+    font-size:11px;
+    padding:5px;
+  }
+}

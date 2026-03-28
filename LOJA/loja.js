@@ -277,7 +277,23 @@ function abrirAba(tipo) {
   }
 }
 
+//====================FECHAR AO CLICAR FORA============================================
+document.addEventListener('click', function(e) {
 
+  const menuLateral = document.querySelector('.menu-lateral');
+
+  // se clicou fora do menu lateral (botões + filtros)
+  if (!menuLateral.contains(e.target)) {
+
+    document.querySelector('.filtros-livros').classList.remove('ativo');
+    document.querySelector('.filtros-fardamentos').classList.remove('ativo');
+    document.querySelector('.filtros-lista').classList.remove('ativo');
+
+    document.querySelector('.conteudo-livros').classList.remove('ativa');
+    document.querySelector('.conteudo-fardamentos').classList.remove('ativa');
+    document.querySelector('.conteudo-listas').classList.remove('ativa');
+  }
+});
 
 //=========================LISTA DE MATERIAIS==========================================
 // ================= LISTAS =================
@@ -459,7 +475,7 @@ const fardamentos = [
 
 
   // ================= FUNDAMENTAL II =================
-  { tipo:'Camisa Fund. II', img:'fardamento/camisa.JPG', categoria:'fund2',
+  { tipo:'Camisa ', img:'fardamento/camisa.JPG', categoria:'fund2',
     precos:{ 'P':30,'M':40,'G':60,'GG':80 } },
 
   { tipo:'Calça Tactel', img:'fardamento/calça.JPG', categoria:'fund2',
@@ -469,29 +485,23 @@ const fardamentos = [
     precos:{ '36':70,'38':80,'40':90,'42':80,'44':80 } }
 
 ];
-
 function mostrarFardamentos(lista){
   const grid = document.getElementById('gridFardamentos');
   grid.innerHTML = '';
 
-  lista.forEach((item,index)=>{
+  lista.forEach((item)=>{
 
     let opcoes = '';
 
-    // 🔥 pega os tamanhos
     let tamanhos = Object.keys(item.precos);
 
-    // 🔥 verifica se são números ou letras
     if(!isNaN(tamanhos[0])){
-      // 👉 ordena números (2,4,6,8...)
       tamanhos.sort((a,b) => a - b);
     } else {
-      // 👉 ordem personalizada (P, M, G...)
       const ordem = ['PP','P','M','G','GG','XG'];
       tamanhos.sort((a,b) => ordem.indexOf(a) - ordem.indexOf(b));
     }
 
-    // 🔥 monta as opções já ordenadas
     tamanhos.forEach(t => {
       opcoes += `<option value="${t}">${t}</option>`;
     });
@@ -501,14 +511,14 @@ function mostrarFardamentos(lista){
         <img src="${item.img}">
         <h3>${item.tipo}</h3>
 
-        <select onchange="atualizarPreco(this, ${index})">
+        <select onchange="atualizarPreco(this, '${item.tipo}')">
           <option value="">Selecione</option>
           ${opcoes}
         </select>
 
         <p class="preco">Selecione o tamanho</p>
 
-        <button class="btn-add" onclick="addFardamento(${index}, this)">
+        <button class="btn-add" onclick="addFardamento('${item.tipo}', this)">
           Comprar
         </button>
       </div>
@@ -516,16 +526,17 @@ function mostrarFardamentos(lista){
   });
 }
 
-function atualizarPreco(select, index){
+function atualizarPreco(select, tipo){
   const tamanho = select.value;
-  const item = fardamentos[index];
+
+  const item = fardamentos.find(i => i.tipo === tipo);
   const preco = item.precos[tamanho];
 
   select.parentElement.querySelector('.preco').innerText =
     formatarPreco(preco);
 }
 
-function addFardamento(index, botao){
+function addFardamento(tipo, botao){
 
   const card = botao.closest('.cardfardamento');
   const select = card.querySelector('select');
@@ -537,7 +548,7 @@ function addFardamento(index, botao){
     return;
   }
 
-  const item = fardamentos[index];
+  const item = fardamentos.find(i => i.tipo === tipo);
   const preco = item.precos[tamanho];
 
   carrinho.push({
