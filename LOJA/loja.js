@@ -1,3 +1,6 @@
+
+// ================== LOGIN ==================
+
 function usuarioLogado(){
   return localStorage.getItem("logado") === "true";
 }
@@ -16,6 +19,34 @@ function carregarUsuario(){
     nomeEl.innerText = nome;
   }
 }
+
+// ================== LOGIN UI ==================
+
+document.addEventListener("DOMContentLoaded", carregarUsuario);
+
+// ================== LOGOUT ==================
+
+function logout(){
+  localStorage.removeItem("logado");
+  localStorage.removeItem("nomeResp");
+  localStorage.removeItem("chave");
+  localStorage.removeItem("ultimaSessao");
+
+ window.location.href = "login.html";
+}
+
+// FIM BOTÃO USUÁRIO LOGADO
+
+// MENSSAGENS DE ERRO
+function mostrarPopup(msg){
+  document.getElementById("popupMsg").innerText = msg;
+  document.getElementById("popup").classList.add("show");
+}
+
+function fecharPopup(){
+  document.getElementById("popup").classList.remove("show");
+}
+
 
 // ================== SESSÃO ==================
 
@@ -49,34 +80,6 @@ salvarSessao();    // depois salva
 setInterval(() => {
   salvarSessao();
 }, 30000);
-
-// ================== LOGIN UI ==================
-
-document.addEventListener("DOMContentLoaded", carregarUsuario);
-
-// ================== LOGOUT ==================
-
-function logout(){
-  localStorage.removeItem("logado");
-  localStorage.removeItem("nomeResp");
-  localStorage.removeItem("chave");
-  localStorage.removeItem("ultimaSessao");
-
-  window.location.href = "../login.html";
-}
-
-// FIM BOTÃO USUÁRIO LOGADO
-
-// MENSSAGENS DE ERRO
-function mostrarPopup(msg){
-  document.getElementById("popupMsg").innerText = msg;
-  document.getElementById("popup").classList.add("show");
-}
-
-function fecharPopup(){
-  document.getElementById("popup").classList.remove("show");
-}
-
 
 
 
@@ -133,108 +136,6 @@ const mensagem = document.getElementById('mensagem');
 function mostrarMensagem(){
   mensagem.style.display='block';
   setTimeout(()=>mensagem.style.display='none',1500);
-}
-// ================= CARRINHO =================
-let carrinho = [];
-
-const carrinhoDiv = document.getElementById('carrinho');
-const itensCarrinhoDiv = document.getElementById('itensCarrinho');
-const totalCarrinhoDiv = document.getElementById('totalCarrinho');
-const contador = document.getElementById('contadorCarrinho');
-const btnCarrinho = document.getElementById('btnCarrinhoTopo');
-
-// ABRIR / FECHAR
-btnCarrinho.onclick = ()=>{
-  carrinhoDiv.style.display = carrinhoDiv.style.display==='flex'?'none':'flex';
-};
-
-// FECHAR FORA
-document.addEventListener('click', function(e){
-  if(!carrinhoDiv.contains(e.target) && !btnCarrinho.contains(e.target)){
-    carrinhoDiv.style.display = 'none';
-  }
-});
-
-// ESC
-document.addEventListener('keydown', e=>{
-  if(e.key === "Escape"){
-    carrinhoDiv.style.display = 'none';
-  }
-});
-
-// CONTADOR
-function atualizarContador(){
-  let total = carrinho.reduce((s,i)=>s+i.qtd,0);
-  contador.innerText = total;
-}
-
-// ANIMAÇÃO
-function animarAdicionar(imgElement){
-  const carrinhoIcon = btnCarrinho;
-
-  const img = imgElement.cloneNode(true);
-  const rect = imgElement.getBoundingClientRect();
-  const carrinhoRect = carrinhoIcon.getBoundingClientRect();
-
-  img.classList.add('fly-item');
-  img.style.left = rect.left + 'px';
-  img.style.top = rect.top + 'px';
-
-  document.body.appendChild(img);
-
-  setTimeout(()=>{
-    img.style.left = carrinhoRect.left + 'px';
-    img.style.top = carrinhoRect.top + 'px';
-    img.style.opacity = 0;
-    img.style.transform = 'scale(0.3)';
-  },10);
-
-  setTimeout(()=>{
-    img.remove();
-  },800);
-}
-
-// ATUALIZAR CARRINHO
-function atualizarCarrinho(){
-  itensCarrinhoDiv.innerHTML='';
-  let total=0;
-
-  carrinho.forEach((item,index)=>{
-    let div = document.createElement('div');
-    div.className='itensCarrinhoItem';
-
-    div.innerHTML=`
-      <div class="topoItem">
-        <img src="${item.img}">
-        <div>
-          <spanq>Qtd: ${item.qtd}</span> <br>
-          <span>${item.nome}</span>
-        
-          <spanp>${formatarPreco(item.preco * item.qtd)}</span>
-        </div>
-        <button class="removerItem">Remover</button>
-      </div>
-    `;
-
-    div.querySelector('.removerItem').onclick=()=>{
-      carrinho.splice(index,1);
-      atualizarCarrinho();
-    };
-
-    itensCarrinhoDiv.appendChild(div);
-    total += item.preco * item.qtd;
-  });
-
-totalCarrinhoDiv.innerHTML = `Total: <span style="color:red;">${formatarPreco(total)}</span>`;
-  atualizarContador();
-}
-
-// FORMATAR PREÇO
-function formatarPreco(valor){
-  return valor.toLocaleString('pt-BR',{
-    style:'currency',
-    currency:'BRL'
-  });
 }
 
 
@@ -570,6 +471,108 @@ function filtrarFardamento(categoria) {
   mostrarFardamentos(filtrados);
 }
 
+
+// ================= CARRINHO =================
+let carrinho = [];
+
+const carrinhoDiv = document.getElementById('carrinho');
+const itensCarrinhoDiv = document.getElementById('itensCarrinho');
+const totalCarrinhoDiv = document.getElementById('totalCarrinho');
+const contador = document.getElementById('contadorCarrinho');
+const btnCarrinho = document.getElementById('btnCarrinhoTopo');
+
+// ABRIR / FECHAR
+btnCarrinho.onclick = ()=>{
+  carrinhoDiv.style.display = carrinhoDiv.style.display==='flex'?'none':'flex';
+};
+
+// FECHAR FORA
+document.addEventListener('click', function(e){
+  if(!carrinhoDiv.contains(e.target) && !btnCarrinho.contains(e.target)){
+    carrinhoDiv.style.display = 'none';
+  }
+});
+
+// ESC
+document.addEventListener('keydown', e=>{
+  if(e.key === "Escape"){
+    carrinhoDiv.style.display = 'none';
+  }
+});
+
+// CONTADOR
+function atualizarContador(){
+  let total = carrinho.reduce((s,i)=>s+i.qtd,0);
+  contador.innerText = total;
+}
+
+// ANIMAÇÃO
+function animarAdicionar(imgElement){
+  const carrinhoIcon = btnCarrinho;
+
+  const img = imgElement.cloneNode(true);
+  const rect = imgElement.getBoundingClientRect();
+  const carrinhoRect = carrinhoIcon.getBoundingClientRect();
+
+  img.classList.add('fly-item');
+  img.style.left = rect.left + 'px';
+  img.style.top = rect.top + 'px';
+
+  document.body.appendChild(img);
+
+  setTimeout(()=>{
+    img.style.left = carrinhoRect.left + 'px';
+    img.style.top = carrinhoRect.top + 'px';
+    img.style.opacity = 0;
+    img.style.transform = 'scale(0.3)';
+  },10);
+
+  setTimeout(()=>{
+    img.remove();
+  },800);
+}
+
+// ATUALIZAR CARRINHO
+function atualizarCarrinho(){
+  itensCarrinhoDiv.innerHTML='';
+  let total=0;
+
+  carrinho.forEach((item,index)=>{
+    let div = document.createElement('div');
+    div.className='itensCarrinhoItem';
+
+    div.innerHTML=`
+      <div class="topoItem">
+        <img src="${item.img}">
+        <div>
+          <span class="qtdItem">Qtd: ${item.qtd}</span> <br>
+          <span class="nomeItem">${item.nome}</span>
+          <span class="precoItem">${formatarPreco(item.preco * item.qtd)}</span>
+        </div>
+        <button class="removerItem">Remover</button>
+      </div>
+    `;
+
+    div.querySelector('.removerItem').onclick=()=>{
+      carrinho.splice(index,1);
+      atualizarCarrinho();
+    };
+
+    itensCarrinhoDiv.appendChild(div);
+    total += item.preco * item.qtd;
+  });
+
+totalCarrinhoDiv.innerHTML = `Total: <span style="color:red;">${formatarPreco(total)}</span>`;
+  atualizarContador();
+}
+
+// FORMATAR PREÇO
+function formatarPreco(valor){
+  return valor.toLocaleString('pt-BR',{
+    style:'currency',
+    currency:'BRL'
+  });
+}
 
 
 

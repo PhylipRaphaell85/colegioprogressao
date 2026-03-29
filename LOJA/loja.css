@@ -369,6 +369,7 @@ nav a:hover::after{
 }
 
 
+
 .cardlivros h3 {
   color: #001e40;
   text-align:center;
@@ -624,6 +625,7 @@ input[type=number]{
 }
 
 
+
 .icone-carrinho{
   font-size:32pxx;
  
@@ -662,25 +664,6 @@ input[type=number]{
 }
 
 
- .carrinho span{
-  color:#1976d2;
-  font-size: 19px;
-  text-align:center;
-  font-weight: bold;
-}
- .carrinho spanq{
-  color:#fa8e00;
-  font-size: 15px;
-  text-align:center;
-}
-
- .carrinho spanp{
-  color:#d21919;
-  font-size: 14px;
-  text-align:center;
-  font-weight: bold;
-  
-}
 
 
  /* ITENS DO CARRINHO */
@@ -729,6 +712,22 @@ input[type=number]{
   font-weight:bold;
 }
 
+/* QUANTIDADE */
+.qtdItem{
+  font-size: 18px;
+color:#d21919;
+}
+
+/* NOME */
+.nomeItem{
+  font-size: 25px;
+  font-weight: 500;
+  color: #0B3C8C;
+}
+
+/* PREÇO */
+
+
 /* PREÇO */
 .precoItem{
   font-weight:bold;
@@ -740,12 +739,13 @@ input[type=number]{
   background:red;
   color:white;
   border:none;
-  padding:6px 10px;
+  padding:3px 5px;
   border-radius:6px;
   cursor:pointer;
   white-space:nowrap;
   margin-left: 90px;
   height:fit-content;
+  font-size: 11px;
 }
 
       /* TOTAL DO CARRINHO */ 
@@ -1056,9 +1056,16 @@ input[type=number]{
   .carrinho {
     position: 0;
     width: 300px;
-    top:  200px;
     left: 50px;
   }
+
+
+
+  .removerItem {
+  font-size: 10px;
+   margin-left: 52px;
+   padding: 3px 5px;
+}
   
 
   
