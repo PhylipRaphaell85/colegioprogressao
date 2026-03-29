@@ -32,7 +32,7 @@ function logout(){
   localStorage.removeItem("chave");
   localStorage.removeItem("ultimaSessao");
 
- window.location.href = "login.html";
+  window.location.href = "login.html";
 }
 
 // FIM BOTÃO USUÁRIO LOGADO
@@ -49,8 +49,6 @@ function fecharPopup(){
 
 
 // ================== SESSÃO ==================
-
-// salva horário da última atividade
 function salvarSessao() {
   const agora = new Date().getTime();
   localStorage.setItem("ultimaSessao", agora);
@@ -58,9 +56,17 @@ function salvarSessao() {
 
 // verifica se expirou
 function verificarSessao() {
+
+  // 🔥 CORREÇÃO: só verifica se estiver logado
+  if(!usuarioLogado()) return;
+
   const ultima = localStorage.getItem("ultimaSessao");
 
-  if (!ultima) return;
+  // 🔥 evita logout na primeira vez
+  if (!ultima) {
+    salvarSessao();
+    return;
+  }
 
   const agora = new Date().getTime();
   const diferenca = agora - ultima;
@@ -72,15 +78,21 @@ function verificarSessao() {
   }
 }
 
-// 🔥 ORDEM CORRETA
-verificarSessao(); // primeiro verifica
-salvarSessao();    // depois salva
 
-// mantém sessão ativa
-setInterval(() => {
+// ================== INICIALIZAÇÃO ==================
+
+// 🔥 executa só se estiver logado
+if(usuarioLogado()){
+  verificarSessao();
   salvarSessao();
-}, 30000);
+}
 
+// mantém sessão ativa enquanto usa o site
+setInterval(() => {
+  if(usuarioLogado()){
+    salvarSessao();
+  }
+}, 30000);
 
 
 // TROCAR TELAS
