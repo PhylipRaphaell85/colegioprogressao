@@ -1084,8 +1084,11 @@ color:#d21919;
   color: red;
   transform: scale(1.2);
 }
-}
 
+.fechar{
+    color: #ffffff;
+}
+}
 
 
   /* MENU EM LINHA */
@@ -1207,4 +1210,8 @@ color:#d21919;
     font-size:11px;
     padding:5px;
   }
+
+  .fechar{
+    color: #ffffff;
+}
 }
