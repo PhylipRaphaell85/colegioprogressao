@@ -263,21 +263,21 @@ const livros = {
   // INFANTIL
   maternal2: { nome: "Maternal II", preco: 550, img: "livros/m1.png", categoria: "infantil" },
   maternal3: { nome: "Maternal III", preco: 550, img: "livros/m2.png", categoria: "infantil" },
-  infantil1: { nome: "Infantil I", preco: 300, img: "livros/infant1.png", categoria: "infantil" },
-  infantil2: { nome: "Infantil II", preco: 310, img: "livros/infant2.png", categoria: "infantil" },
+  infantil1: { nome: "Infantil I", preco: 550, img: "livros/infant1.png", categoria: "infantil" },
+  infantil2: { nome: "Infantil II", preco: 550, img: "livros/infant2.png", categoria: "infantil" },
 
   // FUNDAMENTAL I
-  fundamental1: { nome: "1º Ano ", preco: 450, img: "livros/1ano.png", categoria: "fund1" },
-  fundamental2: { nome: "2º Ano ", preco: 450, img: "livros/2ano.png", categoria: "fund1" },
-  fundamental3: { nome: "3º Ano ", preco: 450, img: "livros/3ano.png", categoria: "fund1" },
-  fundamental4: { nome: "4º Ano ", preco: 450, img: "livros/4ano.png", categoria: "fund1" },
-  fundamental5: { nome: "5º Ano ", preco: 450, img: "livros/5ano.png", categoria: "fund1" },
+  fundamental1: { nome: "1º Ano ", preco: 565, img: "livros/1ano.png", categoria: "fund1" },
+  fundamental2: { nome: "2º Ano ", preco: 575, img: "livros/2ano.png", categoria: "fund1" },
+  fundamental3: { nome: "3º Ano ", preco: 590, img: "livros/3ano.png", categoria: "fund1" },
+  fundamental4: { nome: "4º Ano ", preco: 605, img: "livros/4ano.png", categoria: "fund1" },
+  fundamental5: { nome: "5º Ano ", preco: 620, img: "livros/5ano.png", categoria: "fund1" },
 
   // FUNDAMENTAL II
-  fundamental6: { nome: "6º Ano ", preco: 450, img: "https://via.placeholder.com/150", categoria: "fund2" },
-  fundamental7: { nome: "7º Ano ", preco: 450, img: "https://via.placeholder.com/150", categoria: "fund2" },
-  fundamental8: { nome: "8º Ano ", preco: 450, img: "https://via.placeholder.com/150", categoria: "fund2" },
-  fundamental9: { nome: "9º Ano ", preco: 450, img: "https://via.placeholder.com/150", categoria: "fund2" }
+  fundamental6: { nome: "6º Ano ", preco: 765, img: "https://via.placeholder.com/150", categoria: "fund2" },
+  fundamental7: { nome: "7º Ano ", preco: 770, img: "https://via.placeholder.com/150", categoria: "fund2" },
+  fundamental8: { nome: "8º Ano ", preco: 780, img: "https://via.placeholder.com/150", categoria: "fund2" },
+  fundamental9: { nome: "9º Ano ", preco: 795, img: "https://via.placeholder.com/150", categoria: "fund2" }
 
 };
 
@@ -357,7 +357,7 @@ const fardamentos = [
     precos:{ '2':70,'4':70,'6':70,'8':80,'10':80 } },
 
   { tipo:'Casaco', img:'fardamento/casaco.JPG', categoria:'infantil',
-    precos:{ '2':90,'4':90,'6':90,'8':100,'10':100,'12':100,'14':130,'16':130 } },
+    precos:{ '2':100,'4':100,'6':100,'8':100,'10':100,'12':100,'14':130,'16':130 } },
 
   { tipo:'Calça', img:'fardamento/calça.JPG', categoria:'infantil',
     precos:{ '2':70,'4':70,'6':70,'8':80,'10':80,'12':80,'14':90,'16':90 } },
@@ -377,7 +377,7 @@ const fardamentos = [
     precos:{ '6':70,'8':70,'10':70,'12':80,'14':90,'16':90,'P':30,'M':40,'G':60,'GG':80 } },
 
   { tipo:'Casaco', img:'fardamento/casaco.JPG', categoria:'fund1',
-    precos:{ '6':70,'8':70,'10':70,'12':80,'14':90,'16':90,'P':30,'M':40,'G':60,'GG':80 } },
+    precos:{ '6':100,'8':100,'10':100,'12':100,'14':100,'16':100,'P':100,'M':100,'G':130,'GG':130 } },
 
   { tipo:'Calça', img:'fardamento/calça.JPG', categoria:'fund1',
     precos:{ '6':70,'8':70,'10':70,'12':80,'14':90,'16':90,'P':30,'M':40,'G':60,'GG':80 } },
@@ -391,22 +391,22 @@ const fardamentos = [
 
   // ================= FUNDAMENTAL II =================
   { tipo:'Camisa', img:'fardamento/camisaFundII.jpeg', categoria:'fund2',
-    precos:{ '12':70,'14':70,'16':70,'P':30,'M':40,'G':60,'GG':80 } },
+    precos:{ '12':80,'14':90,'16':90,'P':90,'M':90,'G':90,'GG':100 } },
 
   { tipo:'Camiseta', img:'fardamento/camisetaFundII.jpeg', categoria:'fund2',
-    precos:{ '12':70,'14':70,'16':70,'P':30,'M':40,'G':60,'GG':80 } },
+    precos:{ '12':80,'14':90,'16':90,'P':90,'M':90,'G':90,'GG':100 } },
 
   { tipo:'Casaco', img:'fardamento/casaco.JPG', categoria:'fund2',
-    precos:{ '12':70,'14':70,'16':70,'P':30,'M':40,'G':60,'GG':80 } },
+    precos:{ '12':100,'14':100,'16':130,'P':130,'M':130,'G':130,'GG':130 } },
 
   { tipo:'Short', img:'fardamento/shot.JPG', categoria:'fund2',
-    precos:{ '12':70,'14':70,'16':70,'P':30,'M':40,'G':60,'GG':80 } },
+    precos:{ '12':90,'14':90,'16':90,'P':90,'M':90,'G':90,'GG':90 } },
 
   { tipo:'Short-Saia', img:'fardamento/shortsaia.JPG', categoria:'fund2',
-    precos:{ '12':70,'14':70,'16':70,'P':30,'M':40,'G':60,'GG':80 } },
+    precos:{ '12':90,'14':90,'16':90,'P':90,'M':90,'G':90,'GG':90 } },
 
   { tipo:'Calça Tactel', img:'fardamento/calça.JPG', categoria:'fund2',
-    precos:{ '12':70,'14':70,'16':70,'P':30,'M':40,'G':60,'GG':80 } },
+    precos:{ '12':90,'14':90,'16':90,'P':90,'M':90,'G':90,'GG':90 } },
 
   { tipo:'Calça Bryn', img:'fardamento/calçabryn.jpeg', categoria:'fund2',
     precos:{ '36':70,'38':80,'40':90,'42':80,'44':80 } },
