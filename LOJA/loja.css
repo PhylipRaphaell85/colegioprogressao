@@ -7,10 +7,22 @@ body{
   background-size: cover;       /* 🔥 faz cobrir toda a tela */
   background-position: center;  /* 🔥 centraliza a imagem */
   background-attachment: fixed; /* opcional: efeito fixo */
-  
   color:white;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* empurra o rodapé para baixo */
+}
 
 /* HEADER */
 .topo{
@@ -29,7 +41,7 @@ body{
 /* TÍTULO CENTRAL REAL */
 .topo h1{
   position:absolute;
-  left:50%;
+  left:55%;
   transform:translateX(-50%);
   font-size:30px;
   margin:0;
@@ -874,7 +886,18 @@ color:#d21919;
   from{transform:scale(0.8); opacity:0;}
   to{transform:scale(1); opacity:1;}
 }
-/* MOBILE */
+
+/* FOOTER INFERIOR */
+.rodape {
+  background: #06214a;
+  color: #dbe9ff;
+  padding: 2px 20px;
+  font-size: 0.9rem;
+  border-top: 2px solid #FFC72C;
+  text-align: center;
+  margin-top: auto;
+}
+
 
 
 /* ================= NOTEBOOK GRANDE 1366px ================= */
