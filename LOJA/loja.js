@@ -391,7 +391,10 @@ const fardamentos = [
 
 
   // ================= FUNDAMENTAL II =================
-  { tipo:'Camisa ', img:'fardamento/camisa.JPG', categoria:'fund2',
+  { tipo:'Camisa ', img:'fardamento/camisaFundII.jpeg', categoria:'fund2',
+    precos:{ 'P':30,'M':40,'G':60,'GG':80 } },
+
+   { tipo:'Camiseta', img:'fardamento/camisetaFundII.jpeg', categoria:'fund2',
     precos:{ 'P':30,'M':40,'G':60,'GG':80 } },
 
   { tipo:'Calça Tactel', img:'fardamento/calça.JPG', categoria:'fund2',
