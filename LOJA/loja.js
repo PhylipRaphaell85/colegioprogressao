@@ -344,66 +344,76 @@ function filtrarLivros(categoria) {
 
 
 //==================FIM LIVROS==========================================================
-
 const fardamentos = [
 
   // ================= INFANTIL =================
   { tipo:'Camisa', img:'fardamento/camisa.JPG', categoria:'infantil',
-    precos:{ '02':70,'04':70,'06':70,'08':80,'10':80,'12':80,'14':90,'16':90 } },
+    precos:{ '2':70,'4':70,'6':70,'8':80,'10':80,'12':80,'14':90,'16':90 } },
 
   { tipo:'Camiseta', img:'fardamento/camiseta.JPG', categoria:'infantil',
-    precos:{ '02':70,'04':70,'06':70,'08':80,'10':80,'12':80,'14':90,'16':90 } },
+    precos:{ '2':70,'4':70,'6':70,'8':80,'10':80,'12':80,'14':90,'16':90 } },
 
   { tipo:'Jardineira', img:'fardamento/jardineira.JPG', categoria:'infantil',
-    precos:{ '02':70,'04':70,'06':70,'08':80,'10':80 } },
+    precos:{ '2':70,'4':70,'6':70,'8':80,'10':80 } },
 
   { tipo:'Casaco', img:'fardamento/casaco.JPG', categoria:'infantil',
-    precos:{ '02':90,'04':90,'06':90,'08':100,'10':100,'12':100,'14':130,'16':130 } },
+    precos:{ '2':90,'4':90,'6':90,'8':100,'10':100,'12':100,'14':130,'16':130 } },
 
   { tipo:'Calça', img:'fardamento/calça.JPG', categoria:'infantil',
-    precos:{ '02':70,'04':70,'06':70,'08':80,'10':80,'12':80,'14':90,'16':90 } },
+    precos:{ '2':70,'4':70,'6':70,'8':80,'10':80,'12':80,'14':90,'16':90 } },
 
   { tipo:'Short', img:'fardamento/shot.JPG', categoria:'infantil',
-    precos:{ '02':70,'04':70,'06':70,'08':80,'10':80,'12':80,'14':90,'16':90 } },
+    precos:{ '2':70,'4':70,'6':70,'8':80,'10':80,'12':80,'14':90,'16':90 } },
 
   { tipo:'Short-Saia', img:'fardamento/shortsaia.JPG', categoria:'infantil',
-    precos:{ '02':70,'04':70,'06':70,'08':80,'10':80,'12':80,'14':90,'16':90 } },
+    precos:{ '2':70,'4':70,'6':70,'8':80,'10':80,'12':80,'14':90,'16':90 } },
 
 
   // ================= FUNDAMENTAL I =================
   { tipo:'Camisa', img:'fardamento/camisa.JPG', categoria:'fund1',
-    precos:{ '02':70,'04':70,'06':70,'08':80,'10':80,'12':80,'14':90 } },
+    precos:{ '6':70,'8':70,'10':70,'12':80,'14':90,'16':90,'P':30,'M':40,'G':60,'GG':80 } },
 
   { tipo:'Camiseta', img:'fardamento/camiseta.JPG', categoria:'fund1',
-    precos:{ '02':70,'04':70,'06':70,'08':80,'10':80,'12':80,'14':90 } },
+    precos:{ '6':70,'8':70,'10':70,'12':80,'14':90,'16':90,'P':30,'M':40,'G':60,'GG':80 } },
 
   { tipo:'Casaco', img:'fardamento/casaco.JPG', categoria:'fund1',
-    precos:{ '02':90,'04':90,'06':90,'08':100,'10':100,'12':100,'14':130 } },
+    precos:{ '6':70,'8':70,'10':70,'12':80,'14':90,'16':90,'P':30,'M':40,'G':60,'GG':80 } },
 
   { tipo:'Calça', img:'fardamento/calça.JPG', categoria:'fund1',
-    precos:{ '02':70,'04':70,'06':70,'08':80,'10':80,'12':80,'14':90 } },
+    precos:{ '6':70,'8':70,'10':70,'12':80,'14':90,'16':90,'P':30,'M':40,'G':60,'GG':80 } },
 
   { tipo:'Short', img:'fardamento/shot.JPG', categoria:'fund1',
-    precos:{ '02':70,'04':70,'06':70,'08':80,'10':80,'12':80,'14':90 } },
+    precos:{ '6':70,'8':70,'10':70,'12':80,'14':90,'16':90,'P':30,'M':40,'G':60,'GG':80 } },
 
   { tipo:'Short-Saia', img:'fardamento/shortsaia.JPG', categoria:'fund1',
-    precos:{ '02':70,'04':70,'06':70,'08':80,'10':80,'12':80,'14':90 } },
+    precos:{ '6':70,'8':70,'10':70,'12':80,'14':90,'16':90,'P':30,'M':40,'G':60,'GG':80 } },
 
 
   // ================= FUNDAMENTAL II =================
-  { tipo:'Camisa ', img:'fardamento/camisaFundII.jpeg', categoria:'fund2',
-    precos:{ 'P':30,'M':40,'G':60,'GG':80 } },
+  { tipo:'Camisa', img:'fardamento/camisaFundII.jpeg', categoria:'fund2',
+    precos:{ '12':70,'14':70,'16':70,'P':30,'M':40,'G':60,'GG':80 } },
 
-   { tipo:'Camiseta', img:'fardamento/camisetaFundII.jpeg', categoria:'fund2',
-    precos:{ 'P':30,'M':40,'G':60,'GG':80 } },
+  { tipo:'Camiseta', img:'fardamento/camisetaFundII.jpeg', categoria:'fund2',
+    precos:{ '12':70,'14':70,'16':70,'P':30,'M':40,'G':60,'GG':80 } },
+
+  { tipo:'Casaco', img:'fardamento/casaco.JPG', categoria:'fund2',
+    precos:{ '12':70,'14':70,'16':70,'P':30,'M':40,'G':60,'GG':80 } },
+
+  { tipo:'Short', img:'fardamento/shot.JPG', categoria:'fund2',
+    precos:{ '12':70,'14':70,'16':70,'P':30,'M':40,'G':60,'GG':80 } },
+
+  { tipo:'Short-Saia', img:'fardamento/shortsaia.JPG', categoria:'fund2',
+    precos:{ '12':70,'14':70,'16':70,'P':30,'M':40,'G':60,'GG':80 } },
 
   { tipo:'Calça Tactel', img:'fardamento/calça.JPG', categoria:'fund2',
-    precos:{ '36':70,'38':80,'40':90,'42':80,'44':80 } },
+    precos:{ '12':70,'14':70,'16':70,'P':30,'M':40,'G':60,'GG':80 } },
 
   { tipo:'Calça Bryn', img:'fardamento/calçabryn.jpeg', categoria:'fund2',
-    precos:{ '36':70,'38':80,'40':90,'42':80,'44':80 } }
-
+    precos:{ '36':70,'38':80,'40':90,'42':80,'44':80 } },
 ];
+
+
+// ================= MOSTRAR =================
 function mostrarFardamentos(lista){
   const grid = document.getElementById('gridFardamentos');
   grid.innerHTML = '';
@@ -414,12 +424,13 @@ function mostrarFardamentos(lista){
 
     let tamanhos = Object.keys(item.precos);
 
-    if(!isNaN(tamanhos[0])){
-      tamanhos.sort((a,b) => a - b);
-    } else {
-      const ordem = ['PP','P','M','G','GG','XG'];
-      tamanhos.sort((a,b) => ordem.indexOf(a) - ordem.indexOf(b));
-    }
+    let numeros = tamanhos.filter(t => !isNaN(t)).map(Number).sort((a,b)=>a-b);
+    let letras = tamanhos.filter(t => isNaN(t));
+
+    const ordem = ['PP','P','M','G','GG','XG'];
+    letras.sort((a,b) => ordem.indexOf(a) - ordem.indexOf(b));
+
+    tamanhos = [...numeros.map(String), ...letras];
 
     tamanhos.forEach(t => {
       opcoes += `<option value="${t}">${t}</option>`;
@@ -430,14 +441,14 @@ function mostrarFardamentos(lista){
         <img src="${item.img}">
         <h3>${item.tipo}</h3>
 
-        <select onchange="atualizarPreco(this, '${item.tipo}')">
+        <select data-precos='${JSON.stringify(item.precos)}' onchange="atualizarPreco(this)">
           <option value="">Selecione</option>
           ${opcoes}
         </select>
 
         <p class="preco">Selecione o tamanho</p>
 
-        <button class="btn-add" onclick="addFardamento('${item.tipo}', this)">
+        <button class="btn-add" onclick="addFardamento(this)">
           Comprar
         </button>
       </div>
@@ -445,17 +456,21 @@ function mostrarFardamentos(lista){
   });
 }
 
-function atualizarPreco(select, tipo){
+
+// ================= ATUALIZAR PREÇO =================
+function atualizarPreco(select){
   const tamanho = select.value;
 
-  const item = fardamentos.find(i => i.tipo === tipo);
-  const preco = item.precos[tamanho];
+  const precos = JSON.parse(select.dataset.precos);
+  const preco = precos[tamanho];
 
   select.parentElement.querySelector('.preco').innerText =
     formatarPreco(preco);
 }
 
-function addFardamento(tipo, botao){
+
+// ================= ADICIONAR =================
+function addFardamento(botao){
 
   const card = botao.closest('.cardfardamento');
   const select = card.querySelector('select');
@@ -467,24 +482,30 @@ function addFardamento(tipo, botao){
     return;
   }
 
-  const item = fardamentos.find(i => i.tipo === tipo);
-  const preco = item.precos[tamanho];
+  const precos = JSON.parse(select.dataset.precos);
+  const preco = precos[tamanho];
+
+  const nome = card.querySelector('h3').innerText;
+  const img = card.querySelector('img').src;
 
   carrinho.push({
-    nome: item.tipo + " - " + tamanho,
+    nome: nome + " - " + tamanho,
     preco: preco,
     qtd: 1,
-    img: item.img
+    img: img
   });
 
   atualizarCarrinho();
   animarAdicionar(card.querySelector('img'));
 }
 
+
+// ================= FILTRO =================
 function filtrarFardamento(categoria) {
   const filtrados = fardamentos.filter(item => item.categoria === categoria);
   mostrarFardamentos(filtrados);
 }
+
 
 
 // ================= CARRINHO =================
