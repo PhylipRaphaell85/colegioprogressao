@@ -274,10 +274,10 @@ const livros = {
   fundamental5: { nome: "5º Ano ", preco: 620, img: "livros/5ano.png", categoria: "fund1" },
 
   // FUNDAMENTAL II
-  fundamental6: { nome: "6º Ano ", preco: 765, img: "https://via.placeholder.com/150", categoria: "fund2" },
-  fundamental7: { nome: "7º Ano ", preco: 770, img: "https://via.placeholder.com/150", categoria: "fund2" },
-  fundamental8: { nome: "8º Ano ", preco: 780, img: "https://via.placeholder.com/150", categoria: "fund2" },
-  fundamental9: { nome: "9º Ano ", preco: 795, img: "https://via.placeholder.com/150", categoria: "fund2" }
+  fundamental6: { nome: "6º Ano ", preco: 765, img: "livros/6ano.png", categoria: "fund2" },
+  fundamental7: { nome: "7º Ano ", preco: 770, img: "livros/7ano.png", categoria: "fund2" },
+  fundamental8: { nome: "8º Ano ", preco: 780, img: "livros/8ano.png", categoria: "fund2" },
+  fundamental9: { nome: "9º Ano ", preco: 795, img: "livros/9ano.png", categoria: "fund2" }
 
 };
 
