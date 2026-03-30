@@ -295,8 +295,7 @@ function mostrarLivros(lista){
         <input type="number" min="1" value="1" class="qtd">
 
        <button class="btn-add" onclick="addLivro(this)">  Comprar</button>
-          
-        </button>
+
       </div>
     `;
   });
@@ -478,7 +477,7 @@ function addFardamento(botao){
   const tamanho = select.value;
 
   if(!tamanho){
-    alert("Selecione o tamanho!");
+    mostrarPopup("Selecione o tamanho!");
     return;
   }
 

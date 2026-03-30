@@ -4,21 +4,21 @@ body{
   font-family:Arial, Helvetica, sans-serif;
   background-image: url(fundo.webp);
   background-repeat: no-repeat;
-  background-size: cover;       /* 🔥 faz cobrir toda a tela */
-  background-position: center;  /* 🔥 centraliza a imagem */
-  background-attachment: fixed; /* opcional: efeito fixo */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color:white;
+  height: 100%;
+  display:flex;
+  flex-direction:column;
 }
 
-html, body {
-  height: 100%;
+html {
+ height: 100%; 
   margin: 0;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-}
+
 
 main {
   flex: 1; /* empurra o rodapé para baixo */
@@ -41,7 +41,7 @@ main {
 /* TÍTULO CENTRAL REAL */
 .topo h1{
   position:absolute;
-  left:55%;
+  left:50%;
   transform:translateX(-50%);
   font-size:30px;
   margin:0;
@@ -89,19 +89,6 @@ main {
   max-width: 180px;
 }
 
-/* botão sair */
-.btn-logout{
-  background: #ff7a00;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-
-  /* 🔥 NÃO DEIXA ESTOURAR */
-  flex-shrink: 0;
-}
 
 .perfil .icone{
   font-size:18px;
@@ -609,12 +596,6 @@ input[type=number]{
   transform:scale(0.95);
 }
 
-/* HOVER BOTÃO */
-.btn-add:hover{
-  background:linear-gradient(45deg,#0d47a1,#1976d2);
-  transform:scale(1.05);
-}
-
 /* CLIQUE */
 .btn-add:active{
   transform:scale(0.95);
@@ -627,23 +608,16 @@ input[type=number]{
   right:20px;
   background:#fff;
   color:#ff9800;
-  font-size:26px;
   padding:12px;
   border-radius:50%;
   cursor:pointer;
+  font-size:32px;
   box-shadow:0 10px 25px rgba(0,0,0,0.3);
   z-index:9999;
   transition:0.3s;
 }
 
 
-
-.icone-carrinho{
-  font-size:32pxx;
- 
-  cursor:pointer;
-  transition:0.3s;
-}
 
 .icone-carrinho:hover{
   transform:scale(1.1);
@@ -1123,7 +1097,103 @@ color:#d21919;
 }
 
 
-  /* MENU EM LINHA */
+/* ================= NOTEBOOK 14" ================= */
+@media (max-width: 1440px) {
+
+  /* HEADER */
+  .topo h1{
+    font-size:24px;
+  }
+
+  .logo{
+    width:100px;
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+
+  nav a{
+    font-size:13px;
+    margin-right: 12px;
+  }
+
+  /* PERFIL */
+  .perfil{
+    padding:6px 10px;
+    font-size:12px;
+  }
+
+  .perfil-info span{
+    max-width:120px;
+  }
+
+  /* LAYOUT GERAL */
+  .layout-loja{
+    gap:15px;
+  }
+
+  /* MENU LATERAL */
+  .menu-lateral{
+    width:180px;
+  }
+
+  .aba-btn{
+    font-size:13px;
+    padding:10px;
+  }
+
+  /* GRID */
+  .grid-livro,
+  .grid-fardamento,
+  .grid-listas{
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    margin-left: 20px; /* 🔥 reduz aquele espaço grande */
+  }
+
+  /* CARDS */
+  .cardlivros,
+  .cardfardamento,
+  .cardlista{
+    height:200px;
+    padding:6px;
+  }
+
+  .cardlivros h3,
+  .cardfardamento h3,
+  .cardlista h3{
+    font-size:15px;
+  }
+
+  .cardlivros p,
+  .cardfardamento span{
+    font-size:13px;
+  }
+
+  /* IMAGEM */
+  .cardlivros img,
+  .cardfardamento img,
+  .cardlista img{
+    height:80px;
+  }
+
+  /* BOTÕES */
+  .btn-add,
+  .btn-download{
+    font-size:11px;
+    padding:4px;
+  }
+
+  /* CARRINHO */
+  .carrinho{
+    width:320px;
+    right:20px;
+  }
+
+  .topoItem img{
+    width:60px;
+    height:60px;
+  }
+
+}
  
 /* ================= IPHONE XR ================= */
 /* ================= MOBILE (iPhone XR) ================= */
