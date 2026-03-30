@@ -890,12 +890,21 @@ color:#d21919;
 /* FOOTER INFERIOR */
 .rodape {
   background: #06214a;
-  color: #dbe9ff;
+
   padding: 2px 20px;
   font-size: 0.9rem;
   border-top: 2px solid #FFC72C;
   text-align: center;
   margin-top: auto;
+}
+
+.rodape h1 {
+  color: #dbe9ff;
+  font-size: 0.9rem;
+}
+
+.rodape p {
+  color: #ffc72c;
 }
 
 
