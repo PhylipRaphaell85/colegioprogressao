@@ -1,151 +1,95 @@
-
-
-
-/* menur */
-
+// ================= HEADER SCROLL =================
 const header = document.querySelector('header');
 
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 80);
-});
+if (header) {
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 80);
+  });
+}
 
-
-/* menur  HAMBURGUE */
-
+// ================= MENU HAMBURGUER =================
 const menuToggle = document.getElementById("menu-toggle");
 const nav = document.getElementById("nav");
-const links = document.querySelectorAll("nav a");
 
-menuToggle.addEventListener("click", () => {
-  menuToggle.classList.toggle("active");
-  nav.classList.toggle("active");
-});
-
-links.forEach(link => {
-  link.addEventListener("click", () => {
-    menuToggle.classList.remove("active");
-    nav.classList.remove("active");
+if (menuToggle && nav) {
+  menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    nav.classList.toggle("active");
   });
-});
 
-
-  // Fecha ao clicar em link
- document.querySelectorAll('#menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    menuToggle?.classList.remove('active');
-    nav?.classList.remove('active');
+  document.querySelectorAll('#nav a').forEach(link => {
+    link.addEventListener("click", () => {
+      menuToggle.classList.remove("active");
+      nav.classList.remove("active");
+    });
   });
-});
-
-//  =================FUNCAO BOTOES GARANTA SUA VAGA, NOSSA LOJA , HORARIO===============
-
-
-/*  cad horario */
-function abrirHorario(){
-document.getElementById("modalHorario").style.display="flex";
 }
 
-function fecharHorario(){
-document.getElementById("modalHorario").style.display="none";
+// ================= MODAL HORÁRIO =================
+function abrirHorario() {
+  const modal = document.getElementById("modalHorario");
+  if (modal) modal.style.display = "flex";
 }
 
-// 🔥 CORREÇÃO: não sobrescrever window.onclick
-window.addEventListener("click", function(event){
-  let modal = document.getElementById("modalHorario");
-  if(event.target === modal){
+function fecharHorario() {
+  const modal = document.getElementById("modalHorario");
+  if (modal) modal.style.display = "none";
+}
+
+window.addEventListener("click", function (event) {
+  const modal = document.getElementById("modalHorario");
+  if (modal && event.target === modal) {
     modal.style.display = "none";
   }
 });
 
-
-/*  fomularios */
-
-// Abre o popup
-function abrirFormulario(){
-    document.getElementById("popup-formulario").style.display = "flex";
+// ================= FORMULÁRIO =================
+function abrirFormulario() {
+  const popup = document.getElementById("popup-formulario");
+  if (popup) popup.style.display = "flex";
 }
 
-// Fecha o popup
-function fecharFormulario(){
-    document.getElementById("popup-formulario").style.display = "none";
+function fecharFormulario() {
+  const popup = document.getElementById("popup-formulario");
+  if (popup) popup.style.display = "none";
+
+  const form = document.getElementById("formMatricula");
+  if (form) form.reset();
+
+  const campo = document.getElementById("campo-acessibilidade");
+  if (campo) campo.style.display = "none";
+
+  const sucesso = document.getElementById("mensagem-sucesso");
+  const erro = document.getElementById("mensagem-erro");
+
+  if (sucesso) sucesso.style.display = "none";
+  if (erro) erro.style.display = "none";
 }
 
-// Mostra/esconde o campo de "Qual acessibilidade?"
-function mostrarAcessibilidade(){
-    var acessibilidade = document.getElementById("acessibilidade").value;
-    var campo = document.getElementById("campo-acessibilidade");
+function mostrarAcessibilidade() {
+  const acessibilidade = document.getElementById("acessibilidade")?.value;
+  const campo = document.getElementById("campo-acessibilidade");
 
-    if(acessibilidade === "Sim"){
-        campo.style.display = "block";
-    } else {
-        campo.style.display = "none";
-    }
+  if (campo) {
+    campo.style.display = (acessibilidade === "Sim") ? "block" : "none";
+  }
 }
 
-//  =================FIM BOTAO HORARIO ===============
-
-
-
-
-// Enviar formulário
-
-// ==================== GARANTE QUE O HTML CARREGOU ====================
+// ================= DOM READY =================
 document.addEventListener("DOMContentLoaded", function () {
 
-  // ==================== ELEMENTOS ====================
-  const btnAbrir = document.getElementById("btnAbrir");
-  const btnFechar = document.getElementById("btnFechar");
-  const popup = document.getElementById("popup-formulario");
   const btnEnviar = document.getElementById("btnEnviar");
   const acessibilidadeEl = document.getElementById("acessibilidade");
 
-  // ==================== ABRIR POPUP ====================
-  if (btnAbrir && popup) {
-    btnAbrir.addEventListener("click", () => {
-      popup.style.display = "flex";
-    });
-  }
-
-  // ==================== FECHAR POPUP ====================
-  if (btnFechar) {
-    btnFechar.addEventListener("click", fecharFormulario);
-  }
-
-  function fecharFormulario() {
-    if (popup) popup.style.display = "none";
-
-    const form = document.getElementById("formMatricula");
-    if (form) form.reset();
-
-    const campo = document.getElementById("campo-acessibilidade");
-    if (campo) campo.style.display = "none";
-
-    const sucesso = document.getElementById("mensagem-sucesso");
-    const erro = document.getElementById("mensagem-erro");
-
-    if (sucesso) sucesso.style.display = "none";
-    if (erro) erro.style.display = "none";
-  }
-
-  // ==================== ACESSIBILIDADE ====================
+  // acessibilidade dinâmica
   if (acessibilidadeEl) {
-    acessibilidadeEl.addEventListener("change", function () {
-      const campo = document.getElementById("campo-acessibilidade");
-      if (campo) {
-        campo.style.display = (this.value === "Sim") ? "block" : "none";
-      }
-    });
+    acessibilidadeEl.addEventListener("change", mostrarAcessibilidade);
   }
 
-  // ==================== EMAILJS (SE EXISTIR) ====================
-  if (typeof emailjs !== "undefined") {
-    emailjs.init("SUA_PUBLIC_KEY");
-  }
-
-  // ==================== BOTÃO ENVIAR ====================
+  // botão enviar
   if (btnEnviar) {
     btnEnviar.addEventListener("click", function (e) {
-      e.preventDefault(); // 🔥 impede recarregar página
+      e.preventDefault();
       enviarFormulario();
     });
   }
@@ -162,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const erro = document.getElementById("mensagem-erro");
       const sucesso = document.getElementById("mensagem-sucesso");
 
-      // ==================== VALIDAÇÃO ====================
+      // validação
       if (!responsavel || !aluno || !serie || !telefone || !acessibilidade) {
         if (erro) {
           erro.style.display = "block";
@@ -181,32 +125,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (erro) erro.style.display = "none";
 
-      // ==================== WHATSAPP (100% FUNCIONAL) ====================
+      // WhatsApp
       const mensagem =
         `*NOVA PRÉ-MATRÍCULA 2027*\n\nResponsável: ${responsavel}\nAluno: ${aluno}\nSérie: ${serie}\nAcessibilidade: ${acessibilidade}\nTipo: ${qualAcessibilidade}\nTelefone: ${telefone}`;
 
       const numero = "5581994212337";
 
-      // 🔥 MAIS CONFIÁVEL QUE window.open
-      window.location.href = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
+      window.location.href =
+        "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
 
-      // ==================== EMAILJS ====================
-      if (typeof emailjs !== "undefined") {
-        const templateParams = {
-          responsavel,
-          aluno,
-          serie,
-          acessibilidade,
-          tipo_acessibilidade: qualAcessibilidade,
-          telefone
-        };
-
-        emailjs.send("SEU_SERVICE_ID", "SEU_TEMPLATE_ID", templateParams)
-          .then(() => console.log("Email enviado"))
-          .catch(() => console.log("Erro ao enviar email"));
-      }
-
-      // ==================== SUCESSO ====================
+      // sucesso visual
       if (sucesso) {
         sucesso.style.display = "block";
         sucesso.innerHTML = "✅ Enviado com sucesso!";
@@ -219,20 +147,16 @@ document.addEventListener("DOMContentLoaded", function () {
       if (campo) campo.style.display = "none";
 
       setTimeout(() => {
-        if (popup) popup.style.display = "none";
-        if (sucesso) sucesso.style.display = "none";
+        fecharFormulario();
       }, 3000);
 
     } catch (e) {
       console.error("Erro no envio:", e);
     }
   }
-
 });
-//  =================FIM FUNCAO BOTOES GARANTA SUA VAGA, SOU ALUDO , HORARIO===============
 
-/* baner slides */
-// ================= SLIDE (CORRIGIDO) =================
+// ================= SLIDER =================
 const slides = document.querySelectorAll(".slide");
 let index = 0;
 
@@ -245,57 +169,58 @@ function trocarSlide() {
   index = (index + 1) % slides.length;
 }
 
-// inicia corretamente
-if(slides.length > 0){
+if (slides.length > 0) {
   trocarSlide();
   setInterval(trocarSlide, 4000);
 }
 
-
-
-
-/* zomm cad momentos */
-
-
+// ================= GALERIA =================
 function abrirGaleriaModal(src) {
-  document.getElementById("galeriaModal").style.display = "flex";
-  document.getElementById("galeriaModalImg").src = src;
+  const modal = document.getElementById("galeriaModal");
+  const img = document.getElementById("galeriaModalImg");
+
+  if (modal && img) {
+    modal.style.display = "flex";
+    img.src = src;
+  }
 }
 
 function fecharGaleriaModal() {
-  document.getElementById("galeriaModal").style.display = "none";
+  const modal = document.getElementById("galeriaModal");
+  if (modal) modal.style.display = "none";
 }
 
-
-// ================= PROJETO =================
-function mostrarCard(num){
+// ================= PROJETOS =================
+function mostrarCard(num) {
   const container = document.querySelector('.cards');
   const cards = document.querySelectorAll('.card');
 
+  if (!container || cards.length === 0) return;
+
   cards.forEach(c => c.style.display = 'none');
 
-  const card = document.getElementById('card'+num);
-  card.style.display = 'block';
+  const card = document.getElementById('card' + num);
+  if (card) card.style.display = 'block';
 
   container.classList.add('ativo');
 }
 
-// fechar ao clicar fora
+// fechar modal projetos
+const cardsContainer = document.querySelector('.cards');
+if (cardsContainer) {
+  cardsContainer.addEventListener('click', function (e) {
+    if (e.target.classList.contains('cards')) {
+      this.classList.remove('ativo');
+    }
+  });
+}
 
-document.querySelector('.cards').addEventListener('click', function(e){
-  if(e.target.classList.contains('cards')){
-    this.classList.remove('ativo');
-  }
-});
-
-
-
-
-/* carregando... */
+// ================= LOADER =================
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
 
-  // tempo da logo na tela
+  if (!loader) return;
+
   setTimeout(() => {
     loader.classList.add("saindo");
 
