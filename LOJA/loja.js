@@ -261,23 +261,23 @@ function filtrarListas(categoria){
 const livros = {
 
   // INFANTIL
-  maternal2: { nome: "Maternal II", preco: 550, img: "livros/m1.png", categoria: "infantil" },
-  maternal3: { nome: "Maternal III", preco: 550, img: "livros/m2.png", categoria: "infantil" },
-  infantil1: { nome: "Infantil I", preco: 550, img: "livros/infant1.png", categoria: "infantil" },
-  infantil2: { nome: "Infantil II", preco: 550, img: "livros/infant2.png", categoria: "infantil" },
+  maternal2: { nome: "Maternal II", preco: 550, img: "livros/m1.webp", categoria: "infantil" },
+  maternal3: { nome: "Maternal III", preco: 550, img: "livros/m2.webp", categoria: "infantil" },
+  infantil1: { nome: "Infantil I", preco: 550, img: "livros/infant1.webp", categoria: "infantil" },
+  infantil2: { nome: "Infantil II", preco: 550, img: "livros/infant2.webp", categoria: "infantil" },
 
   // FUNDAMENTAL I
-  fundamental1: { nome: "1º Ano ", preco: 565, img: "livros/1ano.png", categoria: "fund1" },
-  fundamental2: { nome: "2º Ano ", preco: 575, img: "livros/2ano.png", categoria: "fund1" },
-  fundamental3: { nome: "3º Ano ", preco: 590, img: "livros/3ano.png", categoria: "fund1" },
-  fundamental4: { nome: "4º Ano ", preco: 605, img: "livros/4ano.png", categoria: "fund1" },
-  fundamental5: { nome: "5º Ano ", preco: 620, img: "livros/5ano.png", categoria: "fund1" },
+  fundamental1: { nome: "1º Ano ", preco: 565, img: "livros/1ano.webp", categoria: "fund1" },
+  fundamental2: { nome: "2º Ano ", preco: 575, img: "livros/2ano.webp", categoria: "fund1" },
+  fundamental3: { nome: "3º Ano ", preco: 590, img: "livros/3ano.webp", categoria: "fund1" },
+  fundamental4: { nome: "4º Ano ", preco: 605, img: "livros/4ano.webp", categoria: "fund1" },
+  fundamental5: { nome: "5º Ano ", preco: 620, img: "livros/5ano.webp", categoria: "fund1" },
 
   // FUNDAMENTAL II
-  fundamental6: { nome: "6º Ano ", preco: 765, img: "livros/6ano.png", categoria: "fund2" },
-  fundamental7: { nome: "7º Ano ", preco: 770, img: "livros/7ano.png", categoria: "fund2" },
-  fundamental8: { nome: "8º Ano ", preco: 780, img: "livros/8ano.png", categoria: "fund2" },
-  fundamental9: { nome: "9º Ano ", preco: 795, img: "livros/9ano.png", categoria: "fund2" }
+  fundamental6: { nome: "6º Ano ", preco: 765, img: "livros/6ano.webp", categoria: "fund2" },
+  fundamental7: { nome: "7º Ano ", preco: 770, img: "livros/7ano.webp", categoria: "fund2" },
+  fundamental8: { nome: "8º Ano ", preco: 780, img: "livros/8ano.webp", categoria: "fund2" },
+  fundamental9: { nome: "9º Ano ", preco: 795, img: "livros/9ano.webp", categoria: "fund2" }
 
 };
 
