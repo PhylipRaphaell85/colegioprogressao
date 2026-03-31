@@ -215,21 +215,21 @@ document.addEventListener('keydown', function(e) {
 // ================= LISTAS =================
 
 const listas = [
-  { nome: "Lista Maternal II", categoria: "infantil", img: "..//imglista/01.jpeg", arquivo: "listas/maternal2.pdf" },
-  { nome: "Lista Maternal III", categoria: "infantil", img: "../imglista/2.jpeg", arquivo: "listas/maternal3.pdf" },
-  { nome: "Lista Infantil I", categoria: "infantil", img: "../imglista/3.jpeg", arquivo: "..//pdf/listajardimI.pdf" },
-  { nome: "Lista Infantil II", categoria: "infantil", img: "../imglista/4.jpeg", arquivo: ".//pdf/listajardimII.pdf" },
+  { nome: "Lista Maternal II", categoria: "infantil", img: "list/lista_1_ano.png", arquivo: "listas/maternal2.pdf" },
+  { nome: "Lista Maternal III", categoria: "infantil", img: "list/lista_2_ano.png", arquivo: "listas/maternal3.pdf" },
+  { nome: "Lista Infantil I", categoria: "infantil", img: "list/lista_4_ano.png", arquivo: "..//pdf/listajardimI.pdf" },
+  { nome: "Lista Infantil II", categoria: "infantil", img: "list/lista_5_ano.png", arquivo: ".//pdf/listajardimII.pdf" },
 
-  { nome: "Lista 1º Ano", categoria: "fund1", img: "listas/fund1.png", arquivo: "listas/1ano.pdf" },
-  { nome: "Lista 2º Ano", categoria: "fund1", img: "listas/fund1.png", arquivo: "listas/2ano.pdf" },
-  { nome: "Lista 3º Ano", categoria: "fund1", img: "listas/fund1.png", arquivo: "listas/3ano.pdf" },
-  { nome: "Lista 4º Ano", categoria: "fund1", img: "listas/fund1.png", arquivo: "listas/4ano.pdf" },
-  { nome: "Lista 5º Ano", categoria: "fund1", img: "listas/fund1.png", arquivo: "listas/5ano.pdf" },
+  { nome: "Lista 1º Ano", categoria: "fund1", img: "list/lista_5_ano.png", arquivo: "listas/1ano.pdf" },
+  { nome: "Lista 2º Ano", categoria: "fund1", img: "list/lista_4_ano.png", arquivo: "listas/2ano.pdf" },
+  { nome: "Lista 3º Ano", categoria: "fund1", img: "list/lista_3_ano.png", arquivo: "listas/3ano.pdf" },
+  { nome: "Lista 4º Ano", categoria: "fund1", img: "list/lista_2_ano.png", arquivo: "listas/4ano.pdf" },
+  { nome: "Lista 5º Ano", categoria: "fund1", img: "list/lista_1_ano.png", arquivo: "listas/5ano.pdf" },
 
-  { nome: "Lista 6º Ano", categoria: "fund2", img: "listas/fund2.png", arquivo: "listas/6ano.pdf" },
-  { nome: "Lista 7º Ano", categoria: "fund2", img: "listas/fund2.png", arquivo: "listas/7ano.pdf" },
-  { nome: "Lista 8º Ano", categoria: "fund2", img: "listas/fund2.png", arquivo: "listas/8ano.pdf" },
-  { nome: "Lista 9º Ano", categoria: "fund2", img: "listas/fund2.png", arquivo: "listas/9ano.pdf" }
+  { nome: "Lista 6º Ano", categoria: "fund2", img: "list/lista_1_ano.png", arquivo: "listas/6ano.pdf" },
+  { nome: "Lista 7º Ano", categoria: "fund2", img: "list/lista_2_ano.png", arquivo: "listas/7ano.pdf" },
+  { nome: "Lista 8º Ano", categoria: "fund2", img: "list/lista_3_ano.png", arquivo: "listas/8ano.pdf" },
+  { nome: "Lista 9º Ano", categoria: "fund2", img: "list/lista_4_ano.png", arquivo: "listas/9ano.pdf" }
 ];
 
 function mostrarListas(lista){
