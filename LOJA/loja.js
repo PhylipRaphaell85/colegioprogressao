@@ -159,6 +159,9 @@ function abrirAba(tipo, event) {
 
   fecharTudo();
 
+   // 🔥 ESCONDE KITS
+  document.getElementById('areaKits').style.display = 'none';
+
   if (tipo === 'livros') {
     document.querySelector('.filtros-livros').classList.add('ativo');
     document.querySelector('.conteudo-livros').classList.add('ativa');
@@ -185,6 +188,9 @@ function fecharTudo() {
   document.querySelector('.conteudo-livros').classList.remove('ativa');
   document.querySelector('.conteudo-fardamentos').classList.remove('ativa');
   document.querySelector('.conteudo-listas').classList.remove('ativa');
+
+  // 🔥 MOSTRA KITS NOVAMENTE
+  document.getElementById('areaKits').style.display = 'grid';
 }
 
 
@@ -609,6 +615,177 @@ function formatarPreco(valor){
   });
 }
 
+//==============================Kit Fardamento ====================================================
+const kits = [
+
+  {
+    nome: "Kit Completo Feminino ",
+    categoria: "infantil",
+    img: "kit/kit comp fud I fem.jpg",
+    descricao: "Camisa + Short-saia + Calça + Casaco",
+    tamanhos: ["2","4","6","8","10"],
+    preco: 199.90
+  },
+  {
+    nome: "Kit Completo masculino ",
+    categoria: "infantil",
+    img: "kit/kit comp fud I masc.jpg",
+    descricao: "Camisa + Short + Calça + Casaco",
+    tamanhos: ["2","4","6","8","10"],
+    preco: 199.90
+  },
+
+  {
+    nome: "Kit Ed. Física Masc. ",
+    categoria: "infantil",
+    img: "kit/kit masculino ed.jpg",
+    descricao: "Camiseta + Short",
+    tamanhos: ["2","4","6","8","10"],
+    preco: 129.90
+  },
+
+  {
+    nome: "Kit Ed. Física Fem. ",
+    categoria: "fund1",
+    img: "kit/feminino Edf.jpg",
+    descricao: "Camiseta + Short-saia",
+    tamanhos: ["10","12","14","P","M","G"],
+    preco: 189.90
+  },
+  
+  {
+    nome: "Kit Fundamental I",
+    categoria: "fund1",
+    img: "kit/kit geral.jpg",
+    descricao: "Camisa + Calça",
+    tamanhos: ["10","12","14","P","M","G"],
+    preco: 219.90
+  },
+
+  
+  {
+    nome: "Kit Inverno",
+    categoria: "geral",
+    img: "kit/kit inverno.jpg",
+    descricao: "Casaco + Camisa + Calça ",
+    tamanhos: ["P","M","G","GG"],
+    preco: 249.90
+  },
+    {
+    nome: "Kit Completo Feminino",
+    categoria: "infantil",
+    img: "kit/kit comp fud II fem.jpg",
+    descricao: "Camisa + Short-saia + Calça + Casaco",
+    tamanhos: ["2","4","6","8","10"],
+    preco: 199.90
+  },
+
+  {
+    nome: "Kit Completo Masculino",
+    categoria: "infantil",
+    img: "kit/kit comp fud II masc.jpg",
+    descricao: "Camisa + Short + Calça + Casaco",
+    tamanhos: ["2","4","6","8","10"],
+    preco: 199.90
+  },
+
+    {
+    nome: "Kit Fundamental II",
+    categoria: "fund1",
+    img: "kit/kit Fund II tectel.jpg",
+    descricao: "Camisa + Calça Tactel ",
+    tamanhos: ["10","12","14","P","M","G"],
+    preco: 219.90
+  },
+
+   {
+    nome: "Kit Edf  Fundamental II",
+    categoria: "fund1",
+    img: "kit/Kit edf FII.jpg",
+    descricao: "Camiseta + Short ",
+    tamanhos: ["10","12","14","P","M","G"],
+    preco: 219.90
+  },
+
+    {
+    nome: "Kit Fundamental II",
+    categoria: "fund1",
+    img: "kit/kit Fund II brin.jpg",
+    descricao: "Camisa + Calça Bryn ",
+    tamanhos: ["10","12","14","P","M","G"],
+    preco: 219.90
+  },
+
+  
+  {
+    nome: "Kit Inverno Fundamental II",
+    categoria: "geral",
+    img: "kit/Kit inverno FII.jpg",
+    descricao: "Casaco + Camisa + Calça ",
+    tamanhos: ["P","M","G","GG"],
+    preco: 249.90
+  }
+
+];
+
+function mostrarKits(lista){
+  const grid = document.getElementById('areaKits'); // 🔥 IMPORTANTE
+
+  grid.innerHTML = '';
+
+  lista.forEach(item => {
+
+    let opcoes = item.tamanhos.map(t => 
+      `<option value="${t}">${t}</option>`
+    ).join('');
+
+    grid.innerHTML += `
+      <div class="cardkit">
+        <img src="${item.img}">
+        <h3>${item.nome}</h3>
+
+        <small>${item.descricao}</small>
+
+        <select>
+          <option value="">Tamanho</option>
+          ${opcoes}
+        </select>
+
+        <p class="preco">${formatarPreco(item.preco)}</p>
+
+        <button class="btn-add" onclick="addKit(this)">
+          Comprar Kit
+        </button>
+      </div>
+    `;
+  });
+}
+function addKit(botao){
+
+  const card = botao.closest('.cardkit'); // ✅ corrigido
+
+  const nome = card.querySelector('h3').innerText;
+  const precoTexto = card.querySelector('.preco').innerText;
+  const tamanho = card.querySelector('select').value;
+  const img = card.querySelector('img').src;
+
+  if(!tamanho){
+    mostrarPopup("Selecione o tamanho!");
+    return;
+  }
+
+  const preco = Number(precoTexto.replace(/[^\d,]/g,'').replace(',','.'));
+
+  carrinho.push({
+    nome: nome + " - " + tamanho,
+    preco: preco,
+    qtd: 1,
+    img: img
+  });
+
+  atualizarCarrinho();
+  animarAdicionar(card.querySelector('img')); // 🔥 já corrigi aqui também
+}
 
 
 
@@ -620,7 +797,7 @@ function formatarPreco(valor){
 
 
 
-//==================================================================================
+
 
 
 // ======= WHATSAPP =======
@@ -662,3 +839,6 @@ document.getElementById('btnCartao').onclick=()=>{
 };
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  mostrarKits(kits);
+});
