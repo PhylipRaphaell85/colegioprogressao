@@ -408,8 +408,8 @@ nav a:hover::after{
   position:absolute;
   top:8px;
   right:8px;
-  background:gold;
-  color:#000;
+  background:#e66a00;
+  color:#ffffff;
   font-size:10px;
   padding:4px 6px;
   border-radius:6px;

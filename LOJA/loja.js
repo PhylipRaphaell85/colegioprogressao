@@ -620,7 +620,7 @@ const kits = [
 
   // ================= INFANTIL =================
   {
-    nome: "Kit Completo Feminino ",
+    nome: "Kit Completo <br> Feminino ",
     categoria: "normal",
     img: "kit/kit comp fud I fem.jpg",
     descricao: "Camisa + Short-saia + Calça + Casaco",
@@ -634,7 +634,7 @@ const kits = [
   },
 
   {
-    nome: "Kit Completo Masculino ",
+    nome: "Kit Completo <br>  Masculino ",
     categoria: "normal",
     img: "kit/kit comp fud I masc.jpg",
     descricao: "Camisa + Short + Calça + Casaco",
@@ -648,7 +648,7 @@ const kits = [
   },
 
   {
-    nome: "Kit Ed. Física Masc.",
+    nome: "Kit Educação <br> Física Masculino",
     categoria: "normal",
     img: "kit/kit masculino ed.jpg",
     descricao: "Camiseta + Short",
@@ -663,7 +663,7 @@ const kits = [
   },
 
   {
-    nome: "Kit Ed. Física Fem.",
+    nome: "Kit Educação <br>  Física Feminino",
     categoria: "normal",
     img: "kit/feminino Edf.jpg",
     descricao: "Camiseta + Short-saia",
@@ -679,7 +679,7 @@ const kits = [
 
   // ================= FUNDAMENTAL I =================
   {
-    nome: "Kit Fundamental I",
+    nome: "Kit <br> Fundamental I",
     categoria: "fund1",
     img: "kit/kit geral.jpg",
     descricao: "Camisa + Calça",
@@ -694,11 +694,23 @@ const kits = [
     }
   },
 
-  
+  {
+    nome: "Kit Inverno",
+    categoria: "geral",
+    img: "kit/kit inverno.jpg",
+    descricao: "Casaco + Camisa + Calça",
+    precos: {
+      "P": 249.90,
+      "M": 259.90,
+      "G": 269.90,
+      "GG": 279.90
+    }
+  },
+
 
   // ================= FUNDAMENTAL II =================
   {
-    nome: "Kit Completo Fem. Fund. II",
+    nome: "Kit Completo <br> Fem. Fund. II",
     categoria: "fund2",
     img: "kit/kit comp fud II fem.jpg",
     descricao: "Camisa + Short-saia + Calça + Casaco",
@@ -713,7 +725,7 @@ const kits = [
   },
 
   {
-    nome: "Kit Completo Masc. Fund.II",
+    nome: "Kit Completo <br> Masc. Fund.II",
     categoria: "fund2",
     img: "kit/kit comp fud II masc.jpg",
     descricao: "Camisa + Short + Calça + Casaco",
@@ -758,7 +770,7 @@ const kits = [
   },
 
   {
-    nome: "Kit Ed. Física Fundamental II",
+    nome: "Kit Educação <br>  Física Fundamental II",
     categoria: "fund2",
     img: "kit/Kit edf FII.jpg",
     descricao: "Camiseta + Short",
@@ -774,21 +786,9 @@ const kits = [
   },
 
   // ================= INVERNO =================
+  
   {
-    nome: "Kit Inverno",
-    categoria: "geral",
-    img: "kit/kit inverno.jpg",
-    descricao: "Casaco + Camisa + Calça",
-    precos: {
-      "P": 249.90,
-      "M": 259.90,
-      "G": 269.90,
-      "GG": 279.90
-    }
-  },
-
-  {
-    nome: "Kit Inverno Fundamental II",
+    nome: "Kit Inverno <br> Fundamental II",
     categoria: "geral",
     img: "kit/Kit inverno FII.jpg",
     descricao: "Casaco + Camisa + Calça",
@@ -811,7 +811,7 @@ function mostrarKits(lista){
 
     // 🔥 AQUI
   const tagMaisVendido = item.maisVendido 
-    ? `<span class="tag-vendido">⭐ MAIS VENDIDO</span>` 
+    ? `<span class="tag-vendido">★ MAIS VENDIDO</span>` 
     : '';
 
     let tamanhos = Object.keys(item.precos);
