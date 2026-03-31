@@ -618,140 +618,224 @@ function formatarPreco(valor){
 //==============================Kit Fardamento ====================================================
 const kits = [
 
+  // ================= INFANTIL =================
   {
     nome: "Kit Completo Feminino ",
-    categoria: "infantil",
+    categoria: "normal",
     img: "kit/kit comp fud I fem.jpg",
     descricao: "Camisa + Short-saia + Calça + Casaco",
-    tamanhos: ["2","4","6","8","10"],
-    preco: 199.90
+    precos: {
+      "2": 199.90,
+      "4": 199.90,
+      "6": 209.90,
+      "8": 219.90,
+      "10": 229.90
+    }
   },
+
   {
-    nome: "Kit Completo masculino ",
-    categoria: "infantil",
+    nome: "Kit Completo Masculino ",
+    categoria: "normal",
     img: "kit/kit comp fud I masc.jpg",
     descricao: "Camisa + Short + Calça + Casaco",
-    tamanhos: ["2","4","6","8","10"],
-    preco: 199.90
+    precos: {
+      "2": 199.90,
+      "4": 199.90,
+      "6": 209.90,
+      "8": 219.90,
+      "10": 229.90
+    }
   },
 
   {
-    nome: "Kit Ed. Física Masc. ",
-    categoria: "infantil",
+    nome: "Kit Ed. Física Masc.",
+    categoria: "normal",
     img: "kit/kit masculino ed.jpg",
     descricao: "Camiseta + Short",
-    tamanhos: ["2","4","6","8","10"],
-    preco: 129.90
+    maisVendido: true,
+    precos: {
+      "2": 129.90,
+      "4": 129.90,
+      "6": 139.90,
+      "8": 149.90,
+      "10": 159.90
+    }
   },
 
   {
-    nome: "Kit Ed. Física Fem. ",
-    categoria: "fund1",
+    nome: "Kit Ed. Física Fem.",
+    categoria: "normal",
     img: "kit/feminino Edf.jpg",
     descricao: "Camiseta + Short-saia",
-    tamanhos: ["10","12","14","P","M","G"],
-    preco: 189.90
+    maisVendido: true,
+    precos: {
+      "2": 129.90,
+      "4": 129.90,
+      "6": 139.90,
+      "8": 149.90,
+      "10": 159.90
+    }
   },
-  
+
+  // ================= FUNDAMENTAL I =================
   {
     nome: "Kit Fundamental I",
     categoria: "fund1",
     img: "kit/kit geral.jpg",
     descricao: "Camisa + Calça",
-    tamanhos: ["10","12","14","P","M","G"],
-    preco: 219.90
+    maisVendido: true, 
+    precos: {
+      "10": 219.90,
+      "12": 229.90,
+      "14": 239.90,
+      "P": 239.90,
+      "M": 249.90,
+      "G": 259.90
+    }
   },
 
   
+
+  // ================= FUNDAMENTAL II =================
+  {
+    nome: "Kit Completo Fem. Fund. II",
+    categoria: "fund2",
+    img: "kit/kit comp fud II fem.jpg",
+    descricao: "Camisa + Short-saia + Calça + Casaco",
+    precos: {
+      "12": 229.90,
+      "14": 239.90,
+      "16": 249.90,
+      "P": 249.90,
+      "M": 259.90,
+      "G": 269.90
+    }
+  },
+
+  {
+    nome: "Kit Completo Masc. Fund.II",
+    categoria: "fund2",
+    img: "kit/kit comp fud II masc.jpg",
+    descricao: "Camisa + Short + Calça + Casaco",
+    precos: {
+      "12": 229.90,
+      "14": 239.90,
+      "16": 249.90,
+      "P": 249.90,
+      "M": 259.90,
+      "G": 269.90
+    }
+  },
+
+  {
+    nome: "Kit Fundamental II Tactel",
+    categoria: "fund2",
+    img: "kit/kit Fund II tectel.jpg",
+    descricao: "Camisa + Calça Tactel",
+    maisVendido: true, // 🔥 AQUI
+    precos: {
+      "12": 219.90,
+      "14": 229.90,
+      "16": 239.90,
+      "P": 239.90,
+      "M": 249.90,
+      "G": 259.90
+    }
+  },
+
+  {
+    nome: "Kit Fundamental II Bryn",
+    categoria: "fund2",
+    img: "kit/kit Fund II brin.jpg",
+    descricao: "Camisa + Calça Bryn",
+    precos: {
+      "36": 199.90,
+      "38": 209.90,
+      "40": 219.90,
+      "42": 229.90,
+      "44": 239.90
+    }
+  },
+
+  {
+    nome: "Kit Ed. Física Fundamental II",
+    categoria: "fund2",
+    img: "kit/Kit edf FII.jpg",
+    descricao: "Camiseta + Short",
+    maisVendido: true,
+    precos: {
+      "12": 199.90,
+      "14": 209.90,
+      "16": 219.90,
+      "P": 219.90,
+      "M": 229.90,
+      "G": 239.90
+    }
+  },
+
+  // ================= INVERNO =================
   {
     nome: "Kit Inverno",
     categoria: "geral",
     img: "kit/kit inverno.jpg",
-    descricao: "Casaco + Camisa + Calça ",
-    tamanhos: ["P","M","G","GG"],
-    preco: 249.90
-  },
-    {
-    nome: "Kit Completo Feminino",
-    categoria: "infantil",
-    img: "kit/kit comp fud II fem.jpg",
-    descricao: "Camisa + Short-saia + Calça + Casaco",
-    tamanhos: ["2","4","6","8","10"],
-    preco: 199.90
+    descricao: "Casaco + Camisa + Calça",
+    precos: {
+      "P": 249.90,
+      "M": 259.90,
+      "G": 269.90,
+      "GG": 279.90
+    }
   },
 
-  {
-    nome: "Kit Completo Masculino",
-    categoria: "infantil",
-    img: "kit/kit comp fud II masc.jpg",
-    descricao: "Camisa + Short + Calça + Casaco",
-    tamanhos: ["2","4","6","8","10"],
-    preco: 199.90
-  },
-
-    {
-    nome: "Kit Fundamental II",
-    categoria: "fund1",
-    img: "kit/kit Fund II tectel.jpg",
-    descricao: "Camisa + Calça Tactel ",
-    tamanhos: ["10","12","14","P","M","G"],
-    preco: 219.90
-  },
-
-   {
-    nome: "Kit Edf  Fundamental II",
-    categoria: "fund1",
-    img: "kit/Kit edf FII.jpg",
-    descricao: "Camiseta + Short ",
-    tamanhos: ["10","12","14","P","M","G"],
-    preco: 219.90
-  },
-
-    {
-    nome: "Kit Fundamental II",
-    categoria: "fund1",
-    img: "kit/kit Fund II brin.jpg",
-    descricao: "Camisa + Calça Bryn ",
-    tamanhos: ["10","12","14","P","M","G"],
-    preco: 219.90
-  },
-
-  
   {
     nome: "Kit Inverno Fundamental II",
     categoria: "geral",
     img: "kit/Kit inverno FII.jpg",
-    descricao: "Casaco + Camisa + Calça ",
-    tamanhos: ["P","M","G","GG"],
-    preco: 249.90
+    descricao: "Casaco + Camisa + Calça",
+    precos: {
+      "P": 259.90,
+      "M": 269.90,
+      "G": 279.90,
+      "GG": 289.90
+    }
   }
 
 ];
 
 function mostrarKits(lista){
-  const grid = document.getElementById('areaKits'); // 🔥 IMPORTANTE
+  const grid = document.getElementById('areaKits');
 
   grid.innerHTML = '';
 
   lista.forEach(item => {
 
-    let opcoes = item.tamanhos.map(t => 
+    // 🔥 AQUI
+  const tagMaisVendido = item.maisVendido 
+    ? `<span class="tag-vendido">⭐ MAIS VENDIDO</span>` 
+    : '';
+
+    let tamanhos = Object.keys(item.precos);
+
+    let opcoes = tamanhos.map(t => 
       `<option value="${t}">${t}</option>`
     ).join('');
 
     grid.innerHTML += `
-      <div class="cardkit">
-        <img src="${item.img}">
+  <div class="cardkit ${item.maisVendido ? 'destaque' : ''}">
+
+    ${tagMaisVendido}
+
+    <img src="${item.img}">
         <h3>${item.nome}</h3>
 
         <small>${item.descricao}</small>
 
-        <select>
+        <select data-precos='${JSON.stringify(item.precos)}' onchange="atualizarPrecoKit(this)">
           <option value="">Tamanho</option>
           ${opcoes}
         </select>
 
-        <p class="preco">${formatarPreco(item.preco)}</p>
+        <p class="preco">Selecione o tamanho</p>
 
         <button class="btn-add" onclick="addKit(this)">
           Comprar Kit
@@ -760,6 +844,19 @@ function mostrarKits(lista){
     `;
   });
 }
+
+function atualizarPrecoKit(select){
+  const tamanho = select.value;
+
+  const precos = JSON.parse(select.dataset.precos);
+  const preco = precos[tamanho];
+
+  if(preco){
+    select.parentElement.querySelector('.preco').innerText =
+      formatarPreco(preco);
+  }
+}
+
 function addKit(botao){
 
   const card = botao.closest('.cardkit'); // ✅ corrigido

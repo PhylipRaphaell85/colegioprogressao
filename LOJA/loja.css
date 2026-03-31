@@ -341,9 +341,10 @@ nav a:hover::after{
 
 .area-kits{
   display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(222px,1fr));
+  grid-template-columns: repeat(6, minmax(200px, 1fr));
   gap:15px;
-  margin-left: 0; /* 🔥 melhor remover esse 150 */
+  margin-left: 10%; /* 🔥 melhor remover esse 150 */
+   max-width: 1300px;
 }
 
 .cardkit{
@@ -403,6 +404,17 @@ nav a:hover::after{
   margin-top:auto; /* 🔥 ISSO resolve tudo */
 }
 
+.tag-vendido{
+  position:absolute;
+  top:8px;
+  right:8px;
+  background:gold;
+  color:#000;
+  font-size:10px;
+  padding:4px 6px;
+  border-radius:6px;
+  font-weight:bold;
+}
 /* ================= CARD PREMIUM ================= */
 .cardlivros{
   position:relative;
