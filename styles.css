@@ -180,7 +180,7 @@ font-weight:400;
 
 nav {
   display: flex;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
   gap: 30px;
 }
 
@@ -316,7 +316,7 @@ nav a:hover::after{
 .logo{
 display:flex;
 align-items:center;
-margin-left:50px;
+margin-left:0;
 gap:10px;
 
 }
@@ -360,26 +360,28 @@ display:block;
 /* ==========================================================
 SEÇÃO DESTAQUE
 ========================================================== */
-
-
 .banner-escolar{
-background-image:url("IMAGEM/infantil/painel prin.jpeg");
-background-size:cover;
-background-position:center -100px; /* imagem mais para cima */
-background-repeat: no-repeat;
-color:white;
-height:1250px;
-width:100%;
-padding-top:10px;
+  background-image: url("IMAGEM/infantil/painel prin.jpeg");
+  background-size: 100% 100%; /* 👈 ESTICA */
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 120px 20px;
+  display: flex;
+  align-items: center;
+  color: white;
 }
 
 /* CONTAINER (BASE DO ALINHAMENTO) */
+
+
 .containerescolar{
   max-width:900px;
-  margin: 100px auto 0 40px; /* esquerda 40px */
-  padding: 0 20px;
+  margin: 10px auto 0 40px; /* esquerda 40px */
+  padding: 0 10px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+
  
 }
 
@@ -444,7 +446,7 @@ padding-top:10px;
 
 /* TITULOS */
 .banner-escolar h1{
-  font-size:48px;
+ font-size: clamp(28px, 5vw, 48px);
   line-height:1.2;
 }
 
@@ -873,7 +875,7 @@ font-weight:600;
   gap: 50px;
   flex-wrap: wrap;
   margin-top: 40px;
-  margin-left: 20px; /* move para direita */
+    margin-left:0;
 }
 
 
@@ -1113,7 +1115,8 @@ to bottom,
 .depoimentos h2::after {
   content: "";
   display: block; /* ESSENCIAL */
-  width: 680px;
+  width:100%;
+max-width:680px;
   height: 3px;
   background: orange;
   margin: 10px auto 0;
@@ -1190,7 +1193,8 @@ to bottom,
 }
 
 .linha{
-  width:400px;
+  width:100%;
+  max-width:400px;
   height:4px;
   background:#ff7a00;
   margin:0 auto 40px;
@@ -1245,18 +1249,6 @@ to bottom,
   overflow: hidden;
 }
 
-/* CENTRALIZA PERFEITO A ÚLTIMA LINHA (3 ITENS) */
-.botoes-projeto .btn-projeto:nth-last-child(3){
-  grid-column: 2;
-}
-
-.botoes-projeto .btn-projeto:nth-last-child(2){
-  grid-column: 3;
-}
-
-.botoes-projeto .btn-projeto:nth-last-child(1){
-  grid-column: 4;
-}
 
 /* HOVER */
 .btn-projeto:hover{
@@ -1306,7 +1298,8 @@ to bottom,
 
 .card img{
   width:100%;
-  height:320px;
+  height:auto;
+  aspect-ratio:4/3;
   object-fit:cover;
 
 }
@@ -1339,7 +1332,7 @@ to bottom,
   padding:10px 15px;
   border-radius:20px;
   text-decoration:none;
-  margin-left: 260px;
+   margin-left: auto;
 }
 
 /* ANIMAÇÃO */
@@ -2036,9 +2029,7 @@ box-shadow:
   display: flex;
   justify-content: flex-start; /* joga tudo pra esquerda */
   align-items: center;
-
   background: url("SejaProgresão.jpg") center/cover no-repeat;
-
   min-height: 560px;
   padding: 60px 20px;
   color: white;
@@ -2066,19 +2057,19 @@ box-shadow:
   margin: 0;              /* remove centralização */
   z-index: 2;
   text-align: left;       /* alinha à esquerda */
-  padding-left: 40px;     /* espaço da borda */
+ padding: 0 20px;
 }
 
 /* TÍTULO */
 .banner-matricula h1 {
-  font-size: 60px;
+  font-size: clamp(28px, 6vw, 60px);
   font-weight: 800;
   margin-bottom: 20px;
 }
 
 /* TEXTO */
 .banner-matricula p {
-  font-size: 23px;
+  font-size: clamp(16px, 2.5vw, 23px);
   line-height: 1.2;
   margin-bottom: 35px;
 }
@@ -2261,11 +2252,6 @@ MAPA ESTILIZADO
   100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
 }
    
-   
-/* ==========================================================
-   RESPONSIVIDADE PARA NOTEBOOK
-   Telas entre 1024px e 1366px
-========================================================== */
 
 /* ==========================================================
    RESPONSIVIDADE NOTEBOOK (1024px até 1366px)
@@ -2528,9 +2514,10 @@ header{
 }
 
 .banner-escolar{
-    padding:0px;
-    background-position: left;
-    height: 890px;
+   background-size: cover;         /* 🔥 mantém proporção */
+    background-position: left center; /* 🔥 joga pra esquerda */
+    
+    height: 990px;
 }
 .banner-escolar h3 {
   font-size: 25px;
