@@ -48,6 +48,17 @@ function fecharPopup(){
 }
 
 
+function mostrarPopup(mensagem) {
+  const toast = document.getElementById('toast');
+  toast.innerHTML = mensagem;
+  
+  toast.classList.add('show');
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3000);
+}
+
 // ================== SESSÃO ==================
 function salvarSessao() {
   const agora = new Date().getTime();
@@ -267,23 +278,23 @@ function filtrarListas(categoria){
 const livros = {
 
   // INFANTIL
-  maternal2: { nome: "Maternal II", preco: 550, img: "livros/m1.webp", categoria: "infantil" },
-  maternal3: { nome: "Maternal III", preco: 550, img: "livros/m2.webp", categoria: "infantil" },
-  infantil1: { nome: "Infantil I", preco: 550, img: "livros/infant1.webp", categoria: "infantil" },
-  infantil2: { nome: "Infantil II", preco: 550, img: "livros/infant2.webp", categoria: "infantil" },
+  maternal2: { nome: " Kit Maternal II", preco: 550, img: "livros/m1.webp", categoria: "infantil" },
+  maternal3: { nome: " Kit Maternal III", preco: 550, img: "livros/m2.webp", categoria: "infantil" },
+  infantil1: { nome: "Kit Infantil I", preco: 550, img: "livros/infant1.webp", categoria: "infantil" },
+  infantil2: { nome: "Kit Infantil II", preco: 550, img: "livros/infant2.webp", categoria: "infantil" },
 
   // FUNDAMENTAL I
-  fundamental1: { nome: "1º Ano ", preco: 565, img: "livros/1ano.webp", categoria: "fund1" },
-  fundamental2: { nome: "2º Ano ", preco: 575, img: "livros/2ano.webp", categoria: "fund1" },
-  fundamental3: { nome: "3º Ano ", preco: 590, img: "livros/3ano.webp", categoria: "fund1" },
-  fundamental4: { nome: "4º Ano ", preco: 605, img: "livros/4ano.webp", categoria: "fund1" },
-  fundamental5: { nome: "5º Ano ", preco: 620, img: "livros/5ano.webp", categoria: "fund1" },
+  fundamental1: { nome: "Kit 1º Ano ", preco: 565, img: "livros/1ano.webp", categoria: "fund1" },
+  fundamental2: { nome: "Kit 2º Ano ", preco: 575, img: "livros/2ano.webp", categoria: "fund1" },
+  fundamental3: { nome: "Kit 3º Ano ", preco: 590, img: "livros/3ano.webp", categoria: "fund1" },
+  fundamental4: { nome: "Kit 4º Ano ", preco: 605, img: "livros/4ano.webp", categoria: "fund1" },
+  fundamental5: { nome: "Kit 5º Ano ", preco: 620, img: "livros/5ano.webp", categoria: "fund1" },
 
   // FUNDAMENTAL II
-  fundamental6: { nome: "6º Ano ", preco: 765, img: "livros/6ano.webp", categoria: "fund2" },
-  fundamental7: { nome: "7º Ano ", preco: 770, img: "livros/7ano.webp", categoria: "fund2" },
-  fundamental8: { nome: "8º Ano ", preco: 780, img: "livros/8ano.webp", categoria: "fund2" },
-  fundamental9: { nome: "9º Ano ", preco: 795, img: "livros/9ano.webp", categoria: "fund2" }
+  fundamental6: { nome: "Kit 6º Ano ", preco: 765, img: "livros/6ano.webp", categoria: "fund2" },
+  fundamental7: { nome: "Kit 7º Ano ", preco: 770, img: "livros/7ano.webp", categoria: "fund2" },
+  fundamental8: { nome: "Kit 8º Ano ", preco: 780, img: "livros/8ano.webp", categoria: "fund2" },
+  fundamental9: { nome: "Kit 9º Ano ", preco: 795, img: "livros/9ano.webp", categoria: "fund2" }
 
 };
 
@@ -523,13 +534,19 @@ const contador = document.getElementById('contadorCarrinho');
 const btnCarrinho = document.getElementById('btnCarrinhoTopo');
 
 // ABRIR / FECHAR
-btnCarrinho.onclick = ()=>{
-  carrinhoDiv.style.display = carrinhoDiv.style.display==='flex'?'none':'flex';
-};
+btnCarrinho.onclick = (e)=>{
+  e.stopPropagation(); // 🔥 ESSA LINHA resolve o problema
 
+  carrinhoDiv.style.display = 
+    carrinhoDiv.style.display === 'flex' ? 'none' : 'flex';
+};
 // FECHAR FORA
 document.addEventListener('click', function(e){
-  if(!carrinhoDiv.contains(e.target) && !btnCarrinho.contains(e.target)){
+  if(
+    carrinhoDiv.style.display === 'flex' &&
+    !carrinhoDiv.contains(e.target) &&
+    !btnCarrinho.contains(e.target)
+  ){
     carrinhoDiv.style.display = 'none';
   }
 });
@@ -587,7 +604,7 @@ function atualizarCarrinho(){
         <img src="${item.img}">
         <div>
           <span class="qtdItem">Qtd: ${item.qtd}</span> <br>
-          <span class="nomeItem">${item.nome}</span>
+          <span class="nomeItem">${item.nome}</span> <br>
           <span class="precoItem">${formatarPreco(item.preco * item.qtd)}</span>
         </div>
         <button class="removerItem">Remover</button>
@@ -802,18 +819,15 @@ const kits = [
   }
 
 ];
-
 function mostrarKits(lista){
   const grid = document.getElementById('areaKits');
-
   grid.innerHTML = '';
 
   lista.forEach(item => {
 
-    // 🔥 AQUI
-  const tagMaisVendido = item.maisVendido 
-    ? `<span class="tag-vendido">★ MAIS VENDIDO</span>` 
-    : '';
+    const tagMaisVendido = item.maisVendido 
+      ? `<span class="tag-vendido">★ MAIS VENDIDO</span>` 
+      : '';
 
     let tamanhos = Object.keys(item.precos);
 
@@ -822,33 +836,31 @@ function mostrarKits(lista){
     ).join('');
 
     grid.innerHTML += `
-  <div class="cardkit ${item.maisVendido ? 'destaque' : ''}">
+    <div class="cardkit ${item.maisVendido ? 'destaque' : ''}">
+      ${tagMaisVendido}
 
-    ${tagMaisVendido}
+      <img src="${item.img}">
+      <h3>${item.nome}</h3>
 
-    <img src="${item.img}">
-        <h3>${item.nome}</h3>
+      <small class="descricao">${item.descricao}</small>
 
-        <small>${item.descricao}</small>
+      <select data-precos='${JSON.stringify(item.precos)}' onchange="atualizarPrecoKit(this)">
+        <option value="">Tamanho</option>
+        ${opcoes}
+      </select>
 
-        <select data-precos='${JSON.stringify(item.precos)}' onchange="atualizarPrecoKit(this)">
-          <option value="">Tamanho</option>
-          ${opcoes}
-        </select>
+      <p class="preco">Selecione o tamanho</p>
 
-        <p class="preco">Selecione o tamanho</p>
-
-        <button class="btn-add" onclick="addKit(this)">
-          Comprar Kit
-        </button>
-      </div>
+      <button class="btn-add" onclick="addKit(this)">
+        Comprar Kit
+      </button>
+    </div>
     `;
   });
 }
 
 function atualizarPrecoKit(select){
   const tamanho = select.value;
-
   const precos = JSON.parse(select.dataset.precos);
   const preco = precos[tamanho];
 
@@ -860,12 +872,16 @@ function atualizarPrecoKit(select){
 
 function addKit(botao){
 
-  const card = botao.closest('.cardkit'); // ✅ corrigido
+  const card = botao.closest('.cardkit');
 
-  const nome = card.querySelector('h3').innerText;
+  const nome = card.querySelector('h3').innerText.replace(/\n/g, ' ').trim(); 
   const precoTexto = card.querySelector('.preco').innerText;
   const tamanho = card.querySelector('select').value;
   const img = card.querySelector('img').src;
+
+  const descricao = card.querySelector('.descricao') 
+    ? card.querySelector('.descricao').innerText 
+    : '';
 
   if(!tamanho){
     mostrarPopup("Selecione o tamanho!");
@@ -875,31 +891,19 @@ function addKit(botao){
   const preco = Number(precoTexto.replace(/[^\d,]/g,'').replace(',','.'));
 
   carrinho.push({
-    nome: nome + " - " + tamanho,
+    nome: nome + " - Nº " + tamanho, 
     preco: preco,
     qtd: 1,
-    img: img
+    img: img,
+    descricao: descricao
   });
 
   atualizarCarrinho();
-  animarAdicionar(card.querySelector('img')); // 🔥 já corrigi aqui também
+  animarAdicionar(card.querySelector('img')); 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ======= WHATSAPP =======
-document.getElementById('btnWhatsCarrinho').onclick=()=>{
+document.getElementById('btnWhatsCarrinho').onclick = () => {
 
   if(!usuarioLogado()){
     mostrarPopup("Faça login para finalizar a compra!");
@@ -909,32 +913,67 @@ document.getElementById('btnWhatsCarrinho').onclick=()=>{
     return;
   }
 
-  if(carrinho.length===0) return mostrarPopup('Carrinho vazio');
+  if(carrinho.length === 0){
+    return mostrarPopup('Carrinho vazio');
+  }
 
-  let msg='Gostaria de adquirir esse(s) produto(s):%0A';
-  carrinho.forEach(i=>{
-    msg+=`${i.nome} x${i.qtd} - ${formatarPreco(i.preco*i.qtd)}%0A`;
+ 
+  const nomeCliente = localStorage.getItem('nomeResp') || 'Cliente';
+
+  let total = 0;
+
+  let msg = `🛒 *Pedido da Loja*\n`;
+  msg += `👤 Cliente: *${nomeCliente}*\n\n`;
+
+  carrinho.forEach(i => {
+    let subtotal = i.preco * i.qtd;
+    total += subtotal;
+
+    msg += `➡️ *${i.nome}*\n`;
+
+    if(i.descricao){
+      msg += `📝 ${i.descricao}\n`;
+    }
+
+    msg += `🔢 Quantidade: ${i.qtd}\n`;
+    msg += `💰 Subtotal: ${formatarPreco(subtotal)}\n\n`;
   });
 
-  window.open('https://wa.me/5581993954032?text='+msg);
+  msg += `━━━━━━━━━━━━━━\n`;
+  msg += `💵 *TOTAL: ${formatarPreco(total)}*\n`;
+  msg += `━━━━━━━━━━━━━━\n\n`;
+  msg += `📲 Aguardando confirmação do pedido.`;
+
+  // 🔥 ESSENCIAL (corrige emoji)
+  const url = 'https://api.whatsapp.com/send?phone=5581993954032&text=' + encodeURIComponent(msg);
+window.open(url, '_blank');
 };
 
 // ======= CARTÃO =======
-document.getElementById('btnCartao').onclick=()=>{
 
-  if(!usuarioLogado()){
-    mostrarPopup("Faça login para finalizar a compra!");
-    setTimeout(()=>{
-      window.location.href = "login.html";
-    }, 1500);
-    return;
-  }
-
-  if(carrinho.length===0) return mostrarPopup('Carrinho vazio');
-
-  let total=carrinho.reduce((a,b)=>a+b.preco*b.qtd,0);
-  mostrarPopup('Pagamento em breve.\nTotal: '+formatarPreco(total));
+document.getElementById('btnCartao').onclick = () => {
+  mostrarPopup(`
+    Opção indisponível.<br><br>
+    <strong style="color:#25D366; font-size:16px;">
+      <i class="fa-brands fa-whatsapp"></i> Finalize pelo WhatsApp
+    </strong>
+  `);
 };
+//document.getElementById('btnCartao').onclick=()=>{
+
+//  if(!usuarioLogado()){
+//    mostrarPopup("Faça login para finalizar a compra!");
+//    setTimeout(()=>{
+//      window.location.href = "login.html";
+//    }, 1500);
+//    return;
+//  }
+
+//  if(carrinho.length===0) return mostrarPopup('Carrinho vazio');
+
+//  let total=carrinho.reduce((a,b)=>a+b.preco*b.qtd,0);
+//mostrarPopup('Pagamento em breve selecione a opção pelo "Whatsapp".\nTotal: '+formatarPreco(total));
+//};
 
 
 document.addEventListener("DOMContentLoaded", () => {
