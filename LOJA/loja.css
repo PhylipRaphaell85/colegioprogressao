@@ -933,7 +933,8 @@ color:#d21919;
 .popup-box p{
   margin-bottom:20px;
   font-weight:500;
-  color:#333;
+  color: #ff7a00;
+  font-weight: 700; 
 }
 
 .popup-box button{

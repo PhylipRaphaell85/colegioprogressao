@@ -48,7 +48,7 @@ function fecharPopup(){
 }
 
 
-function mostrarPopup(mensagem) {
+function mostrarcartao(mensagem) {
   const toast = document.getElementById('toast');
   toast.innerHTML = mensagem;
   
@@ -164,39 +164,28 @@ function mostrarMensagem(){
 
 
 //====================LIVROS E FARDAMENTOS============================================
+// ABRIR ABA
 function abrirAba(tipo, event) {
-  event.stopPropagation();
+  event.stopPropagation(); // evita fechar ao clicar no botão
 
-  let filtro, conteudo;
+  fecharTudo();
+
+   // 🔥 ESCONDE KITS
+  document.getElementById('areaKits').style.display = 'none';
 
   if (tipo === 'livros') {
-    filtro = document.querySelector('.filtros-livros');
-    conteudo = document.querySelector('.conteudo-livros');
+    document.querySelector('.filtros-livros').classList.add('ativo');
+    document.querySelector('.conteudo-livros').classList.add('ativa');
   }
 
   if (tipo === 'fardamentos') {
-    filtro = document.querySelector('.filtros-fardamentos');
-    conteudo = document.querySelector('.conteudo-fardamentos');
+    document.querySelector('.filtros-fardamentos').classList.add('ativo');
+    document.querySelector('.conteudo-fardamentos').classList.add('ativa');
   }
 
   if (tipo === 'lista-materiais') {
-    filtro = document.querySelector('.filtros-lista');
-    conteudo = document.querySelector('.conteudo-listas');
-  }
-
-  // 👉 verifica se já está aberto
-  const jaEstaAtivo = filtro.classList.contains('ativo');
-
-  // sempre fecha tudo primeiro
-  fecharTudo();
-
-  // 👉 se NÃO estava aberto, abre
-  if (!jaEstaAtivo) {
-    filtro.classList.add('ativo');
-    conteudo.classList.add('ativa');
-
-    // esconde kits
-    document.getElementById('areaKits').style.display = 'none';
+    document.querySelector('.filtros-lista').classList.add('ativo');
+    document.querySelector('.conteudo-listas').classList.add('ativa');
   }
 }
 
@@ -206,6 +195,7 @@ function fecharTudo() {
   document.querySelector('.filtros-livros').classList.remove('ativo');
   document.querySelector('.filtros-fardamentos').classList.remove('ativo');
   document.querySelector('.filtros-lista').classList.remove('ativo');
+
   document.querySelector('.conteudo-livros').classList.remove('ativa');
   document.querySelector('.conteudo-fardamentos').classList.remove('ativa');
   document.querySelector('.conteudo-listas').classList.remove('ativa');
@@ -962,7 +952,7 @@ window.open(url, '_blank');
 // ======= CARTÃO =======
 
 document.getElementById('btnCartao').onclick = () => {
-  mostrarPopup(`
+  mostrarcartao(`
     Opção indisponível.<br><br>
     <strong style="color:#25D366; font-size:16px;">
       <i class="fa-brands fa-whatsapp"></i> Finalize pelo WhatsApp
