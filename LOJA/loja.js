@@ -164,28 +164,39 @@ function mostrarMensagem(){
 
 
 //====================LIVROS E FARDAMENTOS============================================
-// ABRIR ABA
 function abrirAba(tipo, event) {
-  event.stopPropagation(); // evita fechar ao clicar no botão
+  event.stopPropagation();
 
-  fecharTudo();
-
-   // 🔥 ESCONDE KITS
-  document.getElementById('areaKits').style.display = 'none';
+  let filtro, conteudo;
 
   if (tipo === 'livros') {
-    document.querySelector('.filtros-livros').classList.add('ativo');
-    document.querySelector('.conteudo-livros').classList.add('ativa');
+    filtro = document.querySelector('.filtros-livros');
+    conteudo = document.querySelector('.conteudo-livros');
   }
 
   if (tipo === 'fardamentos') {
-    document.querySelector('.filtros-fardamentos').classList.add('ativo');
-    document.querySelector('.conteudo-fardamentos').classList.add('ativa');
+    filtro = document.querySelector('.filtros-fardamentos');
+    conteudo = document.querySelector('.conteudo-fardamentos');
   }
 
   if (tipo === 'lista-materiais') {
-    document.querySelector('.filtros-lista').classList.add('ativo');
-    document.querySelector('.conteudo-listas').classList.add('ativa');
+    filtro = document.querySelector('.filtros-lista');
+    conteudo = document.querySelector('.conteudo-listas');
+  }
+
+  // 👉 verifica se já está aberto
+  const jaEstaAtivo = filtro.classList.contains('ativo');
+
+  // sempre fecha tudo primeiro
+  fecharTudo();
+
+  // 👉 se NÃO estava aberto, abre
+  if (!jaEstaAtivo) {
+    filtro.classList.add('ativo');
+    conteudo.classList.add('ativa');
+
+    // esconde kits
+    document.getElementById('areaKits').style.display = 'none';
   }
 }
 
@@ -195,7 +206,6 @@ function fecharTudo() {
   document.querySelector('.filtros-livros').classList.remove('ativo');
   document.querySelector('.filtros-fardamentos').classList.remove('ativo');
   document.querySelector('.filtros-lista').classList.remove('ativo');
-
   document.querySelector('.conteudo-livros').classList.remove('ativa');
   document.querySelector('.conteudo-fardamentos').classList.remove('ativa');
   document.querySelector('.conteudo-listas').classList.remove('ativa');
