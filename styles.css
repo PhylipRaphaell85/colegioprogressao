@@ -361,11 +361,11 @@ display:block;
 SEÇÃO DESTAQUE
 ========================================================== */
 .banner-escolar{
-  background-image: url("IMAGEM/infantil/painel prin.jpeg");
+  background-image: url("IMAGEM/infantil/baner2.webp");
   background-size: 100% 100%; /* 👈 ESTICA */
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  min-height: 85vh;
   padding: 120px 20px;
   display: flex;
   align-items: center;
@@ -377,12 +377,10 @@ SEÇÃO DESTAQUE
 
 .containerescolar{
   max-width:900px;
-  margin: 10px auto 0 40px; /* esquerda 40px */
+  margin: -60px auto 0 40px; /* esquerda 40px */
   padding: 0 10px;
   display: flex;
   align-items: flex-start;
-
- 
 }
 
 /* BLOCO DE TEXTO */
@@ -964,6 +962,9 @@ animation:flash 4s infinite;
   background-position: center;
   background-repeat: no-repeat;
 }
+
+
+
 
 /* Slides */
 .slider {
