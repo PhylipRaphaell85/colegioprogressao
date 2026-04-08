@@ -1186,6 +1186,10 @@ to bottom,
 
 }
 
+#projetos {
+  scroll-margin-top: 100px; /* altura do seu menu */
+}
+
 .projetos h2{
   font-size: 48px;
   font-weight: 800;
