@@ -2590,19 +2590,21 @@ nav a{
 margin-bottom: auto;
 }
 
-  /* TÍTULOS */
-   section{
-    padding: 40px 0; /* ↓ era 100px */
-  }
+
 
   .secao-titulo{
     font-size: 24px;
   }
 
   .secao-subtitulo{
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
+   margin-top: 15px;
+      }
+
+  .galeria-track {
+    display: flex;
+    gap: 7px;
+    animation: scrollGaleria 40s linear infinite;
+}
 
 
   /* CARDS / IMAGENS */
@@ -2786,7 +2788,7 @@ margin-bottom: auto;
 }
 
     .banner-matricula h1 {
-        font-size: 30px;
+        font-size: 27px;
     }
 
         .banner-matricula p {
