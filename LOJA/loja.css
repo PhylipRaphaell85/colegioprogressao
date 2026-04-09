@@ -267,7 +267,7 @@ nav a:hover::after{
   text-align:left;
   font-weight:bold;
   transition:0.3s;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* 🔥 sombra branca */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* 🔥 sombra branca */
 }
 
 .aba-btn:hover{
