@@ -2270,14 +2270,32 @@ html{
 @media (max-width:1366px){
   html{ font-size:15px; }
 
-  .containerescolar{
-    margin: auto;
-    padding: 0 20px;
+
+/* BANNER MATRÍCULA */
+ .banner-matricula {
+    min-height: 420px; /* diminui altura */
+    background-position: center; /* mantém foco central */
   }
 
-  .banner-escolar{
-    background-size: cover;
-  }
+.banner-matricula h1{
+  font-size:42px;
+}
+
+.banner-matricula p{
+    font-size: 18px;
+  max-width: 500px; /* controla onde o texto quebra */
+  line-height: 1.5;
+}
+
+/* CONTATO */
+.footer-grid{
+  gap:20px;
+}
+
+.box{
+  padding:20px;
+}
+
 }
 
 /* =========================
