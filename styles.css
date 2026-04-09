@@ -2574,7 +2574,7 @@ nav a{
   .depoimentos,
   .galeria{
     padding-top: 20px;  /* 👈 remove espaço de cima */
-    padding-bottom: 40px;
+    
   }
   
   .depoimentos h2 {
@@ -2597,19 +2597,23 @@ margin-bottom: auto;
   }
 
   .secao-subtitulo{
-   margin-top: 15px;
+  
+   margin-top: 6px;
       }
+  /* ==========================================================
+   SLIDER
+========================================================== */
 
-  .galeria-track {
-    display: flex;
-    gap: 7px;
-    animation: scrollGaleria 40s linear infinite;
+.galeria-slider{
+
+margin-top:-60px;
+
 }
 
 
   /* CARDS / IMAGENS */
   .galeria-card{
-    width: 900px;  /* ↓ menor */
+    width: 100%;  /* ↓ menor */
     height: 140px;
   }
 
@@ -2630,36 +2634,14 @@ margin-bottom: auto;
     font-size: 10px;
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ================= TEXTO SOBRE MOBILE ================= */
+
 .secao-titulo,
 .titulo-sobre-principal{
     font-size:34px;
 }
+
+
 .texto-sobre{
     font-size:16px;
     line-height:1.6;
@@ -2678,18 +2660,8 @@ margin-bottom: auto;
 }
 
 .gridsobre {
-    display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 por linha */
     gap: 12px;
-    max-width: 550px;
-    margin: auto;
-}
-
-.cardinf .conteudo {
-     padding: 10px 10px;
-    padding: 5px;
-    text-align: center;
-    flex-grow: 1;
 }
 
 
@@ -2700,7 +2672,7 @@ margin-bottom: auto;
     .card4{
         max-width: 100%;
         min-height: 260px;
-        padding: 10px 10px;
+        padding: 5px ;
         display: flex;
         flex-direction: column;
     }
@@ -2725,7 +2697,7 @@ margin-bottom: auto;
 .card2 p,
 .card3 p,
 .card4 p{
-    font-size:12px;
+    font-size:10px;
     line-height:1.6;
 }
 
@@ -2758,12 +2730,21 @@ margin-bottom: auto;
 
 /* CARDS ENSINO */
 .grid{
-    display: grid;
+    
     grid-template-columns: repeat(2, 1fr); /* 2 por linha */
     gap: 12px;
-    max-width: 550px;
-    margin: auto;
+    
 }
+
+.cardinf .conteudo {
+     padding: 10px 10px;
+    padding: 0;
+    text-align: center;
+    flex-grow: 1;
+}
+
+
+
 
 .cardinf h3{
   font-size:13px;
@@ -2795,9 +2776,7 @@ margin-bottom: auto;
         font-size: 13px;
         }
 
-.conteudo {
-  margin-top: clamp(-80px, -5vw, -30px);
-}
+
 
 .btn-whatsapp {
   font-size: 13px;}
