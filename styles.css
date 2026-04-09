@@ -1305,8 +1305,6 @@ to bottom,
   width:100%;
   height:auto;
   aspect-ratio:4/3;
-  object-fit:cover;
-
 }
 
 .card-content{
@@ -2592,6 +2590,28 @@ margin-bottom: auto;
 
 
 
+.card{
+    max-width: 50%;
+  }
+
+  .card-content{
+    padding:12px;
+  }
+
+  .card h3{
+    font-size:14px;
+  }
+
+  .card p{
+  font-size: 12px;
+  line-height: 1.4; /* ↓ menos espaçamento */
+}
+
+  .btn-cardp{
+    font-size:11px;
+    padding:8px 12px;
+  }
+
   .secao-titulo{
     font-size: 24px;
   }
@@ -2672,7 +2692,6 @@ margin-top:-60px;
     .card4{
         max-width: 100%;
         min-height: 260px;
-        padding: 5px ;
         display: flex;
         flex-direction: column;
     }
@@ -2830,7 +2849,7 @@ margin-top:-60px;
   /* rodapé */
   .rodape {
     text-align: center;
-    font-size: 10px;
+    font-size: 8px;
   }
 
   .whatsapp-float {
