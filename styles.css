@@ -2396,8 +2396,9 @@ nav a{
 
 
   /* HERO */
-  .banner-escolar{
+  .banner-escolar {
     background-position: left center;
+    background-size: cover; /* 👈 ESSENCIAL */
     padding: 60px 15px;
     text-align: center;
   }
@@ -2406,6 +2407,7 @@ nav a{
     margin-top: 80px;
     display: flex;
     flex-direction: column;
+    margin: auto;
 }
 
   .selo-matriculas{
@@ -2782,6 +2784,14 @@ margin-bottom: auto;
   min-height: 365px;
   background-position: left center;
 }
+
+    .banner-matricula h1 {
+        font-size: 30px;
+    }
+
+        .banner-matricula p {
+        font-size: 15px;
+        }
 
 .conteudo {
   margin-top: clamp(-80px, -5vw, -30px);
