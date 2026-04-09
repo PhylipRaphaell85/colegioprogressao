@@ -14,12 +14,11 @@
 ========================================================== */
 body {
   
-font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #ffffff;
   overflow-x: hidden;
-  padding-top:85px;
+ }
 
-}
 /* ESCONDE TUDO */
 body.loading *:not(#loader):not(#loader *){
   visibility:hidden;
@@ -105,7 +104,7 @@ body.loading #loader{
 
 
 main {
-  padding-top: 150px;
+    padding-top: 90px;
 }
 
 section {
@@ -142,7 +141,11 @@ header.scrolled .menu-toggle span {
 
 
 
-
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
 
 
@@ -153,6 +156,7 @@ header.scrolled .menu-toggle span {
   display: flex;
   align-items: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .menu a {
@@ -338,12 +342,13 @@ line-height:1.2;
 color:#ffffff;
 font-weight:700;
 transition:.3s ease;
+
 }
 
 .titulo span{
-font-size:14px;
+ font-size: 12px;
+font-weight: 400;
 opacity:0.85;
-display:block;
 }
 
 
@@ -361,11 +366,11 @@ display:block;
 SEÇÃO DESTAQUE
 ========================================================== */
 .banner-escolar{
-  background-image: url("IMAGEM/infantil/baner2.webp");
+  background-image: url("IMAGEM/infantil/painel-prin.jpeg");
   background-size: 100% 100%; /* 👈 ESTICA */
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 85vh;
+  min-height: 100vh;
   padding: 120px 20px;
   display: flex;
   align-items: center;
@@ -377,10 +382,12 @@ SEÇÃO DESTAQUE
 
 .containerescolar{
   max-width:900px;
-  margin: -60px auto 0 40px; /* esquerda 40px */
+  margin: 10px auto 0 40px; /* esquerda 40px */
   padding: 0 10px;
   display: flex;
   align-items: flex-start;
+
+ 
 }
 
 /* BLOCO DE TEXTO */
@@ -470,7 +477,7 @@ SEÇÃO DESTAQUE
 /* BENEFÍCIOS */
 .beneficios{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap:20px 40px;
   margin-top:25px;
 }
@@ -950,7 +957,7 @@ animation:flash 4s infinite;
 
 .baner {
   position: relative;
-  height: 90vh;
+ min-height: 90vh;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -962,9 +969,6 @@ animation:flash 4s infinite;
   background-position: center;
   background-repeat: no-repeat;
 }
-
-
-
 
 /* Slides */
 .slider {
@@ -1186,12 +1190,8 @@ to bottom,
 
 }
 
-#projetos {
-  scroll-margin-top: 100px; /* altura do seu menu */
-}
-
 .projetos h2{
-  font-size: 48px;
+  font-size: clamp(28px, 5vw, 48px);
   font-weight: 800;
   color: #0B3C8C;
   margin-bottom: 10px;
@@ -1220,7 +1220,7 @@ to bottom,
   display: flex;
   align-items: center;
   gap: 12px;
-  height: 80px;
+  min-height: 80px;
   padding: 0 10px;
   font-size: 15px;
   text-align: left;
@@ -1403,7 +1403,7 @@ text-align:center;
 /* titulo */
 
 .secao-titulo{
-font-size:58px;
+font-size: clamp(28px, 6vw, 58px);
 font-weight:800;
 color:#1e40af;
 margin-bottom:10px;
@@ -1907,7 +1907,8 @@ color: #0f2a44;
 .nivel_ensino h2::after {
 content: "";
 display: block;
-width: 500px;
+width: 80%;
+max-width: 500px;
 height: 5px;
 background: linear-gradient(90deg, #facc15, #E65100);
 margin: 12px auto 0;
@@ -2043,8 +2044,7 @@ box-shadow:
   color: white;
   position: relative;
   margin-bottom: 80px;
-  padding-left: 180px; /* 👈 aumenta aqui */
-}
+padding-left: clamp(20px, 5vw, 180px);}
 
 
 /* CONTEÚDO */
@@ -2130,6 +2130,11 @@ SEÇÃO CONTATO ELEGANTE - GLASS EFFECT
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.box {
+  flex: 1 1 300px; /* 👈 CONTROLE REAL */
+  min-width: 260px;
 }
 
 .box {
@@ -2250,389 +2255,194 @@ MAPA ESTILIZADO
   100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
 }
    
-
 /* ==========================================================
-   RESPONSIVIDADE NOTEBOOK (1024px até 1366px)
+   RESPONSIVIDADE COMPLETA FINAL (PROFISSIONAL)
 ========================================================== */
 
-@media (min-width: 1024px) and (max-width: 1366px){
-
-/* HEADER */
-header{
-  padding: 0 20px;
-}
-
-nav a{
+/* 🔥 ESCALA GLOBAL */
+html{
   font-size:16px;
 }
 
-/* LOGO */
-.logo img{
-  height:45px;
-}
+/* =========================
+   1366px
+========================= */
+@media (max-width:1366px){
+  html{ font-size:15px; }
 
-.titulo{
-  font-size:18px;
-}
-
-/* BANNER ESCOLAR */
-.banner-escolar{
-  height:auto; /* remove altura gigante */
-  padding: 60px 20px;
-  background-position:center;
-  
-}
-
-.containerescolar{
-  
-  max-width: 1800px;
-}
-
-.banner-escolar h1{
-  font-size:36px;
-}
-
-.banner-escolar h3{
-  font-size:22px;
-}
-
-.banner-escolar p{
-  font-size:15px;
-}
-
-/* BENEFÍCIOS */
-.beneficios{
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-}
-
-.beneficio-item{
-  font-size:14px;
-}
-
-/* BOTÕES */
-.btn{
-  min-width:150px;
-  height:38px;
-  font-size:11px;
-}
-
-/* NUMEROS */
-.numeros{
-  gap:25px;
-}
-
-.numeros strong{
-  font-size:24px;
-}
-
-
- 
-
-/* HERO */
-.baner{
-  height:70vh;
-}
-
-.baner h1{
-  font-size:40px;
-}
-
-.baner p{
-  
-  font-size:18px;
-}
-
-/* DEPOIMENTOS */
-.depoimentos h2{
-  font-size:32px;
-}
-
-.depoimentos h2::after{
-  width:400px;
-}
-
-/* PROJETOS */
-
-
-.projeto-card{
-  width:220px;
-}
-
-/* GALERIA */
-.galeria-card{
-  width:170px;
-  height:170px;
-}
-
-/* SOBRE */
-.titulo-sobre-principal{
-  font-size:36px;
-}
-
-.texto-sobre{
-  font-size:18px;
-}
-
-/* ENSINO */
-.nivel_ensino h2{
-  font-size:36px;
-}
-
-.nivel_ensino h2::after{
-  width:300px;
-}
-
-
-/* BANNER MATRÍCULA */
- .banner-matricula {
-    min-height: 420px; /* diminui altura */
-    padding: 40px 20px;
-    background-position: center; /* mantém foco central */
+  .containerescolar{
+    margin: auto;
+    padding: 0 20px;
   }
 
-.banner-matricula h1{
-  font-size:42px;
+  .banner-escolar{
+    background-size: cover;
+  }
 }
 
-.banner-matricula p{
+/* =========================
+   1280px
+========================= */
+@media (max-width:1280px){
+  html{ font-size:14.5px; }
+
+  nav a{
     font-size: 18px;
-  max-width: 500px; /* controla onde o texto quebra */
-  line-height: 1.5;
+  }
 }
 
-/* CONTATO */
-.footer-grid{
-  gap:20px;
+/* =========================
+   1024px
+========================= */
+@media (max-width:1024px){
+  html{ font-size:14px; }
+
+  .botoes-projeto{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.box{
-  padding:20px;
-}
+/* =========================
+   MOBILE / TABLET (768px)
+========================= */
+@media (max-width:768px){
+  
 
-}
+  html{ font-size:13px; }
 
+  /* HEADER */
+  header{
+    height: 70px;
+    padding: 0 15px;
+  }
+  
+  main{
+    padding-top: 75px;
+  }
+  
+   /* BLOCO DE TEXTO */
+  .titulo{
+    font-size: 14px;
+    line-height: 1.1;
+  }
 
-
-/* ==========================================================
-RESPONSIVO MOBILE max-width:900px
-========================================================== */
-@media (max-width:900px){
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* altura mínima da tela */
-    margin: 0;
-}
-
-#loader{
-  position:absolute;
-
-} 
-
-
-
-/* ================= HEADER ================= */
-header{
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-    gap:10px;
-    padding:0 15px;
-}
- 
-
-
-/* MENU HAMBURGUER */
-.menu-toggle{
-    display:flex;
-    order:1;
-}
-
-/* LOGO */
-.logo{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    margin-left:0;
-    order:2;
-}
-
-/* IMAGEM LOGO */
-.logo img{
-    height:36px;
-}
-
-/* TITULO AO LADO DA LOGO */
-.titulo{
+  .titulo{
   font-size:13px;
   line-height:1.2;
   max-width: 280px; /* LIMITA O ESPAÇO */
   white-space: normal; /* permite quebrar */
 }
-/* MENU ESCONDIDO */
-.menu {
-    display: none;
-    align-items: center;        /* alinha verticalmente no centro */
-    justify-content: center;    /* centraliza horizontalmente */
-    flex-direction: row;
-    position: absolute;
-    top: 84px;
-    right: -1PX;
-    width: 105%;
-    background: #062A5E;
-    padding: 25px 0;
-    gap: 18px;
-    text-align: center;         /* não é necessário para flex, mas não atrapalha */
-    color: #dbe9ff;
+
+
+  /* 🍔 MENU DESCENDO */
+  
+nav{
+  position: absolute;
+  top: 68px; /* 70 → 35 */
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg,#062A5E,#1E63B7);
+  font-size: 2.5px; /* 5 → 2.5 */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px; /* 8 → 4 */
+  padding: 5px; /* 10 → 5 */
+  transform: translateY(-120%);
+  opacity: 0;
+  transition: 0.3s ease;
 }
 
-
-
-/* MENU QUANDO ABRIR */
-.menu.active {
-    display: flex;
+nav.active{
+  transform: translateY(0);
+  opacity: 1;
 }
-/* LINKS MENU */
+
+nav a{
+  font-size: 5px; /* 10 → 5 */
+  padding: 3px 4px; /* 6/8 → 3/4 */
+}
 
 .btn-matricula{
-  display: none;
+  text-align: center;
+  padding: 5px; /* 14 → 7 */
+  font-size: 5px;
+  border-radius: 6px; /* 12 → 6 */
 }
+  .menu-toggle{
+    display: flex;
+    order: 1;
+  }
 
 
-/* ================= BANNER ESCOLAR ================= */
-/* Conteúdo principal ocupa o espaço restante */
-.containerescolar {
-    margin-right:20px;
-    margin-top: 50px;
+
+  /* HERO */
+  .banner-escolar{
+    background-position: left center;
+    padding: 60px 15px;
+    text-align: center;
+  }
+
+  .containerescolar {
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* altura mínima da tela */
 }
 
-.banner-escolar{
-   background-size: cover;         /* 🔥 mantém proporção */
-    background-position: left center; /* 🔥 joga pra esquerda */
-    
-    height: 990px;
-}
-.banner-escolar h3 {
-  font-size: 25px;
-}
-
-.banner-escolar p {
-    text-align: justify;
-    color: white;
-    margin-top: 0;
-}
-
-/* MATRÍCULAS */
-.linha1{
-    font-size:20px;
-}
-
-.linha2{
-    background:linear-gradient(180deg,#ffe082,#ffd54f);
-    color:#454546;
-    padding:2px 8px;
-    border-radius:5px;
-    font-size:13px;
-    margin-top:3px;
-    width:fit-content;
-}
-
-/* SELO MATRÍCULAS */
-.selo-matriculas{
-    display:inline-flex;
-    align-items:center;
-    background:linear-gradient(180deg,#ffa726,#ff7a00);
+  .selo-matriculas{
+   
     padding:8px 20px 8px 38px;
-    border-radius:8px;
-    color:white;
-    font-weight:bold;
-    position:relative;
-    box-shadow:0 6px 14px rgba(0,0,0,0.25);
-    margin-bottom:20px;
+    
 }
 
-/* ICONE SELO */
-.icone-selo{
+  .icone-selo{
     position:absolute;
-    left:-24px;
-    top:-20px;
-    background:linear-gradient(180deg,#ffb74d,#ff8f00);
     width:50px;
     height:50px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:8px;
     font-size:20px;
     box-shadow:0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* TEXTO SELO */
 .texto-selo{
-    display:flex;
-    flex-direction:column;
-    line-height:1.2;
+   line-height:1.2;
 }
 
-/* BENEFICIOS */
-.beneficios{
-    grid-template-columns:1fr;
-    gap:12px;
-    margin-top:18px;
+.linha1{
+  font-size:22px;
 }
 
+ .banner-texto{
+    align-items: center;
+  }
 
-/* ================= BOTÕES ================= */
-.botoes {
-    display: flex;
+  
+  /* TEXTO */
+  .banner-escolar h1{
+    font-size: 22px;
+  }
+
+  .banner-escolar h3{
+    font-size: 22px;
+  
+  }
+
+  .banner-escolar p{
+    font-size: 13px;
+  }
+
+  /* BENEFÍCIOS */
+  .beneficios{
+    grid-template-columns: 1fr;
     gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+  }
 
-/* dois em cima */
-.botoes .btn {
-    flex: 0 0 calc(50% - 10px);
-}
-
-/* o terceiro ocupa tudo embaixo */
-.botoes .btn:nth-child(3) {
-    flex: 0 0 100%;
-    max-width: 300px; /* opcional pra não ficar gigante */
-    margin: 0 auto;
-}
-
-.btn-horarios:hover{
-    background:#1e40af;
-    color:#ffffff;
-}
-
-.btn {
-    position: relative; /* ESSENCIAL */
-    overflow: hidden;   /* corta o excesso do ::before */
-}
-
-.btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%; /* começa fora */
-    width: 100%;
-    height: 100%;
-    background: rgba(255,255,255,0.2); /* exemplo */
-    transform: skewX(-53deg);
-    transition: 0.5s;
-}
-
-.btn:hover::before {
-    left: 100%; /* anima atravessando */
-}
-
+  /* BOTÕES */
+  .btn{
+    min-width: 140px;
+    height: 38px;
+    font-size: 11px;
+  }
 
 
 /* ================= HORRARIO
@@ -2640,7 +2450,7 @@ header{
 
 
   .modal-box {
-    width: 95%;
+    width: 75%;
     max-width: 500px;
     padding: 25px;
   }
@@ -2661,12 +2471,12 @@ header{
   }
 
   .horario-card h3 {
-    font-size: 14px;
+    font-size: 10px;
   }
 
   .horario-card p {
     color: #0f2a44;
-    font-size: 11px;
+    font-size: 8px;
   }
 
   .icone {
@@ -2681,7 +2491,7 @@ header{
     right: 12px;
   }
 
-/* ================= NUMEROS ================= */
+  /* ================= NUMEROS ================= */
 .numeros{
     display:flex;
     justify-content:center;
@@ -2705,13 +2515,14 @@ header{
     font-size:10px;
 }
 
+
 /* ================= BANER ================= */
 .baner p{
     padding: 10px;
 }
 
 .btn-hero {
-
+    font-size: 12px;
     padding: 11px 25px;
   
 }
@@ -2722,7 +2533,7 @@ header{
 
     .rede {
         flex: 0 1 auto; /* não força ocupar tudo */
-        padding: 2px 20px; /* menor */
+        padding: 5px 20px; /* menor */
         font-size: 10px;
         gap: 5px;
         align-items: center;
@@ -2738,34 +2549,85 @@ header{
     }
 
 
-/* ================= DEPOIMENTOS ================= */
 
-.depoimentos h2 {
- font-size: 34px;
-    }
-
-    .depoimentos h2::after {
+     /* SEÇÃO */
+  .depoimentos,
+  .galeria{
+    padding-top: 20px;  /* 👈 remove espaço de cima */
+    padding-bottom: 40px;
+  }
   
-    width: 100%;
-  
-    }
- .depoimentos-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr)); /* 250 → 125 */
-    gap: 12px; /* 25 → 12 */
-    max-width: 550px; /* 1100 → 550 */
-    margin: auto;
+  .depoimentos h2 {
+    font-size: 30px;
+    
 }
 
- .card-depoimento  {
-   font-size: 10px;
+.card-depoimento {
+  padding: 10px 10px;
 }
 
- .card-depoimento h4 {
-   font-size: 10px;
+.quote {
+margin-bottom: auto;
 }
 
-/* ================= PROJETOS ================= */
+  /* TÍTULOS */
+   section{
+    padding: 40px 0; /* ↓ era 100px */
+  }
+
+  .secao-titulo{
+    font-size: 24px;
+  }
+
+  .secao-subtitulo{
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+
+  /* CARDS / IMAGENS */
+  .galeria-card{
+    width: 900px;  /* ↓ menor */
+    height: 140px;
+  }
+
+  /* CASO SEJA GRID NORMAL */
+  .depoimentos-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* TEXTO ABAIXO */
+  .redes-confira{
+    font-size: 14px;
+    margin-top: 15px;
+  }
+
+  /* BOTÕES REDES */
+  .social-btn{
+    padding: 8px 14px;
+    font-size: 10px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2784,6 +2646,10 @@ header{
     margin-bottom:50px;
 }
 
+.linha {
+    width: 100%;
+    max-width: 237px;}
+
 
 .sobre{
     padding: 0; /* remove todo o padding no mobile */
@@ -2797,6 +2663,13 @@ header{
     margin: auto;
 }
 
+.cardinf .conteudo {
+     padding: 10px 10px;
+    padding: 5px;
+    text-align: center;
+    flex-grow: 1;
+}
+
 
 
   .card1,
@@ -2805,10 +2678,12 @@ header{
     .card4{
         max-width: 100%;
         min-height: 260px;
-
+        padding: 10px 10px;
         display: flex;
         flex-direction: column;
     }
+
+
 
 
 .card4 h3{
@@ -2884,27 +2759,18 @@ header{
     height:110px;
 }
 
-/* ================= BANNER MATRÍCULA ================= */
-.banner-matricula{
-    padding:70px 20px;
+
+.banner-matricula {
+  min-height: 365px;
+  background-position: left center;
 }
 
-.banner-matricula h1{
-    font-size:30px;
-}
-.banner-matricula p{
-    padding: 0;
-    text-align: justify;
-    font-size:13px;
+.conteudo {
+  margin-top: clamp(-80px, -5vw, -30px);
 }
 
-.btn-whatsapp{
-   transform: translateY(-20px);
-    padding:12px 15px;
-    font-size:13px;
-    border-radius:8px;
-}
-
+.btn-whatsapp {
+  font-size: 13px;}
 
 /* ================= CONTATO ================= */
 
@@ -2913,6 +2779,9 @@ header{
     gap: 15px; /* diminui o espaçamento entre caixas */
   }
 
+  .contato {
+    padding: 18px 19px;
+  }
   .contato h3 {
     margin-bottom: 5px;
     font-size: 18px; /* menor título */
@@ -2961,378 +2830,40 @@ header{
 }
 
 /* =========================
-   AJUSTE REAL IPHONE 14
+   414px
 ========================= */
-@media (max-width: 430px){
+@media (max-width:414px){
 
-  .projetos{
-    padding: 40px 10px;
+  html{ font-size:12.5px; }
+
+  .btn{
+    min-width: 120px;
   }
 
-  .projetos h2{
-    font-size: 26px;
-    text-align: center;
+}
+
+/* =========================
+   390px
+========================= */
+@media (max-width:390px){
+
+  html{ font-size:12px; }
+
+  .titulo{
+    font-size: 15px;
   }
 
-  .linha{
-    width: 210px;
-    margin: 10px auto 20px;
-  }
+}
 
-   .botoes-projeto{
-    display: flex;
-    flex-direction: column; /* 🔥 coluna */
-  }
+/* =========================
+   360px
+========================= */
+@media (max-width:360px){
 
-  .btn-projeto{
-    height: 30px;
-    display: flex;
-    align-items: center;
-  
+  html{ font-size:11.5px; }
+
+  .btn{
     width: 100%;
-    font-size: 13px;
-    text-align: left;
-  }
-
-  .icone-projeto{
-    min-width: 22px;
-    height: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f7941d;
-    color: #fff;
-    border-radius: 50%;
-    font-size: 12px;
-    flex-shrink: 0;
-  }
-
-  .btn-projeto span{
-    flex: 1;
-    line-height: 1.3;
-  }
-
-  /* CARDS (corrige sair da tela) */
-   
-  .cards{
-    padding: 15px;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .card{
-    width: 100%;
-    max-width: 280px; /* tamanho ideal mobile */
-    border-radius: 16px;
-  }
-
-  .card img{
-    height: 180px;
-  }
-
-  .card-content{
-    padding: 14px;
-  }
-
-  .card span{
-    font-size: 12px;
-  }
-
-  .card h3{
-    font-size: 16px;
-  }
-
-  .card p{
-    font-size: 13px;
-    line-height: 1.4;
-  }
-
-  /* 🔥 botão corrigido (ANTES estava quebrando tudo) */
-  .btn-cardp{
-    display: block;
-    margin: 12px auto 0; /* centraliza */
-    font-size: 12px;
-    padding: 8px 14px;
-    width: 100px;
-  }
-
-   .banner-matricula {
-        justify-content: center; /* centraliza conteúdo */
-        align-items: center;
-        text-align: center;
-
-        min-height: 420px; /* menor altura */
-        padding: 40px 15px;
-
-        background-position: left;
-    }
-
-
-
-}
-
-/* =========================================
-📱 RESPONSIVO - IPHONE XR (até 414px)
-========================================= */
-@media (max-width: 414px) {
-
-  body {
-    padding-top: 80px;
-  }
-
-  /* HEADER */
-  header {
-    padding: 0 15px;
-    height: 70px;
-  }
-
-  .logo {
-    margin-left: 0;
-    gap: 6px;
-  }
-
-  .logo img {
-    height: 40px;
-  }
-
-  .titulo {
-    font-size: 14px;
-  }
-
-  /* MENU MOBILE */
- 
-.menu {
-   
-    top: 64px;
-   
-}
-
-
-
-/* MENU QUANDO ABRIR */
-.menu.active {
-    display: flex;
-}
-
-
-  nav {
-    display: none;
-  }
-
-  /* BANNER PRINCIPAL */
-  .banner-escolar {
-    margin-top: -10px;
-    background-position: left;
-  }
-
-.containerescolar {
-    margin-right:20px;
-    margin-top: 80px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* altura mínima da tela */
-}
-
-  .banner-texto {
-    align-items: flex-start;
-  }
-
-  .banner-escolar h1 {
-    font-size: 26px;
-  }
-
-  .banner-escolar h3 {
-    font-size: 18px;
-  }
-
-  .banner-escolar p {
-    font-size: 14px;
-  }
-
-  /* BENEFÍCIOS */
-  .beneficios {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  /* BOTÕES */
-  .botoes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-/* 2 botões na primeira linha */
-.botoes .btn {
-  width: 48%;
-}
-
-/* 3º botão ocupa linha inteira */
-.botoes .btn:nth-child(3) {
-  width: 100%;
-}
-  .btn {
-    min-width: 140px;
-    font-size: 11px;
-    height: 38px;
-  }
-
-
-  .modal-box {
-    width: 95%;
-    max-width: 500px;
-    padding: 25px;
-  }
-
-  .titulo-modal {
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
-
-  /* GRID continua 2 colunas, mas mais fluido */
-  .horarios-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .horario-card {
-    padding: 15px;
-  }
-
-  .horario-card h3 {
-    font-size: 14px;
-  }
-
-  .horario-card p {
-    color: #0f2a44;
-    font-size: 11px;
-  }
-
-  .icone {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-  }
-
-  .fecha {
-    font-size: 16px;
-    top: 10px;
-    right: 12px;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /* NÚMEROS */
-  .numeros {
-    gap: 15px;
-    margin-left: 0;
-  }
-
-  .numeros div {
-    min-width: 90px;
-  }
-
-  .numeros strong {
-    font-size: 20px;
-  }
-
-  /* HERO */
-  .baner {
-    height: auto;
-    padding: 60px 15px;
-  }
-
-  /* DEPOIMENTOS */
-  
-
-  .depoimentos h2::after {
-    width: 260px;
-  }
-
-  /* PROJETOS */
-  .cards-container {
-    flex-wrap: wrap;
-  }
-
-  .projeto-card {
-    width: 100%;
-    max-width: 280px;
-  }
-
-  /* GALERIA */
-  .secao-titulo {
-    font-size: 28px;
-  }
-
-  .secao-subtitulo {
-    font-size: 14px;
-  }
-
-  .galeria-card {
-    min-width: 140px;
-    height: 140px;
-  }
-
-  /* SOBRE */
-  .titulo-sobre-principal {
-    font-size: 28px;
-  }
-
-  .texto-sobre {
-    font-size: 16px;
-  }
-
-  /* CARDS INF */
-  .nivel_ensino h2 {
-    font-size: 28px;
-  }
-
-  .nivel_ensino h2::after {
-    width: 200px;
-  }
-
-  /* BANNER MATRÍCULA */
-  .banner-matricula h1 {
-    font-size: 30px;
-  }
-
-  .banner-matricula p {
-    font-size: 16px;
-  }
-
-  .btn-whatsapp {
-    font-size: 16px;
-    padding: 14px 20px;
-  }
-
-  /* CONTATO */
-  .footer-grid {
-    flex-direction: column;
-  }
-
-  .mapa iframe {
-    height: 300px;
-  }
-
-  /* WHATSAPP FLOAT */
-  .whatsapp-float {
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
   }
 
 }
