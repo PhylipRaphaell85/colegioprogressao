@@ -5,28 +5,58 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login - Colégio Progressão</title>
 <link rel="icon" href="logo-colegio.png" sizes="32x32" />
-<style>
-*{box-sizing:border-box;}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+
+
+
+<style>*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
   font-family:'Segoe UI', Arial;
   background-image: url(fundo.webp);
   background-repeat: no-repeat;
-  background-size: cover;       /* 🔥 faz cobrir toda a tela */
-  background-position: center;  /* 🔥 centraliza a imagem */
-  background-attachment: fixed; /* opcional: efeito fixo */
-  
-  height:100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  min-height:100vh; /* 🔥 melhor que height */
   display:flex;
   justify-content:center;
   align-items:center;
-}
-.box{
-  position: relative;
+
+  padding:10px; /* 🔥 evita cortar nas bordas */
 }
 
-/* BOTÃO FECHAR */
+/* CONTAINER */
+.box{
+  position: relative;
+  width: 90%;        /* 🔥 responsivo */
+  max-width: 380px;  /* limite */
+
+  background:linear-gradient(135deg,#1E63B7,#174a91);
+  padding:35px 25px;
+  border-radius:20px;
+  color:white;
+
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.25),
+    0 0 25px rgba(255,255,255,0.25);
+}
+
+/* BOTÃO HOME (direita) */
 .fechar-login{
   position: absolute;
   top: 15px;
@@ -38,51 +68,56 @@ body{
 }
 
 .fechar-login:hover{
-  color: red;
+  color: #ff7a00;
   transform: scale(1.2);
 }
 
-.box{
-  background:linear-gradient(135deg,#1E63B7,#174a91);
-  padding:35px 25px; /* AUMENTEI */
-  border-radius:20px;
-  width:380px;
-  color:white;
-  display:flex;
-  flex-direction:column;
-  gap:20px; /* 👈 PRINCIPAL */
-    /* SOMBRA NORMAL */
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.25),
-
-    /* BRILHO BRANCO */
-    0 0 25px rgba(255,255,255,0.25);
-
-
+/* BOTÃO LOJA (esquerda) */
+.voltar-loja {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #ffffff;
+  transition: 0.2s;
 }
 
+.voltar-loja:hover {
+  color: #ff7a00;
+  transform: scale(1.2);
+}
+
+/* LOGO */
 .logo{
   width:150px;
   margin:0 auto;
 }
 
-h2{text-align:center;}
+/* TITULO */
+h2{
+  text-align:center;
+}
 
+/* SEÇÕES */
 .section{
   font-size:13px;
   font-weight:bold;
   opacity:0.85;
-  margin-top:10px; /* 👈 separa "Responsável" */
+  margin-top:10px;
 }
 
-.input-group{position:relative;  margin-top:20px; /* 👈 separa "Responsável" */}
+/* INPUT */
+.input-group{
+  position:relative;
+  margin-top:20px;
+}
 
 .input-group i{
   position:absolute;
   left:12px;
   top:50%;
   transform:translateY(-50%);
-  
 }
 
 .input-group input{
@@ -93,6 +128,7 @@ h2{text-align:center;}
   outline:none;
 }
 
+/* LABEL ANIMADA */
 .input-group label{
   position:absolute;
   left:38px;
@@ -114,6 +150,7 @@ h2{text-align:center;}
   border-radius:5px;
 }
 
+/* ÍCONE */
 .icon{
   position:absolute;
   left:12px;
@@ -121,11 +158,18 @@ h2{text-align:center;}
   transform:translateY(-50%);
   width:18px;
   height:18px;
-  color:#ff7a00; /* 🔥 LARANJA */
+  color:#ff7a00;
 }
+
+.input-group i {
+  color: #ff7a00; /* já combina com seu tema */
+  font-size: 16px;
+}
+
+/* BOTÃO */
 button{
-  width:70%; /* menor */
-  margin:15px auto 0; /* centraliza */
+  width:70%;
+  margin:15px auto 0;
   padding:15px;
   border:none;
   border-radius:12px;
@@ -134,23 +178,24 @@ button{
   font-weight:bold;
   cursor:pointer;
   display:block;
+  transition:0.3s;
 }
 
 button:hover{
   background: #ff7a00;
-  color: white;
 }
 
+/* TEXTO */
 .link{
   text-align:center;
-
   margin-top:20px;
 }
 
-.hidden{display:none;}
+.hidden{
+  display:none;
+}
 
-
-/* 🔥 POPUP MODERNO */
+/* POPUP */
 .popup{
   position:fixed;
   top:0;
@@ -165,51 +210,109 @@ button:hover{
 }
 
 .popup.show{
-  display:flex; /* 👈 MOSTRA */
+  display:flex;
 }
 
 .popup-box{
   background:white;
-  padding:25px 20px;
+  padding:20px;
   border-radius:15px;
   text-align:center;
-  width:280px;
+  width:90%;
+  max-width:300px; /* 🔥 controla tamanho */
   animation:fadeIn 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .popup-box p{
-  margin-bottom:20px;
+  margin-bottom:15px;
   font-weight:500;
   color:#333;
-  white-space:pre-line;
+  font-size:14px;
+  line-height:1.4;
+  word-wrap: break-word; /* 🔥 evita quebrar layout */
 }
 
 .popup-box button{
   background:#0B3C8C;
   color:white;
   border:none;
-  padding:10px 20px;
-  border-radius:10px;
+
+  padding:8px 16px;
+  border-radius:8px;
+
   cursor:pointer;
+  font-size:13px;
 }
 
+.popup-box button:hover{
+  background:#ff7a00;
+}
 
-
+/* ANIMAÇÃO */
 @keyframes fadeIn{
-  from{transform:scale(0.8); opacity:0;}
-  to{transform:scale(1); opacity:1;}
-}
-
-@media (max-width: 768px){
-  .fechar{
-    color: #ffffff;
+  from{
+    transform:scale(0.8);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
   }
 }
 
-@media (max-width: 430px){
- .fechar{
-    color: #ffffff;
- }
+/* 📱 RESPONSIVO */
+@media (max-width: 480px){
+
+  .box {
+    padding: 25px 15px;
+    gap: 15px;
+    max-width: 309px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .input-group input {
+    padding: 12px 12px 12px 35px;
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .fechar-login,
+  .voltar-loja {
+    font-size: 18px;
+    top: 10px;
+  }
+}
+
+/* 📱 CELULAR PEQUENO */
+@media (max-width: 360px){
+
+  .box {
+    padding: 20px 10px;
+  }
+
+  .logo {
+    width: 100px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  .input-group input {
+    font-size: 13px;
+  }
 }
 
 </style>
@@ -223,13 +326,14 @@ button:hover{
 
 <!-- LOGIN -->
 <div id="loginBox">
-   <div class="fechar-login" onclick="voltarHome()">✖</div>
+  <div class="voltar-loja" onclick="voltarLoja()">  <i class="fas fa-store"></i></div>
+   <div class="fechar-login" onclick="voltarHome()"><i class="fas fa-home"></i></div>
 <h2>Login</h2>
 
 <div class="input-group">
-  <i>🔑</i>
+<i class="fa-solid fa-id-card"></i>
   <input type="text" id="chaveLogin" placeholder=" ">
-  <label>Digite sua chave</label>
+  <label>Digite sua matrícula</label>
 </div>
 
 <button onclick="login()">Entrar</button>
@@ -305,33 +409,12 @@ button:hover{
 
 
 <script>
-function voltarHome(){
-  window.location.href = "../index.html"; 
-}
-
-
-const API_URL = "https://script.google.com/macros/s/AKfycbxJhujz2_krlRSnduyOGzN5m8-SntIVtIg90QPodShBGMGCItcRrZQjBjvXU9HWGPWo/exec";
 
 // TROCA DE TELA
 //function mostrarCadastro(){
 //  document.getElementById("loginBox").classList.add("hidden");
 //  document.getElementById("cadastroBox").classList.remove("hidden");
 //}
-
-function mostrarLogin(){
-  document.getElementById("cadastroBox").classList.add("hidden");
-  document.getElementById("loginBox").classList.remove("hidden");
-}
-
-// POPUP
-function mostrarPopup(msg){
-  document.getElementById("popupMsg").innerHTML = msg; // 🔥 troca aqui
-  document.getElementById("popup").classList.add("show");
-}
-
-function fecharPopup(){
-  document.getElementById("popup").classList.remove("show");
-}
 
 /*
 // CADASTRO
@@ -373,14 +456,47 @@ function cadastrar(){
     mostrarPopup("Erro ao cadastrar");
   });
 }*/
+function voltarHome(){
+  window.location.href = "../index.html"; 
+}
 
+function voltarLoja(){
+  window.location.href = "loja.html";
+}
+
+const API_URL = "https://script.google.com/macros/s/AKfycbxJhujz2_krlRSnduyOGzN5m8-SntIVtIg90QPodShBGMGCItcRrZQjBjvXU9HWGPWo/exec";
+
+// 🔥 CONTROLE DE ENVIO
+let carregando = false;
+
+// 🔥 ENTER FUNCIONANDO
+document.getElementById("chaveLogin").addEventListener("keydown", function(event){
+  if(event.key === "Enter"){
+    login();
+  }
+});
+
+// POPUP
+function mostrarPopup(msg){
+  document.getElementById("popupMsg").innerHTML = msg;
+  document.getElementById("popup").classList.add("show");
+}
+
+function fecharPopup(){
+  document.getElementById("popup").classList.remove("show");
+}
 
 // LOGIN
 function login(){
+
+  if(carregando) return; // 🔥 evita spam
+  carregando = true;
+
   let chave = document.getElementById("chaveLogin").value.trim();
 
   if(!chave){
     mostrarPopup("Digite sua matrícula!");
+    carregando = false;
     return;
   }
 
@@ -388,7 +504,7 @@ function login(){
   .then(res => res.json())
   .then(data=>{
 
-    console.log("RETORNO API:", data); // 👈 COLOCA AQUI
+    console.log("RETORNO API:", data);
 
     if(data && data.existe){
 
@@ -398,15 +514,17 @@ function login(){
       if(data.nomeResp){
         localStorage.setItem("nomeResp", data.nomeResp);
       }
-
       window.location.href = "loja.html";
-
-    }else{
-      mostrarPopup("<strong>Matrícula não localizada.</strong> <br> Confira as informações digitadas ou entre em contato com a secretária");
+    }
+    else{
+mostrarPopup(`<span style="color:#0B3C8C;"><strong>Matrícula não localizada.</strong></span><br>
+  <span style="color:#ff7a00;">Confira as informações digitadas...</span>
+`);
     }
   })
   .catch(()=>{
     mostrarPopup("Erro ao conectar com servidor");
+    carregando = false;
   });
 }
 </script>

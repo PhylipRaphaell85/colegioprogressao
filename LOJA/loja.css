@@ -1071,7 +1071,8 @@ color:#d21919;
     flex-direction:row;
     justify-content:center;
     flex-wrap:wrap;
-    gap:15px;
+    gap:10px;
+    margin: 15px -40px -6px -40px;
   }
 
   nav a{
@@ -1082,6 +1083,20 @@ color:#d21919;
   nav.ativo{
     display:flex;
   }
+.perfil {
+  flex-direction: column;
+  align-items: center; 
+  padding: 4px 4px;
+}
+
+.perfil .btn-logout {
+  font-size: 10px;
+  padding: 3px 8px;
+
+  display: block;   
+  margin: -2px 17px;
+}
+
 
 }
 
@@ -1107,15 +1122,7 @@ color:#d21919;
     max-width:80%;
   }
 
-  .perfil{
-    padding:6px 10px;
-    font-size:12px;
-  }
-
-  .perfil-info span{
-    max-width:120px;
-  }
-
+  
 }
 
 /* 📱 IPHONE 14 (390px) */

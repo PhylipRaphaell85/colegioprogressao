@@ -275,6 +275,7 @@ nav a:hover::after{
 /* HOVER */
 
 .btn-matricula:hover {
+  
   color:#fff;
   background:#1e88e5;
   transform: translateY(-3px);
@@ -2372,7 +2373,7 @@ nav{
   left: 0;
   width: 100%;
   background: linear-gradient(135deg,#062A5E,#1E63B7);
-  font-size: 2.5px; /* 5 → 2.5 */
+  font-size: 1.5px; /* 5 → 2.5 */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -2390,15 +2391,12 @@ nav.active{
 }
 
 nav a{
-  font-size: 5px; /* 10 → 5 */
+  font-size: 3px; /* 10 → 5 */
   padding: 3px 4px; /* 6/8 → 3/4 */
 }
 
 .btn-matricula{
-  text-align: center;
-  padding: 5px; /* 14 → 7 */
-  font-size: 5px;
-  border-radius: 6px; /* 12 → 6 */
+ display: none;
 }
   .menu-toggle{
     display: flex;
