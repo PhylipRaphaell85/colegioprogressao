@@ -194,12 +194,32 @@ nav a{
 
 nav i {
   color: #ffffff;
-  transition: 0.3s ease;
+  animation: eleganteGlow 5s infinite ease-in-out;
+  transition: 0.3s;
+}
+
+@keyframes eleganteGlow {
+  0% {
+    color: #ffffff;
+    text-shadow: none;
+  }
+
+  50% {
+    color: #ff7a00;
+    text-shadow: 0 0 6px rgba(255,122,0,0.4);
+  }
+
+  100% {
+    color: #ffffff;
+    text-shadow: none;
+  }
 }
 
 nav i:hover {
+  animation: none;
   color: #ff7a00;
-  transform: scale(1.2);
+  text-shadow: 0 0 8px rgba(255,122,0,0.6);
+  transform: scale(1.1);
 }
 
 .fa {
