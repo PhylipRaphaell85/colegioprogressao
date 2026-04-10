@@ -166,7 +166,28 @@ function mostrarMensagem(){
 //====================LIVROS E FARDAMENTOS============================================
 // ABRIR ABA
 function abrirAba(tipo, event) {
-  event.stopPropagation(); // evita fechar ao clicar no botão
+  event.stopPropagation();
+
+  // verifica se já está aberta
+  let jaEstaAberto = false;
+
+  if (tipo === 'livros') {
+    jaEstaAberto = document.querySelector('.conteudo-livros').classList.contains('ativa');
+  }
+
+  if (tipo === 'fardamentos') {
+    jaEstaAberto = document.querySelector('.conteudo-fardamentos').classList.contains('ativa');
+  }
+
+  if (tipo === 'lista-materiais') {
+    jaEstaAberto = document.querySelector('.conteudo-listas').classList.contains('ativa');
+  }
+
+  // se já estiver aberto → fecha tudo e para
+  if (jaEstaAberto) {
+    fecharTudo();
+    return;
+  }
 
   fecharTudo();
 
