@@ -191,6 +191,10 @@ nav a{
   transition: 0.3s;
 }
 
+
+nav i{
+  color:#ff7a00 ;
+}
 /* efeito underline animado */
 
 nav a::after{
@@ -693,19 +697,23 @@ input[type=number]{
 }
 
 /* Ícone Carrinho */
-.icone-carrinho{
-  position:fixed;
-  bottom:50px;
-  right:20px;
-  background:#fff;
-  color:#ff9800;
-  padding:12px;
-  border-radius:50%;
-  cursor:pointer;
-  font-size:32px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.3);
-  z-index:9999;
-  transition:0.3s;
+.icone-carrinho {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    background: #fff;
+    color: #ff9800;
+    display: flex;
+    align-items: center;     
+    justify-content: center; 
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 22px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    transition: 0.3s;
 }
 
 .icone-carrinho:hover{
