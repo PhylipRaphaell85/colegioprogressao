@@ -543,6 +543,12 @@ SEÇÃO DESTAQUE
     font-size: 14px;
 }
 
+.icone-check::before{
+  content: "✓"; 
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
 
 /* ==========================================================
 BOTOES - LA SOU ALUNO - SAIBA MAIS- GARANTA SUA VAGA
