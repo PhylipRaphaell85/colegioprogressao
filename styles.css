@@ -534,15 +534,16 @@ SEÇÃO DESTAQUE
 .icone-check{
   width:28px;
   height:28px;
-  background:#ff7a00;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-size:14px;
-  font-weight:bold;
+  border-radius: 50%;
+    background: linear-gradient(135deg, #ff8a00, #ffb347);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
 }
+
+
 /* ==========================================================
 BOTOES - LA SOU ALUNO - SAIBA MAIS- GARANTA SUA VAGA
 ========================================================== */
