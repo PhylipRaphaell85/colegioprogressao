@@ -927,10 +927,10 @@ function addKit(botao){
 document.getElementById('btnWhatsCarrinho').onclick = () => {
 
   if(!usuarioLogado()){
-    mostrarPopup("Faça login para finalizar a compra!");
+    mostrarPopup("Redirecionando para login...");
     setTimeout(()=>{
       window.location.href = "login.html";
-    }, 1500);
+    }, 1800);
     return;
   }
 
