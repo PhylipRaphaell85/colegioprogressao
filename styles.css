@@ -196,6 +196,9 @@ nav i{
   color:#ff7a00 ;
 }
 
+.fa {
+color: white;
+}
 /* efeito underline animado */
 
 nav a::after{
