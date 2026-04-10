@@ -472,6 +472,7 @@ SEÇÃO DESTAQUE
   margin-top: 15px;
   line-height: 1.7;
   max-width:520px;
+  
 }
 
 /* BENEFÍCIOS */
@@ -1041,14 +1042,14 @@ animation:flash 4s infinite;
 
 .baner h1{
   text-align: center;
-  font-size: clamp(28px, 6vw, 65px);
+  font-size: clamp(28px, 6vw, 59px);
   line-height: 1.1;
   margin-bottom: 10px;
   text-shadow: 2px 4px 15px rgba(0, 0, 0, 0.85);
 }
 
 .baner p {
-  font-size: clamp(16px, 2.5vw, 24px);
+  font-size: clamp(16px, 2.5vw, 20px);
   margin-bottom: 35px;
   line-height: 1.6;
   text-shadow: 2px 4px 15px rgba(0, 0, 0, 0.85);
@@ -1061,12 +1062,12 @@ animation:flash 4s infinite;
 .btn-hero {
     
   display: inline-block;
-  padding: 14px 45px;
+  padding: 10px 35px;
   border-radius: 14px;
   background: linear-gradient(135deg, #facc15, #E65100);
   color: #fff;
   font-weight: 700;
-  font-size: clamp(19px, 2vw, 20px);
+  font-size: clamp(19px, 2vw, 16px);
   text-decoration: none;
   transition: 0.3s ease;
   box-shadow: 0 8px 22px rgba(0,0,0,.25);
