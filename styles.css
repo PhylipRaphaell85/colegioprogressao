@@ -469,6 +469,7 @@ SEÇÃO DESTAQUE
 }
 
 .banner-escolar p{
+  text-indent: 10px;
   margin-top: 15px;
   line-height: 1.7;
   max-width:520px;
@@ -1166,8 +1167,12 @@ to bottom,
 
 .card-depoimento p {
   margin: 15px 0;
-  color: #555;
-  line-height: 1.6;
+   font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+    text-align: justify;
+    text-indent: 10px;
+    hyphens: auto;
 }
 
 .card-depoimento h4 {
@@ -2005,10 +2010,13 @@ CARD MODERNO
 }
 
 /* TEXTO */
-.cardinf p{
-  font-size:13px;
-  color:#555;
-  line-height:1.6;
+.cardinf p {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+    text-align: justify;
+    text-indent: 10px;
+    hyphens: auto;
 }
 
 /* BOTÃO */
