@@ -197,7 +197,7 @@ nav a{
   transition: 0.3s;
 }
 
-nav i {
+#icon {
   color: #ffffff;
   animation: eleganteGlow 5s infinite ease-in-out;
   transition: 0.3s;
@@ -220,16 +220,7 @@ nav i {
   }
 }
 
-nav i:hover {
-  animation: none;
-  color: #ff7a00;
-  text-shadow: 0 0 8px rgba(255,122,0,0.6);
-  transform: scale(1.1);
-}
 
-.fa {
-color: white;
-}
 /* efeito underline animado */
 
 nav a::after{
@@ -2635,8 +2626,7 @@ nav a{
      /* SEÇÃO */
   .depoimentos,
   .galeria{
-    padding-top: 20px;  /* 👈 remove espaço de cima */
-    
+    padding-top: 20px;  
   }
   
   .depoimentos h2 {
@@ -2668,7 +2658,7 @@ margin-bottom: auto;
 
   .card p{
   font-size: 12px;
-  line-height: 1.4; /* ↓ menos espaçamento */
+  line-height: 1.4; 
 }
 
   .btn-cardp{
@@ -2697,7 +2687,7 @@ margin-top:-60px;
 
   /* CARDS / IMAGENS */
   .galeria-card{
-    width: 100%;  /* ↓ menor */
+    width: 100%;  
     height: 140px;
   }
 
@@ -2740,11 +2730,11 @@ margin-top:-60px;
 
 
 .sobre{
-    padding: 0; /* remove todo o padding no mobile */
+    padding: 0; 
 }
 
 .gridsobre {
-    grid-template-columns: repeat(2, 1fr); /* 2 por linha */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 12px;
 }
 
@@ -2788,7 +2778,7 @@ margin-top:-60px;
 
 /* ================= NÍVEIS DE ENSINO ================= */
 .nivel_ensino {
-    padding: 0; /* remove todo o padding no mobile */
+    padding: 0; 
 }
 
 .nivel_ensino h2{
@@ -2814,7 +2804,7 @@ margin-top:-60px;
 /* CARDS ENSINO */
 .grid{
     
-    grid-template-columns: repeat(2, 1fr); /* 2 por linha */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 12px;
     
 }
