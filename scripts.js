@@ -1,3 +1,17 @@
+const track = document.querySelector('.depoimentos-track');
+const pages = document.querySelectorAll('.depoimentos-page');
+
+let depoIndex = 0;
+
+function slideDepoimentos() {
+  depoIndex++;
+  if (depoIndex >= pages.length) depoIndex = 0;
+  track.style.transform = `translateX(-${depoIndex * 100}%)`;
+}
+
+setInterval(slideDepoimentos, 8000);
+
+
 // ================= HEADER SCROLL =================
 const header = document.querySelector('header');
 
@@ -231,3 +245,4 @@ window.addEventListener("load", () => {
 
   }, 1400);
 });
+
