@@ -374,7 +374,7 @@ nav a:hover::after{
   justify-content: center;
   gap: 15px;
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: 1200px; 
   padding: 0 10px;
 }
 
@@ -397,6 +397,7 @@ nav a:hover::after{
   height: 280px;
   gap: 7px;
   color: black;
+  
 }
 
 .cardlista{
@@ -875,18 +876,10 @@ color:#d21919;
 }
 /* ================= RESPONSIVIDADE COMPLETA ================= */
 
-@media (min-width: 1200px){
-  .area-kits{
-    grid-template-columns: repeat(4, 180px);
-    justify-content: center;
-  }
-}
-
 
 @media (min-width: 1600px){
   .area-kits{
     grid-template-columns: repeat(6, 1fr);
-    max-width: 1100px; /* controla largura pra não esticar */
   }
 
   .grid-livro,
