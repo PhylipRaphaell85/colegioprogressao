@@ -1065,21 +1065,7 @@ color:#d21919;
 
 }
 
-@media (min-width: 1200px){
-  
-  html{
-    font-size:15.5px;
-  }
 
-  .area-kits{
-    max-width:700px;
-  }
-
-  .grid-fardamento{
-    grid-template-columns: repeat(4, 1fr);
-    max-width:700px;
-  }
-}
 
 /* 📱 TABLET (até 768px) */
 @media (max-width:768px){
