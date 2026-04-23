@@ -1042,12 +1042,16 @@ color:#d21919;
     max-width:1600px;
     margin:auto;
   }
+    .area-kits{
+    grid-template-columns:repeat(6,1fr);
+  }
+
 }
 
 /* notebook grande */
 @media (max-width:1600px){
   .area-kits{
-    grid-template-columns:repeat(5,1fr);
+    grid-template-columns:repeat(6,1fr);
   }
 }
 
