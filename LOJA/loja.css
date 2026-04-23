@@ -1026,12 +1026,7 @@ color:#d21919;
 
 
 /* ================= RESPONSIVIDADE COMPLETA ================= */
-@media (min-width: 1600px){
-  .area-kits{
-        grid-template-columns: repeat(6, 1fr);
-    }
-    
-}
+
 
 
 /* 💻 NOTEBOOK 15" (1366px) */
@@ -1048,58 +1043,6 @@ color:#d21919;
 }
 /* 💻 MACBOOK 13" (1280px ~ 1440px) */
 @media (max-width:1440px) and (min-width:1281px){
-
-  html{
-    font-size:15.5px;
-  }
-
-  /* GRID */
-  .area-kits{
-    grid-template-columns: repeat(5, 1fr);
-    gap:12px;
-  }
-
-  /* CARDS */
-  .cardkit{
-    height:220px;
-    padding:6px;
-  }
-
-  .cardkit img{
-    height:70px;
-  }
-
-  .cardkit h3{
-    font-size:12px;
-  }
-
-  .cardkit p{
-    font-size:11px;
-  }
-
-  /* MENU LATERAL */
-  .menu-lateral{
-    width:210px;
-  }
-
-  /* HEADER */
-  .topo{
-    padding:12px 20px;
-  }
-
-  .topo h1{
-    font-size:18px;
-  }
-
-  /* PERFIL */
-  .perfil-info span{
-    max-width:140px;
-  }
-
-  /* CONTAINER */
-  .container{
-    padding:18px;
-  }
 
 }
 
@@ -1118,6 +1061,11 @@ color:#d21919;
 }
 
 @media (min-width: 1200px){
+  
+  html{
+    font-size:15.5px;
+  }
+
   .area-kits{
     grid-template-columns: repeat(4, 1fr);
     max-width:700px;
