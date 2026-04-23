@@ -1024,50 +1024,53 @@ color:#d21919;
   color: #ffc72c;
 }
 
-
 /* ================= RESPONSIVIDADE COMPLETA ================= */
-@media (min-width:1400px){
-  .area-kits{
-    grid-template-columns: repeat(6, 1fr);
-    max-width:1200px;
-    margin:0 auto;
-  }
-}
 
-/* 💻 NOTEBOOK 15" (1366px) */
-@media (max-width:1366px){
+/* 📱 TELAS MUITO PEQUENAS (até 360px) */
+@media (max-width:360px){
 
   .area-kits{
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: 1fr;
   }
 
-  .container{
-    padding:15px;
+  .grid-livro,
+  .grid-fardamento,
+  .grid-listas{
+    grid-template-columns: 1fr;
   }
 
+  .topo h1{
+    font-size:16px;
+  }
 }
-/* 💻 MACBOOK 13" (1280px ~ 1440px) */
-@media (max-width:1440px) and (min-width:1281px){
-
-}
 
 
-/* 💻 NOTEBOOK 14" (1280px) */
-@media (max-width:1280px){
+/* 📱 MOBILE */
+@media (max-width:480px){
 
   .area-kits{
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap:12px;
   }
 
-  .menu-lateral{
-    width:200px;
+  .grid-livro,
+  .grid-fardamento,
+  .grid-listas{
+    grid-template-columns: repeat(2, 1fr);
   }
+
+  .cardkit{
+    height:auto;
+    min-height:220px;
+  }
+
+  .cardkit h3{ font-size:12px; }
+  .cardkit p{ font-size:11px; }
 
 }
 
 
-
-/* 📱 TABLET (até 768px) */
+/* 📱 TABLET */
 @media (max-width:768px){
 
   .layout-loja{
@@ -1094,12 +1097,6 @@ color:#d21919;
     gap:10px;
   }
 
-  .topo h1{
-    position:static;
-    transform:none;
-    text-align:center;
-  }
-
   .left{
     justify-content:center;
   }
@@ -1110,121 +1107,70 @@ color:#d21919;
   }
 
   nav{
-    margin-top: 10px;
     display:none;
-    flex-direction:row;
-    justify-content:center;
     flex-wrap:wrap;
+    justify-content:center;
     gap:10px;
-    margin: 15px -40px -6px -40px;
-  }
-
-  nav a{
-    margin:0;
-    font-size:13px;
   }
 
   nav.ativo{
     display:flex;
   }
-.perfil {
-  flex-direction: column;
-  align-items: center; 
-  padding: 4px 4px;
-}
-
-.perfil .btn-logout {
-  font-size: 10px;
-  padding: 3px 8px;
-
-  display: block;   
-  margin: -2px 17px;
-}
-
 
 }
 
-@media (max-width: 480px){
-  .area-kits{
-    grid-template-columns: repeat(2, 1fr);
-    gap:12px;
-  }
 
-  .cardkit{
-    height:auto; /* REMOVE ALTURA FIXA */
-    min-height:220px;
-  }
-
-  .cardkit h3{
-    font-size:12px;
-  }
-
-  .cardkit p{
-    font-size:11px;
-  }
-}
-/* 📱 IPHONE XR / 11 (414px) */
-@media (max-width:414px){
+/* 💻 NOTEBOOK (até 1280px) */
+@media (max-width:1280px){
 
   .area-kits{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  .grid-livro,
-  .grid-fardamento,
-  .grid-listas{
-    grid-template-columns: repeat(2, 1fr);
+  .menu-lateral{
+    width:200px;
   }
 
-  .logo{
-    width:90px;
-  }
-
-  .topo h1{
-    font-size:20px;
-    max-width:80%;
-  }
-
-  
 }
 
-/* 📱 IPHONE 14 (390px) */
-@media (max-width:390px){
+
+/* 💻 NOTEBOOK GRANDE (até 1366px) */
+@media (max-width:1366px){
 
   .area-kits{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 
-  .topo h1{
-    font-size:18px;
-  }
-
-  .perfil-info span{
-    max-width:100px;
+  .container{
+    padding:15px;
   }
 
 }
 
-/* 📱 TELAS MUITO PEQUENAS (360px ou menos) */
-@media (max-width:360px){
+
+/* 💻 DESKTOP NORMAL */
+@media (min-width:1024px){
+
+  .grid-fardamento{
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+
+/* 🖥️ TELAS GRANDES / 27" */
+@media (min-width:1400px){
 
   .area-kits{
-    grid-template-columns: 1fr;
-  }
-
-  .grid-livro,
-  .grid-fardamento,
-  .grid-listas{
-    grid-template-columns: 1fr;
-  }
-
-  .topo h1{
-    font-size:16px;
+    grid-template-columns: repeat(6, 1fr);
+    max-width:1300px;
+    margin:0 auto;
   }
 
 }
 
-/* 📱 CORREÇÃO iPHONE (BACKGROUND FIXED BUG) */
+
+/* 📱 CORREÇÃO iPHONE (background fixed bug) */
 @media (max-width:768px){
   body{
     background-attachment:scroll;
