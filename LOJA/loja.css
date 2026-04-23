@@ -877,39 +877,73 @@ color:#d21919;
 /* ================= RESPONSIVIDADE COMPLETA ================= */
 
 
-@media (min-width: 1600px){
+/* 📱 TELAS MUITO PEQUENAS (360px ou menos) */
+@media (max-width:360px){
+
   .area-kits{
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .grid-livro,
-.grid-fardamento,
-.grid-listas{
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 900px; /* controla largura pra não esticar */
+  .grid-fardamento,
+  .grid-listas{
+    grid-template-columns: 1fr;
   }
+
+  .topo h1{
+    font-size:16px;
+  }
+
 }
 
 
-
-/* 💻 NOTEBOOK 15" (1366px) */
-@media (max-width:1366px){
+/* 📱 IPHONE 14 (390px) */
+@media (max-width:390px){
 
   .area-kits{
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .container{
-    padding:15px;
+  .topo h1{
+    font-size:18px;
   }
 
+  .perfil-info span{
+    max-width:100px;
+  }
+
+}
+
+/* 📱 IPHONE XR / 11 (414px) */
+@media (max-width:414px){
+
+  .area-kits{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-livro,
+  .grid-fardamento,
+  .grid-listas{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .logo{
+    width:90px;
+  }
+
+  .topo h1{
+    font-size:20px;
+    max-width:80%;
+  }
+
+  
 }
 
 /* 💻 NOTEBOOK 14" (1280px) */
 @media (max-width:1280px){
 
   .area-kits{
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4,  180px);
     
 
   }
@@ -919,6 +953,7 @@ color:#d21919;
   }
 
 }
+
 
 
 /* 📱 TABLET (até 768px) */
@@ -1001,64 +1036,60 @@ color:#d21919;
 
 }
 
-/* 📱 IPHONE XR / 11 (414px) */
-@media (max-width:414px){
+/* 💻 NOTEBOOK 14" (1280px) */
+@media (max-width:1280px){
 
   .area-kits{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    
+
+  }
+
+  .menu-lateral{
+    width:200px;
+  }
+
+}
+
+
+/* 💻 NOTEBOOK 1280px+ (MacBook Air incluso) */
+@media (min-width: 1200px){
+
+  .area-kits{
+    grid-template-columns: repeat(4, 180px); /* 🔥 tamanho controlado */
+    justify-content: center;
   }
 
   .grid-livro,
   .grid-fardamento,
   .grid-listas{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 180px);
+    justify-content: center;
   }
-
-  .logo{
-    width:90px;
-  }
-
-  .topo h1{
-    font-size:20px;
-    max-width:80%;
-  }
-
-  
 }
 
-/* 📱 IPHONE 14 (390px) */
-@media (max-width:390px){
+/* 💻 NOTEBOOK 15" (1366px) */
+@media (max-width:1366px){
 
   .area-kits{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 
-  .topo h1{
-    font-size:18px;
-  }
-
-  .perfil-info span{
-    max-width:100px;
+  .container{
+    padding:15px;
   }
 
 }
 
-/* 📱 TELAS MUITO PEQUENAS (360px ou menos) */
-@media (max-width:360px){
-
+@media (min-width: 1600px){
   .area-kits{
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(6, 1fr);
   }
 
   .grid-livro,
-  .grid-fardamento,
-  .grid-listas{
-    grid-template-columns: 1fr;
+.grid-fardamento,
+.grid-listas{
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 900px; /* controla largura pra não esticar */
   }
-
-  .topo h1{
-    font-size:16px;
-  }
-
 }
-
