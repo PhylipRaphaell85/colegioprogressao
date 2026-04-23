@@ -1096,18 +1096,14 @@ color:#d21919;
 
 }
 
-@media (min-width: 1200px){
-  .area-kits{
-    grid-template-columns: repeat(4, 1fr);
-    max-width:900px;
-  }
-}
+
 
 /* 💻 NOTEBOOK 14" (1280px) */
 @media (max-width:1280px){
 
-  .area-kits{
+   .area-kits{
     grid-template-columns: repeat(4, 1fr);
+    max-width:900px;
   }
 
   .menu-lateral{
