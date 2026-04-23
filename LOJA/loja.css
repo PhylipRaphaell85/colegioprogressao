@@ -1058,10 +1058,13 @@ color:#d21919;
 @media (min-width:1100px){
 
   .menu-lateral{
-    width:220px;
+    width:180px;
     min-width:180px;
     flex-shrink:0;
   }
+
+
+
 }
 
 /* 💻 NOTEBOOK 14" (1280px) */
