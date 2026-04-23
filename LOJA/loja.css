@@ -875,6 +875,13 @@ color:#d21919;
 }
 /* ================= RESPONSIVIDADE COMPLETA ================= */
 
+@media (min-width: 1200px){
+  .area-kits{
+    grid-template-columns: repeat(4, 180px);
+    justify-content: center;
+  }
+}
+
 
 @media (min-width: 1600px){
   .area-kits{
@@ -920,12 +927,6 @@ color:#d21919;
 
 }
 
-@media (min-width: 1200px){
-  .area-kits{
-    grid-template-columns: repeat(4, 180px);
-    justify-content: center;
-  }
-}
 
 /* 📱 TABLET (até 768px) */
 @media (max-width:768px){
