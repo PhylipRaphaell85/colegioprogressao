@@ -273,12 +273,15 @@ nav a:hover::after{
 .layout-loja{
   display:flex;
   gap:20px;
+  max-width:1600px;
+  margin:0 auto;
 }
 
 /* MENU LATERAL */
-
 .menu-lateral{
   width:220px;
+  min-width:220px;   /* 🔥 impede encolher */
+  flex-shrink:0;     /* 🔥 essencial */
   display:flex;
   flex-direction:column;
   gap:10px;
