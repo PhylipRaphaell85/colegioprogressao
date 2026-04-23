@@ -284,6 +284,12 @@ nav a:hover::after{
   gap:10px;
 }
 
+.menu-lateral h1{
+  font-size: 23px;
+  text-align: center;
+
+}
+
 /* BOTÕES PRINCIPAIS */
 .aba-btn{
   width:100%;
