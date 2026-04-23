@@ -2946,12 +2946,71 @@ margin-top:-60px;
 ========================= */
 @media (max-width:390px){
 
-  html{ font-size:12px; }
+  @media (max-width: 390px){
 
-  .titulo{
-    font-size: 15px;
+  /* GRID DOS KITS */
+  .area-kits{
+    grid-template-columns: repeat(2, 1fr); /* 🔥 nunca use px aqui */
+    gap: 10px;
+    padding: 0 8px;
   }
 
+  /* CARDS */
+  .cardkit,
+  .cardlivros,
+  .cardfardamento,
+  .cardlista{
+    height: auto; /* evita corte */
+    padding: 8px;
+  }
+
+  /* IMAGENS */
+  .cardkit img,
+  .cardlivros img{
+    height: 60px;
+    object-fit: contain;
+  }
+
+  /* TITULOS */
+  .cardkit h3,
+  .cardlivros h3{
+    font-size: 12px;
+    min-height: auto;
+  }
+
+  /* TEXTO */
+  .cardkit p,
+  .cardlivros p{
+    font-size: 11px;
+  }
+
+  /* SELECT */
+  .cardkit select{
+    height: 28px;
+    font-size: 11px;
+  }
+
+  /* BOTÃO */
+  .btn-add,
+  .btn-download{
+    font-size: 11px;
+    padding: 6px;
+  }
+
+  /* HEADER AJUSTE */
+  header{
+    padding: 0 10px;
+  }
+
+  .logo img{
+    height: 40px;
+  }
+
+  .titulo{
+    font-size: 16px;
+  }
+
+}
 }
 
 /* =========================
