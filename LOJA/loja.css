@@ -1041,6 +1041,8 @@ color:#d21919;
     grid-template-columns: repeat(6, 1fr);
     max-width:1100px;
   }
+
+  
 }
 
 /* 💻 NOTEBOOK 15" (1366px) */
@@ -1058,8 +1060,8 @@ color:#d21919;
 @media (min-width:1100px){
 
   .menu-lateral{
-    width:120px;
-    min-width:120px;
+    width:180px;
+    min-width:180px;
     flex-shrink:0;
   }
 
