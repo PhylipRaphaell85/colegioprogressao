@@ -1050,10 +1050,12 @@ color:#d21919;
   }
 
   /* GRID */
-  .area-kits{
-    grid-template-columns: repeat(5, 1fr);
-    gap:12px;
+    .area-kits{
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    justify-content: center;
+    max-width:1000px; /* 🔥 controla largura total */
   }
+
 
   /* CARDS */
   .cardkit{
