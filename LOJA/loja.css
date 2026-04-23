@@ -939,22 +939,6 @@ color:#d21919;
   
 }
 
-/* 💻 NOTEBOOK 14" (1280px) */
-@media (max-width:1280px){
-
-  .area-kits{
-    grid-template-columns: repeat(4,  180px);
-    
-
-  }
-
-  .menu-lateral{
-    width:200px;
-  }
-
-}
-
-
 
 /* 📱 TABLET (até 768px) */
 @media (max-width:768px){
@@ -1054,16 +1038,15 @@ color:#d21919;
 
 /* 💻 NOTEBOOK 1280px+ (MacBook Air incluso) */
 @media (min-width: 1200px){
-
   .area-kits{
-    grid-template-columns: repeat(4, 180px); /* 🔥 tamanho controlado */
+    grid-template-columns: repeat(4, minmax(120px, 140px));
     justify-content: center;
   }
 
   .grid-livro,
   .grid-fardamento,
   .grid-listas{
-    grid-template-columns: repeat(4, 180px);
+    grid-template-columns: repeat(4, minmax(120px, 140px));
     justify-content: center;
   }
 }
