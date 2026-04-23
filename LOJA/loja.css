@@ -1053,7 +1053,7 @@ color:#d21919;
     .area-kits{
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     justify-content: center;
-    max-width:1000px; /* 🔥 controla largura total */
+    max-width:800px; /* 🔥 controla largura total */
   }
 
 
