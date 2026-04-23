@@ -380,12 +380,12 @@ nav a:hover::after{
 }
 .area-kits{
   display:grid;
-  grid-template-columns: repeat(6, 1fr); /* 6 fixo */
-  gap:13px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
   margin:0 auto;
   max-width:1100px;
   padding:0 10px;
 }
+
 
 .cardkit{
   position:relative;
@@ -1044,52 +1044,8 @@ color:#d21919;
 }
 /* 💻 MACBOOK 13" (1280px ~ 1440px) */
 @media (max-width:1440px) and (min-width:1281px){
-
   html{
-    font-size:15.5px;
-  }
-
-  /* GRID */
-  .area-kits{
-    grid-template-columns: repeat(5, 1fr);
-    gap:12px;
-  }
-
-  /* CARDS */
-  .cardkit{
-    height:220px;
-    padding:6px;
-  }
-
-  .cardkit img{
-    height:70px;
-  }
-
-  .cardkit h3{
-    font-size:12px;
-  }
-
-  .cardkit p{
-    font-size:11px;
-  }
-
-  /* MENU LATERAL */
-  .menu-lateral{
-    width:210px;
-  }
-
-  /* HEADER */
-  .topo{
-    padding:12px 20px;
-  }
-
-  .topo h1{
-    font-size:18px;
-  }
-
-  /* PERFIL */
-  .perfil-info span{
-    max-width:140px;
+    font-size:15px;
   }
 
   /* CONTAINER */
@@ -1097,6 +1053,126 @@ color:#d21919;
     padding:18px;
   }
 
+  /* HEADER */
+  .topo{
+    padding:10px 18px;
+  }
+
+  .topo h1{
+    font-size:17px;
+    max-width:55%;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  /* PERFIL */
+  .perfil{
+    gap:8px;
+    padding:6px 10px;
+    font-size:13px;
+  }
+
+  .perfil-info span{
+    max-width:120px;
+  }
+
+  /* LAYOUT */
+  .layout-loja{
+    gap:14px;
+  }
+
+  .menu-lateral{
+    width:190px;
+  }
+
+  /* GRID PRINCIPAL */
+  .area-kits{
+    grid-template-columns: repeat(4, 1fr);
+    gap:12px;
+  }
+
+  /* CARDS KIT */
+  .cardkit{
+    height:200px;
+    padding:6px;
+  }
+
+  .cardkit img{
+    height:60px;
+  }
+
+  .cardkit h3{
+    font-size:12px;
+    min-height:26px;
+  }
+
+  .cardkit small{
+    font-size:10px;
+  }
+
+  .cardkit p{
+    font-size:11px;
+  }
+
+  .cardkit select{
+    font-size:11px;
+  }
+
+  .cardkit .btn-add{
+    font-size:11px;
+    padding:3px;
+  }
+
+  /* LIVROS */
+  .cardlivros{
+    height:190px;
+  }
+
+  .cardlivros img{
+    height:70px;
+  }
+
+  .cardlivros h3{
+    font-size:13px;
+  }
+
+  .cardlivros p{
+    font-size:13px;
+  }
+
+  /* FARDAMENTO */
+  .cardfardamento{
+    height:190px;
+  }
+
+  .cardfardamento img{
+    height:70px;
+  }
+
+  .cardfardamento h3{
+    font-size:14px;
+  }
+
+  /* LISTAS */
+  .cardlista{
+    height:190px;
+  }
+
+  .cardlista h3{
+    font-size:13px;
+  }
+
+  /* GRID LISTAS */
+  .grid-listas{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* CARRINHO */
+  .carrinho{
+    width:340px;
+    right:15px;
+  }
 }
 
 /* 💻 NOTEBOOK 14" (1280px) */
