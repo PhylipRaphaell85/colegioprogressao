@@ -48,16 +48,6 @@ main {
 
 /* LOGO */
 
-/* TÍTULO CENTRAL REAL */
-.topo h1{
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  margin:0;
-  white-space:nowrap;
-}
-
-
 /* CONTAINER ESQUERDA */
 .left{
   display:flex;
@@ -284,6 +274,13 @@ nav a:hover::after{
   gap:10px;
 }
 
+.menu-lateral h1{
+ font-size: 23px;
+ text-align: center;
+  margin:0;
+  white-space:nowrap;
+}
+
 /* BOTÕES PRINCIPAIS */
 .aba-btn{
   width:100%;
@@ -378,13 +375,14 @@ nav a:hover::after{
 .grid-fardamento.ativo{
   display:grid;
 }
+
 .area-kits{
   display:grid;
-  grid-template-columns: repeat(6, 1fr); /* 6 fixo */
-  gap:13px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap:14px;
   margin:0 auto;
   max-width:1100px;
-  padding:0 10px;
+  padding:0 12px;
 }
 
 .cardkit{
@@ -398,7 +396,6 @@ nav a:hover::after{
   transition:all 0.3s ease;
   display:flex;
   flex-direction:column;
-
   height:240px; /* 260 → 220 */
   color:black;
 }
@@ -1189,6 +1186,25 @@ color:#d21919;
 
 }
 
+@media (max-width: 480px){
+  .area-kits{
+    grid-template-columns: repeat(2, 1fr);
+    gap:12px;
+  }
+
+  .cardkit{
+    height:auto; /* REMOVE ALTURA FIXA */
+    min-height:220px;
+  }
+
+  .cardkit h3{
+    font-size:12px;
+  }
+
+  .cardkit p{
+    font-size:11px;
+  }
+}
 /* 📱 IPHONE XR / 11 (414px) */
 @media (max-width:414px){
 
