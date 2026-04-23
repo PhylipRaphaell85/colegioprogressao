@@ -1118,6 +1118,7 @@ color:#d21919;
 
   .grid-fardamento{
     grid-template-columns: repeat(4, 1fr);
+    max-width:700px;
   }
 }
 
