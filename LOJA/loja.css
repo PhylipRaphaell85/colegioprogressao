@@ -1071,11 +1071,7 @@ color:#d21919;
     font-size:15.5px;
   }
 
-  .area-kits{
-    grid-template-columns: repeat(4, 1fr);
-    max-width:700px;
-  }
-
+ 
   .grid-fardamento{
     grid-template-columns: repeat(4, 1fr);
     max-width:700px;
