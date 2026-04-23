@@ -1042,6 +1042,62 @@ color:#d21919;
   }
 
 }
+/* 💻 MACBOOK 13" (1280px ~ 1440px) */
+@media (max-width:1440px) and (min-width:1281px){
+
+  html{
+    font-size:15.5px;
+  }
+
+  /* GRID */
+  .area-kits{
+    grid-template-columns: repeat(5, 1fr);
+    gap:12px;
+  }
+
+  /* CARDS */
+  .cardkit{
+    height:220px;
+    padding:6px;
+  }
+
+  .cardkit img{
+    height:70px;
+  }
+
+  .cardkit h3{
+    font-size:12px;
+  }
+
+  .cardkit p{
+    font-size:11px;
+  }
+
+  /* MENU LATERAL */
+  .menu-lateral{
+    width:210px;
+  }
+
+  /* HEADER */
+  .topo{
+    padding:12px 20px;
+  }
+
+  .topo h1{
+    font-size:18px;
+  }
+
+  /* PERFIL */
+  .perfil-info span{
+    max-width:140px;
+  }
+
+  /* CONTAINER */
+  .container{
+    padding:18px;
+  }
+
+}
 
 /* 💻 NOTEBOOK 14" (1280px) */
 @media (max-width:1280px){
