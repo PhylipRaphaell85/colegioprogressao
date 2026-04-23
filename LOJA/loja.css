@@ -1180,6 +1180,166 @@ color:#d21919;
 
 
 /* 📱 CORREÇÃO iPHONE (background fixed bug) */
+
+/* 📱 TABLET (até 768px) */
+@media (max-width:768px){
+
+  .layout-loja{
+    flex-direction:column;
+  }
+
+  .menu-lateral{
+    width:100%;
+  }
+
+  .area-kits{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-livro,
+  .grid-fardamento,
+  .grid-listas{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* HEADER */
+  .topo{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .topo h1{
+    position:static;
+    transform:none;
+    text-align:center;
+  }
+
+  .left{
+    justify-content:center;
+  }
+
+  /* MENU MOBILE */
+  .menu-toggle{
+    display:flex;
+  }
+
+  nav{
+    margin-top: 10px;
+    display:none;
+    flex-direction:row;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin: 15px -40px -6px -40px;
+  }
+
+  nav a{
+    margin:0;
+    font-size:13px;
+  }
+
+  nav.ativo{
+    display:flex;
+  }
+.perfil {
+  flex-direction: column;
+  align-items: center; 
+  padding: 4px 4px;
+}
+
+.perfil .btn-logout {
+  font-size: 10px;
+  padding: 3px 8px;
+
+  display: block;   
+  margin: -2px 17px;
+}
+
+
+}
+
+
+@media (max-width: 480px){
+  .area-kits{
+    grid-template-columns: repeat(2, 1fr);
+    gap:12px;
+  }
+
+  .cardkit{
+    height:auto; /* REMOVE ALTURA FIXA */
+    min-height:220px;
+  }
+
+  .cardkit h3{
+    font-size:12px;
+  }
+
+  .cardkit p{
+    font-size:11px;
+  }
+}
+/* 📱 IPHONE XR / 11 (414px) */
+@media (max-width:414px){
+
+  .area-kits{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-livro,
+  .grid-fardamento,
+  .grid-listas{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .logo{
+    width:90px;
+  }
+
+  .topo h1{
+    font-size:20px;
+    max-width:80%;
+  }
+
+  
+}
+
+/* 📱 IPHONE 14 (390px) */
+@media (max-width:390px){
+
+  .area-kits{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .topo h1{
+    font-size:18px;
+  }
+
+  .perfil-info span{
+    max-width:100px;
+  }
+
+}
+
+/* 📱 TELAS MUITO PEQUENAS (360px ou menos) */
+@media (max-width:360px){
+
+  .area-kits{
+    grid-template-columns: 1fr;
+  }
+
+  .grid-livro,
+  .grid-fardamento,
+  .grid-listas{
+    grid-template-columns: 1fr;
+  }
+
+  .topo h1{
+    font-size:16px;
+  }
+
+}
+
+/* 📱 CORREÇÃO iPHONE (BACKGROUND FIXED BUG) */
 @media (max-width:768px){
   body{
     background-attachment:scroll;
