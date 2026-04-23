@@ -1124,19 +1124,19 @@ color:#d21919;
 
   .area-kits{
     grid-template-columns: repeat(5, 1fr);
-    max-width:700px;
+    max-width:900px;
     margin:0 auto;
   }
 
   .grid-fardamento{
     grid-template-columns: repeat(5, 1fr);
-    max-width:700px;
+    max-width:900px;
     margin:0 auto;
   }
 
   .grid-livro{
     grid-template-columns: repeat(5, 1fr);
-    max-width:700px;
+    max-width:900px;
     margin:0 auto;
   }
 
