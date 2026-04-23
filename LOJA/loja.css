@@ -910,6 +910,8 @@ color:#d21919;
 
   .area-kits{
     grid-template-columns: repeat(4, 1fr);
+     max-width: 700px;
+
   }
 
   .menu-lateral{
