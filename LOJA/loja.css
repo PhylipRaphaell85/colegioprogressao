@@ -547,7 +547,7 @@ nav a:hover::after{
   border-radius:14px;
   overflow:hidden;
   padding:8px;
-  background:linear-gradient(145deg,#ffffff,#e6e6e6);
+  background:#ffffff;
   box-shadow:0 8px 20px rgba(0,0,0,0.15);
   transition:all 0.3s ease;
   display:flex;
