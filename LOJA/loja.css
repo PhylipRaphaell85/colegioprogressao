@@ -380,7 +380,7 @@ nav a:hover::after{
 }
 .area-kits{
   display:grid;
-  grid-template-columns: repeat(6, 1fr); /* 6 fixo */
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap:13px;
   margin:0 auto;
   max-width:1100px;
