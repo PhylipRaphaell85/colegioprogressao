@@ -273,8 +273,6 @@ nav a:hover::after{
 .layout-loja{
   display:flex;
   gap:20px;
-  max-width:1600px;
-  margin:0 auto;
 }
 
 /* MENU LATERAL */
