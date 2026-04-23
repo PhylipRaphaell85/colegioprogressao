@@ -1115,6 +1115,10 @@ color:#d21919;
     grid-template-columns: repeat(4, 1fr);
     max-width:700px;
   }
+
+  .grid-fardamento{
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 /* 📱 TABLET (até 768px) */
