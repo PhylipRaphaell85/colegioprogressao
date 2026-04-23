@@ -1026,13 +1026,13 @@ color:#d21919;
 
 
 /* ================= RESPONSIVIDADE COMPLETA ================= */
-@media (max-width:1400px){
-.area-kits{
+@media (min-width:1400px){
+  .area-kits{
     grid-template-columns: repeat(6, 1fr);
+    max-width:1200px;
+    margin:0 auto;
   }
-
 }
-
 
 /* 💻 NOTEBOOK 15" (1366px) */
 @media (max-width:1366px){
