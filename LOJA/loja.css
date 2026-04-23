@@ -940,85 +940,6 @@ color:#d21919;
 }
 
 
-/* 📱 TABLET (até 768px) */
-@media (max-width:768px){
-  body{
-    background-attachment:scroll;
-  }
-
-  .layout-loja{
-    flex-direction:column;
-  }
-
-  .menu-lateral{
-    width:100%;
-  }
-
-  .area-kits{
-    grid-template-columns: repeat(3, 180px);
-  }
-
-  .grid-livro,
-  .grid-fardamento,
-  .grid-listas{
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* HEADER */
-  .topo{
-    flex-direction:column;
-    gap:10px;
-  }
-
-  .topo h1{
-    position:static;
-    transform:none;
-    text-align:center;
-  }
-
-  .left{
-    justify-content:center;
-  }
-
-  /* MENU MOBILE */
-  .menu-toggle{
-    display:flex;
-  }
-
-  nav{
-    margin-top: 10px;
-    display:none;
-    flex-direction:row;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:10px;
-    margin: 15px -40px -6px -40px;
-  }
-
-  nav a{
-    margin:0;
-    font-size:13px;
-  }
-
-  nav.ativo{
-    display:flex;
-  }
-.perfil {
-  flex-direction: column;
-  align-items: center; 
-  padding: 4px 4px;
-}
-
-.perfil .btn-logout {
-  font-size: 10px;
-  padding: 3px 8px;
-
-  display: block;   
-  margin: -2px 17px;
-}
-
-
-}
 
 /* 💻 NOTEBOOK 14" (1280px) */
 @media (max-width:1280px){
@@ -1075,4 +996,84 @@ color:#d21919;
     grid-template-columns: repeat(4, 1fr);
     max-width: 900px; /* controla largura pra não esticar */
   }
+}
+
+
+/* 📱 TABLET (até 768px) */
+@media (max-width:768px){
+  body{
+    background-attachment:scroll;
+  }
+
+  .layout-loja{
+    flex-direction:column;
+  }
+
+  .menu-lateral{
+    width:100%;
+  }
+
+  .area-kits{
+    grid-template-columns: repeat(2, 180px);
+  }
+
+  .grid-livro,
+  .grid-fardamento,
+  .grid-listas{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* HEADER */
+  .topo{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .topo h1{
+    position:static;
+    transform:none;
+    text-align:center;
+  }
+
+  .left{
+    justify-content:center;
+  }
+
+  /* MENU MOBILE */
+  .menu-toggle{
+    display:flex;
+  }
+
+  nav{
+    margin-top: 10px;
+    display:none;
+    flex-direction:row;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin: 15px -40px -6px -40px;
+  }
+
+  nav a{
+    margin:0;
+    font-size:13px;
+  }
+
+  nav.ativo{
+    display:flex;
+  }
+.perfil {
+  flex-direction: column;
+  align-items: center; 
+  padding: 4px 4px;
+}
+
+.perfil .btn-logout {
+  font-size: 10px;
+  padding: 3px 8px;
+  display: block;   
+  margin: -2px 17px;
+}
+
+
 }
