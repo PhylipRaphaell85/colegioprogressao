@@ -1113,7 +1113,7 @@ color:#d21919;
 @media (min-width: 1200px){
   .area-kits{
     grid-template-columns: repeat(4, 1fr);
-    max-width:100px;
+    max-width:700px;
   }
 }
 
