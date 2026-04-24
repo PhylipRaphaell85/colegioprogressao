@@ -393,6 +393,7 @@ SEÇÃO DESTAQUE
   display: flex;
   align-items: center;
   color: white;
+  margin-top: clamp(10px, 3vw, 30px);
 }
 
 /* CONTAINER (BASE DO ALINHAMENTO) */
