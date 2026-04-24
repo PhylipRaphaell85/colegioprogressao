@@ -2955,9 +2955,11 @@ margin-top:-60px;
 
     .banner-escolar{
   margin-top: 20px; 
-  margin-bottom: 20px;
-}
+  }
  
+  .containerescolar{
+    margin-bottom: 20px;
+  }
 
   /* GRID DOS KITS */
   .area-kits{
