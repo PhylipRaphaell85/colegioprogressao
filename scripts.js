@@ -1,7 +1,3 @@
- new window.VLibras.Widget('https://vlibras.gov.br/app');
-
-
-
 
 const track = document.querySelector('.depoimentos-track');
 const pages = document.querySelectorAll('.depoimentos-page');
