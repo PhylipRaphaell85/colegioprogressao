@@ -1,72 +1,85 @@
-
-const track = document.querySelector('.depoimentos-track');
-const pages = document.querySelectorAll('.depoimentos-page');
-
+const track = document.querySelector(".depoimentos-track");
+const pages = document.querySelectorAll(".depoimentos-page");
 let depoIndex = 0;
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function slideDepoimentos() {
-  depoIndex++;
-  if (depoIndex >= pages.length) depoIndex = 0;
+  if (!track || !pages.length) return;
+  depoIndex = (depoIndex + 1) % pages.length;
   track.style.transform = `translateX(-${depoIndex * 100}%)`;
 }
 
-setInterval(slideDepoimentos, 8000);
+if (track && pages.length > 1 && !reduceMotion) {
+  setInterval(slideDepoimentos, 8000);
+}
 
-
-// ================= HEADER SCROLL =================
-const header = document.querySelector('header');
-
+const header = document.querySelector("header");
 if (header) {
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 80);
+  window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 80);
   });
 }
 
-// ================= MENU HAMBURGUER =================
 const menuToggle = document.getElementById("menu-toggle");
 const nav = document.getElementById("nav");
 
+function fecharMenu() {
+  if (!menuToggle || !nav) return;
+  menuToggle.classList.remove("active");
+  nav.classList.remove("active");
+  document.body.classList.remove("menu-open");
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Abrir menu");
+}
+
 if (menuToggle && nav) {
   menuToggle.addEventListener("click", () => {
-    menuToggle.classList.toggle("active");
-    nav.classList.toggle("active");
+    const aberto = nav.classList.toggle("active");
+    menuToggle.classList.toggle("active", aberto);
+    document.body.classList.toggle("menu-open", aberto);
+    menuToggle.setAttribute("aria-expanded", String(aberto));
+    menuToggle.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
   });
 
-  document.querySelectorAll('#nav a').forEach(link => {
-    link.addEventListener("click", () => {
-      menuToggle.classList.remove("active");
-      nav.classList.remove("active");
-    });
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => fecharMenu());
   });
 }
 
-// ================= MODAL HORÁRIO =================
+function trancarScroll(trancar) {
+  document.body.style.overflow = trancar ? "hidden" : "";
+}
+
 function abrirHorario() {
   const modal = document.getElementById("modalHorario");
-  if (modal) modal.style.display = "flex";
+  if (!modal) return;
+  modal.classList.add("ativo");
+  modal.style.display = "flex";
+  trancarScroll(true);
 }
 
 function fecharHorario() {
   const modal = document.getElementById("modalHorario");
-  if (modal) modal.style.display = "none";
+  if (!modal) return;
+  modal.classList.remove("ativo");
+  modal.style.display = "none";
+  trancarScroll(false);
 }
 
-window.addEventListener("click", function (event) {
-  const modal = document.getElementById("modalHorario");
-  if (modal && event.target === modal) {
-    modal.style.display = "none";
-  }
-});
-
-// ================= FORMULÁRIO =================
 function abrirFormulario() {
   const popup = document.getElementById("popup-formulario");
-  if (popup) popup.style.display = "flex";
+  if (!popup) return;
+  popup.classList.add("ativo");
+  popup.style.display = "flex";
+  trancarScroll(true);
 }
 
 function fecharFormulario() {
   const popup = document.getElementById("popup-formulario");
-  if (popup) popup.style.display = "none";
+  if (!popup) return;
+  popup.classList.remove("ativo");
+  popup.style.display = "none";
+  trancarScroll(false);
 
   const form = document.getElementById("formMatricula");
   if (form) form.reset();
@@ -76,7 +89,6 @@ function fecharFormulario() {
 
   const sucesso = document.getElementById("mensagem-sucesso");
   const erro = document.getElementById("mensagem-erro");
-
   if (sucesso) sucesso.style.display = "none";
   if (erro) erro.style.display = "none";
 }
@@ -84,28 +96,106 @@ function fecharFormulario() {
 function mostrarAcessibilidade() {
   const acessibilidade = document.getElementById("acessibilidade")?.value;
   const campo = document.getElementById("campo-acessibilidade");
-
   if (campo) {
-    campo.style.display = (acessibilidade === "Sim") ? "block" : "none";
+    campo.style.display = acessibilidade === "Sim" ? "block" : "none";
   }
 }
 
-// ================= DOM READY =================
-document.addEventListener("DOMContentLoaded", function () {
+function abrirGaleriaModal(src) {
+  const modal = document.getElementById("galeriaModal");
+  const img = document.getElementById("galeriaModalImg");
+  if (!modal || !img || !src) return;
+  img.src = src;
+  modal.classList.add("ativo");
+  modal.style.display = "flex";
+  trancarScroll(true);
+}
 
+function fecharGaleriaModal() {
+  const modal = document.getElementById("galeriaModal");
+  if (!modal) return;
+  modal.classList.remove("ativo");
+  modal.style.display = "none";
+  trancarScroll(false);
+}
+
+function fecharProjetos() {
+  const container = document.querySelector(".cards");
+  if (!container) return;
+  container.classList.remove("ativo");
+  trancarScroll(false);
+}
+
+function mostrarCard(num) {
+  const container = document.querySelector(".cards");
+  const cards = document.querySelectorAll(".card");
+  if (!container || !cards.length) return;
+
+  cards.forEach((c) => {
+    c.style.display = "none";
+  });
+
+  document.querySelectorAll(".btn-projeto").forEach((btn, i) => {
+    btn.classList.toggle("ativo", i + 1 === num);
+  });
+
+  const card = document.getElementById("card" + num);
+  if (card) card.style.display = "block";
+
+  container.classList.add("ativo");
+  trancarScroll(true);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
   const btnEnviar = document.getElementById("btnEnviar");
   const acessibilidadeEl = document.getElementById("acessibilidade");
 
-  // acessibilidade dinâmica
   if (acessibilidadeEl) {
     acessibilidadeEl.addEventListener("change", mostrarAcessibilidade);
   }
 
-  // botão enviar
   if (btnEnviar) {
-    btnEnviar.addEventListener("click", function (e) {
+    btnEnviar.addEventListener("click", (e) => {
       e.preventDefault();
       enviarFormulario();
+    });
+  }
+
+  const modalHorario = document.getElementById("modalHorario");
+  if (modalHorario) {
+    modalHorario.addEventListener("click", (event) => {
+      if (event.target === modalHorario) fecharHorario();
+    });
+  }
+
+  const popup = document.getElementById("popup-formulario");
+  if (popup) {
+    popup.addEventListener("click", (event) => {
+      if (event.target === popup) fecharFormulario();
+    });
+  }
+
+  const galeriaTrack = document.querySelector(".galeria-track");
+  if (galeriaTrack && !galeriaTrack.dataset.cloned) {
+    galeriaTrack.innerHTML += galeriaTrack.innerHTML;
+    galeriaTrack.dataset.cloned = "1";
+  }
+
+  const galeriaModal = document.getElementById("galeriaModal");
+  const galeriaImg = document.getElementById("galeriaModalImg");
+  if (galeriaModal) {
+    galeriaModal.addEventListener("click", fecharGaleriaModal);
+  }
+  if (galeriaImg) {
+    galeriaImg.addEventListener("click", (e) => e.stopPropagation());
+  }
+
+  const cardsContainer = document.querySelector(".cards");
+  if (cardsContainer) {
+    cardsContainer.addEventListener("click", function (e) {
+      if (e.target.classList.contains("cards")) {
+        fecharProjetos();
+      }
     });
   }
 
@@ -121,11 +211,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const erro = document.getElementById("mensagem-erro");
       const sucesso = document.getElementById("mensagem-sucesso");
 
-      // validação
       if (!responsavel || !aluno || !serie || !telefone || !acessibilidade) {
         if (erro) {
           erro.style.display = "block";
-          erro.innerHTML = "⚠️ Preencha todos os campos obrigatórios.";
+          erro.textContent = "⚠️ Preencha todos os campos obrigatórios.";
         }
         return;
       }
@@ -133,26 +222,22 @@ document.addEventListener("DOMContentLoaded", function () {
       if (acessibilidade === "Sim" && !qualAcessibilidade) {
         if (erro) {
           erro.style.display = "block";
-          erro.innerHTML = "⚠️ Informe a acessibilidade.";
+          erro.textContent = "⚠️ Informe a acessibilidade.";
         }
         return;
       }
 
       if (erro) erro.style.display = "none";
 
-      // WhatsApp
       const mensagem =
         `*NOVA PRÉ-MATRÍCULA 2027*\n\nResponsável: ${responsavel}\nAluno: ${aluno}\nSérie: ${serie}\nAcessibilidade: ${acessibilidade}\nTipo: ${qualAcessibilidade}\nTelefone: ${telefone}`;
 
       const numero = "5581994212337";
+      window.location.href = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
 
-      window.location.href =
-        "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
-
-      // sucesso visual
       if (sucesso) {
         sucesso.style.display = "block";
-        sucesso.innerHTML = "✅ Enviado com sucesso!";
+        sucesso.textContent = "✅ Enviado com sucesso!";
       }
 
       const form = document.getElementById("formMatricula");
@@ -161,89 +246,46 @@ document.addEventListener("DOMContentLoaded", function () {
       const campo = document.getElementById("campo-acessibilidade");
       if (campo) campo.style.display = "none";
 
-      setTimeout(() => {
-        fecharFormulario();
-      }, 3000);
-
+      setTimeout(() => fecharFormulario(), 3000);
     } catch (e) {
       console.error("Erro no envio:", e);
     }
   }
 });
 
-// ================= SLIDER =================
-const slides = document.querySelectorAll(".slide");
-let index = 0;
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Escape") return;
+  fecharHorario();
+  fecharFormulario();
+  fecharGaleriaModal();
+  fecharProjetos();
+  fecharMenu();
+});
+
+const slides = document.querySelectorAll(".baner .slide");
+let slideIndex = 0;
 
 function trocarSlide() {
-  if (slides.length === 0) return;
-
-  slides.forEach(slide => slide.classList.remove("active"));
-  slides[index].classList.add("active");
-
-  index = (index + 1) % slides.length;
+  if (slides.length < 2) return;
+  slides.forEach((slide) => slide.classList.remove("active"));
+  slides[slideIndex].classList.add("active");
+  slideIndex = (slideIndex + 1) % slides.length;
 }
 
-if (slides.length > 0) {
+if (slides.length > 1) {
   trocarSlide();
   setInterval(trocarSlide, 4000);
 }
 
-// ================= GALERIA =================
-function abrirGaleriaModal(src) {
-  const modal = document.getElementById("galeriaModal");
-  const img = document.getElementById("galeriaModalImg");
-
-  if (modal && img) {
-    modal.style.display = "flex";
-    img.src = src;
-  }
-}
-
-function fecharGaleriaModal() {
-  const modal = document.getElementById("galeriaModal");
-  if (modal) modal.style.display = "none";
-}
-
-// ================= PROJETOS =================
-function mostrarCard(num) {
-  const container = document.querySelector('.cards');
-  const cards = document.querySelectorAll('.card');
-
-  if (!container || cards.length === 0) return;
-
-  cards.forEach(c => c.style.display = 'none');
-
-  const card = document.getElementById('card' + num);
-  if (card) card.style.display = 'block';
-
-  container.classList.add('ativo');
-}
-
-// fechar modal projetos
-const cardsContainer = document.querySelector('.cards');
-if (cardsContainer) {
-  cardsContainer.addEventListener('click', function (e) {
-    if (e.target.classList.contains('cards')) {
-      this.classList.remove('ativo');
-    }
-  });
-}
-
-// ================= LOADER =================
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
-
   if (!loader) return;
 
   setTimeout(() => {
     loader.classList.add("saindo");
-
     setTimeout(() => {
       loader.style.display = "none";
       document.body.classList.remove("loading");
-    }, 800);
-
-  }, 1400);
+    }, 500);
+  }, reduceMotion ? 200 : 900);
 });
-
