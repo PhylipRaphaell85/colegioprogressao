@@ -14,14 +14,9 @@ function carregarUsuario(){
 
   if(!perfil || !nomeEl) return;
 
-  const btnLogin = document.getElementById("btnLoginHeader");
-
   if(logado === "true" && nome){
     perfil.classList.remove("hidden");
     nomeEl.innerText = nome;
-    if (btnLogin) btnLogin.classList.add("hidden");
-  } else if (btnLogin) {
-    btnLogin.classList.remove("hidden");
   }
 }
 
@@ -87,7 +82,7 @@ function verificarSessao() {
   const agora = new Date().getTime();
   const diferenca = agora - ultima;
 
-  const limite = 30 * 60 * 1000;
+  const limite = 3 * 60 * 1000; // 3 minutos
 
   if (diferenca > limite) {
     logout();
@@ -123,31 +118,28 @@ function mostrarLogin(){
 }
 
 
-function fecharMenuLoja() {
-  const menuToggle = document.getElementById("menuToggle");
-  const menu = document.getElementById("menu");
-  if (!menuToggle || !menu) return;
-  menu.classList.remove("active");
-  menuToggle.classList.remove("active");
-  document.body.classList.remove("menu-open");
-  menuToggle.setAttribute("aria-expanded", "false");
-}
-
+// ================= MENU HAMBURGUER =================
 const menuToggle = document.getElementById("menuToggle");
 const menu = document.getElementById("menu");
 
-if (menuToggle && menu) {
-  menuToggle.addEventListener("click", () => {
-    const aberto = menu.classList.toggle("active");
-    menuToggle.classList.toggle("active", aberto);
-    document.body.classList.toggle("menu-open", aberto);
-    menuToggle.setAttribute("aria-expanded", String(aberto));
-  });
+// cria overlay dinamicamente
+const overlay = document.createElement("div");
+overlay.classList.add("overlay");
+document.body.appendChild(overlay);
 
-  menu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => fecharMenuLoja());
-  });
-}
+menuToggle.addEventListener("click", () => {
+  menu.classList.toggle("ativo");
+  menuToggle.classList.toggle("ativo");
+  overlay.classList.toggle("ativo");
+});
+
+// fechar ao clicar fora
+
+overlay.addEventListener("click", () => {
+  menu.classList.remove("ativo");
+  menuToggle.classList.remove("ativo");
+  overlay.classList.remove("ativo");
+});
 
 
 
@@ -199,10 +191,6 @@ function abrirAba(tipo, event) {
 
   fecharTudo();
 
-  if (event && event.currentTarget) {
-    event.currentTarget.classList.add('active');
-  }
-
    // 🔥 ESCONDE KITS
   document.getElementById('areaKits').style.display = 'none';
 
@@ -225,7 +213,6 @@ function abrirAba(tipo, event) {
 
 // FUNÇÃO CENTRAL DE FECHAR
 function fecharTudo() {
-  document.querySelectorAll('.aba-btn').forEach((btn) => btn.classList.remove('active'));
   document.querySelector('.filtros-livros').classList.remove('ativo');
   document.querySelector('.filtros-fardamentos').classList.remove('ativo');
   document.querySelector('.filtros-lista').classList.remove('ativo');
@@ -237,6 +224,16 @@ function fecharTudo() {
   // 🔥 MOSTRA KITS NOVAMENTE
   document.getElementById('areaKits').style.display = 'grid';
 }
+
+
+// CLIQUE FORA
+document.addEventListener('click', function(e) {
+  const area = document.querySelector('.layout-loja');
+
+  if (!area.contains(e.target)) {
+    fecharTudo();
+  }
+});
 
 
 // TECLA ESC

@@ -1,132 +1,188 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Loja do Aluno | Colégio Progressão</title>
-  <link rel="icon" href="logo-colegio.webp" sizes="32x32" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="loja.css?v=20260830h" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loja do Aluno</title>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="icon" href="logo-colegio.png" sizes="32x32" />
+<link rel="stylesheet" href="loja.css">
+
+
 </head>
 <body>
-  <header>
-    <div class="logo-area">
-      <a href="../index.html" class="logo">
-        <img src="logo-colegio.webp" alt="Logo Colégio Progressão" />
-      </a>
-      <p class="titulo">
-        Colégio Progressão <br />
-        <span>Educação Infantil, Fundamental I e Fundamental II</span>
-      </p>
-    </div>
+  
+ <!-- lOGIM  -->
 
-    <div class="header-actions">
-      <a href="login.html" id="btnLoginHeader" class="btn-login-header">Entrar</a>
-      <div id="perfilUsuario" class="perfil hidden">
-        <span class="icone" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="white">
-            <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
-          </svg>
-        </span>
-        <span id="nomeUsuario"></span>
-        <button type="button" class="btn-logout" onclick="logout()">Sair</button>
-      </div>
 
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
 
-    <nav class="menu" id="menu">
-      <a href="../index.html"><i class="nav-icon fas fa-home"></i> Início</a>
-      <a href="../index.html#galeria"><i class="nav-icon fa-solid fa-camera"></i> Momentos</a>
-      <a href="../index.html#projetos"><i class="nav-icon fa-solid fa-diagram-project"></i> Projetos</a>
-      <a href="../index.html#sobre"><i class="nav-icon fas fa-user"></i> Sobre</a>
-      <a href="../index.html#contato"><i class="nav-icon fas fa-envelope"></i> Contato</a>
-      <a href="loja.html" class="btn-loja-nav"><i class="nav-icon fas fa-store"></i> Loja</a>
-    </nav>
-  </header>
 
-  <div id="btnCarrinhoTopo" class="icone-carrinho" aria-label="Abrir carrinho">
-    <i class="fa fa-shopping-cart"></i>
-    <span id="contadorCarrinho" class="contador">0</span>
+
+ <!-- FIM lOGIM  -->
+
+<header class="topo">
+
+  <!-- ESQUERDA -->
+  <div class="left">
+    <img src="logo-colegio.webp" class="logo" alt="Logocolegio">
+<div id="perfilUsuario" class="perfil hidden" onclick="toggleMenu()">
+  
+  <span class="icone">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="white">
+      <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+    </svg>
+  </span>
+
+  <span id="nomeUsuario"></span>
+
+  <!-- MENU -->
+  <div id="menuUsuario" class="menu-usuario">
+     <button class="btn-logout" onclick="logout()" style="margin-left:20px;">Sair</button>
   </div>
 
-  <main class="container">
-    <div class="layout-loja">
-      <aside class="menu-lateral">
-        <p class="loja-kicker">LOJA DO ALUNO</p>
-        <h1>Kits, livros e fardamento</h1>
-        <p class="loja-intro">Escolha o kit ou filtre por nível. O pedido é finalizado no WhatsApp.</p>
+</div>
 
-        <button class="aba-btn" type="button" onclick="abrirAba('livros', event)">Livros</button>
-        <div class="filtros filtros-livros">
-          <button type="button" onclick="filtrarLivros('infantil')">Infantil</button>
-          <button type="button" onclick="filtrarLivros('fund1')">Fundamental I</button>
-          <button type="button" onclick="filtrarLivros('fund2')">Fundamental II</button>
-        </div>
+      <!-- BOTÃO HAMBÚRGUER -->
+<div id="menuToggle" class="menu-toggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 
-        <button class="aba-btn" type="button" onclick="abrirAba('fardamentos', event)">Fardamentos</button>
-        <div class="filtros filtros-fardamentos">
-          <button type="button" onclick="filtrarFardamento('infantil')">Infantil</button>
-          <button type="button" onclick="filtrarFardamento('fund1')">Fundamental I</button>
-          <button type="button" onclick="filtrarFardamento('fund2')">Fundamental II</button>
-        </div>
 
-        <button class="aba-btn" type="button" onclick="abrirAba('lista-materiais', event)">Lista Livraria</button>
-        <div class="filtros filtros-lista">
-          <button type="button" onclick="filtrarListas('infantil')">Infantil</button>
-          <button type="button" onclick="filtrarListas('fund1')">Fundamental I</button>
-          <button type="button" onclick="filtrarListas('fund2')">Fundamental II</button>
-        </div>
-      </aside>
-
-      <div class="conteudo-direita">
-        <div id="areaKits" class="area-kits"></div>
-        <div class="aba conteudo-livros">
-          <div class="grid-livro" id="gridLivros"></div>
-        </div>
-        <div class="aba conteudo-fardamentos">
-          <div class="grid-fardamento" id="gridFardamentos"></div>
-        </div>
-        <div class="aba conteudo-listas">
-          <div id="gridListas" class="grid-listas"></div>
-        </div>
-      </div>
+      <p class="titulo">
+    Colégio Progressão <br>
+    <span>Educação Infantil, Fundamental I e Fundamental II</span>
+  </p>
     </div>
-  </main>
 
-  <div id="carrinho" class="carrinho">
-    <h3>Carrinho</h3>
+  <!-- CENTRO -->
+  <div class="center">
+    
+
+
+  <nav class="menu" id="menu">
+  <a href="../index.html"><i class="fas fa-home"></i> Início</a>
+   <a href="../#galeria"><i class="fa-solid fa-camera"></i> Momentos</a>
+   <a href="../#projetos"><i class="fa-solid fa-diagram-project"></i> Projetos</a>
+   <a href="../#sobre"><i class="fas fa-user"></i> Sobre</a>
+   <a href="../#contato"><i class="fas fa-envelope"></i> Contato</a>
+     
+    </nav>
+   
+  </div>
+
+</header>
+
+ 
+<!-- 🛒 CARRINHO FIXO -->
+<div id="btnCarrinhoTopo" class="icone-carrinho">
+  <i class="fa fa-shopping-cart"></i>
+  <span id="contadorCarrinho" class="contador">0</span>
+</div>
+
+<main class="container">
+
+  <div class="layout-loja">
+
+    <!-- MENU LATERAL -->
+    <aside class="menu-lateral">
+      <h1>Loja do Aluno</h1>
+      <!-- LIVROS -->
+      <button class="aba-btn" onclick="abrirAba('livros', event)">Livros</button>
+
+      <div class="filtros filtros-livros">
+        <button onclick="filtrarLivros('infantil')">Infantil</button>
+        <button onclick="filtrarLivros('fund1')">Fundamental I</button>
+        <button onclick="filtrarLivros('fund2')">Fundamental II</button>
+      </div>
+
+      <!-- FARDAMENTOS -->
+  <button class="aba-btn" onclick="abrirAba('fardamentos', event)">Fardamentos</button>
+
+      <div class="filtros filtros-fardamentos">
+        <button onclick="filtrarFardamento('infantil')">Infantil</button>
+        <button onclick="filtrarFardamento('fund1')">Fundamental I</button>
+        <button onclick="filtrarFardamento('fund2')">Fundamental II</button>
+      </div>
+
+      
+      <!-- LISTA MATERIAIS -->
+      <button class="aba-btn" onclick="abrirAba('lista-materiais', event)">Lista Livraria</button>
+
+      <div class="filtros filtros-lista">
+        <button onclick="filtrarListas('infantil')">Infantil</button>
+
+  <button onclick="filtrarListas('fund1')">Fundamental I</button>
+  <button onclick="filtrarListas('fund2')">Fundamental II</button>
+        </div>
+
+     
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <div class="conteudo-direita">
+
+       <!-- KITS (SEMPRE VISÍVEL) -->
+  <div id="areaKits" class="area-kits"></div>
+
+      <div class="aba conteudo-livros ativa">
+        <div class="grid-livro" id="gridLivros"></div>
+      </div>
+
+      <div class="aba conteudo-fardamentos">
+        <div class="grid-fardamento" id="gridFardamentos"></div>
+      </div>
+
+
+        <div class="aba conteudo-listas">
+      <div id="gridListas" class="grid-listas"></div>
+    </div>
+    
+    </div>
+
+  </div>
+
+</main>
+
+
+<!-- 🛒 CARRINHO LATERAL -->
+<div id="carrinho" class="carrinho">
+    <h3>Carrinho de compras</h3>
+
     <div id="itensCarrinho"></div>
     <div id="totalCarrinho"></div>
+
     <div class="botoes-carrinho">
-      <button id="btnWhatsCarrinho" class="btn-whats" type="button">Pagar no WhatsApp</button>
-      <button id="btnCartao" class="btn-cartao" type="button">Pagar no cartão</button>
+        <button id="btnWhatsCarrinho" class="btn-whats">Pagar WhatsApp</button>
+        <button id="btnCartao" class="btn-cartao">Pagar Cartão</button>
     </div>
+</div>
+
+<div id="mensagem" class="mensagem">Item adicionado!</div>
+
+
+
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <p id="popupMsg"></p>
+    <button onclick="fecharPopup()">OK</button>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+<footer class=" rodape">
+  <div>
+  <h1>© 2026 Colégio Progressão -  CNPJ: 15.449.910/001-23 - Todos os direitos reservados.</h1>
   </div>
 
-  <div id="mensagem" class="mensagem">Item adicionado</div>
+  <p>Informamos que, no momento, todas as vendas da loja você será direcionado para WhatsApp. <br> Tudo sobre seu pedido será tratado por esse canal. </p>
+</footer>
 
-  <div id="popup" class="popup">
-    <div class="popup-box">
-      <p id="popupMsg"></p>
-      <button type="button" onclick="fecharPopup()">OK</button>
-    </div>
-  </div>
-
-  <div id="toast" class="toast"></div>
-
-  <footer class="rodape">
-    <p>© 2026 Colégio Progressão — CNPJ: 15.449.910/001-23. Todos os direitos reservados.</p>
-    <p>As vendas são concluídas pelo WhatsApp. O pedido e o pagamento são combinados nesse canal.</p>
-  </footer>
-
-  <script src="loja.js?v=20260830"></script>
 </body>
+
+<script src="loja.js"></script>
 </html>
