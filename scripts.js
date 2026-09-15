@@ -1,22 +1,52 @@
+const isIPhone = /iPhone|iPod/.test(navigator.userAgent || "");
+const pageScroll = document.getElementById("page-scroll");
+if (isIPhone && pageScroll) {
+  document.documentElement.classList.add("ios-noscroll");
+}
+
+function getScrollY() {
+  if (isIPhone && pageScroll) return pageScroll.scrollTop;
+  return window.scrollY || document.documentElement.scrollTop || 0;
+}
+
+function onPageScroll(fn) {
+  if (isIPhone && pageScroll) {
+    pageScroll.addEventListener("scroll", fn, { passive: true });
+  } else {
+    window.addEventListener("scroll", fn, { passive: true });
+  }
+}
+
 const track = document.querySelector(".depoimentos-track");
 const pages = document.querySelectorAll(".depoimentos-page");
 let depoIndex = 0;
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-function slideDepoimentos() {
-  if (!track || !pages.length) return;
-  depoIndex = (depoIndex + 1) % pages.length;
-  track.style.transform = `translateX(-${depoIndex * 100}%)`;
+function larguraDepo() {
+  if (pages[0] && pages[0].offsetWidth) return pages[0].offsetWidth;
+  return track && track.parentElement ? track.parentElement.clientWidth : 0;
 }
 
-if (track && pages.length > 1 && !reduceMotion) {
-  setInterval(slideDepoimentos, 8000);
+function irParaDepo(i) {
+  if (!track || !pages.length) return;
+  depoIndex = i;
+  track.style.transform = `translate3d(-${depoIndex * larguraDepo()}px, 0, 0)`;
+}
+
+function slideDepoimentos() {
+  irParaDepo((depoIndex + 1) % pages.length);
+}
+
+if (track && pages.length > 1) {
+  irParaDepo(0);
+  setInterval(slideDepoimentos, 6000);
+  window.addEventListener("resize", () => irParaDepo(depoIndex));
 }
 
 const header = document.querySelector("header");
 if (header) {
-  window.addEventListener("scroll", () => {
-    header.classList.toggle("scrolled", window.scrollY > 80);
+  onPageScroll(() => {
+    header.classList.toggle("scrolled", getScrollY() > 80);
   });
 }
 
@@ -42,12 +72,27 @@ if (menuToggle && nav) {
   });
 
   nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => fecharMenu());
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href") || "";
+      if (isIPhone && pageScroll && href.startsWith("#")) {
+        e.preventDefault();
+        if (href === "#") {
+          pageScroll.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          const alvo = document.querySelector(href);
+          if (alvo) alvo.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+      fecharMenu();
+    });
   });
 }
 
 function trancarScroll(trancar) {
   document.body.style.overflow = trancar ? "hidden" : "";
+  if (pageScroll && isIPhone) {
+    pageScroll.style.overflowY = trancar ? "hidden" : "auto";
+  }
 }
 
 function abrirHorario() {
@@ -286,6 +331,105 @@ window.addEventListener("load", () => {
     setTimeout(() => {
       loader.style.display = "none";
       document.body.classList.remove("loading");
+      iniciarRevelar();
     }, 500);
   }, reduceMotion ? 200 : 900);
 });
+
+function iniciarRevelar() {
+  const itens = document.querySelectorAll([
+    ".titulo-galeria",
+    ".depoimentos h2",
+    ".projetos .titulo-wrapper",
+    ".btn-projeto",
+    ".titulo-sobre",
+    ".card1",
+    ".card2",
+    ".card3",
+    ".card4",
+    ".nivel_ensino h2",
+    ".cardinf",
+    ".banner-matricula .conteudo",
+    ".contato-box",
+    ".endereco-box",
+    ".atendimento-box",
+    ".mapa",
+    ".redes-sociais"
+  ].join(","));
+
+  if (!itens.length) return;
+
+  if (reduceMotion) {
+    itens.forEach((el) => el.classList.add("revelar", "visivel"));
+    return;
+  }
+
+  itens.forEach((el, i) => {
+    el.classList.add("revelar");
+    el.style.setProperty("--revelar-atraso", `${(i % 4) * 80}ms`);
+  });
+
+  const naTela = (el) => {
+    const r = el.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    return r.top < vh * 0.88 && r.bottom > 40;
+  };
+
+  const mostrar = (el) => el.classList.add("visivel");
+
+  const checar = () => {
+    itens.forEach((el) => {
+      if (!el.classList.contains("visivel") && naTela(el)) mostrar(el);
+    });
+  };
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        mostrar(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, {
+      root: isIPhone && pageScroll ? pageScroll : null,
+      threshold: 0.12,
+      rootMargin: "0px 0px -8% 0px"
+    });
+    itens.forEach((el) => observer.observe(el));
+  }
+
+  checar();
+  onPageScroll(checar);
+  window.addEventListener("resize", checar);
+}
+
+function limitarOverscrollIphone() {
+  if (!isIPhone) return;
+
+  const scroller = pageScroll || document.scrollingElement || document.documentElement;
+  let startY = 0;
+
+  scroller.addEventListener("touchstart", (e) => {
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+
+  scroller.addEventListener("touchmove", (e) => {
+    if (e.touches.length !== 1) return;
+    if (document.body.classList.contains("menu-open")) return;
+    if (e.target.closest && e.target.closest(".menu.active, .popup, .modal-horario, .galeria-modal")) return;
+
+    const delta = e.touches[0].clientY - startY;
+    const max = Math.max(0, scroller.scrollHeight - scroller.clientHeight);
+    const atual = scroller.scrollTop || 0;
+
+    if (atual <= 0 && delta > 0) {
+      e.preventDefault();
+      return;
+    }
+    if (atual >= max - 1 && delta < 0) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+}
+
+limitarOverscrollIphone();

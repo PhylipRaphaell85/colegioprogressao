@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="styles.css?v=20260830" />
+  <link rel="stylesheet" href="styles.css?v=20260914semlibras" />
 </head>
 
 <body class="loading">
@@ -51,22 +51,26 @@
     </nav>
   </header>
 
+  <div id="page-scroll">
   <section class="banner-escolar">
     <div class="containerescolar">
       <div class="banner-texto">
-        <div class="selo-matriculas">
-          <div class="icone-selo">
-            <i class="fa-solid fa-graduation-cap"></i>
+        <div class="selo-acima-titulo">
+          <div class="selo-matriculas">
+            <div class="icone-selo" aria-hidden="true">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="selo-matriculas-inner">
+              <span class="selo-embreve">Em breve</span>
+              <span class="selo-titulo">Matrículas 2027</span>
+              <span class="selo-vagas">Fique atento às vagas são limitadas</span>
+            </div>
           </div>
-          <div class="texto-selo">
-            <span class="linha1">Matrículas Abertas 2027</span>
-            <span class="linha2">Vagas Limitadas</span>
-          </div>
+
+          <div class="selo-matricula"></div>
+
+          <h3>DO MATERNAL AO 9º ANO</h3>
         </div>
-
-        <div class="selo-matricula"></div>
-
-        <h3>DO MATERNAL AO 9º ANO</h3>
 
         <p>
           Educação de qualidade com princípios cristãos
@@ -224,7 +228,7 @@
   </section>
 
   <section class="depoimentos">
-    <h2>Veja o que nossos clientes estão dizendo!</h2>
+    <h2>Veja o que nossos<br>clientes estão dizendo!</h2>
     <div class="depoimentos-wrapper">
       <div class="depoimentos-track">
         <div class="depoimentos-page">
@@ -336,8 +340,10 @@
   </section>
 
   <section class="projetos" id="projetos">
-    <h2>Nossos Projetos</h2>
-    <div class="linha"></div>
+    <div class="titulo-wrapper">
+      <h2>Nossos Projetos</h2>
+      <div class="linha"></div>
+    </div>
 
     <div class="botoes-projeto">
       <button class="btn-projeto" type="button" onclick="mostrarCard(1)"><div class="icone-projeto">✓</div><span>Crescendo com Cristo</span></button>
@@ -496,20 +502,12 @@
       <h2>Níveis de Ensino</h2>
       <div class="grid">
         <div class="cardinf">
-          <img src="IMAGEM/cad/maternal.jpeg" alt="Maternal" />
+          <img src="IMAGEM/cad/maternal.jpeg" alt="Educação Infantil" />
           <div class="conteudo">
-            <h3>Maternal II e III</h3>
+            <h3>Educação Infantil</h3>
             <p>É a primeira etapa da educação básica, e a escola tem o papel de acompanhar integralmente o desenvolvimento de cada criança em uma de suas fases mais importantes.</p>
           </div>
-          <a href="pdf/Objetivos de aprendizagem  maternais.pdf" class="btn-carinf">Saiba mais</a>
-        </div>
-        <div class="cardinf">
-          <img src="IMAGEM/cad/infantil.png" alt="Educação Infantil" />
-          <div class="conteudo">
-            <h3>Jardim I e II</h3>
-            <p>Ensino lúdico e acolhedor, com foco no desenvolvimento cognitivo, social, emocional e espiritual.</p>
-          </div>
-          <a href="pdf/Objetivos de aprendizagem Jardim I e II.pdf" class="btn-carinf">Saiba mais</a>
+          <a href="pdf/GUIA DE APRENDIZAGENS - Infantil.pdf" class="btn-carinf">Saiba mais</a>
         </div>
         <div class="cardinf">
           <img src="IMAGEM/cad/fudI.jpeg" alt="Fundamental I" />
@@ -517,7 +515,7 @@
             <h3>Fundamental I</h3>
             <p>Base sólida em leitura, escrita, matemática e valores, com metodologias ativas e acompanhamento individual.</p>
           </div>
-          <a href="pdf/BNCC Fundamental I.pdf" class="btn-carinf">Saiba mais</a>
+          <a href="pdf/GUIA DE APRENDIZAGENS - Fundamental 1.pdf" class="btn-carinf">Saiba mais</a>
         </div>
         <div class="cardinf">
           <img src="IMAGEM/cad/fudII.jpeg" alt="Fundamental II" />
@@ -525,7 +523,7 @@
             <h3>Fundamental II</h3>
             <p>Preparação acadêmica, pensamento crítico, formação ética e desenvolvimento da autonomia.</p>
           </div>
-          <a href="pdf/BNCC Fundamental II.pdf" class="btn-carinf">Saiba mais</a>
+          <a href="pdf/GUIA DE APRENDIZAGENS - Fundamental 2.pdf" class="btn-carinf">Saiba mais</a>
         </div>
       </div>
     </div>
@@ -534,13 +532,14 @@
   <section class="banner-matricula" style="background-color:#062A5E;">
     <img class="banner-matricula-img" src="seja-progressao.jpg" alt="" width="1500" height="430" />
     <div class="conteudo">
-      <h1>Matrículas Abertas 2027</h1>
+      <h1><span class="selo-embreve">Em breve</span>Matrículas 2027</h1>
       <p>
         Garanta já a vaga do seu filho em uma escola que transforma vidas
         através da educação e dos valores cristãos.
       </p>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfScBp-mzcJ7JCyzpi-iO7XWTD8x9d9B0Q-9Sb1f0eYolp1sg/viewform" class="btn-whatsapp">
-        Preencha o Formulário!
+        <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+        Preencha o Formulário
       </a>
     </div>
     <div class="wave-menu">
@@ -582,9 +581,10 @@
   <footer class="rodape">
     <p>© 2026 Colégio Progressão -  CNPJ: 15.449.910/001-23 - Todos os direitos reservados.</p>
   </footer>
+  </div>
 
   <a href="https://wa.me/5581994212337" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Falar no WhatsApp">
-    <i class="fab fa-whatsapp"></i>
+    <i class="fa-brands fa-whatsapp"></i>
   </a>
 
   <div id="popup-formulario" class="popup">
@@ -668,6 +668,6 @@
     <img id="galeriaModalImg" alt="Foto ampliada da galeria" />
   </div>
 
-  <script src="scripts.js?v=20260830"></script>
+  <script src="scripts.js?v=20260914semlibras"></script>
 </body>
 </html>

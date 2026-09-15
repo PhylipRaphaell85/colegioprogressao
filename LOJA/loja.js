@@ -14,9 +14,14 @@ function carregarUsuario(){
 
   if(!perfil || !nomeEl) return;
 
+  const btnLogin = document.getElementById("btnLoginHeader");
+
   if(logado === "true" && nome){
     perfil.classList.remove("hidden");
     nomeEl.innerText = nome;
+    if (btnLogin) btnLogin.classList.add("hidden");
+  } else if (btnLogin) {
+    btnLogin.classList.remove("hidden");
   }
 }
 
@@ -82,7 +87,7 @@ function verificarSessao() {
   const agora = new Date().getTime();
   const diferenca = agora - ultima;
 
-  const limite = 3 * 60 * 1000; // 3 minutos
+  const limite = 30 * 60 * 1000;
 
   if (diferenca > limite) {
     logout();
@@ -118,28 +123,31 @@ function mostrarLogin(){
 }
 
 
-// ================= MENU HAMBURGUER =================
+function fecharMenuLoja() {
+  const menuToggle = document.getElementById("menuToggle");
+  const menu = document.getElementById("menu");
+  if (!menuToggle || !menu) return;
+  menu.classList.remove("active");
+  menuToggle.classList.remove("active");
+  document.body.classList.remove("menu-open");
+  menuToggle.setAttribute("aria-expanded", "false");
+}
+
 const menuToggle = document.getElementById("menuToggle");
 const menu = document.getElementById("menu");
 
-// cria overlay dinamicamente
-const overlay = document.createElement("div");
-overlay.classList.add("overlay");
-document.body.appendChild(overlay);
+if (menuToggle && menu) {
+  menuToggle.addEventListener("click", () => {
+    const aberto = menu.classList.toggle("active");
+    menuToggle.classList.toggle("active", aberto);
+    document.body.classList.toggle("menu-open", aberto);
+    menuToggle.setAttribute("aria-expanded", String(aberto));
+  });
 
-menuToggle.addEventListener("click", () => {
-  menu.classList.toggle("ativo");
-  menuToggle.classList.toggle("ativo");
-  overlay.classList.toggle("ativo");
-});
-
-// fechar ao clicar fora
-
-overlay.addEventListener("click", () => {
-  menu.classList.remove("ativo");
-  menuToggle.classList.remove("ativo");
-  overlay.classList.remove("ativo");
-});
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => fecharMenuLoja());
+  });
+}
 
 
 
@@ -191,6 +199,10 @@ function abrirAba(tipo, event) {
 
   fecharTudo();
 
+  if (event && event.currentTarget) {
+    event.currentTarget.classList.add('active');
+  }
+
    // 🔥 ESCONDE KITS
   document.getElementById('areaKits').style.display = 'none';
 
@@ -213,6 +225,7 @@ function abrirAba(tipo, event) {
 
 // FUNÇÃO CENTRAL DE FECHAR
 function fecharTudo() {
+  document.querySelectorAll('.aba-btn').forEach((btn) => btn.classList.remove('active'));
   document.querySelector('.filtros-livros').classList.remove('ativo');
   document.querySelector('.filtros-fardamentos').classList.remove('ativo');
   document.querySelector('.filtros-lista').classList.remove('ativo');
@@ -224,16 +237,6 @@ function fecharTudo() {
   // 🔥 MOSTRA KITS NOVAMENTE
   document.getElementById('areaKits').style.display = 'grid';
 }
-
-
-// CLIQUE FORA
-document.addEventListener('click', function(e) {
-  const area = document.querySelector('.layout-loja');
-
-  if (!area.contains(e.target)) {
-    fecharTudo();
-  }
-});
 
 
 // TECLA ESC
@@ -396,7 +399,7 @@ const fardamentos = [
   { tipo:'Casaco', img:'fardamento/casaco.JPG', categoria:'infantil',
     precos:{ '2':100,'4':100,'6':100,'8':100,'10':100,'12':100,'14':130,'16':130 } },
 
-  { tipo:'Calça', img:'fardamento/calça.JPG', categoria:'infantil',
+  { tipo:'Calça', img:'fardamento/calca.JPG', categoria:'infantil',
     precos:{ '2':70,'4':70,'6':70,'8':80,'10':80,'12':80,'14':90,'16':90 } },
 
   { tipo:'Short', img:'fardamento/shot.JPG', categoria:'infantil',
@@ -416,7 +419,7 @@ const fardamentos = [
   { tipo:'Casaco', img:'fardamento/casaco.JPG', categoria:'fund1',
     precos:{ '6':100,'8':100,'10':100,'12':100,'14':100,'16':100,'P':100,'M':100,'G':130,'GG':130 } },
 
-  { tipo:'Calça', img:'fardamento/calça.JPG', categoria:'fund1',
+  { tipo:'Calça', img:'fardamento/calca.JPG', categoria:'fund1',
     precos:{ '6':70,'8':70,'10':70,'12':80,'14':90,'16':90,'P':30,'M':40,'G':60,'GG':80 } },
 
   { tipo:'Short', img:'fardamento/shot.JPG', categoria:'fund1',
@@ -442,10 +445,10 @@ const fardamentos = [
   { tipo:'Short-Saia', img:'fardamento/shortsaia.JPG', categoria:'fund2',
     precos:{ '12':90,'14':90,'16':90,'P':90,'M':90,'G':90,'GG':90 } },
 
-  { tipo:'Calça Tactel', img:'fardamento/calça.JPG', categoria:'fund2',
+  { tipo:'Calça Tactel', img:'fardamento/calcatactel.JPG', categoria:'fund2',
     precos:{ '12':90,'14':90,'16':90,'P':90,'M':90,'G':90,'GG':90 } },
 
-  { tipo:'Calça Bryn', img:'fardamento/calçabryn.jpeg', categoria:'fund2',
+  { tipo:'Calça Bryn', img:'fardamento/calcabryn.jpeg', categoria:'fund2',
     precos:{ '36':70,'38':80,'40':90,'42':80,'44':80 } },
 ];
 
